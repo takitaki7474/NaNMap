@@ -57,14 +57,54 @@
 			isa = PBXGroup;
 			children = (
 				214F5F8D243C96670061FC45 /* AppDelegate.swift */,
+				214F5FA1243C9AF40061FC45 /* Storyboard */,
+				214F5FA2243C9B310061FC45 /* Controller */,
+				214F5FA4243C9B540061FC45 /* Presenter */,
+				214F5FA5243C9B680061FC45 /* Model */,
 				214F5F8F243C96670061FC45 /* SceneDelegate.swift */,
 				214F5F91243C96670061FC45 /* ViewController.swift */,
-				214F5F93243C96670061FC45 /* Main.storyboard */,
 				214F5F96243C96690061FC45 /* Assets.xcassets */,
 				214F5F98243C96690061FC45 /* LaunchScreen.storyboard */,
 				214F5F9B243C96690061FC45 /* Info.plist */,
 			);
 			path = NaNMap;
+			sourceTree = "<group>";
+		};
+		214F5FA1243C9AF40061FC45 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				214F5F93243C96670061FC45 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		214F5FA2243C9B310061FC45 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		214F5FA4243C9B540061FC45 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		214F5FA5243C9B680061FC45 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				214F5FA6243C9B730061FC45 /* Entity */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		214F5FA6243C9B730061FC45 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

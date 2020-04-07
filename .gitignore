@@ -1,0 +1,5 @@
+*.pbxuser
+xcuserdata/
+
+# Mac
+.DS_Store
