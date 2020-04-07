@@ -10,9 +10,10 @@
 		214F5F8E243C96670061FC45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214F5F8D243C96670061FC45 /* AppDelegate.swift */; };
 		214F5F90243C96670061FC45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214F5F8F243C96670061FC45 /* SceneDelegate.swift */; };
 		214F5F92243C96670061FC45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214F5F91243C96670061FC45 /* ViewController.swift */; };
-		214F5F95243C96670061FC45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214F5F93243C96670061FC45 /* Main.storyboard */; };
+		214F5F95243C96670061FC45 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214F5F93243C96670061FC45 /* Map.storyboard */; };
 		214F5F97243C96690061FC45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 214F5F96243C96690061FC45 /* Assets.xcassets */; };
 		214F5F9A243C96690061FC45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214F5F98243C96690061FC45 /* LaunchScreen.storyboard */; };
+		214F5FA8243CB5A90061FC45 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214F5FA7243CB5A90061FC45 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +21,11 @@
 		214F5F8D243C96670061FC45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		214F5F8F243C96670061FC45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		214F5F91243C96670061FC45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		214F5F94243C96670061FC45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		214F5F94243C96670061FC45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Map.storyboard; sourceTree = "<group>"; };
 		214F5F96243C96690061FC45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		214F5F99243C96690061FC45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		214F5F9B243C96690061FC45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		214F5FA7243CB5A90061FC45 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +75,7 @@
 		214F5FA1243C9AF40061FC45 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				214F5F93243C96670061FC45 /* Main.storyboard */,
+				214F5F93243C96670061FC45 /* Map.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -81,6 +83,7 @@
 		214F5FA2243C9B310061FC45 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				214F5FA7243CB5A90061FC45 /* MapViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -167,7 +170,7 @@
 			files = (
 				214F5F9A243C96690061FC45 /* LaunchScreen.storyboard in Resources */,
 				214F5F97243C96690061FC45 /* Assets.xcassets in Resources */,
-				214F5F95243C96670061FC45 /* Main.storyboard in Resources */,
+				214F5F95243C96670061FC45 /* Map.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,18 +184,19 @@
 				214F5F92243C96670061FC45 /* ViewController.swift in Sources */,
 				214F5F8E243C96670061FC45 /* AppDelegate.swift in Sources */,
 				214F5F90243C96670061FC45 /* SceneDelegate.swift in Sources */,
+				214F5FA8243CB5A90061FC45 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		214F5F93243C96670061FC45 /* Main.storyboard */ = {
+		214F5F93243C96670061FC45 /* Map.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				214F5F94243C96670061FC45 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Map.storyboard;
 			sourceTree = "<group>";
 		};
 		214F5F98243C96690061FC45 /* LaunchScreen.storyboard */ = {
