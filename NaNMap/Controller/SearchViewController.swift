@@ -9,6 +9,10 @@
 import UIKit
 
 class SearchViewController: UIViewController {
+    
+    static func instantinate() -> SearchViewController {
+        return UIStoryboard(name: "Search", bundle: nil).instantiateInitialViewController() as! SearchViewController
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

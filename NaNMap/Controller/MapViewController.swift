@@ -23,7 +23,12 @@ final class MapViewController: UIViewController {
 
 private extension MapViewController {
     @IBAction func didTapSearchButton(_ sender: Any){
-        print("押されました")
+        nextScreen()
+    }
+    
+    func nextScreen(){
+        let searchViewController = SearchViewController.instantinate()
+        navigationController?.pushViewController(searchViewController, animated: false)
     }
     
     func setUpScreen(){
