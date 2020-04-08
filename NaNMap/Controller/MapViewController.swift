@@ -22,6 +22,9 @@ final class MapViewController: UIViewController {
 }
 
 private extension MapViewController {
+    @IBAction func didTapSearchButton(_ sender: Any){
+        print("押されました")
+    }
     
     func setUpScreen(){
         self.navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 85,green: 104,blue: 211)
