@@ -15,12 +15,17 @@ final class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpScreen()
         initMapView()
     }
     
 }
 
 private extension MapViewController {
+    
+    func setUpScreen(){
+        self.navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 85,green: 104,blue: 211)
+    }
     
     func initMapView(){
         let centerLatitude: CLLocationDegrees = 35.149405
