@@ -25,6 +25,8 @@ private extension MapViewController {
     
     func setUpScreen(){
         self.navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 85,green: 104,blue: 211)
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        self.navigationItem.title = "名古屋キャンパス"
     }
     
     func initMapView(){
@@ -35,5 +37,11 @@ private extension MapViewController {
         let region = MKCoordinateRegion(center: center, span: span)
         
         mapView.region = region
+    }
+}
+
+extension UINavigationController {
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
