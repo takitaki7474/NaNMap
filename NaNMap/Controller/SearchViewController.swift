@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+final class SearchViewController: UIViewController {
     
     static func instantinate() -> SearchViewController {
         return UIStoryboard(name: "Search", bundle: nil).instantiateInitialViewController() as! SearchViewController
@@ -16,7 +16,13 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpNavigationBar()
     }
+}
 
-
+private extension SearchViewController {
+    
+    func setUpNavigationBar() {
+        navigationItem.hidesBackButton = true
+    }
 }

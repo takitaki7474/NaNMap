@@ -15,13 +15,14 @@ final class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpScreen()
+        setUpNavigationBar()
         initMapView()
     }
     
 }
 
 private extension MapViewController {
+    
     @IBAction func didTapSearchButton(_ sender: Any){
         nextScreen()
     }
@@ -31,10 +32,10 @@ private extension MapViewController {
         navigationController?.pushViewController(searchViewController, animated: false)
     }
     
-    func setUpScreen(){
-        self.navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 85,green: 104,blue: 211)
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        self.navigationItem.title = "名古屋キャンパス"
+    func setUpNavigationBar(){
+        navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 85,green: 104,blue: 211)
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationItem.title = "名古屋キャンパス"
     }
     
     func initMapView(){
