@@ -30,13 +30,16 @@ private extension MapViewController {
     }
     
     func setUpSearchBar() {
-        let searchResultController = SearchViewController()
-        searchController = UISearchController(searchResultsController: searchResultController)
+        let resultController = SearchViewController.instantinate()
+        searchController = UISearchController(searchResultsController: resultController)
+        searchController.searchResultsUpdater = resultController
         searchController.hidesNavigationBarDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
         let searchBar = searchController.searchBar
         searchBar.placeholder = "建物や教室を検索"
         searchBar.searchTextField.backgroundColor = UIColor.white
         searchBar.tintColor = UIColor.gray
+        searchBar.showsCancelButton = false
         searchBar.keyboardType = UIKeyboardType.default
         navigationItem.titleView = searchBar
     }
