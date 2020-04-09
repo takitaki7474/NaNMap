@@ -48,3 +48,9 @@ private extension SearchViewController {
     }
  */
 }
+
+extension SearchViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        print("bb")
+    }
+}
