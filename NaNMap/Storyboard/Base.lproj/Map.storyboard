@@ -28,14 +28,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bZk-aw-waR">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="search" id="Qyi-YU-EBn">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="displayP3"/>
-                            <connections>
-                                <action selector="didTapSearchButton:" destination="BYZ-38-t0r" id="wpt-gG-uCo"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="bZk-aw-waR"/>
                     <connections>
                         <outlet property="mapView" destination="CM4-gw-jb5" id="MiH-BM-1Sv"/>
                     </connections>

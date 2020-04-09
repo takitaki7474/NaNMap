@@ -12,6 +12,7 @@ import MapKit
 final class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
+    var searchBar: UISearchBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,7 @@ final class MapViewController: UIViewController {
 }
 
 private extension MapViewController {
-    
+    /*
     @IBAction func didTapSearchButton(_ sender: Any){
         nextScreen()
     }
@@ -31,11 +32,23 @@ private extension MapViewController {
         let searchViewController = SearchViewController.instantinate()
         navigationController?.pushViewController(searchViewController, animated: false)
     }
-    
+    */
     func setUpNavigationBar(){
         navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 85,green: 104,blue: 211)
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        navigationItem.title = "名古屋キャンパス"
+        setUpSearchBar()
+    }
+    
+    func setUpSearchBar() {
+        if let navigationBarFrame = navigationController?.navigationBar.bounds {
+            let searchBar = UISearchBar(frame: navigationBarFrame)
+            searchBar.placeholder = "建物や教室を検索"
+            searchBar.searchTextField.backgroundColor = UIColor.white
+            searchBar.tintColor = UIColor.gray
+            searchBar.keyboardType = UIKeyboardType.default
+            navigationItem.titleView = searchBar
+            self.searchBar = searchBar
+        }
     }
     
     func initMapView(){
