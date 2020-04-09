@@ -18,7 +18,7 @@ final class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpNavigationBar()
+        //setUpNavigationBar()
     }
 }
 
@@ -30,6 +30,11 @@ private extension SearchViewController {
     }
     
     func setUpSearchBar() {
+        //navigationItem.titleView = mapViewController.searchBar
+        //self.searchBar = mapViewController.searchBar
+    }
+    /*
+    func setUpSearchBar() {
         if let navigationBarFrame = navigationController?.navigationBar.bounds {
             let searchBar = UISearchBar(frame: navigationBarFrame)
             searchBar.placeholder = "建物や教室を検索"
@@ -40,4 +45,5 @@ private extension SearchViewController {
             self.searchBar = searchBar
         }
     }
+ */
 }
