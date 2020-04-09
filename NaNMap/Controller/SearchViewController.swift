@@ -18,6 +18,7 @@ final class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("aa")
         //setUpNavigationBar()
     }
 }
