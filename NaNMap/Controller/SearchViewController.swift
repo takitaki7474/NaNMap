@@ -10,7 +10,8 @@ import UIKit
 
 final class SearchViewController: UIViewController {
     
-    var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
+    var searchController = UISearchController(searchResultsController: nil)
     
     static func instantinate() -> SearchViewController {
         return UIStoryboard(name: "Search", bundle: nil).instantiateInitialViewController() as! SearchViewController
@@ -18,39 +19,32 @@ final class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("aa")
-        //setUpNavigationBar()
+        setUpNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        searchController.isActive = true
     }
 }
 
 private extension SearchViewController {
     
     func setUpNavigationBar() {
-        navigationItem.hidesBackButton = true
-        setUpSearchBar()
+        navigationController?.navigationBar.isHidden = true
+        setUpSearchController()
     }
     
-    func setUpSearchBar() {
-        //navigationItem.titleView = mapViewController.searchBar
-        //self.searchBar = mapViewController.searchBar
+    func setUpSearchController() {
+        searchController.delegate = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
+        tableView.tableHeaderView = searchController.searchBar
     }
-    /*
-    func setUpSearchBar() {
-        if let navigationBarFrame = navigationController?.navigationBar.bounds {
-            let searchBar = UISearchBar(frame: navigationBarFrame)
-            searchBar.placeholder = "建物や教室を検索"
-            searchBar.searchTextField.backgroundColor = UIColor.white
-            searchBar.tintColor = UIColor.gray
-            searchBar.keyboardType = UIKeyboardType.default
-            navigationItem.titleView = searchBar
-            self.searchBar = searchBar
-        }
-    }
- */
 }
 
-extension SearchViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        print("bb")
+extension SearchViewController: UISearchControllerDelegate {
+    
+    func didPresentSearchController(_ searchController: UISearchController) {
+        searchController.searchBar.becomeFirstResponder()
     }
 }

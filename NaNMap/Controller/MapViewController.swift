@@ -12,7 +12,8 @@ import MapKit
 final class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
-    var searchController: UISearchController!
+    var searchBar: UISearchBar!
+    //var searchController: UISearchController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ private extension MapViewController {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         setUpSearchBar()
     }
-    
+    /*
     func setUpSearchBar() {
         let resultController = SearchViewController.instantinate()
         searchController = UISearchController(searchResultsController: resultController)
@@ -43,6 +44,15 @@ private extension MapViewController {
         searchBar.keyboardType = UIKeyboardType.default
         navigationItem.titleView = searchBar
     }
+ */
+    func setUpSearchBar() {
+        searchBar = UISearchBar()
+        searchBar.delegate = self
+        searchBar.placeholder = "建物や教室を検索"
+        searchBar.searchTextField.backgroundColor = UIColor.white
+        searchBar.tintColor = UIColor.gray
+        navigationItem.titleView = searchBar
+    }
     
     func initMapView(){
         let centerLatitude: CLLocationDegrees = 35.149405
@@ -50,12 +60,21 @@ private extension MapViewController {
         let center = CLLocationCoordinate2D(latitude: centerLatitude, longitude: centerLongitude)
         let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
         let region = MKCoordinateRegion(center: center, span: span)
-        
         mapView.region = region
     }
 }
 
+extension MapViewController: UISearchBarDelegate {
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        let searchViewController = SearchViewController.instantinate()
+        navigationController?.pushViewController(searchViewController, animated: false)
+        return true
+    }
+}
+
 extension UINavigationController {
+    
     open override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
