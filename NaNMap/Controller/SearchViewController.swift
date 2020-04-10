@@ -11,7 +11,7 @@ import UIKit
 final class SearchViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    var searchController = UISearchController(searchResultsController: nil)
+    var searchBar: UISearchBar!
     
     static func instantinate() -> SearchViewController {
         return UIStoryboard(name: "Search", bundle: nil).instantiateInitialViewController() as! SearchViewController
@@ -21,30 +21,22 @@ final class SearchViewController: UIViewController {
         super.viewDidLoad()
         setUpNavigationBar()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        searchController.isActive = true
-    }
 }
 
 private extension SearchViewController {
     
     func setUpNavigationBar() {
-        navigationController?.navigationBar.isHidden = true
-        setUpSearchController()
+        navigationItem.hidesBackButton = true
+        setUpSearchBar()
     }
     
-    func setUpSearchController() {
-        searchController.delegate = self
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.obscuresBackgroundDuringPresentation = false
-        tableView.tableHeaderView = searchController.searchBar
+    func setUpSearchBar() {
+        searchBar = UISearchBar()
+        searchBar.placeholder = "建物や教室を検索"
+        searchBar.searchTextField.backgroundColor = UIColor.white
+        searchBar.tintColor = UIColor.gray
+        searchBar.becomeFirstResponder()
+        navigationItem.titleView = searchBar
     }
 }
 
-extension SearchViewController: UISearchControllerDelegate {
-    
-    func didPresentSearchController(_ searchController: UISearchController) {
-        searchController.searchBar.becomeFirstResponder()
-    }
-}
