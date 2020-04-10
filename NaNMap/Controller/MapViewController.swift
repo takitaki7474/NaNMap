@@ -13,7 +13,6 @@ final class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     var searchBar: UISearchBar!
-    //var searchController: UISearchController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,22 +28,7 @@ private extension MapViewController {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         setUpSearchBar()
     }
-    /*
-    func setUpSearchBar() {
-        let resultController = SearchViewController.instantinate()
-        searchController = UISearchController(searchResultsController: resultController)
-        searchController.searchResultsUpdater = resultController
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.obscuresBackgroundDuringPresentation = false
-        let searchBar = searchController.searchBar
-        searchBar.placeholder = "建物や教室を検索"
-        searchBar.searchTextField.backgroundColor = UIColor.white
-        searchBar.tintColor = UIColor.gray
-        searchBar.showsCancelButton = false
-        searchBar.keyboardType = UIKeyboardType.default
-        navigationItem.titleView = searchBar
-    }
- */
+    
     func setUpSearchBar() {
         searchBar = UISearchBar()
         searchBar.delegate = self
