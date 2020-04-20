@@ -13,6 +13,7 @@
 		214F5F97243C96690061FC45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 214F5F96243C96690061FC45 /* Assets.xcassets */; };
 		214F5F9A243C96690061FC45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214F5F98243C96690061FC45 /* LaunchScreen.storyboard */; };
 		214F5FA8243CB5A90061FC45 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214F5FA7243CB5A90061FC45 /* MapViewController.swift */; };
+		215F3A18244D44F600C6270A /* defaultTableViewCell.json in Resources */ = {isa = PBXBuildFile; fileRef = 215F3A17244D44F600C6270A /* defaultTableViewCell.json */; };
 		217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */; };
 		217182F5243E27E1004B5E5A /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217182F4243E27E1004B5E5A /* Search.storyboard */; };
 		217182F7243E2835004B5E5A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F6243E2835004B5E5A /* SearchViewController.swift */; };
@@ -27,6 +28,7 @@
 		214F5F99243C96690061FC45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		214F5F9B243C96690061FC45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		214F5FA7243CB5A90061FC45 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		215F3A17244D44F600C6270A /* defaultTableViewCell.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = defaultTableViewCell.json; sourceTree = "<group>"; };
 		217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		217182F4243E27E1004B5E5A /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		217182F6243E2835004B5E5A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		217182F1243DE6CE004B5E5A /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				215F3A17244D44F600C6270A /* defaultTableViewCell.json */,
 				217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */,
 			);
 			path = Util;
@@ -182,6 +185,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				215F3A18244D44F600C6270A /* defaultTableViewCell.json in Resources */,
 				214F5F9A243C96690061FC45 /* LaunchScreen.storyboard in Resources */,
 				214F5F97243C96690061FC45 /* Assets.xcassets in Resources */,
 				217182F5243E27E1004B5E5A /* Search.storyboard in Resources */,
