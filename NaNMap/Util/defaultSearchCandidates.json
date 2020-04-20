@@ -13,7 +13,7 @@
                             },
                             "facility":[
                               {
-                                  "facility_name": "法曹実務教育研究センター",
+                                  "facilityName": "法曹実務教育研究センター",
                                   "floor": "1F"
                               }
                             ]
@@ -23,8 +23,7 @@
                             "coordinate":{
                                 "longitude":136.963565,
                                 "latitude":35.149563
-                            },
-                            "facility":[]
+                            }
                         },
                         {
                             "building":"C棟",
@@ -34,15 +33,15 @@
                             },
                             "facility":[
                                 {
-                                    "facility_name": "学生課",
+                                    "facilityName": "学生課",
                                     "floor": "1F"
                                 },
                                 {
-                                    "facility_name": "教務課",
+                                    "facilityName": "教務課",
                                     "floor": "1F"
                                 },
                                 {
-                                    "facility_name": "1SYOKU",
+                                    "facilityName": "1SYOKU",
                                     "floor": "1F"
                                 }
                             ]
@@ -55,19 +54,19 @@
                             },
                             "facility":[
                                 {
-                                    "facility_name": "人間関係研究センター",
+                                    "facilityName": "人間関係研究センター",
                                     "floor": "1F"
                                 },
                                 {
-                                    "facility_name": "学生交流センター",
+                                    "facilityName": "学生交流センター",
                                     "floor": "1F"
                                 },
                                 {
-                                    "facility_name": "教職センター",
+                                    "facilityName": "教職センター",
                                     "floor": "1F"
                                 },
                                 {
-                                    "facility_name": "保険センター",
+                                    "facilityName": "保険センター",
                                     "floor": "1F"
                                 }
                             ]
@@ -77,32 +76,28 @@
                             "coordinate":{
                                 "longitude":136.962606,
                                 "latitude":35.150271
-                            },
-                            "facility":[]
+                            }
                         },
                         {
                             "building":"F棟",
                             "coordinate":{
                                 "longitude":136.962129,
                                 "latitude":35.150133
-                            },
-                            "facility":[]
+                            }
                         },
                         {
                             "building":"G棟",
                             "coordinate":{
                                 "longitude":136.962403,
                                 "latitude":35.149821
-                            },
-                            "facility":[]
+                            }
                         },
                         {
                             "building":"H棟",
                             "coordinate":{
                                 "longitude":136.962424,
                                 "latitude":35.149442
-                            },
-                            "facility":[]
+                            }
                         },
                         {
                             "building":"J棟",
@@ -112,31 +107,31 @@
                             },
                             "facility":[
                                 {
-                                    "facility_name": "経営研究センター",
+                                    "facilityName": "経営研究センター",
                                     "floor": "1F"
                                 },
                                 {
-                                    "facility_name": "社会倫理研究所",
+                                    "facilityName": "社会倫理研究所",
                                     "floor": "1F"
                                 },
                                 {
-                                    "facility_name": "アメリカ研究センター",
+                                    "facilityName": "アメリカ研究センター",
                                     "floor": "1F"
                                 },
                                 {
-                                    "facility_name": "ラテンアメリカ研究センター",
+                                    "facilityName": "ラテンアメリカ研究センター",
                                     "floor": "1F"
                                 },
                                 {
-                                    "facility_name": "ヨーロッパ研究センター",
+                                    "facilityName": "ヨーロッパ研究センター",
                                     "floor": "1F"
                                 },
                                 {
-                                    "facility_name": "アジア・太平洋研究センター",
+                                    "facilityName": "アジア・太平洋研究センター",
                                     "floor": "1F"
                                 },
                                 {
-                                    "facility_name": "地域研究センター図書館",
+                                    "facilityName": "地域研究センター図書館",
                                     "floor": "1F"
                                 },
                             ]
@@ -146,8 +141,7 @@
                             "coordinate":{
                                 "longitude":136.962658,
                                 "latitude":35.149090
-                            },
-                            "facility":[]
+                            }
                         }
                     ]
                 }
