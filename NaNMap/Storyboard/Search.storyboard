@@ -51,5 +51,33 @@
             </objects>
             <point key="canvasLocation" x="124.6376811594203" y="164.73214285714286"/>
         </scene>
+        <!--Search Result View Controller-->
+        <scene sceneID="q6S-SG-a8O">
+            <objects>
+                <viewController storyboardIdentifier="searchResultViewController" id="DbA-ev-IGa" customClass="SearchResultViewController" customModule="NaNMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Sga-PH-DxT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nw2-xo-YPF">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Nw2-xo-YPF" firstAttribute="top" secondItem="DVo-KY-Nb4" secondAttribute="top" id="GIR-g1-8tH"/>
+                            <constraint firstItem="Nw2-xo-YPF" firstAttribute="leading" secondItem="DVo-KY-Nb4" secondAttribute="leading" id="OX1-hj-grS"/>
+                            <constraint firstItem="Nw2-xo-YPF" firstAttribute="bottom" secondItem="DVo-KY-Nb4" secondAttribute="bottom" id="cm4-yM-h69"/>
+                            <constraint firstItem="Nw2-xo-YPF" firstAttribute="trailing" secondItem="DVo-KY-Nb4" secondAttribute="trailing" id="t2N-L2-RRH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DVo-KY-Nb4"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Vc4-el-KYj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZXW-WG-jCd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="973.91304347826099" y="164.73214285714286"/>
+        </scene>
     </scenes>
 </document>

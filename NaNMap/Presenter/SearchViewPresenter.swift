@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+final class SearchViewPresenter {
+    private let JSONParser: DefaultSearchJSONParserProtocol
+    
+    init(JSONParser: DefaultSearchJSONParserProtocol) {
+        self.JSONParser = JSONParser
+    }
+    
+    
+}

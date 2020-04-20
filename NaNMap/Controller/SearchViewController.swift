@@ -55,5 +55,9 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let searchResultViewController = self.storyboard?.instantiateViewController(withIdentifier: "searchResultViewController") as! SearchResultViewController
+        searchResultViewController.indexPath = indexPath
+        navigationController?.pushViewController(searchResultViewController, animated: true)
+        
     }
 }
