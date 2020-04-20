@@ -9,9 +9,10 @@
 import UIKit
 
 class SearchResultViewController: UIViewController {
-    var indexPath: IndexPath?
+    var defaultSearchCandidates: Any?
 
     override func viewDidLoad() {
+        print(self.defaultSearchCandidates!)
         super.viewDidLoad()
     }
 }
