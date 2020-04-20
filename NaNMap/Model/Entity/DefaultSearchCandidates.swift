@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DefaultSearchCandidate: Codable {
+struct DefaultSearchCandidates: Codable {
     var section: [Section]
 }
 
