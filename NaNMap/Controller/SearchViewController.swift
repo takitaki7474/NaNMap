@@ -12,6 +12,7 @@ final class SearchViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var searchBar: UISearchBar!
+    var defaultCell: [String] = ["棟の検索"]
     
     static func instantinate() -> SearchViewController {
         return UIStoryboard(name: "Search", bundle: nil).instantiateInitialViewController() as! SearchViewController
@@ -40,3 +41,15 @@ private extension SearchViewController {
     }
 }
 
+extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return defaultCell.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath)
+        cell.textLabel?.text = defaultCell[indexPath.row]
+        return cell
+    }
+}
