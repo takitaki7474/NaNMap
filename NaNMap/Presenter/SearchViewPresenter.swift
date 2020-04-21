@@ -8,12 +8,22 @@
 
 import Foundation
 
+protocol SearchView {
+    func fetchDefaultSearchCandidates(fetchResult: DefaultSearchCandidates)
+}
+
 final class SearchViewPresenter {
+    
+    private let view: SearchView
     private let JSONParser: DefaultSearchJSONParserProtocol
     
-    init(JSONParser: DefaultSearchJSONParserProtocol) {
+    init(view: SearchView, JSONParser: DefaultSearchJSONParserProtocol) {
+        self.view = view
         self.JSONParser = JSONParser
     }
     
-    
+    func loadDefaultSearchCandidates() {
+        let defaultSearchCandidates = self.JSONParser.parse()
+        self.view.fetchDefaultSearchCandidates(fetchResult: defaultSearchCandidates!)
+    }
 }

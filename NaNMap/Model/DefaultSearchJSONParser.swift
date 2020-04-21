@@ -10,9 +10,17 @@ import Foundation
 
 struct DefaultSearchJSONParser: DefaultSearchJSONParserProtocol {
     
-    func parse(data: Data) -> DefaultSearchCandidates? {
+    private var data: Data? = nil
+    
+    init() {
+        let path = Bundle.main.path(forResource: "DefaultSearchCandidates", ofType: "json")
+        let url = URL(fileURLWithPath: path!)
+        self.data = try? Data(contentsOf: url)
+    }
+    
+    func parse() -> DefaultSearchCandidates? {
         let decoder = JSONDecoder()
-        guard let defaultSearchCandidates = try? decoder.decode(DefaultSearchCandidates.self, from: data) else {
+        guard let defaultSearchCandidates = try? decoder.decode(DefaultSearchCandidates.self, from: self.data!) else {
             return nil
         }
         return defaultSearchCandidates
@@ -20,7 +28,7 @@ struct DefaultSearchJSONParser: DefaultSearchJSONParserProtocol {
 }
 
 protocol DefaultSearchJSONParserProtocol {
-    func parse(data: Data) -> DefaultSearchCandidates?
+    func parse() -> DefaultSearchCandidates?
 }
 
 
