@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 final class SearchViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -27,6 +28,7 @@ final class SearchViewController: UIViewController {
         setUpNavigationBar()
     }
 }
+
 
 private extension SearchViewController {
     
@@ -57,6 +59,7 @@ private extension SearchViewController {
     }
 }
 
+
 private extension SearchViewController {
     
     func createResultPageInfo() -> [BuildingInfo] {
@@ -65,6 +68,7 @@ private extension SearchViewController {
         return resultPageInfo
     }
 }
+
 
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     
@@ -85,6 +89,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         navigationController?.pushViewController(searchResultViewController, animated: true)
     }
 }
+
 
 extension SearchViewController: SearchView {
     

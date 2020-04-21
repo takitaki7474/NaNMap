@@ -28,8 +28,8 @@ struct BuildingInfo: Codable {
 }
 
 struct Coordinate: Codable {
-    var longitude: Float
-    var latitude: Float
+    var longitude: Double
+    var latitude: Double
 }
 
 struct FacilityInfo: Codable {

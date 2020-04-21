@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class SearchResultViewController: UIViewController {
     
     var buildingList: [BuildingInfo]?
@@ -23,6 +24,7 @@ class SearchResultViewController: UIViewController {
     }
 }
 
+
 private extension SearchResultViewController {
     
     func createCellList() {
@@ -31,6 +33,7 @@ private extension SearchResultViewController {
         }
     }
 }
+
 
 extension SearchResultViewController: UITableViewDataSource, UITableViewDelegate {
     
@@ -46,9 +49,11 @@ extension SearchResultViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let mapViewController = navigationController?.viewControllers[0] as! MapViewController
-        let annotation = Annotation(title: "テスト", coordinate: (longitude: 136.96353, latitude: 35.1499))
+        let title = buildingList![indexPath.row].building
+        let longitude = buildingList![indexPath.row].coordinate.longitude
+        let latitude = buildingList![indexPath.row].coordinate.latitude
+        let annotation = Annotation(title: title, coordinate: (longitude: longitude, latitude: latitude))
         mapViewController.annotation = annotation
-        //print(buildingList![indexPath.row])
         navigationController?.popToRootViewController(animated: true)
     }
 }
