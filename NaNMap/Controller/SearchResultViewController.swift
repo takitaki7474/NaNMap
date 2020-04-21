@@ -45,7 +45,11 @@ extension SearchResultViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(buildingList![indexPath.row])
+        let mapViewController = navigationController?.viewControllers[0] as! MapViewController
+        let annotation = Annotation(title: "テスト", coordinate: (longitude: 136.96353, latitude: 35.1499))
+        mapViewController.annotation = annotation
+        //print(buildingList![indexPath.row])
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 
