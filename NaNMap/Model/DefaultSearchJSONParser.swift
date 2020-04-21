@@ -10,7 +10,7 @@ import Foundation
 
 struct DefaultSearchJSONParser: DefaultSearchJSONParserProtocol {
     
-    private var data: Data? = nil
+    private var data: Data?
     
     init() {
         let path = Bundle.main.path(forResource: "DefaultSearchCandidates", ofType: "json")

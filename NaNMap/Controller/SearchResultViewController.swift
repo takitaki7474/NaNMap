@@ -12,6 +12,10 @@ class SearchResultViewController: UIViewController {
     
     var buildingList: [BuildingInfo]?
     var cellList = [String]()
+    
+    static func instantinate() -> SearchResultViewController {
+         return UIStoryboard(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "searchResultViewController") as! SearchResultViewController
+     }
 
     override func viewDidLoad() {
         createCellList()
@@ -19,7 +23,7 @@ class SearchResultViewController: UIViewController {
     }
 }
 
-extension SearchResultViewController {
+private extension SearchResultViewController {
     
     func createCellList() {
         for buildingInfo in buildingList! {
@@ -28,8 +32,8 @@ extension SearchResultViewController {
     }
 }
 
-
 extension SearchResultViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellList.count
     }
@@ -38,6 +42,10 @@ extension SearchResultViewController: UITableViewDataSource, UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: "defaultResultCell", for: indexPath)
         cell.textLabel?.text = cellList[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(buildingList![indexPath.row])
     }
 }
 

@@ -9,10 +9,20 @@
 import UIKit
 import MapKit
 
+struct Annotation {
+    let title: String?
+    let coordinate: (longitude: Double, latitude: Double)?
+}
+
 final class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     var searchBar: UISearchBar!
+    var annotation: Annotation? {
+        didSet {
+            addPin(with: annotation!)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +55,18 @@ private extension MapViewController {
         let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
         let region = MKCoordinateRegion(center: center, span: span)
         mapView.region = region
+    }
+}
+
+private extension MapViewController {
+    
+    func addPin(with annotation: Annotation) {
+        let point = MKPointAnnotation()
+        let longitude = annotation.coordinate?.0
+        let latitude = annotation.coordinate?.1
+        point.coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+        point.title = annotation.title
+        mapView.addAnnotation(point)
     }
 }
 
