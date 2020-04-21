@@ -9,17 +9,34 @@
 import UIKit
 import MapKit
 
+
+struct Annotation {
+    let title: String?
+    let coordinate: (longitude: Double, latitude: Double)?
+}
+
+
 final class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     var searchBar: UISearchBar!
+    var annotation: Annotation? {
+        didSet {
+            addPin(with: annotation!)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpNavigationBar()
         initMapView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setUpNavigationBar()
+    }
 }
+
 
 private extension MapViewController {
 
@@ -48,6 +65,20 @@ private extension MapViewController {
     }
 }
 
+
+private extension MapViewController {
+    
+    func addPin(with annotation: Annotation) {
+        let point = MKPointAnnotation()
+        let longitude = annotation.coordinate?.0
+        let latitude = annotation.coordinate?.1
+        point.coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+        point.title = annotation.title
+        mapView.addAnnotation(point)
+    }
+}
+
+
 extension MapViewController: UISearchBarDelegate {
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
@@ -56,6 +87,7 @@ extension MapViewController: UISearchBarDelegate {
         return true
     }
 }
+
 
 extension UINavigationController {
     

@@ -8,9 +8,11 @@
 
 import Foundation
 
+
 protocol SearchView {
     func fetchDefaultSearchCandidates(fetchResult: DefaultSearchCandidates)
 }
+
 
 final class SearchViewPresenter {
     
