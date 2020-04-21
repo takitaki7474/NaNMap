@@ -72,6 +72,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="DbA-ev-IGa" id="wKc-Qf-CVr"/>
+                                    <outlet property="delegate" destination="DbA-ev-IGa" id="Ykl-Jr-LdR"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

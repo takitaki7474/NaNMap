@@ -12,7 +12,7 @@ final class SearchViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var searchBar: UISearchBar!
-    var defaultCell: [String] = ["棟の検索"]
+    var defaultCellList = [String]()
     var defaultSearchCandidates: DefaultSearchCandidates?
     private var presenter: SearchViewPresenter!
     
@@ -23,6 +23,7 @@ final class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpPresenter()
+        setUpDefaultCellList()
         setUpNavigationBar()
     }
 }
@@ -32,6 +33,14 @@ private extension SearchViewController {
     func setUpPresenter() {
         presenter = SearchViewPresenter(view: self, JSONParser: DefaultSearchJSONParser())
         presenter.loadDefaultSearchCandidates()
+    }
+    
+    func setUpDefaultCellList() {
+        let sectionIndex = 0
+        for row in defaultSearchCandidates!.section[sectionIndex].row {
+            defaultCellList.append(row.title)
+            print(defaultCellList)
+        }
     }
     
     func setUpNavigationBar() {
@@ -49,22 +58,33 @@ private extension SearchViewController {
     }
 }
 
+extension SearchViewController {
+    
+    func createNextPageInfo() -> [BuildingInfo] {
+        var nextPageInfo: [BuildingInfo]
+        nextPageInfo = defaultSearchCandidates!.section[0].row[0].nextPage
+        return nextPageInfo
+    }
+    
+}
+
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return defaultCell.count
+        return defaultCellList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath)
         cell.accessoryType = .disclosureIndicator
-        cell.textLabel?.text = defaultCell[indexPath.row]
+        cell.textLabel?.text = defaultCellList[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let searchResultViewController = self.storyboard?.instantiateViewController(withIdentifier: "searchResultViewController") as! SearchResultViewController
-        searchResultViewController.defaultSearchCandidates = defaultSearchCandidates?.section[indexPath.section].row[indexPath.row] as Any?
+        searchResultViewController.buildingList = createNextPageInfo()
+        //searchResultViewController.defaultSearchCandidates = defaultSearchCandidates?.section[indexPath.section].row[indexPath.row] as Any?
         navigationController?.pushViewController(searchResultViewController, animated: true)
         
     }
@@ -74,6 +94,5 @@ extension SearchViewController: SearchView {
     
     func fetchDefaultSearchCandidates(fetchResult: DefaultSearchCandidates) {
         defaultSearchCandidates = fetchResult
-        print(fetchResult.section[0].row[0])
     }
 }

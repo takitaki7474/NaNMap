@@ -10,34 +10,35 @@ import UIKit
 
 class SearchResultViewController: UIViewController {
     
-    var defaultSearchCandidates: Any?
+    var buildingList: [BuildingInfo]?
+    var cellList = [String]()
 
     override func viewDidLoad() {
-        //print(self.defaultSearchCandidates!)
-        
+        createCellList()
         super.viewDidLoad()
     }
 }
 
 extension SearchResultViewController {
-    /*
-    func createBuildingCellList() -> [String] {
-        var buildingCellList: [String]?
-        
+    
+    func createCellList() {
+        for buildingInfo in buildingList! {
+            cellList.append(buildingInfo.building)
+        }
     }
- */
-        
 }
 
-/*
+
 extension SearchResultViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        return cellList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "defaultResultCell", for: indexPath)
+        cell.textLabel?.text = cellList[indexPath.row]
+        return cell
     }
 }
-*/
+
 
