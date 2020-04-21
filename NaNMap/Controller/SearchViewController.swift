@@ -58,6 +58,16 @@ private extension SearchViewController {
     }
 }
 
+extension SearchViewController {
+    
+    func createNextPageInfo() -> [BuildingInfo] {
+        var nextPageInfo: [BuildingInfo]
+        nextPageInfo = defaultSearchCandidates!.section[0].row[0].nextPage
+        return nextPageInfo
+    }
+    
+}
+
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,7 +83,8 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let searchResultViewController = self.storyboard?.instantiateViewController(withIdentifier: "searchResultViewController") as! SearchResultViewController
-        searchResultViewController.defaultSearchCandidates = defaultSearchCandidates?.section[indexPath.section].row[indexPath.row] as Any?
+        searchResultViewController.buildingList = createNextPageInfo()
+        //searchResultViewController.defaultSearchCandidates = defaultSearchCandidates?.section[indexPath.section].row[indexPath.row] as Any?
         navigationController?.pushViewController(searchResultViewController, animated: true)
         
     }
@@ -83,6 +94,5 @@ extension SearchViewController: SearchView {
     
     func fetchDefaultSearchCandidates(fetchResult: DefaultSearchCandidates) {
         defaultSearchCandidates = fetchResult
-        print(fetchResult.section[0].row[0])
     }
 }
