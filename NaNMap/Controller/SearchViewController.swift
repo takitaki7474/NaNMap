@@ -17,18 +17,22 @@ final class SearchViewController: UIViewController {
     private var presenter: SearchViewPresenter!
     
     static func instantinate() -> SearchViewController {
-
         return UIStoryboard(name: "Search", bundle: nil).instantiateInitialViewController() as! SearchViewController
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = SearchViewPresenter(view: self, JSONParser: DefaultSearchJSONParser())
+        setUpPresenter()
         setUpNavigationBar()
     }
 }
 
 private extension SearchViewController {
+    
+    func setUpPresenter() {
+        presenter = SearchViewPresenter(view: self, JSONParser: DefaultSearchJSONParser())
+        presenter.loadDefaultSearchCandidates()
+    }
     
     func setUpNavigationBar() {
         navigationItem.hidesBackButton = true
@@ -60,8 +64,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let searchResultViewController = self.storyboard?.instantiateViewController(withIdentifier: "searchResultViewController") as! SearchResultViewController
-        presenter.loadDefaultSearchCandidates()
-        searchResultViewController.defaultSearchCandidates = defaultSearchCandidates?.section[indexPath.section].row[indexPath.row] as Any
+        searchResultViewController.defaultSearchCandidates = defaultSearchCandidates?.section[indexPath.section].row[indexPath.row] as Any?
         navigationController?.pushViewController(searchResultViewController, animated: true)
         
     }
@@ -71,5 +74,6 @@ extension SearchViewController: SearchView {
     
     func fetchDefaultSearchCandidates(fetchResult: DefaultSearchCandidates) {
         defaultSearchCandidates = fetchResult
+        print(fetchResult.section[0].row[0])
     }
 }

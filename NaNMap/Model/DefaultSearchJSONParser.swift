@@ -9,6 +9,7 @@
 import Foundation
 
 struct DefaultSearchJSONParser: DefaultSearchJSONParserProtocol {
+    
     private var data: Data? = nil
     
     init() {

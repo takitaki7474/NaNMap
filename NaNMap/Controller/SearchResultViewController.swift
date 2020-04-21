@@ -9,12 +9,35 @@
 import UIKit
 
 class SearchResultViewController: UIViewController {
+    
     var defaultSearchCandidates: Any?
 
     override func viewDidLoad() {
-        print(self.defaultSearchCandidates!)
+        //print(self.defaultSearchCandidates!)
+        
         super.viewDidLoad()
     }
 }
 
+extension SearchResultViewController {
+    /*
+    func createBuildingCellList() -> [String] {
+        var buildingCellList: [String]?
+        
+    }
+ */
+        
+}
+
+/*
+extension SearchResultViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+    }
+}
+*/
 

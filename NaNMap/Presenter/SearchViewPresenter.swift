@@ -13,6 +13,7 @@ protocol SearchView {
 }
 
 final class SearchViewPresenter {
+    
     private let view: SearchView
     private let JSONParser: DefaultSearchJSONParserProtocol
     
@@ -25,6 +26,4 @@ final class SearchViewPresenter {
         let defaultSearchCandidates = self.JSONParser.parse()
         self.view.fetchDefaultSearchCandidates(fetchResult: defaultSearchCandidates!)
     }
-    
-    
 }
