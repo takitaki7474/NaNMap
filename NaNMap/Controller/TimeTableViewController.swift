@@ -11,6 +11,7 @@ import UIKit
 class TimeTableViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    var customCellFlowLayout: CustomCellFlowLayout!
     
     static func instantinate() -> TimeTableViewController {
          return UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "timeTableViewController") as! TimeTableViewController
@@ -19,6 +20,7 @@ class TimeTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCollectionView()
+        customCellFlowLayout = CustomCellFlowLayout()
     }
 }
 
@@ -55,27 +57,9 @@ extension TimeTableViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let viewWidth = collectionView.frame.width
         let viewHeight = collectionView.frame.height
-        let firstCellOneSideSize: CGFloat = 30.0
-        let scheduleCellWidth = (viewWidth - firstCellOneSideSize - 2*6) / 6.0
-        let scheduleCellHeight = (viewHeight - firstCellOneSideSize - 2*5) / 5.0
-        var width: CGFloat?
-        var height: CGFloat?
-        
-        switch indexPath.row {
-        case 0:
-            width = firstCellOneSideSize
-            height = firstCellOneSideSize
-        case 1...6:
-            width = scheduleCellWidth
-            height = firstCellOneSideSize
-        case let index where index % 7 == 0:
-            width = firstCellOneSideSize
-            height = scheduleCellHeight
-        default:
-            width = scheduleCellWidth
-            height = scheduleCellHeight
-        }
-        
-        return CGSize(width: width!, height: height!)
+        let customizedCell = customCellFlowLayout.customizeCell(indexPath: indexPath, viewWidth: viewWidth, viewHeight: viewHeight)
+        let width = customizedCell.0
+        let height = customizedCell.1
+        return CGSize(width: width, height: height)
     }
 }
