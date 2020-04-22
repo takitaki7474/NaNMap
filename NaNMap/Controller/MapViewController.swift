@@ -28,22 +28,23 @@ final class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpNavigationBar()
+        setUpTabBar()
         initMapView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setUpNavigationBar()
+        setUpSearchBar()
     }
 }
 
 
 private extension MapViewController {
 
-    func setUpNavigationBar(){
+    func setUpNavigationBar() {
         navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 85,green: 104,blue: 211)
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        setUpSearchBar()
     }
     
     func setUpSearchBar() {
@@ -53,6 +54,13 @@ private extension MapViewController {
         searchBar.searchTextField.backgroundColor = UIColor.white
         searchBar.tintColor = UIColor.gray
         navigationItem.titleView = searchBar
+    }
+    
+    func setUpTabBar() {
+        let timeTableViewController = TimeTableViewController.instantinate()
+        let timeTableNavigationController = UINavigationController(rootViewController: timeTableViewController)
+        timeTableNavigationController.tabBarItem = UITabBarItem(title: "時間割", image: nil, selectedImage: nil)
+        tabBarController?.viewControllers?.append(timeTableNavigationController)
     }
     
     func initMapView(){
