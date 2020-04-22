@@ -11,11 +11,11 @@ import UIKit
 class TimeTableViewController: UIViewController {
     
     static func instantinate() -> TimeTableViewController {
-        return UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "timeTableViewController") as! TimeTableViewController
+         return UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "timeTableViewController") as! TimeTableViewController
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
+    
 }

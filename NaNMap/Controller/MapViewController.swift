@@ -58,8 +58,9 @@ private extension MapViewController {
     
     func setUpTabBar() {
         let timeTableViewController = TimeTableViewController.instantinate()
-        timeTableViewController.tabBarItem = UITabBarItem(title: "時間割", image: nil, selectedImage: nil)
-        tabBarController?.viewControllers?.append(timeTableViewController)
+        let timeTableNavigationController = UINavigationController(rootViewController: timeTableViewController)
+        timeTableNavigationController.tabBarItem = UITabBarItem(title: "時間割", image: nil, selectedImage: nil)
+        tabBarController?.viewControllers?.append(timeTableNavigationController)
     }
     
     func initMapView(){
