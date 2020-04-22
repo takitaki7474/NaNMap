@@ -17,6 +17,7 @@ class TimeTableViewController: UIViewController {
     }
 
     override func viewDidLoad() {
+        collectionView.dataSource = self
         super.viewDidLoad()
     }
 }

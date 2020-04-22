@@ -28,10 +28,6 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="gxp-Jx-Hpy" id="XV0-39-tMM"/>
-                                    <outlet property="delegate" destination="gxp-Jx-Hpy" id="e97-Rx-mXB"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -72,10 +68,6 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="DbA-ev-IGa" id="wKc-Qf-CVr"/>
-                                    <outlet property="delegate" destination="DbA-ev-IGa" id="Ykl-Jr-LdR"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -88,6 +80,9 @@
                         <viewLayoutGuide key="safeArea" id="DVo-KY-Nb4"/>
                     </view>
                     <navigationItem key="navigationItem" id="Vc4-el-KYj"/>
+                    <connections>
+                        <outlet property="tableView" destination="Nw2-xo-YPF" id="dwm-Vr-XVI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZXW-WG-jCd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
