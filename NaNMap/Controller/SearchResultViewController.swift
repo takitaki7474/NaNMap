@@ -11,6 +11,7 @@ import UIKit
 
 class SearchResultViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
     var buildingList: [BuildingInfo]?
     var cellList = [String]()
     
@@ -19,8 +20,10 @@ class SearchResultViewController: UIViewController {
      }
 
     override func viewDidLoad() {
-        createCellList()
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
+        createCellList()
     }
 }
 
