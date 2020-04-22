@@ -18,6 +18,8 @@
 		215F3A1C244DA91000C6270A /* DefaultSearchJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F3A1B244DA91000C6270A /* DefaultSearchJSONParser.swift */; };
 		215F3A1E244DB68F00C6270A /* SearchViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F3A1D244DB68F00C6270A /* SearchViewPresenter.swift */; };
 		215F3A20244DD3E400C6270A /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F3A1F244DD3E400C6270A /* SearchResultViewController.swift */; };
+		215FA06F24506C440079300A /* TimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 215FA06E24506C440079300A /* TimeTable.storyboard */; };
+		215FA07124506C870079300A /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FA07024506C870079300A /* TimeTableViewController.swift */; };
 		217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */; };
 		217182F5243E27E1004B5E5A /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217182F4243E27E1004B5E5A /* Search.storyboard */; };
 		217182F7243E2835004B5E5A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F6243E2835004B5E5A /* SearchViewController.swift */; };
@@ -37,6 +39,8 @@
 		215F3A1B244DA91000C6270A /* DefaultSearchJSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSearchJSONParser.swift; sourceTree = "<group>"; };
 		215F3A1D244DB68F00C6270A /* SearchViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewPresenter.swift; sourceTree = "<group>"; };
 		215F3A1F244DD3E400C6270A /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		215FA06E24506C440079300A /* TimeTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeTable.storyboard; sourceTree = "<group>"; };
+		215FA07024506C870079300A /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
 		217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		217182F4243E27E1004B5E5A /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		217182F6243E2835004B5E5A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 			children = (
 				214F5F93243C96670061FC45 /* Map.storyboard */,
 				217182F4243E27E1004B5E5A /* Search.storyboard */,
+				215FA06E24506C440079300A /* TimeTable.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 				214F5FA7243CB5A90061FC45 /* MapViewController.swift */,
 				217182F6243E2835004B5E5A /* SearchViewController.swift */,
 				215F3A1F244DD3E400C6270A /* SearchResultViewController.swift */,
+				215FA07024506C870079300A /* TimeTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -197,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				215FA06F24506C440079300A /* TimeTable.storyboard in Resources */,
 				215F3A18244D44F600C6270A /* DefaultSearchCandidates.json in Resources */,
 				214F5F9A243C96690061FC45 /* LaunchScreen.storyboard in Resources */,
 				214F5F97243C96690061FC45 /* Assets.xcassets in Resources */,
@@ -216,6 +223,7 @@
 				215F3A20244DD3E400C6270A /* SearchResultViewController.swift in Sources */,
 				217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */,
 				214F5F8E243C96670061FC45 /* AppDelegate.swift in Sources */,
+				215FA07124506C870079300A /* TimeTableViewController.swift in Sources */,
 				215F3A1A244DA25100C6270A /* DefaultSearchCandidates.swift in Sources */,
 				214F5F90243C96670061FC45 /* SceneDelegate.swift in Sources */,
 				215F3A1E244DB68F00C6270A /* SearchViewPresenter.swift in Sources */,
