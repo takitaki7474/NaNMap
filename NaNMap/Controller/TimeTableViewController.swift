@@ -46,7 +46,18 @@ extension TimeTableViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeTableCell", for: indexPath)
-        cell.backgroundColor = .red
+        cell.backgroundColor = .gray
+        let label = cell.contentView.viewWithTag(1) as! UILabel
+        label.text = "1"
+        label.textColor = .black
+        print(label.frame.width)
+        label.textAlignment = .center
+        label.backgroundColor = .white
+        label.center.x = cell.frame.width/2.0
+        label.center.y = cell.frame.height/2.0
+        //label.layer.position = CGPoint(x: cell.center.x, y: cell.center.y)
+        //label.textAlignment = .center
+        //label.center = cell.center
         return cell
     }
 }
