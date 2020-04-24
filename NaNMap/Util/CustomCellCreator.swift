@@ -11,6 +11,7 @@ class CustomCellCreator {
 
     var cellLayout: UICollectionViewFlowLayout?
     var cellSize: CGSize?
+    var cellLabel: UILabel?
     
     func customizeCellLayout() {
         let layout = UICollectionViewFlowLayout()
@@ -41,5 +42,15 @@ class CustomCellCreator {
             cellHeight = (collectionViewHeight - firstCellOneSideSize - 2*5) / 5.0
          }
         self.cellSize = CGSize(width: cellWidth, height: cellHeight)
+    }
+    
+    func customizeCellLabel(cell: UICollectionViewCell) {
+        self.cellLabel = cell.contentView.viewWithTag(1) as? UILabel
+        cellLabel?.text = "1"
+        cellLabel?.textColor = .black
+        cellLabel?.textAlignment = .center
+        cellLabel?.backgroundColor = .white
+        cellLabel?.center.x = cell.frame.width/2.0
+        cellLabel?.center.y = cell.frame.height/2.0
     }
 }
