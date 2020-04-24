@@ -44,7 +44,6 @@ private extension MapViewController {
 
     func setUpNavigationBar() {
         navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 85,green: 104,blue: 211)
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
     
     func setUpSearchBar() {

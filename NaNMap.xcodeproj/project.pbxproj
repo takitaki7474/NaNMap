@@ -86,6 +86,7 @@
 				217182F1243DE6CE004B5E5A /* Util */,
 				214F5F8F243C96670061FC45 /* SceneDelegate.swift */,
 				214F5F96243C96690061FC45 /* Assets.xcassets */,
+				215F3A17244D44F600C6270A /* DefaultSearchCandidates.json */,
 				214F5F98243C96690061FC45 /* LaunchScreen.storyboard */,
 				214F5F9B243C96690061FC45 /* Info.plist */,
 			);
@@ -141,7 +142,6 @@
 		217182F1243DE6CE004B5E5A /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				215F3A17244D44F600C6270A /* DefaultSearchCandidates.json */,
 				217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */,
 				215FA0722450CA4B0079300A /* CustomCellCreator.swift */,
 			);
