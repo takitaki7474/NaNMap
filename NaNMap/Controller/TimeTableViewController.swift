@@ -45,7 +45,7 @@ extension TimeTableViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeTableCell", for: indexPath)
         cell.backgroundColor = .gray
-        customCellCreator.customizeCellLabel(cell: cell)
+        customCellCreator.customizeCellLabelFlowLayout(indexPath: indexPath, cell: cell)
         return cell
     }
 }
@@ -54,7 +54,7 @@ extension TimeTableViewController: UICollectionViewDataSource {
 extension TimeTableViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        customCellCreator.customizeCellSize(indexPath: indexPath, collectionView: collectionView)
+        customCellCreator.customizeCellSizeFlowLayout(indexPath: indexPath, collectionView: collectionView)
         return customCellCreator.cellSize!
     }
 }

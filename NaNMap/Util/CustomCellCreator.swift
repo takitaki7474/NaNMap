@@ -20,7 +20,7 @@ class CustomCellCreator {
         self.cellLayout = layout
     }
     
-    func customizeCellSize(indexPath: IndexPath, collectionView: UICollectionView) {
+    func customizeCellSizeFlowLayout(indexPath: IndexPath, collectionView: UICollectionView) {
         let firstCellOneSideSize: CGFloat = 30.0
         let collectionViewWidth = collectionView.frame.width
         let collectionViewHeight = collectionView.frame.height
@@ -44,12 +44,24 @@ class CustomCellCreator {
         self.cellSize = CGSize(width: cellWidth, height: cellHeight)
     }
     
-    func customizeCellLabel(cell: UICollectionViewCell) {
+    func customizeCellLabelFlowLayout(indexPath: IndexPath, cell: UICollectionViewCell) {
+        let dayOfWeek: [String] = ["月", "火", "水", "木", "金", "土"]
+        let period: [String] = ["1", "2", "3", "4", "5"]
         self.cellLabel = cell.contentView.viewWithTag(1) as? UILabel
-        cellLabel?.text = "1"
+        
+        switch indexPath.row {
+        case 0:
+            cellLabel?.text = ""
+        case 1...6:
+            cellLabel?.text = dayOfWeek[indexPath.row - 1]
+        case let index where index % 7 == 0:
+            cellLabel?.text = period[(indexPath.row / 7) - 1]
+        default:
+            cellLabel?.text = ""
+        }
+        
         cellLabel?.textColor = .black
         cellLabel?.textAlignment = .center
-        cellLabel?.backgroundColor = .white
         cellLabel?.center.x = cell.frame.width/2.0
         cellLabel?.center.y = cell.frame.height/2.0
     }
