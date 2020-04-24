@@ -11,7 +11,7 @@ import UIKit
 class TimeTableViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var customCellFlowLayout: CustomCellFlowLayout!
+    var customCellCreator: CustomCellCreator!
     
     static func instantinate() -> TimeTableViewController {
          return UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "timeTableViewController") as! TimeTableViewController
@@ -19,8 +19,8 @@ class TimeTableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        customCellCreator = CustomCellCreator()
         setUpCollectionView()
-        customCellFlowLayout = CustomCellFlowLayout()
     }
 }
 
@@ -30,10 +30,8 @@ private extension TimeTableViewController {
     func setUpCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 2.0
-        layout.minimumInteritemSpacing = 2.0
-        collectionView.collectionViewLayout = layout
+        customCellCreator.customizeCellLayout()
+        collectionView.collectionViewLayout = customCellCreator.cellLayout!
     }
 }
 
@@ -62,15 +60,7 @@ extension TimeTableViewController: UICollectionViewDataSource {
 extension TimeTableViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        customCellFlowLayout.customizeCellSize(indexPath: indexPath, collectionView: collectionView)
-        return customCellFlowLayout.cellSize!
-        /*
-        let viewWidth = collectionView.frame.width
-        let viewHeight = collectionView.frame.height
-        let customizedCell = customCellFlowLayout.customizeCell(indexPath: indexPath, viewWidth: viewWidth, viewHeight: viewHeight)
-        let width = customizedCell.0
-        let height = customizedCell.1
-        return CGSize(width: width, height: height)
- */
+        customCellCreator.customizeCellSize(indexPath: indexPath, collectionView: collectionView)
+        return customCellCreator.cellSize!
     }
 }
