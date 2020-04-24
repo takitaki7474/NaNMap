@@ -39,6 +39,8 @@ private extension TimeTableViewController {
         collectionView.delegate = self
         customCellCreator.customizeCellLayout()
         collectionView.collectionViewLayout = customCellCreator.cellLayout!
+        collectionView.layer.borderColor = UIColor.white.cgColor
+        collectionView.layer.borderWidth = 2
     }
 }
 
@@ -51,7 +53,8 @@ extension TimeTableViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeTableCell", for: indexPath)
-        cell.backgroundColor = .gray
+        cell.backgroundColor = UIColor.rgba(red: 186, green: 193, blue: 234)
+        cell.layer.cornerRadius = 4
         customCellCreator.customizeCellLabelFlowLayout(indexPath: indexPath, cell: cell)
         return cell
     }
