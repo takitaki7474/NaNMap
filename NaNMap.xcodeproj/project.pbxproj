@@ -20,7 +20,7 @@
 		215F3A20244DD3E400C6270A /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F3A1F244DD3E400C6270A /* SearchResultViewController.swift */; };
 		215FA06F24506C440079300A /* TimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 215FA06E24506C440079300A /* TimeTable.storyboard */; };
 		215FA07124506C870079300A /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FA07024506C870079300A /* TimeTableViewController.swift */; };
-		215FA0732450CA4B0079300A /* CustomCellFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FA0722450CA4B0079300A /* CustomCellFlowLayout.swift */; };
+		215FA0732450CA4B0079300A /* CustomCellCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FA0722450CA4B0079300A /* CustomCellCreator.swift */; };
 		217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */; };
 		217182F5243E27E1004B5E5A /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217182F4243E27E1004B5E5A /* Search.storyboard */; };
 		217182F7243E2835004B5E5A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F6243E2835004B5E5A /* SearchViewController.swift */; };
@@ -42,7 +42,7 @@
 		215F3A1F244DD3E400C6270A /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		215FA06E24506C440079300A /* TimeTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeTable.storyboard; sourceTree = "<group>"; };
 		215FA07024506C870079300A /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
-		215FA0722450CA4B0079300A /* CustomCellFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellFlowLayout.swift; sourceTree = "<group>"; };
+		215FA0722450CA4B0079300A /* CustomCellCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellCreator.swift; sourceTree = "<group>"; };
 		217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		217182F4243E27E1004B5E5A /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		217182F6243E2835004B5E5A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 			children = (
 				215F3A17244D44F600C6270A /* DefaultSearchCandidates.json */,
 				217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */,
-				215FA0722450CA4B0079300A /* CustomCellFlowLayout.swift */,
+				215FA0722450CA4B0079300A /* CustomCellCreator.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -225,7 +225,7 @@
 				217182F7243E2835004B5E5A /* SearchViewController.swift in Sources */,
 				215F3A20244DD3E400C6270A /* SearchResultViewController.swift in Sources */,
 				217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */,
-				215FA0732450CA4B0079300A /* CustomCellFlowLayout.swift in Sources */,
+				215FA0732450CA4B0079300A /* CustomCellCreator.swift in Sources */,
 				214F5F8E243C96670061FC45 /* AppDelegate.swift in Sources */,
 				215FA07124506C870079300A /* TimeTableViewController.swift in Sources */,
 				215F3A1A244DA25100C6270A /* DefaultSearchCandidates.swift in Sources */,
