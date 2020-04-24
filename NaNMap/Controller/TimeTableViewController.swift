@@ -50,14 +50,10 @@ extension TimeTableViewController: UICollectionViewDataSource {
         let label = cell.contentView.viewWithTag(1) as! UILabel
         label.text = "1"
         label.textColor = .black
-        print(label.frame.width)
         label.textAlignment = .center
         label.backgroundColor = .white
         label.center.x = cell.frame.width/2.0
         label.center.y = cell.frame.height/2.0
-        //label.layer.position = CGPoint(x: cell.center.x, y: cell.center.y)
-        //label.textAlignment = .center
-        //label.center = cell.center
         return cell
     }
 }
@@ -66,11 +62,15 @@ extension TimeTableViewController: UICollectionViewDataSource {
 extension TimeTableViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        customCellFlowLayout.customizeCellSize(indexPath: indexPath, collectionView: collectionView)
+        return customCellFlowLayout.cellSize!
+        /*
         let viewWidth = collectionView.frame.width
         let viewHeight = collectionView.frame.height
         let customizedCell = customCellFlowLayout.customizeCell(indexPath: indexPath, viewWidth: viewWidth, viewHeight: viewHeight)
         let width = customizedCell.0
         let height = customizedCell.1
         return CGSize(width: width, height: height)
+ */
     }
 }
