@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SearchView: class {
+    func loadDefaultSearchCandidates()
+    func setUpDefaultTableView()
+}
 
 final class SearchViewController: UIViewController {
     
@@ -23,11 +27,25 @@ final class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //presenter = SearchViewPresenter(view: self, JSONParser: DefaultSearchJSONParser())
+        presenter = SearchViewPresenter(view: self)
         tableView.dataSource = self
         tableView.delegate = self
-        setUpPresenter()
-        setUpDefaultCellList()
+        loadDefaultSearchCandidates()
+        //setUpPresenter()
+        setUpDefaultTableView()
         setUpNavigationBar()
+    }
+}
+
+extension SearchViewController: SearchView {
+    
+    func loadDefaultSearchCandidates() {
+        presenter.loadDefaultSearchCandidates()
+    }
+    
+    func setUpDefaultTableView() {
+        presenter.setUpDefaultCellList()
     }
 }
 
@@ -35,16 +53,16 @@ final class SearchViewController: UIViewController {
 private extension SearchViewController {
     
     func setUpPresenter() {
-        presenter = SearchViewPresenter(view: self, JSONParser: DefaultSearchJSONParser())
-        presenter.loadDefaultSearchCandidates()
+        
+        //presenter.loadDefaultSearchCandidates()
     }
-    
+    /*
     func setUpDefaultCellList() {
         let sectionIndex = 0
         for row in defaultSearchCandidates!.section[sectionIndex].row {
             defaultCellList.append(row.title)
         }
-    }
+    }*/
     
     func setUpNavigationBar() {
         navigationItem.hidesBackButton = true
@@ -73,7 +91,7 @@ private extension SearchViewController {
 
 
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
-    
+    /*
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return defaultCellList.count
     }
@@ -89,13 +107,25 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         let searchResultViewController = SearchResultViewController.instantinate()
         searchResultViewController.buildingList = createResultPageInfo()
         navigationController?.pushViewController(searchResultViewController, animated: true)
+    }*/
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.numberOfDefaultCellList
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath)
+        cell.accessoryType = .disclosureIndicator
+        cell.textLabel?.text = presenter.defaultCell(at: indexPath.row)
+        return cell
     }
 }
 
-
+/*
 extension SearchViewController: SearchView {
     
     func fetchDefaultSearchCandidates(fetchResult: DefaultSearchCandidates) {
         defaultSearchCandidates = fetchResult
     }
 }
+ */
