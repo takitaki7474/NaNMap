@@ -59,6 +59,12 @@ extension SearchResultViewController: UITableViewDataSource, UITableViewDelegate
         mapViewController.annotation = annotation
         navigationController?.popToRootViewController(animated: true)
     }
+ /*
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        navigationController?.popToRootViewController(animated: true)
+    }
+ */
 }
 
 
