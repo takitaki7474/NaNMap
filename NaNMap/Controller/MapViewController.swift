@@ -9,6 +9,10 @@
 import UIKit
 import MapKit
 
+protocol MapView: class {
+    func initMapView()
+    func reloadRegion(at region: MKCoordinateRegion)
+}
 
 struct Annotation {
     let title: String?
@@ -20,6 +24,7 @@ final class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     var searchBar: UISearchBar!
+    var presenter: MapViewPresenter!
     var annotation: Annotation? {
         didSet {
             addPin(with: annotation!)
@@ -28,6 +33,7 @@ final class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter = MapViewPresenter(view: self)
         setUpNavigationBar()
         setUpTabBar()
         initMapView()
@@ -40,7 +46,7 @@ final class MapViewController: UIViewController {
 }
 
 
-private extension MapViewController {
+extension MapViewController: MapView {
 
     func setUpNavigationBar() {
         navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 85,green: 104,blue: 211)
@@ -61,7 +67,7 @@ private extension MapViewController {
         timeTableNavigationController.tabBarItem = UITabBarItem(title: "時間割", image: nil, selectedImage: nil)
         tabBarController?.viewControllers?.append(timeTableNavigationController)
     }
-    
+/*
     func initMapView(){
         let centerLatitude: CLLocationDegrees = 35.149405
         let centerLongitude: CLLocationDegrees = 136.962477
@@ -70,10 +76,14 @@ private extension MapViewController {
         let region = MKCoordinateRegion(center: center, span: span)
         mapView.region = region
     }
-}
-
-
-private extension MapViewController {
+*/
+    func initMapView() {
+        presenter.setUpMapRegion()
+    }
+    
+    func reloadRegion(at region: MKCoordinateRegion) {
+        mapView.region = region
+    }
     
     func addPin(with annotation: Annotation) {
         let point = MKPointAnnotation()

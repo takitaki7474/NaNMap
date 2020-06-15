@@ -60,7 +60,7 @@ private extension TimeTableViewController {
         })
         alert.addAction(defaultAction)
         alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: true)
     }
 }
 
