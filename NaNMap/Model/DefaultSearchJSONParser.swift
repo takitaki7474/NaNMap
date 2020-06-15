@@ -8,6 +8,9 @@
 
 import Foundation
 
+protocol DefaultSearchJSONParserProtocol {
+    func parse() -> DefaultSearchCandidates?
+}
 
 struct DefaultSearchJSONParser: DefaultSearchJSONParserProtocol {
     
@@ -28,7 +31,3 @@ struct DefaultSearchJSONParser: DefaultSearchJSONParserProtocol {
     }
 }
 
-
-protocol DefaultSearchJSONParserProtocol {
-    func parse() -> DefaultSearchCandidates?
-}
