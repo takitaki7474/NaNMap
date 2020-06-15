@@ -24,6 +24,8 @@
 		217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */; };
 		217182F5243E27E1004B5E5A /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217182F4243E27E1004B5E5A /* Search.storyboard */; };
 		217182F7243E2835004B5E5A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F6243E2835004B5E5A /* SearchViewController.swift */; };
+		21FA66782497528900961EA0 /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA66772497528900961EA0 /* MapViewPresenter.swift */; };
+		21FA667A2497907200961EA0 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA66792497907200961EA0 /* MapModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		217182F4243E27E1004B5E5A /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		217182F6243E2835004B5E5A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		21FA66772497528900961EA0 /* MapViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
+		21FA66792497907200961EA0 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,7 @@
 		214F5FA4243C9B540061FC45 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				21FA66772497528900961EA0 /* MapViewPresenter.swift */,
 				215F3A1D244DB68F00C6270A /* SearchViewPresenter.swift */,
 			);
 			path = Presenter;
@@ -125,6 +130,7 @@
 		214F5FA5243C9B680061FC45 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				21FA66792497907200961EA0 /* MapModel.swift */,
 				215F3A1B244DA91000C6270A /* DefaultSearchJSONParser.swift */,
 				214F5FA6243C9B730061FC45 /* Entity */,
 			);
@@ -223,11 +229,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				217182F7243E2835004B5E5A /* SearchViewController.swift in Sources */,
+				21FA667A2497907200961EA0 /* MapModel.swift in Sources */,
 				215F3A20244DD3E400C6270A /* SearchResultViewController.swift in Sources */,
 				217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */,
 				215FA0732450CA4B0079300A /* CustomCellCreator.swift in Sources */,
 				214F5F8E243C96670061FC45 /* AppDelegate.swift in Sources */,
 				215FA07124506C870079300A /* TimeTableViewController.swift in Sources */,
+				21FA66782497528900961EA0 /* MapViewPresenter.swift in Sources */,
 				215F3A1A244DA25100C6270A /* DefaultSearchCandidates.swift in Sources */,
 				214F5F90243C96670061FC45 /* SceneDelegate.swift in Sources */,
 				215F3A1E244DB68F00C6270A /* SearchViewPresenter.swift in Sources */,
