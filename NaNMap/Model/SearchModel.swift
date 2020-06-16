@@ -11,7 +11,9 @@ final class SearchModel {
     
     private var data: Data?
     var defaultSearchInfo: DefaultSearchInfo?
-    var defaultSearchList = [String]()
+    var defaultSearchTitleList = [String]()
+    var defaultSearchResult: [BuildingInfo]?
+    var defaultSearchBuildingList = [String]()
     
     init() {
         let path = Bundle.main.path(forResource: "DefaultSearchInfo", ofType: "json")
@@ -25,17 +27,23 @@ final class SearchModel {
             return
         }
         self.defaultSearchInfo = defaultSearchInfo
-    }
-    
-    func setUpDefaultSearchList() {
+        
         let sectionIndex = 0
-        for row in defaultSearchInfo!.section[sectionIndex].row {
-          defaultSearchList.append(row.title)
+        for row in defaultSearchInfo.section[sectionIndex].row {
+          defaultSearchTitleList.append(row.title)
         }
     }
+    /*
+    func loadDefaultSearchTitleList() {
+        let sectionIndex = 0
+        for row in defaultSearchInfo!.section[sectionIndex].row {
+          defaultSearchTitleList.append(row.title)
+        }
+    }*/
     
-    func makeDefaultBuildingInfo() {
-        
+    func loadDefaultSearchResult(at index: Int) {
+        defaultSearchResult = defaultSearchInfo!.section[0].row[index].nextPage
     }
+    
     
 }

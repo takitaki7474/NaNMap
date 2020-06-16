@@ -8,6 +8,9 @@
 
 import UIKit
 
+protocol SearchResultView: class {
+    
+}
 
 class SearchResultViewController: UIViewController {
     
