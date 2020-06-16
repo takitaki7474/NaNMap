@@ -9,6 +9,16 @@
 import Foundation
 
 final class SearchResultViewPresenter {
+    var model = SearchModel()
+    
+    var numberOfDefaultSearchBuildingList: Int {
+        return model.defaultSearchBuildingList.count
+    }
+    
+    func defaultSearchBuildingList(at index: Int) -> String {
+        return model.defaultSearchBuildingList[index]
+    }
+
     
 }
 

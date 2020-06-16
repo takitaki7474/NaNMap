@@ -15,7 +15,6 @@
 		214F5FA8243CB5A90061FC45 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214F5FA7243CB5A90061FC45 /* MapViewController.swift */; };
 		215F3A18244D44F600C6270A /* DefaultSearchInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 215F3A17244D44F600C6270A /* DefaultSearchInfo.json */; };
 		215F3A1A244DA25100C6270A /* DefaultSearchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F3A19244DA25100C6270A /* DefaultSearchInfo.swift */; };
-		215F3A1C244DA91000C6270A /* DefaultSearchJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F3A1B244DA91000C6270A /* DefaultSearchJSONParser.swift */; };
 		215F3A1E244DB68F00C6270A /* SearchViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F3A1D244DB68F00C6270A /* SearchViewPresenter.swift */; };
 		215F3A20244DD3E400C6270A /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F3A1F244DD3E400C6270A /* SearchResultViewController.swift */; };
 		215FA06F24506C440079300A /* TimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 215FA06E24506C440079300A /* TimeTable.storyboard */; };
@@ -41,7 +40,6 @@
 		214F5FA7243CB5A90061FC45 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		215F3A17244D44F600C6270A /* DefaultSearchInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DefaultSearchInfo.json; sourceTree = "<group>"; };
 		215F3A19244DA25100C6270A /* DefaultSearchInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSearchInfo.swift; sourceTree = "<group>"; };
-		215F3A1B244DA91000C6270A /* DefaultSearchJSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSearchJSONParser.swift; sourceTree = "<group>"; };
 		215F3A1D244DB68F00C6270A /* SearchViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewPresenter.swift; sourceTree = "<group>"; };
 		215F3A1F244DD3E400C6270A /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		215FA06E24506C440079300A /* TimeTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeTable.storyboard; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 			children = (
 				21FA66792497907200961EA0 /* MapModel.swift */,
 				21FA667D2497D38B00961EA0 /* SearchModel.swift */,
-				215F3A1B244DA91000C6270A /* DefaultSearchJSONParser.swift */,
 				214F5FA6243C9B730061FC45 /* Entity */,
 			);
 			path = Model;
@@ -248,7 +245,6 @@
 				214F5F90243C96670061FC45 /* SceneDelegate.swift in Sources */,
 				215F3A1E244DB68F00C6270A /* SearchViewPresenter.swift in Sources */,
 				214F5FA8243CB5A90061FC45 /* MapViewController.swift in Sources */,
-				215F3A1C244DA91000C6270A /* DefaultSearchJSONParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

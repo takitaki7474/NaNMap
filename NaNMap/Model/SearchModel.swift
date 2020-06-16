@@ -33,17 +33,13 @@ final class SearchModel {
           defaultSearchTitleList.append(row.title)
         }
     }
-    /*
-    func loadDefaultSearchTitleList() {
-        let sectionIndex = 0
-        for row in defaultSearchInfo!.section[sectionIndex].row {
-          defaultSearchTitleList.append(row.title)
-        }
-    }*/
     
     func loadDefaultSearchResult(at index: Int) {
         defaultSearchResult = defaultSearchInfo!.section[0].row[index].nextPage
+        
+        for buildingInfo in defaultSearchResult! {
+            defaultSearchBuildingList.append(buildingInfo.building)
+        }
     }
-    
     
 }

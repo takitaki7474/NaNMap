@@ -32,25 +32,16 @@ final class SearchViewPresenter {
  */
 
 final class SearchViewPresenter {
-    weak var view: SearchView?
     var model = SearchModel()
     
     var numberOfDefaultSearchTitleList: Int {
         return model.defaultSearchTitleList.count
     }
     
-    init(view: SearchView) {
-        self.view = view
-    }
-    
     func loadDefaultSearchInfo() {
         model.loadDefaultSearchInfo()
     }
-    /*
-    func loadDefaultSearchTitleList() {
-        model.loadDefaultSearchTitleList()
-    }
-    */
+
     func defaultSearchTitleList(at index: Int) -> String {
         return model.defaultSearchTitleList[index]
     }

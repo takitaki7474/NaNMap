@@ -8,16 +8,11 @@
 
 import UIKit
 
-protocol SearchView: class {
-    func setUpDefaultTableView()
-}
-
 final class SearchViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var searchBar: UISearchBar!
     var defaultCellList = [String]()
-    //var defaultSearchCandidates: DefaultSearchCandidates?
     private var presenter: SearchViewPresenter!
     
     static func instantinate() -> SearchViewController {
@@ -26,40 +21,24 @@ final class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //presenter = SearchViewPresenter(view: self, JSONParser: DefaultSearchJSONParser())
-        presenter = SearchViewPresenter(view: self)
+        presenter = SearchViewPresenter()
         tableView.dataSource = self
         tableView.delegate = self
-        //loadDefaultSearchCandidates()
-        //setUpPresenter()
         setUpDefaultTableView()
         setUpNavigationBar()
     }
 }
 
-extension SearchViewController: SearchView {
+extension SearchViewController {
     
     func setUpDefaultTableView() {
         presenter.loadDefaultSearchInfo()
-        //presenter.loadDefaultSearchTitleList()
     }
 
 }
 
 
 private extension SearchViewController {
-    
-    func setUpPresenter() {
-        
-        //presenter.loadDefaultSearchCandidates()
-    }
-    /*
-    func setUpDefaultCellList() {
-        let sectionIndex = 0
-        for row in defaultSearchCandidates!.section[sectionIndex].row {
-            defaultCellList.append(row.title)
-        }
-    }*/
     
     func setUpNavigationBar() {
         navigationItem.hidesBackButton = true
@@ -74,17 +53,6 @@ private extension SearchViewController {
         searchBar.becomeFirstResponder()
         navigationItem.titleView = searchBar
     }
-}
-
-
-private extension SearchViewController {
-    /*
-    func createResultPageInfo() -> [BuildingInfo] {
-        var resultPageInfo: [BuildingInfo]
-        resultPageInfo = defaultSearchCandidates!.section[0].row[0].nextPage
-        return resultPageInfo
-    }
- */
 }
 
 
@@ -119,8 +87,8 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let searchResultViewController = SearchResultViewController.instantinate()
         presenter.loadDefaultSearchResult(at: indexPath.row)
+        let searchResultViewController = SearchResultViewController.instantinate()
         navigationController?.pushViewController(searchResultViewController, animated: true)
     }
 }
