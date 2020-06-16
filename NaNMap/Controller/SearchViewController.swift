@@ -18,7 +18,7 @@ final class SearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var searchBar: UISearchBar!
     var defaultCellList = [String]()
-    var defaultSearchCandidates: DefaultSearchCandidates?
+    //var defaultSearchCandidates: DefaultSearchCandidates?
     private var presenter: SearchViewPresenter!
     
     static func instantinate() -> SearchViewController {
@@ -41,7 +41,7 @@ final class SearchViewController: UIViewController {
 extension SearchViewController: SearchView {
     
     func loadDefaultSearchCandidates() {
-        presenter.loadDefaultSearchCandidates()
+        presenter.loadDefaultSearchInfo()
     }
     
     func setUpDefaultTableView() {
@@ -81,12 +81,13 @@ private extension SearchViewController {
 
 
 private extension SearchViewController {
-    
+    /*
     func createResultPageInfo() -> [BuildingInfo] {
         var resultPageInfo: [BuildingInfo]
         resultPageInfo = defaultSearchCandidates!.section[0].row[0].nextPage
         return resultPageInfo
     }
+ */
 }
 
 

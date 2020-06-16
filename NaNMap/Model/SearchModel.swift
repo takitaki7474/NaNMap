@@ -10,31 +10,31 @@ import Foundation
 final class SearchModel {
     
     private var data: Data?
-    var defaultSearchCandidates: DefaultSearchCandidates?
+    var defaultSearchInfo: DefaultSearchInfo?
     var defaultSearchList = [String]()
     
     init() {
-        let path = Bundle.main.path(forResource: "DefaultSearchCandidates", ofType: "json")
+        let path = Bundle.main.path(forResource: "DefaultSearchInfo", ofType: "json")
         let url = URL(fileURLWithPath: path!)
         self.data = try? Data(contentsOf: url)
     }
     
-    func loadDefaultSearchCandidates() {
+    func loadDefaultSearchInfo() {
         let decoder = JSONDecoder()
-        guard let defaultSearchCandidates = try? decoder.decode(DefaultSearchCandidates.self, from: self.data!) else {
+        guard let defaultSearchInfo = try? decoder.decode(DefaultSearchInfo.self, from: self.data!) else {
             return
         }
-        self.defaultSearchCandidates = defaultSearchCandidates
+        self.defaultSearchInfo = defaultSearchInfo
     }
     
     func setUpDefaultSearchList() {
         let sectionIndex = 0
-        for row in defaultSearchCandidates!.section[sectionIndex].row {
+        for row in defaultSearchInfo!.section[sectionIndex].row {
           defaultSearchList.append(row.title)
         }
     }
     
-    func makeDefaultSearchBuildingInfo() {
+    func makeDefaultBuildingInfo() {
         
     }
     

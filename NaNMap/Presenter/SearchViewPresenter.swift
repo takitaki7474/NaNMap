@@ -43,8 +43,8 @@ final class SearchViewPresenter {
         self.view = view
     }
     
-    func loadDefaultSearchCandidates() {
-        model.loadDefaultSearchCandidates()
+    func loadDefaultSearchInfo() {
+        model.loadDefaultSearchInfo()
     }
     
     func setUpDefaultSearchList() {

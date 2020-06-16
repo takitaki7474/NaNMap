@@ -6,6 +6,7 @@
 //  Copyright © 2020 ryunosuke ota. All rights reserved.
 //
 
+/*
 import Foundation
 
 protocol DefaultSearchJSONParserProtocol {
@@ -30,4 +31,4 @@ struct DefaultSearchJSONParser: DefaultSearchJSONParserProtocol {
         return defaultSearchCandidates
     }
 }
-
+*/
