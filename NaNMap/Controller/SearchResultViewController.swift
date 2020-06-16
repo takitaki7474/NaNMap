@@ -8,10 +8,10 @@
 
 import UIKit
 
-
 class SearchResultViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    private var presenter: SearchResultViewPresenter!
     var buildingList: [BuildingInfo]?
     var cellList = [String]()
     
@@ -21,35 +21,24 @@ class SearchResultViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter = SearchResultViewPresenter()
         tableView.dataSource = self
         tableView.delegate = self
-        createCellList()
     }
 }
-
-
-private extension SearchResultViewController {
-    
-    func createCellList() {
-        for buildingInfo in buildingList! {
-            cellList.append(buildingInfo.building)
-        }
-    }
-}
-
 
 extension SearchResultViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellList.count
+        return presenter.numberOfDefaultSearchBuildingList
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "defaultResultCell", for: indexPath)
-        cell.textLabel?.text = cellList[indexPath.row]
+        cell.textLabel?.text = presenter.defaultSearchBuildingList(at: indexPath.row)
         return cell
     }
-    
+    /*
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let mapViewController = navigationController?.viewControllers[0] as! MapViewController
         let title = buildingList![indexPath.row].building
@@ -59,6 +48,14 @@ extension SearchResultViewController: UITableViewDataSource, UITableViewDelegate
         mapViewController.annotation = annotation
         navigationController?.popToRootViewController(animated: true)
     }
+ */
+    
+ /*
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        navigationController?.popToRootViewController(animated: true)
+    }
+ */
 }
 
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+/*
 protocol SearchView {
     func fetchDefaultSearchCandidates(fetchResult: DefaultSearchCandidates)
 }
@@ -28,4 +28,26 @@ final class SearchViewPresenter {
         let defaultSearchCandidates = self.JSONParser.parse()
         self.view.fetchDefaultSearchCandidates(fetchResult: defaultSearchCandidates!)
     }
+}
+ */
+
+final class SearchViewPresenter {
+    var model = SearchModel()
+    
+    var numberOfDefaultSearchTitleList: Int {
+        return model.defaultSearchTitleList.count
+    }
+    
+    func loadDefaultSearchInfo() {
+        model.loadDefaultSearchInfo()
+    }
+
+    func defaultSearchTitleList(at index: Int) -> String {
+        return model.defaultSearchTitleList[index]
+    }
+    
+    func loadDefaultSearchResult(at index: Int) {
+        model.loadDefaultSearchResult(at: index)
+    }
+    
 }
