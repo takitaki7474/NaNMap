@@ -35,8 +35,8 @@ final class SearchViewPresenter {
     weak var view: SearchView?
     var model = SearchModel()
     
-    var numberOfDefaultCellList: Int {
-        return model.defaultCellList.count
+    var numberOfDefaultSearchList: Int {
+        return model.defaultSearchList.count
     }
     
     init(view: SearchView) {
@@ -47,12 +47,12 @@ final class SearchViewPresenter {
         model.loadDefaultSearchCandidates()
     }
     
-    func setUpDefaultCellList() {
-        model.setUpDefaultCellList()
+    func setUpDefaultSearchList() {
+        model.setUpDefaultSearchList()
     }
     
-    func defaultCell(at index: Int) -> String {
-        return model.defaultCellList[index]
+    func defaultSearchList(at index: Int) -> String {
+        return model.defaultSearchList[index]
     }
     
 }

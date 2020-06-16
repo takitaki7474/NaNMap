@@ -45,7 +45,7 @@ extension SearchViewController: SearchView {
     }
     
     func setUpDefaultTableView() {
-        presenter.setUpDefaultCellList()
+        presenter.setUpDefaultSearchList()
     }
 }
 
@@ -110,13 +110,13 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     }*/
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.numberOfDefaultCellList
+        return presenter.numberOfDefaultSearchList
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath)
         cell.accessoryType = .disclosureIndicator
-        cell.textLabel?.text = presenter.defaultCell(at: indexPath.row)
+        cell.textLabel?.text = presenter.defaultSearchList(at: indexPath.row)
         return cell
     }
 }

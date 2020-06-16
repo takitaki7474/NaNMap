@@ -11,7 +11,7 @@ final class SearchModel {
     
     private var data: Data?
     var defaultSearchCandidates: DefaultSearchCandidates?
-    var defaultCellList = [String]()
+    var defaultSearchList = [String]()
     
     init() {
         let path = Bundle.main.path(forResource: "DefaultSearchCandidates", ofType: "json")
@@ -27,11 +27,15 @@ final class SearchModel {
         self.defaultSearchCandidates = defaultSearchCandidates
     }
     
-    func setUpDefaultCellList() {
+    func setUpDefaultSearchList() {
         let sectionIndex = 0
         for row in defaultSearchCandidates!.section[sectionIndex].row {
-          defaultCellList.append(row.title)
+          defaultSearchList.append(row.title)
         }
+    }
+    
+    func makeDefaultSearchBuildingInfo() {
+        
     }
     
 }
