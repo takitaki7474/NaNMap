@@ -7,7 +7,11 @@
 //
 import MapKit
 
-final class MapViewPresenter {
+protocol MapPresenter {
+    func setUpMapRegion()
+}
+
+final class MapViewPresenter: MapPresenter {
     weak var view: MapView?
     private let model = MapModel()
     

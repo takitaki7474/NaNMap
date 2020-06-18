@@ -30,8 +30,16 @@ final class SearchViewPresenter {
     }
 }
  */
+protocol SearchPresenter {
+    var numberOfDefaultSearchTitleList: Int { get }
+    var numberOfDefaultSearchBuildingList: Int { get }
+    func setUpDefaultSearchResult(at index: Int)
+    func setUpDefaultSearchInfo()
+    func loadDefaultSearchTitleList(at index: Int) -> String
+    func loadDefaultSearchBuildingList(at index: Int) -> String
+}
 
-final class SearchViewPresenter {
+final class SearchViewPresenter: SearchPresenter {
     var model = SearchModel()
     
     var numberOfDefaultSearchTitleList: Int {

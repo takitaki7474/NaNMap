@@ -13,12 +13,12 @@ final class SearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var searchBar: UISearchBar!
     var defaultCellList = [String]()
-    private var mapViewPresenter: MapViewPresenter!
-    private var searchViewPresenter: SearchViewPresenter!
+    private var mapPresenter: MapPresenter!
+    private var searchPresenter: SearchPresenter!
     
-    static func instantinate(mapViewPresenter: MapViewPresenter) -> SearchViewController {
+    static func instantinate(mapPresenter: MapPresenter) -> SearchViewController {
         let controller = UIStoryboard(name: "Search", bundle: nil).instantiateInitialViewController() as! SearchViewController
-        controller.mapViewPresenter = mapViewPresenter
+        controller.mapPresenter = mapPresenter
         return controller
     }
 
@@ -26,7 +26,7 @@ final class SearchViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        searchViewPresenter = SearchViewPresenter()
+        searchPresenter = SearchViewPresenter()
         setUpDefaultTableView()
         setUpNavigationBar()
     }
@@ -36,7 +36,7 @@ final class SearchViewController: UIViewController {
 extension SearchViewController {
     
     func setUpDefaultTableView() {
-        searchViewPresenter.setUpDefaultSearchInfo()
+        searchPresenter.setUpDefaultSearchInfo()
     }
     
     func setUpNavigationBar() {
@@ -75,19 +75,19 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     }*/
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchViewPresenter.numberOfDefaultSearchTitleList
+        return searchPresenter.numberOfDefaultSearchTitleList
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath)
         cell.accessoryType = .disclosureIndicator
-        cell.textLabel?.text = searchViewPresenter.loadDefaultSearchTitleList(at: indexPath.row)
+        cell.textLabel?.text = searchPresenter.loadDefaultSearchTitleList(at: indexPath.row)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        searchViewPresenter.setUpDefaultSearchResult(at: indexPath.row)
-        let vc = DefaultSearchResultViewController.instantinate(searchViewPresenter: searchViewPresenter)
+        searchPresenter.setUpDefaultSearchResult(at: indexPath.row)
+        let vc = DefaultSearchResultViewController.instantinate(searchPresenter: searchPresenter)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

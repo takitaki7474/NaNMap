@@ -11,13 +11,13 @@ import UIKit
 class DefaultSearchResultViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    private var presenter: SearchViewPresenter!
+    private var presenter: SearchPresenter!
     var buildingList: [BuildingInfo]?
     var cellList = [String]()
     
-    static func instantinate(searchViewPresenter: SearchViewPresenter) -> DefaultSearchResultViewController {
+    static func instantinate(searchPresenter: SearchPresenter) -> DefaultSearchResultViewController {
         let controller = UIStoryboard(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "defaultSearchResultViewController") as! DefaultSearchResultViewController
-        controller.presenter = searchViewPresenter
+        controller.presenter = searchPresenter
         return controller
      }
 

@@ -23,7 +23,7 @@ final class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     var searchBar: UISearchBar!
-    var presenter: MapViewPresenter!
+    var presenter: MapPresenter!
     var annotation: Annotation? {
         didSet {
             //addPin(with: annotation!)
@@ -94,7 +94,7 @@ extension MapViewController: MapView {
 extension MapViewController: UISearchBarDelegate {
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        let vc = SearchViewController.instantinate(mapViewPresenter: presenter)
+        let vc = SearchViewController.instantinate(mapPresenter: presenter)
         navigationController?.pushViewController(vc, animated: false)
         return true
     }
