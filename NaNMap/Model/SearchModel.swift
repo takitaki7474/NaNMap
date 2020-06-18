@@ -5,10 +5,10 @@
 //  Created by 太田龍之介 on 2020/06/16.
 //  Copyright © 2020 ryunosuke ota. All rights reserved.
 //
+
 import Foundation
 
 final class SearchModel {
-    
     private var data: Data?
     var defaultSearchInfo: DefaultSearchInfo?
     var defaultSearchTitleList = [String]()
@@ -30,17 +30,15 @@ final class SearchModel {
         
         let sectionIndex = 0
         for row in defaultSearchInfo.section[sectionIndex].row {
-          defaultSearchTitleList.append(row.title)
+            self.defaultSearchTitleList.append(row.title)
         }
     }
     
     func setUpDefaultSearchResult(at index: Int) {
-        defaultBuildingInfo = defaultSearchInfo!.section[0].row[index].nextPage
-        defaultBuildingList = []
-        
+        self.defaultBuildingInfo = defaultSearchInfo!.section[0].row[index].nextPage
+        self.defaultBuildingList = []
         for buildingInfo in defaultBuildingInfo! {
-            defaultBuildingList.append(buildingInfo.building)
+            self.defaultBuildingList.append(buildingInfo.building)
         }
     }
-    
 }

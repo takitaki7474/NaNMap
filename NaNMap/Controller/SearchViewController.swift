@@ -9,7 +9,6 @@
 import UIKit
 
 final class SearchViewController: UIViewController {
-    
     @IBOutlet weak var tableView: UITableView!
     var searchBar: UISearchBar!
     var defaultCellList = [String]()
@@ -32,9 +31,7 @@ final class SearchViewController: UIViewController {
     }
 }
 
-
 extension SearchViewController {
-    
     func setUpDefaultTableView() {
         searchPresenter.setUpDefaultSearchInfo()
     }
@@ -54,26 +51,7 @@ extension SearchViewController {
     }
 }
 
-
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
-    /*
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return defaultCellList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath)
-        cell.accessoryType = .disclosureIndicator
-        cell.textLabel?.text = defaultCellList[indexPath.row]
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let searchResultViewController = SearchResultViewController.instantinate()
-        searchResultViewController.buildingList = createResultPageInfo()
-        navigationController?.pushViewController(searchResultViewController, animated: true)
-    }*/
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchPresenter.numberOfDefaultSearchTitleList
     }
@@ -91,12 +69,3 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         navigationController?.pushViewController(vc, animated: true)
     }
 }
-
-/*
-extension SearchViewController: SearchView {
-    
-    func fetchDefaultSearchCandidates(fetchResult: DefaultSearchCandidates) {
-        defaultSearchCandidates = fetchResult
-    }
-}
- */

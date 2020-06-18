@@ -5,6 +5,7 @@
 //  Created by 太田龍之介 on 2020/06/15.
 //  Copyright © 2020 ryunosuke ota. All rights reserved.
 //
+
 import MapKit
 
 protocol MapPresenter {
@@ -34,7 +35,6 @@ final class MapViewPresenter: MapPresenter {
 }
 
 extension MapViewPresenter: MapModelDelegate {
-    
     func reloadRegion(at region: MKCoordinateRegion) {
         view?.reloadRegion(at: region)
     }

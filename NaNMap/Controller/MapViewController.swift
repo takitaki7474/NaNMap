@@ -15,16 +15,9 @@ protocol MapView: class {
 }
 
 final class MapViewController: UIViewController {
-    
     @IBOutlet var mapView: MKMapView!
     var searchBar: UISearchBar!
     var presenter: MapPresenter!
-    /*
-    var annotation: Annotation? {
-        didSet {
-            addPin(with: annotation!)
-        }
-    }*/
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +33,7 @@ final class MapViewController: UIViewController {
     }
 }
 
-
 extension MapViewController {
-    
     func initMapView() {
         presenter.setUpMapRegion()
     }
@@ -61,16 +52,14 @@ extension MapViewController {
     }
     
     func setUpTabBar() {
-        let timeTableViewController = TimeTableViewController.instantinate()
-        let timeTableNavigationController = UINavigationController(rootViewController: timeTableViewController)
-        timeTableNavigationController.tabBarItem = UITabBarItem(title: "時間割", image: nil, selectedImage: nil)
-        tabBarController?.viewControllers?.append(timeTableNavigationController)
+        let vc = TimeTableViewController.instantinate()
+        let nc = UINavigationController(rootViewController: vc)
+        nc.tabBarItem = UITabBarItem(title: "時間割", image: nil, selectedImage: nil)
+        tabBarController?.viewControllers?.append(nc)
     }
-    
 }
     
 extension MapViewController: MapView {
-    
     func reloadRegion(at region: MKCoordinateRegion) {
         mapView.region = region
     }
@@ -78,21 +67,9 @@ extension MapViewController: MapView {
     func addPin(with pin: MKPointAnnotation) {
         mapView.addAnnotation(pin)
     }
-    /*
-    func addPin(with annotation: Annotation) {
-        let point = MKPointAnnotation()
-        let longitude = annotation.coordinate?.0
-        let latitude = annotation.coordinate?.1
-        point.coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
-        point.title = annotation.title
-        mapView.addAnnotation(point)
-    }
- */
 }
 
-
 extension MapViewController: UISearchBarDelegate {
-    
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         let vc = SearchViewController.instantinate(mapPresenter: presenter)
         navigationController?.pushViewController(vc, animated: false)
@@ -100,9 +77,7 @@ extension MapViewController: UISearchBarDelegate {
     }
 }
 
-
 extension UINavigationController {
-    
     open override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }

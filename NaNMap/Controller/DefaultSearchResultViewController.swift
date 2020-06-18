@@ -9,7 +9,6 @@
 import UIKit
 
 class DefaultSearchResultViewController: UIViewController {
-    
     @IBOutlet weak var tableView: UITableView!
     private var presenter: SearchPresenter!
     var buildingList: [BuildingInfo]?
@@ -29,7 +28,6 @@ class DefaultSearchResultViewController: UIViewController {
 }
 
 extension DefaultSearchResultViewController: UITableViewDataSource, UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.numberOfDefaultBuildingList
     }
@@ -44,24 +42,6 @@ extension DefaultSearchResultViewController: UITableViewDataSource, UITableViewD
         presenter.tapDefaultBuildingCell(at: indexPath.row)
         navigationController?.popToRootViewController(animated: true)
     }
-    /*
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let mapViewController = navigationController?.viewControllers[0] as! MapViewController
-        let title = buildingList![indexPath.row].building
-        let longitude = buildingList![indexPath.row].coordinate.longitude
-        let latitude = buildingList![indexPath.row].coordinate.latitude
-        let annotation = Annotation(title: title, coordinate: (longitude: longitude, latitude: latitude))
-        mapViewController.annotation = annotation
-        navigationController?.popToRootViewController(animated: true)
-    }
- */
-    
- /*
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        navigationController?.popToRootViewController(animated: true)
-    }
- */
 }
 
 

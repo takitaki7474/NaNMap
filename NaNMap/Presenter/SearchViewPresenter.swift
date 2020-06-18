@@ -6,30 +6,6 @@
 //  Copyright © 2020 ryunosuke ota. All rights reserved.
 //
 
-import Foundation
-
-/*
-protocol SearchView {
-    func fetchDefaultSearchCandidates(fetchResult: DefaultSearchCandidates)
-}
-
-
-final class SearchViewPresenter {
-    
-    private let view: SearchView
-    private let JSONParser: DefaultSearchJSONParserProtocol
-    
-    init(view: SearchView, JSONParser: DefaultSearchJSONParserProtocol) {
-        self.view = view
-        self.JSONParser = JSONParser
-    }
-    
-    func loadDefaultSearchCandidates() {
-        let defaultSearchCandidates = self.JSONParser.parse()
-        self.view.fetchDefaultSearchCandidates(fetchResult: defaultSearchCandidates!)
-    }
-}
- */
 protocol SearchPresenter {
     var numberOfDefaultSearchTitleList: Int { get }
     var numberOfDefaultBuildingList: Int { get }
@@ -76,6 +52,4 @@ final class SearchViewPresenter: SearchPresenter {
         let info: [BuildingInfo] = model.defaultBuildingInfo!
         mapPresenter.setPin(with: info, at: index)
     }
-
-    
 }

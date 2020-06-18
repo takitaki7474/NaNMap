@@ -36,19 +36,19 @@ final class MapModel {
         let centerLongitude: CLLocationDegrees = 136.962477
         let center = CLLocationCoordinate2D(latitude: centerLatitude, longitude: centerLongitude)
         let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
-        region = MKCoordinateRegion(center: center, span: span)
+        self.region = MKCoordinateRegion(center: center, span: span)
     }
     
     func setPin(_ title: String, _ coodinate: (Double, Double)) {
-        pin = MKPointAnnotation()
+        self.pin = MKPointAnnotation()
         let annotation = Annotation(title: title, coordinate: coodinate)
         let longitude = annotation.coordinate?.0
         let latitude = annotation.coordinate?.1
-        pin?.coordinate = CLLocationCoordinate2DMake(latitude!, longitude!)
-        pin?.title = annotation.title
+        self.pin?.coordinate = CLLocationCoordinate2DMake(latitude!, longitude!)
+        self.pin?.title = annotation.title
+        
         let center = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
         let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
-        region = MKCoordinateRegion(center: center, span: span)
+        self.region = MKCoordinateRegion(center: center, span: span)
     }
-    
 }
