@@ -6,48 +6,50 @@
 //  Copyright © 2020 ryunosuke ota. All rights reserved.
 //
 
-import Foundation
-
-/*
-protocol SearchView {
-    func fetchDefaultSearchCandidates(fetchResult: DefaultSearchCandidates)
+protocol SearchPresenter {
+    var numberOfDefaultSearchTitleList: Int { get }
+    var numberOfDefaultBuildingList: Int { get }
+    func setUpDefaultSearchResult(at index: Int)
+    func setUpDefaultSearchInfo()
+    func loadDefaultSearchTitleList(at index: Int) -> String
+    func loadDefaultBuildingList(at index: Int) -> String
+    func tapDefaultBuildingCell(at index: Int)
 }
 
-
-final class SearchViewPresenter {
+final class SearchViewPresenter: SearchPresenter {
+    private let model = SearchModel()
+    private let mapPresenter: MapPresenter!
     
-    private let view: SearchView
-    private let JSONParser: DefaultSearchJSONParserProtocol
-    
-    init(view: SearchView, JSONParser: DefaultSearchJSONParserProtocol) {
-        self.view = view
-        self.JSONParser = JSONParser
+    init(mapPresenter: MapPresenter) {
+        self.mapPresenter = mapPresenter
     }
-    
-    func loadDefaultSearchCandidates() {
-        let defaultSearchCandidates = self.JSONParser.parse()
-        self.view.fetchDefaultSearchCandidates(fetchResult: defaultSearchCandidates!)
-    }
-}
- */
-
-final class SearchViewPresenter {
-    var model = SearchModel()
     
     var numberOfDefaultSearchTitleList: Int {
         return model.defaultSearchTitleList.count
     }
     
-    func loadDefaultSearchInfo() {
-        model.loadDefaultSearchInfo()
+    var numberOfDefaultBuildingList: Int {
+        return model.defaultBuildingList.count
+    }
+    
+    func setUpDefaultSearchResult(at index: Int) {
+        model.setUpDefaultSearchResult(at: index)
+    }
+    
+    func setUpDefaultSearchInfo() {
+        model.setUpDefaultSearchInfo()
     }
 
-    func defaultSearchTitleList(at index: Int) -> String {
+    func loadDefaultSearchTitleList(at index: Int) -> String {
         return model.defaultSearchTitleList[index]
     }
     
-    func loadDefaultSearchResult(at index: Int) {
-        model.loadDefaultSearchResult(at: index)
+    func loadDefaultBuildingList(at index: Int) -> String {
+        return model.defaultBuildingList[index]
     }
     
+    func tapDefaultBuildingCell(at index: Int) {
+        let info: [BuildingInfo] = model.defaultBuildingInfo!
+        mapPresenter.setPin(with: info, at: index)
+    }
 }

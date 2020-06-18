@@ -10,33 +10,21 @@ import UIKit
 import MapKit
 
 protocol MapView: class {
-    func initMapView()
     func reloadRegion(at region: MKCoordinateRegion)
+    func addPin(with pin: MKPointAnnotation)
 }
-
-struct Annotation {
-    let title: String?
-    let coordinate: (longitude: Double, latitude: Double)?
-}
-
 
 final class MapViewController: UIViewController {
-    
     @IBOutlet var mapView: MKMapView!
     var searchBar: UISearchBar!
-    var presenter: MapViewPresenter!
-    var annotation: Annotation? {
-        didSet {
-            addPin(with: annotation!)
-        }
-    }
+    var presenter: MapPresenter!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = MapViewPresenter(view: self)
+        initMapView()
         setUpNavigationBar()
         setUpTabBar()
-        initMapView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,8 +33,10 @@ final class MapViewController: UIViewController {
     }
 }
 
-
-extension MapViewController: MapView {
+extension MapViewController {
+    func initMapView() {
+        presenter.setUpMapRegion()
+    }
 
     func setUpNavigationBar() {
         navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 85,green: 104,blue: 211)
@@ -62,43 +52,32 @@ extension MapViewController: MapView {
     }
     
     func setUpTabBar() {
-        let timeTableViewController = TimeTableViewController.instantinate()
-        let timeTableNavigationController = UINavigationController(rootViewController: timeTableViewController)
-        timeTableNavigationController.tabBarItem = UITabBarItem(title: "時間割", image: nil, selectedImage: nil)
-        tabBarController?.viewControllers?.append(timeTableNavigationController)
+        let vc = TimeTableViewController.instantinate()
+        let nc = UINavigationController(rootViewController: vc)
+        nc.tabBarItem = UITabBarItem(title: "時間割", image: nil, selectedImage: nil)
+        tabBarController?.viewControllers?.append(nc)
     }
-
-    func initMapView() {
-        presenter.setUpMapRegion()
-    }
+}
     
+extension MapViewController: MapView {
     func reloadRegion(at region: MKCoordinateRegion) {
         mapView.region = region
     }
     
-    func addPin(with annotation: Annotation) {
-        let point = MKPointAnnotation()
-        let longitude = annotation.coordinate?.0
-        let latitude = annotation.coordinate?.1
-        point.coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
-        point.title = annotation.title
-        mapView.addAnnotation(point)
+    func addPin(with pin: MKPointAnnotation) {
+        mapView.addAnnotation(pin)
     }
 }
 
-
 extension MapViewController: UISearchBarDelegate {
-    
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        let searchViewController = SearchViewController.instantinate()
-        navigationController?.pushViewController(searchViewController, animated: false)
+        let vc = SearchViewController.instantinate(mapPresenter: presenter)
+        navigationController?.pushViewController(vc, animated: false)
         return true
     }
 }
 
-
 extension UINavigationController {
-    
     open override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
