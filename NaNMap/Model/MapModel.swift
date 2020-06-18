@@ -10,6 +10,12 @@ import MapKit
 
 protocol MapModelDelegate: class {
     func reloadRegion(at region: MKCoordinateRegion)
+    func addPin(with pin: MKPointAnnotation)
+}
+
+struct Annotation {
+    let title: String?
+    let coordinate: (longitude: Double, latitude: Double)?
 }
 
 final class MapModel {
@@ -19,6 +25,11 @@ final class MapModel {
             delegate?.reloadRegion(at: region!)
         }
     }
+    var pin: MKPointAnnotation? {
+        didSet {
+            delegate?.addPin(with: pin!)
+        }
+    }
     
     func setUpMapRegion() {
         let centerLatitude: CLLocationDegrees = 35.149405
@@ -26,6 +37,15 @@ final class MapModel {
         let center = CLLocationCoordinate2D(latitude: centerLatitude, longitude: centerLongitude)
         let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
         region = MKCoordinateRegion(center: center, span: span)
+    }
+    
+    func setPin(_ title: String, _ coodinate: (Double, Double)) {
+        pin = MKPointAnnotation()
+        let annotation = Annotation(title: title, coordinate: coodinate)
+        let longitude = annotation.coordinate?.0
+        let latitude = annotation.coordinate?.1
+        pin?.coordinate = CLLocationCoordinate2DMake(latitude!, longitude!)
+        pin?.title = annotation.title
     }
     
 }

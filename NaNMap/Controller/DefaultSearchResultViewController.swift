@@ -42,6 +42,7 @@ extension DefaultSearchResultViewController: UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.tapDefaultBuildingCell(at: indexPath.row)
+        navigationController?.popToRootViewController(animated: true)
     }
     /*
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -73,7 +73,8 @@ final class SearchViewPresenter: SearchPresenter {
     }
     
     func tapDefaultBuildingCell(at index: Int) {
-        print(model.defaultBuildingInfo!)
+        let info: [BuildingInfo] = model.defaultBuildingInfo!
+        mapPresenter.setPin(with: info, at: index)
     }
 
     

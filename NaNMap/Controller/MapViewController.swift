@@ -11,24 +11,20 @@ import MapKit
 
 protocol MapView: class {
     func reloadRegion(at region: MKCoordinateRegion)
+    func addPin(with pin: MKPointAnnotation)
 }
-
-struct Annotation {
-    let title: String?
-    let coordinate: (longitude: Double, latitude: Double)?
-}
-
 
 final class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     var searchBar: UISearchBar!
     var presenter: MapPresenter!
+    /*
     var annotation: Annotation? {
         didSet {
-            //addPin(with: annotation!)
+            addPin(with: annotation!)
         }
-    }
+    }*/
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +73,10 @@ extension MapViewController: MapView {
     
     func reloadRegion(at region: MKCoordinateRegion) {
         mapView.region = region
+    }
+    
+    func addPin(with pin: MKPointAnnotation) {
+        mapView.addAnnotation(pin)
     }
     /*
     func addPin(with annotation: Annotation) {
