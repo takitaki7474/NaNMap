@@ -10,7 +10,6 @@ import UIKit
 import MapKit
 
 protocol MapView: class {
-    func initMapView()
     func reloadRegion(at region: MKCoordinateRegion)
 }
 
@@ -27,16 +26,16 @@ final class MapViewController: UIViewController {
     var presenter: MapViewPresenter!
     var annotation: Annotation? {
         didSet {
-            addPin(with: annotation!)
+            //addPin(with: annotation!)
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = MapViewPresenter(view: self)
+        initMapView()
         setUpNavigationBar()
         setUpTabBar()
-        initMapView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +45,11 @@ final class MapViewController: UIViewController {
 }
 
 
-extension MapViewController: MapView {
+extension MapViewController {
+    
+    func initMapView() {
+        presenter.setUpMapRegion()
+    }
 
     func setUpNavigationBar() {
         navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 85,green: 104,blue: 211)
@@ -67,15 +70,15 @@ extension MapViewController: MapView {
         timeTableNavigationController.tabBarItem = UITabBarItem(title: "時間割", image: nil, selectedImage: nil)
         tabBarController?.viewControllers?.append(timeTableNavigationController)
     }
-
-    func initMapView() {
-        presenter.setUpMapRegion()
-    }
+    
+}
+    
+extension MapViewController: MapView {
     
     func reloadRegion(at region: MKCoordinateRegion) {
         mapView.region = region
     }
-    
+    /*
     func addPin(with annotation: Annotation) {
         let point = MKPointAnnotation()
         let longitude = annotation.coordinate?.0
@@ -84,14 +87,15 @@ extension MapViewController: MapView {
         point.title = annotation.title
         mapView.addAnnotation(point)
     }
+ */
 }
 
 
 extension MapViewController: UISearchBarDelegate {
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        let searchViewController = SearchViewController.instantinate()
-        navigationController?.pushViewController(searchViewController, animated: false)
+        let vc = SearchViewController.instantinate(mapViewPresenter: presenter)
+        navigationController?.pushViewController(vc, animated: false)
         return true
     }
 }

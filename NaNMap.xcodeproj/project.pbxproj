@@ -25,7 +25,6 @@
 		217182F7243E2835004B5E5A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F6243E2835004B5E5A /* SearchViewController.swift */; };
 		21FA66782497528900961EA0 /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA66772497528900961EA0 /* MapViewPresenter.swift */; };
 		21FA667A2497907200961EA0 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA66792497907200961EA0 /* MapModel.swift */; };
-		21FA667C2497C28C00961EA0 /* SearchResultViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA667B2497C28C00961EA0 /* SearchResultViewPresenter.swift */; };
 		21FA667E2497D38B00961EA0 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA667D2497D38B00961EA0 /* SearchModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +49,6 @@
 		217182F6243E2835004B5E5A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		21FA66772497528900961EA0 /* MapViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
 		21FA66792497907200961EA0 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
-		21FA667B2497C28C00961EA0 /* SearchResultViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewPresenter.swift; sourceTree = "<group>"; };
 		21FA667D2497D38B00961EA0 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,7 +123,6 @@
 			children = (
 				21FA66772497528900961EA0 /* MapViewPresenter.swift */,
 				215F3A1D244DB68F00C6270A /* SearchViewPresenter.swift */,
-				21FA667B2497C28C00961EA0 /* SearchResultViewPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -240,7 +237,6 @@
 				214F5F8E243C96670061FC45 /* AppDelegate.swift in Sources */,
 				215FA07124506C870079300A /* TimeTableViewController.swift in Sources */,
 				21FA66782497528900961EA0 /* MapViewPresenter.swift in Sources */,
-				21FA667C2497C28C00961EA0 /* SearchResultViewPresenter.swift in Sources */,
 				215F3A1A244DA25100C6270A /* DefaultSearchInfo.swift in Sources */,
 				214F5F90243C96670061FC45 /* SceneDelegate.swift in Sources */,
 				215F3A1E244DB68F00C6270A /* SearchViewPresenter.swift in Sources */,
