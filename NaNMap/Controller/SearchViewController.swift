@@ -32,7 +32,7 @@ final class SearchViewController: UIViewController {
 extension SearchViewController {
     
     func setUpDefaultTableView() {
-        presenter.loadDefaultSearchInfo()
+        presenter.setUpDefaultSearchInfo()
     }
 
 }
@@ -82,13 +82,13 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath)
         cell.accessoryType = .disclosureIndicator
-        cell.textLabel?.text = presenter.defaultSearchTitleList(at: indexPath.row)
+        cell.textLabel?.text = presenter.loadDefaultSearchTitleList(at: indexPath.row)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.loadDefaultSearchResult(at: indexPath.row)
-        let searchResultViewController = SearchResultViewController.instantinate()
+        presenter.setUpDefaultSearchResult(at: indexPath.row)
+        let searchResultViewController = SearchResultViewController.instantinate(searchViewPresenter: presenter)
         navigationController?.pushViewController(searchResultViewController, animated: true)
     }
 }

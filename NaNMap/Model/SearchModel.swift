@@ -21,7 +21,7 @@ final class SearchModel {
         self.data = try? Data(contentsOf: url)
     }
     
-    func loadDefaultSearchInfo() {
+    func setUpDefaultSearchInfo() {
         let decoder = JSONDecoder()
         guard let defaultSearchInfo = try? decoder.decode(DefaultSearchInfo.self, from: self.data!) else {
             return
@@ -34,8 +34,9 @@ final class SearchModel {
         }
     }
     
-    func loadDefaultSearchResult(at index: Int) {
+    func setUpDefaultSearchResult(at index: Int) {
         defaultSearchResult = defaultSearchInfo!.section[0].row[index].nextPage
+        defaultSearchBuildingList = []
         
         for buildingInfo in defaultSearchResult! {
             defaultSearchBuildingList.append(buildingInfo.building)

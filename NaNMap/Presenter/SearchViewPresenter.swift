@@ -38,16 +38,25 @@ final class SearchViewPresenter {
         return model.defaultSearchTitleList.count
     }
     
-    func loadDefaultSearchInfo() {
-        model.loadDefaultSearchInfo()
+    var numberOfDefaultSearchBuildingList: Int {
+        return model.defaultSearchBuildingList.count
+    }
+    
+    func setUpDefaultSearchResult(at index: Int) {
+        model.setUpDefaultSearchResult(at: index)
+    }
+    
+    func setUpDefaultSearchInfo() {
+        model.setUpDefaultSearchInfo()
     }
 
-    func defaultSearchTitleList(at index: Int) -> String {
+    func loadDefaultSearchTitleList(at index: Int) -> String {
         return model.defaultSearchTitleList[index]
     }
     
-    func loadDefaultSearchResult(at index: Int) {
-        model.loadDefaultSearchResult(at: index)
+    func loadDefaultSearchBuildingList(at index: Int) -> String {
+        return model.defaultSearchBuildingList[index]
     }
+
     
 }

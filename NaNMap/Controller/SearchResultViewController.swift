@@ -11,17 +11,19 @@ import UIKit
 class SearchResultViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    private var presenter: SearchResultViewPresenter!
+    private var presenter: SearchViewPresenter!
     var buildingList: [BuildingInfo]?
     var cellList = [String]()
     
-    static func instantinate() -> SearchResultViewController {
-         return UIStoryboard(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "searchResultViewController") as! SearchResultViewController
+    static func instantinate(searchViewPresenter: SearchViewPresenter) -> SearchResultViewController {
+        let controller = UIStoryboard(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "searchResultViewController") as! SearchResultViewController
+        controller.presenter = searchViewPresenter
+        return controller
      }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = SearchResultViewPresenter()
+        //presenter = SearchResultViewPresenter()
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -35,7 +37,7 @@ extension SearchResultViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "defaultResultCell", for: indexPath)
-        cell.textLabel?.text = presenter.defaultSearchBuildingList(at: indexPath.row)
+        cell.textLabel?.text = presenter.loadDefaultSearchBuildingList(at: indexPath.row)
         return cell
     }
     /*
