@@ -8,28 +8,27 @@
 
 import UIKit
 
-class SearchResultViewController: UIViewController {
+class DefaultSearchResultViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     private var presenter: SearchViewPresenter!
     var buildingList: [BuildingInfo]?
     var cellList = [String]()
     
-    static func instantinate(searchViewPresenter: SearchViewPresenter) -> SearchResultViewController {
-        let controller = UIStoryboard(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "searchResultViewController") as! SearchResultViewController
+    static func instantinate(searchViewPresenter: SearchViewPresenter) -> DefaultSearchResultViewController {
+        let controller = UIStoryboard(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "defaultSearchResultViewController") as! DefaultSearchResultViewController
         controller.presenter = searchViewPresenter
         return controller
      }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //presenter = SearchResultViewPresenter()
         tableView.dataSource = self
         tableView.delegate = self
     }
 }
 
-extension SearchResultViewController: UITableViewDataSource, UITableViewDelegate {
+extension DefaultSearchResultViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.numberOfDefaultSearchBuildingList

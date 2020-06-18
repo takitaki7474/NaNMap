@@ -6,6 +6,7 @@
 //  Copyright © 2020 ryunosuke ota. All rights reserved.
 //
 
+/*
 import Foundation
 
 final class SearchResultViewPresenter {
@@ -21,4 +22,5 @@ final class SearchResultViewPresenter {
 
     
 }
+ */
 

@@ -88,8 +88,8 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.setUpDefaultSearchResult(at: indexPath.row)
-        let searchResultViewController = SearchResultViewController.instantinate(searchViewPresenter: presenter)
-        navigationController?.pushViewController(searchResultViewController, animated: true)
+        let defaultSearchResultViewController = DefaultSearchResultViewController.instantinate(searchViewPresenter: presenter)
+        navigationController?.pushViewController(defaultSearchResultViewController, animated: true)
     }
 }
 
