@@ -26,7 +26,7 @@ final class SearchViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        searchPresenter = SearchViewPresenter()
+        searchPresenter = SearchViewPresenter(mapPresenter: mapPresenter)
         setUpDefaultTableView()
         setUpNavigationBar()
     }

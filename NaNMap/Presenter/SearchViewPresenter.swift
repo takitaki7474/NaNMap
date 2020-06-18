@@ -32,22 +32,28 @@ final class SearchViewPresenter {
  */
 protocol SearchPresenter {
     var numberOfDefaultSearchTitleList: Int { get }
-    var numberOfDefaultSearchBuildingList: Int { get }
+    var numberOfDefaultBuildingList: Int { get }
     func setUpDefaultSearchResult(at index: Int)
     func setUpDefaultSearchInfo()
     func loadDefaultSearchTitleList(at index: Int) -> String
-    func loadDefaultSearchBuildingList(at index: Int) -> String
+    func loadDefaultBuildingList(at index: Int) -> String
+    func tapDefaultBuildingCell(at index: Int)
 }
 
 final class SearchViewPresenter: SearchPresenter {
-    var model = SearchModel()
+    private let model = SearchModel()
+    private let mapPresenter: MapPresenter!
+    
+    init(mapPresenter: MapPresenter) {
+        self.mapPresenter = mapPresenter
+    }
     
     var numberOfDefaultSearchTitleList: Int {
         return model.defaultSearchTitleList.count
     }
     
-    var numberOfDefaultSearchBuildingList: Int {
-        return model.defaultSearchBuildingList.count
+    var numberOfDefaultBuildingList: Int {
+        return model.defaultBuildingList.count
     }
     
     func setUpDefaultSearchResult(at index: Int) {
@@ -62,8 +68,12 @@ final class SearchViewPresenter: SearchPresenter {
         return model.defaultSearchTitleList[index]
     }
     
-    func loadDefaultSearchBuildingList(at index: Int) -> String {
-        return model.defaultSearchBuildingList[index]
+    func loadDefaultBuildingList(at index: Int) -> String {
+        return model.defaultBuildingList[index]
+    }
+    
+    func tapDefaultBuildingCell(at index: Int) {
+        print(model.defaultBuildingInfo!)
     }
 
     

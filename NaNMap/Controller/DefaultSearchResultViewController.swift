@@ -31,13 +31,17 @@ class DefaultSearchResultViewController: UIViewController {
 extension DefaultSearchResultViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.numberOfDefaultSearchBuildingList
+        return presenter.numberOfDefaultBuildingList
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "defaultResultCell", for: indexPath)
-        cell.textLabel?.text = presenter.loadDefaultSearchBuildingList(at: indexPath.row)
+        cell.textLabel?.text = presenter.loadDefaultBuildingList(at: indexPath.row)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.tapDefaultBuildingCell(at: indexPath.row)
     }
     /*
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

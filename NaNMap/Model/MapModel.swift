@@ -13,7 +13,7 @@ protocol MapModelDelegate: class {
 }
 
 final class MapModel {
-    var delegate: MapModelDelegate?
+    weak var delegate: MapModelDelegate?
     var region: MKCoordinateRegion? {
         didSet {
             delegate?.reloadRegion(at: region!)
