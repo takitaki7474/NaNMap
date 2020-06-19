@@ -19,8 +19,9 @@
 		215F3A20244DD3E400C6270A /* DefaultSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F3A1F244DD3E400C6270A /* DefaultSearchResultViewController.swift */; };
 		215FA06F24506C440079300A /* TimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 215FA06E24506C440079300A /* TimeTable.storyboard */; };
 		215FA07124506C870079300A /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FA07024506C870079300A /* TimeTableViewController.swift */; };
-		215FA0732450CA4B0079300A /* CustomCellCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FA0722450CA4B0079300A /* CustomCellCreator.swift */; };
+		215FA0732450CA4B0079300A /* CustomTimeTableCellCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FA0722450CA4B0079300A /* CustomTimeTableCellCreator.swift */; };
 		21674395249CA2A4008806A7 /* TimeTableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21674394249CA2A4008806A7 /* TimeTableViewPresenter.swift */; };
+		21674397249CF86D008806A7 /* TimeTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21674396249CF86D008806A7 /* TimeTableModel.swift */; };
 		217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */; };
 		217182F5243E27E1004B5E5A /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217182F4243E27E1004B5E5A /* Search.storyboard */; };
 		217182F7243E2835004B5E5A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F6243E2835004B5E5A /* SearchViewController.swift */; };
@@ -44,8 +45,9 @@
 		215F3A1F244DD3E400C6270A /* DefaultSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSearchResultViewController.swift; sourceTree = "<group>"; };
 		215FA06E24506C440079300A /* TimeTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeTable.storyboard; sourceTree = "<group>"; };
 		215FA07024506C870079300A /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
-		215FA0722450CA4B0079300A /* CustomCellCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellCreator.swift; sourceTree = "<group>"; };
+		215FA0722450CA4B0079300A /* CustomTimeTableCellCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTimeTableCellCreator.swift; sourceTree = "<group>"; };
 		21674394249CA2A4008806A7 /* TimeTableViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewPresenter.swift; sourceTree = "<group>"; };
+		21674396249CF86D008806A7 /* TimeTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableModel.swift; sourceTree = "<group>"; };
 		217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		217182F4243E27E1004B5E5A /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		217182F6243E2835004B5E5A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				214F5FA6243C9B730061FC45 /* Entity */,
-				217182F1243DE6CE004B5E5A /* Util */,
+				217182F1243DE6CE004B5E5A /* Extension */,
 				214F5F8D243C96670061FC45 /* AppDelegate.swift */,
 				214F5F8F243C96670061FC45 /* SceneDelegate.swift */,
 			);
@@ -175,18 +177,19 @@
 			isa = PBXGroup;
 			children = (
 				215FA07024506C870079300A /* TimeTableViewController.swift */,
+				215FA0722450CA4B0079300A /* CustomTimeTableCellCreator.swift */,
 				21674394249CA2A4008806A7 /* TimeTableViewPresenter.swift */,
+				21674396249CF86D008806A7 /* TimeTableModel.swift */,
 			);
 			path = TimeTable;
 			sourceTree = "<group>";
 		};
-		217182F1243DE6CE004B5E5A /* Util */ = {
+		217182F1243DE6CE004B5E5A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */,
-				215FA0722450CA4B0079300A /* CustomCellCreator.swift */,
 			);
-			path = Util;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,12 +267,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				217182F7243E2835004B5E5A /* SearchViewController.swift in Sources */,
+				21674397249CF86D008806A7 /* TimeTableModel.swift in Sources */,
 				21FA667A2497907200961EA0 /* MapModel.swift in Sources */,
 				215F3A20244DD3E400C6270A /* DefaultSearchResultViewController.swift in Sources */,
 				21674395249CA2A4008806A7 /* TimeTableViewPresenter.swift in Sources */,
 				21FA667E2497D38B00961EA0 /* SearchModel.swift in Sources */,
 				217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */,
-				215FA0732450CA4B0079300A /* CustomCellCreator.swift in Sources */,
+				215FA0732450CA4B0079300A /* CustomTimeTableCellCreator.swift in Sources */,
 				214F5F8E243C96670061FC45 /* AppDelegate.swift in Sources */,
 				215FA07124506C870079300A /* TimeTableViewController.swift in Sources */,
 				21FA66782497528900961EA0 /* MapViewPresenter.swift in Sources */,

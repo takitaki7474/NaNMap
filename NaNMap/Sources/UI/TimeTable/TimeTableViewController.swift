@@ -8,8 +8,11 @@
 
 import UIKit
 
+protocol TimeTableView: class {
+    func alertChangingTimeTable(with text: String)
+}
+
 class TimeTableViewController: UIViewController {
-    
     @IBOutlet weak var collectionView: UICollectionView!
     private var presenter: TimeTablePresenter!
     private var cellCreator: CustomTimeTableCellCreator!
@@ -20,16 +23,14 @@ class TimeTableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.presenter = TimeTableViewPresenter()
+        self.presenter = TimeTableViewPresenter(view: self)
         self.cellCreator = CustomTimeTableCellCreator()
         setUpCollectionView()
         setUpNavigationBar()
     }
 }
 
-
 private extension TimeTableViewController {
-    
     func setUpNavigationBar() {
         navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 85,green: 104,blue: 211)
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
@@ -43,15 +44,10 @@ private extension TimeTableViewController {
     }
 }
 
-
-private extension TimeTableViewController {
-    
-    func alertChangeTimeTable(indexPath: IndexPath) {
-        let dayOfWeek: [String] = ["月", "火", "水", "木", "金", "土"]
-        let period: [String] = ["1", "2", "3", "4", "5"]
-        let clickedCellText = dayOfWeek[(indexPath.row % 7) - 1] + period[(indexPath.row / 7) - 1]
-        let alert = UIAlertController(title: "時間割の編集", message: clickedCellText + "の講義を編集しますか?", preferredStyle: UIAlertController.Style.actionSheet)
-        let defaultAction = UIAlertAction(title: clickedCellText + "の講義を検索する", style: UIAlertAction.Style.default, handler: {
+extension TimeTableViewController: TimeTableView {
+    func alertChangingTimeTable(with text: String) {
+        let alert = UIAlertController(title: "時間割の編集", message: text+"の講義を編集しますか?", preferredStyle: UIAlertController.Style.actionSheet)
+        let defaultAction = UIAlertAction(title: text+"の講義を検索する", style: UIAlertAction.Style.default, handler: {
             (action:UIAlertAction) -> Void in
         })
         let cancelAction = UIAlertAction(title: "戻る", style: UIAlertAction.Style.cancel, handler: {
@@ -63,9 +59,7 @@ private extension TimeTableViewController {
     }
 }
 
-
 extension TimeTableViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 42
     }
@@ -78,15 +72,15 @@ extension TimeTableViewController: UICollectionViewDataSource, UICollectionViewD
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if !(indexPath.row <= 6 || indexPath.row % 7 == 0) {
-            alertChangeTimeTable(indexPath: indexPath)
+        let canClickCell = !(indexPath.row <= 6 || indexPath.row % 7 == 0)
+        if canClickCell {
+            presenter.setAlertText(at: indexPath.row)
+            //alertChangeTimeTable(indexPath: indexPath)
         }
     }
 }
 
-
 extension TimeTableViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellSize = cellCreator.customizeCellSizeFlowLayout(indexPath: indexPath, collectionView: collectionView)
         return cellSize
