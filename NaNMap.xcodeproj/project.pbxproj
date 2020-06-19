@@ -19,7 +19,9 @@
 		215F3A20244DD3E400C6270A /* DefaultSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F3A1F244DD3E400C6270A /* DefaultSearchResultViewController.swift */; };
 		215FA06F24506C440079300A /* TimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 215FA06E24506C440079300A /* TimeTable.storyboard */; };
 		215FA07124506C870079300A /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FA07024506C870079300A /* TimeTableViewController.swift */; };
-		215FA0732450CA4B0079300A /* CustomCellCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FA0722450CA4B0079300A /* CustomCellCreator.swift */; };
+		215FA0732450CA4B0079300A /* CustomTimeTableCellCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FA0722450CA4B0079300A /* CustomTimeTableCellCreator.swift */; };
+		21674395249CA2A4008806A7 /* TimeTableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21674394249CA2A4008806A7 /* TimeTableViewPresenter.swift */; };
+		21674397249CF86D008806A7 /* TimeTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21674396249CF86D008806A7 /* TimeTableModel.swift */; };
 		217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */; };
 		217182F5243E27E1004B5E5A /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217182F4243E27E1004B5E5A /* Search.storyboard */; };
 		217182F7243E2835004B5E5A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F6243E2835004B5E5A /* SearchViewController.swift */; };
@@ -43,7 +45,9 @@
 		215F3A1F244DD3E400C6270A /* DefaultSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSearchResultViewController.swift; sourceTree = "<group>"; };
 		215FA06E24506C440079300A /* TimeTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeTable.storyboard; sourceTree = "<group>"; };
 		215FA07024506C870079300A /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
-		215FA0722450CA4B0079300A /* CustomCellCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellCreator.swift; sourceTree = "<group>"; };
+		215FA0722450CA4B0079300A /* CustomTimeTableCellCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTimeTableCellCreator.swift; sourceTree = "<group>"; };
+		21674394249CA2A4008806A7 /* TimeTableViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewPresenter.swift; sourceTree = "<group>"; };
+		21674396249CF86D008806A7 /* TimeTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableModel.swift; sourceTree = "<group>"; };
 		217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		217182F4243E27E1004B5E5A /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		217182F6243E2835004B5E5A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -82,17 +86,8 @@
 		214F5F8C243C96670061FC45 /* NaNMap */ = {
 			isa = PBXGroup;
 			children = (
-				214F5F8D243C96670061FC45 /* AppDelegate.swift */,
-				214F5FA1243C9AF40061FC45 /* Storyboard */,
-				214F5FA2243C9B310061FC45 /* Controller */,
-				214F5FA4243C9B540061FC45 /* Presenter */,
-				214F5FA5243C9B680061FC45 /* Model */,
-				217182F1243DE6CE004B5E5A /* Util */,
-				214F5F8F243C96670061FC45 /* SceneDelegate.swift */,
-				214F5F96243C96690061FC45 /* Assets.xcassets */,
-				215F3A17244D44F600C6270A /* DefaultSearchInfo.json */,
-				214F5F98243C96690061FC45 /* LaunchScreen.storyboard */,
-				214F5F9B243C96690061FC45 /* Info.plist */,
+				2167438D249C9B7D008806A7 /* Resources */,
+				2167438E249C9BD4008806A7 /* Sources */,
 			);
 			path = NaNMap;
 			sourceTree = "<group>";
@@ -107,36 +102,6 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		214F5FA2243C9B310061FC45 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				214F5FA7243CB5A90061FC45 /* MapViewController.swift */,
-				217182F6243E2835004B5E5A /* SearchViewController.swift */,
-				215F3A1F244DD3E400C6270A /* DefaultSearchResultViewController.swift */,
-				215FA07024506C870079300A /* TimeTableViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		214F5FA4243C9B540061FC45 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				21FA66772497528900961EA0 /* MapViewPresenter.swift */,
-				215F3A1D244DB68F00C6270A /* SearchViewPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		214F5FA5243C9B680061FC45 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				21FA66792497907200961EA0 /* MapModel.swift */,
-				21FA667D2497D38B00961EA0 /* SearchModel.swift */,
-				214F5FA6243C9B730061FC45 /* Entity */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		214F5FA6243C9B730061FC45 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,13 +110,86 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		217182F1243DE6CE004B5E5A /* Util */ = {
+		2167438D249C9B7D008806A7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				215F3A17244D44F600C6270A /* DefaultSearchInfo.json */,
+				214F5F96243C96690061FC45 /* Assets.xcassets */,
+				214F5F98243C96690061FC45 /* LaunchScreen.storyboard */,
+				214F5F9B243C96690061FC45 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2167438E249C9BD4008806A7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				2167438F249C9C5F008806A7 /* Common */,
+				21674390249C9D63008806A7 /* UI */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		2167438F249C9C5F008806A7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				214F5FA6243C9B730061FC45 /* Entity */,
+				217182F1243DE6CE004B5E5A /* Extension */,
+				214F5F8D243C96670061FC45 /* AppDelegate.swift */,
+				214F5F8F243C96670061FC45 /* SceneDelegate.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		21674390249C9D63008806A7 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				214F5FA1243C9AF40061FC45 /* Storyboard */,
+				21674391249C9D95008806A7 /* Map */,
+				21674392249C9E07008806A7 /* Search */,
+				21674393249C9E0F008806A7 /* TimeTable */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		21674391249C9D95008806A7 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				214F5FA7243CB5A90061FC45 /* MapViewController.swift */,
+				21FA66772497528900961EA0 /* MapViewPresenter.swift */,
+				21FA66792497907200961EA0 /* MapModel.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		21674392249C9E07008806A7 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				217182F6243E2835004B5E5A /* SearchViewController.swift */,
+				215F3A1F244DD3E400C6270A /* DefaultSearchResultViewController.swift */,
+				215F3A1D244DB68F00C6270A /* SearchViewPresenter.swift */,
+				21FA667D2497D38B00961EA0 /* SearchModel.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		21674393249C9E0F008806A7 /* TimeTable */ = {
+			isa = PBXGroup;
+			children = (
+				215FA07024506C870079300A /* TimeTableViewController.swift */,
+				215FA0722450CA4B0079300A /* CustomTimeTableCellCreator.swift */,
+				21674394249CA2A4008806A7 /* TimeTableViewPresenter.swift */,
+				21674396249CF86D008806A7 /* TimeTableModel.swift */,
+			);
+			path = TimeTable;
+			sourceTree = "<group>";
+		};
+		217182F1243DE6CE004B5E5A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */,
-				215FA0722450CA4B0079300A /* CustomCellCreator.swift */,
 			);
-			path = Util;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,11 +267,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				217182F7243E2835004B5E5A /* SearchViewController.swift in Sources */,
+				21674397249CF86D008806A7 /* TimeTableModel.swift in Sources */,
 				21FA667A2497907200961EA0 /* MapModel.swift in Sources */,
 				215F3A20244DD3E400C6270A /* DefaultSearchResultViewController.swift in Sources */,
+				21674395249CA2A4008806A7 /* TimeTableViewPresenter.swift in Sources */,
 				21FA667E2497D38B00961EA0 /* SearchModel.swift in Sources */,
 				217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */,
-				215FA0732450CA4B0079300A /* CustomCellCreator.swift in Sources */,
+				215FA0732450CA4B0079300A /* CustomTimeTableCellCreator.swift in Sources */,
 				214F5F8E243C96670061FC45 /* AppDelegate.swift in Sources */,
 				215FA07124506C870079300A /* TimeTableViewController.swift in Sources */,
 				21FA66782497528900961EA0 /* MapViewPresenter.swift in Sources */,
@@ -386,7 +426,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SZEV52VERK;
-				INFOPLIST_FILE = NaNMap/Info.plist;
+				INFOPLIST_FILE = NaNMap/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -405,7 +445,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SZEV52VERK;
-				INFOPLIST_FILE = NaNMap/Info.plist;
+				INFOPLIST_FILE = NaNMap/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
