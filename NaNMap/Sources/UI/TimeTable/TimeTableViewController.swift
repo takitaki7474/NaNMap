@@ -55,6 +55,9 @@ extension TimeTableViewController: TimeTableView {
         })
         alert.addAction(defaultAction)
         alert.addAction(cancelAction)
+        let screenSize = UIScreen.main.bounds
+        alert.popoverPresentationController?.sourceView = self.view
+        alert.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width/2, y: screenSize.size.height, width: 0, height: 0)
         present(alert, animated: true)
     }
 }
@@ -75,7 +78,6 @@ extension TimeTableViewController: UICollectionViewDataSource, UICollectionViewD
         let canClickCell = !(indexPath.row <= 6 || indexPath.row % 7 == 0)
         if canClickCell {
             presenter.setAlertText(at: indexPath.row)
-            //alertChangeTimeTable(indexPath: indexPath)
         }
     }
 }
