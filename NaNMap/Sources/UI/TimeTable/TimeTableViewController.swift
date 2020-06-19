@@ -11,15 +11,17 @@ import UIKit
 class TimeTableViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var customCellCreator: CustomCellCreator!
+    private var presenter: TimeTablePresenter!
+    private var cellCreator: CustomTimeTableCellCreator!
     
     static func instantinate() -> TimeTableViewController {
-         return UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "timeTableViewController") as! TimeTableViewController
+        return UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "timeTableViewController") as! TimeTableViewController
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        customCellCreator = CustomCellCreator()
+        self.presenter = TimeTableViewPresenter()
+        self.cellCreator = CustomTimeTableCellCreator()
         setUpCollectionView()
         setUpNavigationBar()
     }
@@ -37,10 +39,7 @@ private extension TimeTableViewController {
     func setUpCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
-        customCellCreator.customizeCellLayout()
-        collectionView.collectionViewLayout = customCellCreator.cellLayout!
-        collectionView.layer.borderColor = UIColor.white.cgColor
-        collectionView.layer.borderWidth = 2
+        cellCreator.customizeCollectionView(collectionView: collectionView)
     }
 }
 
@@ -70,15 +69,14 @@ extension TimeTableViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 42
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeTableCell", for: indexPath)
-        cell.backgroundColor = UIColor.rgba(red: 186, green: 193, blue: 234)
-        cell.layer.cornerRadius = 4
-        customCellCreator.customizeCellLabelFlowLayout(indexPath: indexPath, cell: cell)
+        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeTableCell", for: indexPath)
+        cell = cellCreator.customizeCellDesign(cell: cell)
+        cell = cellCreator.customizeCellLabelFlowLayout(indexPath: indexPath, cell: cell)
         return cell
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if !(indexPath.row <= 6 || indexPath.row % 7 == 0) {
             alertChangeTimeTable(indexPath: indexPath)
@@ -90,7 +88,7 @@ extension TimeTableViewController: UICollectionViewDataSource, UICollectionViewD
 extension TimeTableViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        customCellCreator.customizeCellSizeFlowLayout(indexPath: indexPath, collectionView: collectionView)
-        return customCellCreator.cellSize!
+        let cellSize = cellCreator.customizeCellSizeFlowLayout(indexPath: indexPath, collectionView: collectionView)
+        return cellSize
     }
 }

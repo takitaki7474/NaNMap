@@ -23,8 +23,6 @@ final class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
         searchPresenter = SearchViewPresenter(mapPresenter: mapPresenter)
         setUpDefaultTableView()
         setUpNavigationBar()
@@ -33,6 +31,8 @@ final class SearchViewController: UIViewController {
 
 extension SearchViewController {
     func setUpDefaultTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
         searchPresenter.setUpDefaultSearchInfo()
     }
     
