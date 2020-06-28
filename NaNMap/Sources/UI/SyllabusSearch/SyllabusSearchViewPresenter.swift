@@ -10,12 +10,7 @@ protocol SyllabusSearchPresenter {
 }
 
 class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
-    private let timeTablePresenter: TimeTablePresenter!
     private let model = SyllabusSearchModel()
-    
-    init(timeTablePresenter: TimeTablePresenter) {
-        self.timeTablePresenter = timeTablePresenter
-    }
     
     func loadSyllabus() {
         model.loadSyllabus()
