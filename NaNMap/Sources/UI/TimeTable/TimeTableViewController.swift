@@ -14,17 +14,21 @@ protocol TimeTableView: class {
 
 class TimeTableViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
-    private var presenter: TimeTablePresenter!
+    private var timeTablePresenter: TimeTablePresenter!
+    private var syllabusSearchPresenter: SyllabusSearchPresenter!
     private var cellCreator: CustomTimeTableCellCreator!
     
     static func instantinate() -> TimeTableViewController {
-        return UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "timeTableViewController") as! TimeTableViewController
+        let controller = UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "timeTableViewController") as! TimeTableViewController
+        controller.syllabusSearchPresenter = SyllabusSearchViewPresenter()
+        controller.syllabusSearchPresenter.loadSyllabus()
+        return controller
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.presenter = TimeTableViewPresenter(view: self)
-        self.cellCreator = CustomTimeTableCellCreator()
+        timeTablePresenter = TimeTableViewPresenter(view: self)
+        cellCreator = CustomTimeTableCellCreator()
         setUpCollectionView()
         setUpNavigationBar()
     }
@@ -49,6 +53,8 @@ extension TimeTableViewController: TimeTableView {
         let alert = UIAlertController(title: "時間割の編集", message: text+"の講義を編集しますか?", preferredStyle: UIAlertController.Style.actionSheet)
         let defaultAction = UIAlertAction(title: text+"の講義を検索する", style: UIAlertAction.Style.default, handler: {
             (action:UIAlertAction) -> Void in
+            let vc = SyllabusSearchViewController.instantinate(syllabusSearchPresenter: self.syllabusSearchPresenter)
+            self.navigationController?.pushViewController(vc, animated: true)
         })
         let cancelAction = UIAlertAction(title: "戻る", style: UIAlertAction.Style.cancel, handler: {
             (action: UIAlertAction) -> Void in
@@ -77,7 +83,7 @@ extension TimeTableViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let canClickCell = !(indexPath.row <= 6 || indexPath.row % 7 == 0)
         if canClickCell {
-            presenter.setAlertText(at: indexPath.row)
+            timeTablePresenter.setAlertText(at: indexPath.row)
         }
     }
 }
