@@ -16,8 +16,8 @@ struct Syllabus: Codable {
 struct Subject: Codable {
     var category: String
     var semester: String
-    var subject_name: String
-    var class_schedule: [String]
+    var subjectName: String
+    var classSchedule: [String]
     var classroom: [String]
     var teacher: String
 }
