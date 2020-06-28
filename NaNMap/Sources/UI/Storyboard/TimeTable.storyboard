@@ -67,7 +67,7 @@
         <!--Syllabus Search View Controller-->
         <scene sceneID="QxI-LU-w2b">
             <objects>
-                <viewController id="PvU-i9-X1h" customClass="SyllabusSearchViewController" customModule="NaNMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="syllabusSearchViewController" id="PvU-i9-X1h" customClass="SyllabusSearchViewController" customModule="NaNMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mFu-6F-0CH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

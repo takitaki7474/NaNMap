@@ -9,6 +9,11 @@
 import UIKit
 
 class SyllabusSearchViewController: UIViewController {
+    
+    static func instantinate() -> SyllabusSearchViewController {
+        let controller = UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "syllabusSearchViewController") as! SyllabusSearchViewController
+        return controller
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
