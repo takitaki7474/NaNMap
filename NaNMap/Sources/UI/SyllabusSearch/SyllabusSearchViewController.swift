@@ -15,17 +15,10 @@ class SyllabusSearchViewController: UIViewController {
     static func instantinate(syllabusSearchPresenter: SyllabusSearchPresenter) -> SyllabusSearchViewController {
         let controller = UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "syllabusSearchViewController") as! SyllabusSearchViewController
         controller.syllabusSearchPresenter = syllabusSearchPresenter
-        //controller.timeTablePresenter = timetablePresenter
-        //controller.syllabusSearchPresenter = SyllabusSearchViewPresenter(timeTablePresenter: timetablePresenter)
         return controller
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //syllabusSearchPresenter = SyllabusSearchViewPresenter(timeTablePresenter: timeTablePresenter)
     }
-    /*
-    private func loadSyllabus() {
-        //syllabusSearchPresenter.loadSyllabus()
-    }*/
 }
