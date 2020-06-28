@@ -6,6 +6,7 @@
 //  Copyright © 2020 ryunosuke ota. All rights reserved.
 //
 import Foundation
+import RealmSwift
 
 class SyllabusSearchModel {
     private var data: Data?

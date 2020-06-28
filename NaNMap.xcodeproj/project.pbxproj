@@ -33,9 +33,11 @@
 		21FA66782497528900961EA0 /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA66772497528900961EA0 /* MapViewPresenter.swift */; };
 		21FA667A2497907200961EA0 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA66792497907200961EA0 /* MapModel.swift */; };
 		21FA667E2497D38B00961EA0 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA667D2497D38B00961EA0 /* SearchModel.swift */; };
+		F8F06986A60647C46BE2F56D /* Pods_NaNMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9739E6E6F62D372B7B9D0B30 /* Pods_NaNMap.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20F669A15917FF98423DEAD6 /* Pods-NaNMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaNMap.release.xcconfig"; path = "Target Support Files/Pods-NaNMap/Pods-NaNMap.release.xcconfig"; sourceTree = "<group>"; };
 		214F5F8A243C96670061FC45 /* NaNMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaNMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		214F5F8D243C96670061FC45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		214F5F8F243C96670061FC45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +66,8 @@
 		21FA66772497528900961EA0 /* MapViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
 		21FA66792497907200961EA0 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		21FA667D2497D38B00961EA0 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		8C282470668A4DADC549625F /* Pods-NaNMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaNMap.debug.xcconfig"; path = "Target Support Files/Pods-NaNMap/Pods-NaNMap.debug.xcconfig"; sourceTree = "<group>"; };
+		9739E6E6F62D372B7B9D0B30 /* Pods_NaNMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NaNMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8F06986A60647C46BE2F56D /* Pods_NaNMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +87,8 @@
 			children = (
 				214F5F8C243C96670061FC45 /* NaNMap */,
 				214F5F8B243C96670061FC45 /* Products */,
+				389245F6650BF74D4FAF88AA /* Pods */,
+				76FE3501A05BFF3444C48B30 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -215,6 +222,24 @@
 			path = SyllabusSearch;
 			sourceTree = "<group>";
 		};
+		389245F6650BF74D4FAF88AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8C282470668A4DADC549625F /* Pods-NaNMap.debug.xcconfig */,
+				20F669A15917FF98423DEAD6 /* Pods-NaNMap.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		76FE3501A05BFF3444C48B30 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9739E6E6F62D372B7B9D0B30 /* Pods_NaNMap.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -222,9 +247,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 214F5F9E243C96690061FC45 /* Build configuration list for PBXNativeTarget "NaNMap" */;
 			buildPhases = (
+				8CF33E0D232E08071247664A /* [CP] Check Pods Manifest.lock */,
 				214F5F86243C96670061FC45 /* Sources */,
 				214F5F87243C96670061FC45 /* Frameworks */,
 				214F5F88243C96670061FC45 /* Resources */,
+				50BB75507A2D5CD419340DD5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -284,6 +311,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		50BB75507A2D5CD419340DD5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NaNMap/Pods-NaNMap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NaNMap/Pods-NaNMap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NaNMap/Pods-NaNMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CF33E0D232E08071247664A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NaNMap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		214F5F86243C96670061FC45 /* Sources */ = {
@@ -450,6 +519,7 @@
 		};
 		214F5F9F243C96690061FC45 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C282470668A4DADC549625F /* Pods-NaNMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -469,6 +539,7 @@
 		};
 		214F5FA0243C96690061FC45 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20F669A15917FF98423DEAD6 /* Pods-NaNMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
