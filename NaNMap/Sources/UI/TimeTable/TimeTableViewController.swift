@@ -21,7 +21,7 @@ class TimeTableViewController: UIViewController {
     static func instantinate() -> TimeTableViewController {
         let controller = UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "timeTableViewController") as! TimeTableViewController
         controller.syllabusSearchPresenter = SyllabusSearchViewPresenter()
-        controller.syllabusSearchPresenter.loadSyllabus()
+        controller.loadSyllabus()
         return controller
     }
 
@@ -32,16 +32,20 @@ class TimeTableViewController: UIViewController {
         setUpCollectionView()
         setUpNavigationBar()
     }
+    
+    private func loadSyllabus() {
+        syllabusSearchPresenter.loadSyllabus()
+    }
 }
 
 private extension TimeTableViewController {
-    func setUpNavigationBar() {
+    private func setUpNavigationBar() {
         navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 85,green: 104,blue: 211)
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationItem.title = "時間割"
     }
     
-    func setUpCollectionView() {
+    private func setUpCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
         cellCreator.customizeCollectionView(collectionView: collectionView)

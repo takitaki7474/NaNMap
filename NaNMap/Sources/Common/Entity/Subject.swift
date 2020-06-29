@@ -8,16 +8,13 @@
 
 import Foundation
 
-struct Syllabus: Codable {
-    var undergraduate: [Subject]
-    var graduate: [Subject]
-}
-
 struct Subject: Codable {
     var category: String
     var semester: String
     var subjectName: String
-    var classSchedule: [String]
-    var classroom: [String]
     var teacher: String
+    var degree: String
+    var schedule: String
+    var classroom: String
+    var id: Int
 }

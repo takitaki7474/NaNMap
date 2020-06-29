@@ -6,3 +6,6 @@ xcuserdata/
 
 # Mac
 .DS_Store
+
+#CocoaPod
+Pods/
