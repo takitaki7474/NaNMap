@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,14 +22,14 @@
 		215FA0732450CA4B0079300A /* CustomTimeTableCellCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FA0722450CA4B0079300A /* CustomTimeTableCellCreator.swift */; };
 		21674395249CA2A4008806A7 /* TimeTableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21674394249CA2A4008806A7 /* TimeTableViewPresenter.swift */; };
 		21674397249CF86D008806A7 /* TimeTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21674396249CF86D008806A7 /* TimeTableModel.swift */; };
+		21715EB624AA1CEA00C9C3D6 /* Syllabus.json in Resources */ = {isa = PBXBuildFile; fileRef = 21715EB524AA1CEA00C9C3D6 /* Syllabus.json */; };
 		217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */; };
 		217182F5243E27E1004B5E5A /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217182F4243E27E1004B5E5A /* Search.storyboard */; };
 		217182F7243E2835004B5E5A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F6243E2835004B5E5A /* SearchViewController.swift */; };
 		21A1DFF324A8A1E700873DF2 /* SyllabusSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFF224A8A1E700873DF2 /* SyllabusSearchViewController.swift */; };
 		21A1DFF524A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFF424A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift */; };
 		21A1DFF724A8CD6000873DF2 /* SyllabusSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFF624A8CD6000873DF2 /* SyllabusSearchModel.swift */; };
-		21A1DFF924A8CED300873DF2 /* Syllabus.json in Resources */ = {isa = PBXBuildFile; fileRef = 21A1DFF824A8CED200873DF2 /* Syllabus.json */; };
-		21A1DFFB24A8D12900873DF2 /* Syllabus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFFA24A8D12900873DF2 /* Syllabus.swift */; };
+		21A1DFFB24A8D12900873DF2 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFFA24A8D12900873DF2 /* Subject.swift */; };
 		21FA66782497528900961EA0 /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA66772497528900961EA0 /* MapViewPresenter.swift */; };
 		21FA667A2497907200961EA0 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA66792497907200961EA0 /* MapModel.swift */; };
 		21FA667E2497D38B00961EA0 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA667D2497D38B00961EA0 /* SearchModel.swift */; };
@@ -55,14 +55,14 @@
 		215FA0722450CA4B0079300A /* CustomTimeTableCellCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTimeTableCellCreator.swift; sourceTree = "<group>"; };
 		21674394249CA2A4008806A7 /* TimeTableViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewPresenter.swift; sourceTree = "<group>"; };
 		21674396249CF86D008806A7 /* TimeTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableModel.swift; sourceTree = "<group>"; };
+		21715EB524AA1CEA00C9C3D6 /* Syllabus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Syllabus.json; sourceTree = "<group>"; };
 		217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		217182F4243E27E1004B5E5A /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		217182F6243E2835004B5E5A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		21A1DFF224A8A1E700873DF2 /* SyllabusSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusSearchViewController.swift; sourceTree = "<group>"; };
 		21A1DFF424A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusSearchViewPresenter.swift; sourceTree = "<group>"; };
 		21A1DFF624A8CD6000873DF2 /* SyllabusSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusSearchModel.swift; sourceTree = "<group>"; };
-		21A1DFF824A8CED200873DF2 /* Syllabus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Syllabus.json; sourceTree = "<group>"; };
-		21A1DFFA24A8D12900873DF2 /* Syllabus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Syllabus.swift; sourceTree = "<group>"; };
+		21A1DFFA24A8D12900873DF2 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		21FA66772497528900961EA0 /* MapViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
 		21FA66792497907200961EA0 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		21FA667D2497D38B00961EA0 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				215F3A19244DA25100C6270A /* DefaultSearchInfo.swift */,
-				21A1DFFA24A8D12900873DF2 /* Syllabus.swift */,
+				21A1DFFA24A8D12900873DF2 /* Subject.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -131,7 +131,7 @@
 		2167438D249C9B7D008806A7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				21A1DFF824A8CED200873DF2 /* Syllabus.json */,
+				21715EB524AA1CEA00C9C3D6 /* Syllabus.json */,
 				215F3A17244D44F600C6270A /* DefaultSearchInfo.json */,
 				214F5F96243C96690061FC45 /* Assets.xcassets */,
 				214F5F98243C96690061FC45 /* LaunchScreen.storyboard */,
@@ -228,7 +228,6 @@
 				8C282470668A4DADC549625F /* Pods-NaNMap.debug.xcconfig */,
 				20F669A15917FF98423DEAD6 /* Pods-NaNMap.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -300,10 +299,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21A1DFF924A8CED300873DF2 /* Syllabus.json in Resources */,
 				215FA06F24506C440079300A /* TimeTable.storyboard in Resources */,
 				215F3A18244D44F600C6270A /* DefaultSearchInfo.json in Resources */,
 				214F5F9A243C96690061FC45 /* LaunchScreen.storyboard in Resources */,
+				21715EB624AA1CEA00C9C3D6 /* Syllabus.json in Resources */,
 				214F5F97243C96690061FC45 /* Assets.xcassets in Resources */,
 				217182F5243E27E1004B5E5A /* Search.storyboard in Resources */,
 				214F5F95243C96670061FC45 /* Map.storyboard in Resources */,
@@ -364,7 +363,7 @@
 				21674397249CF86D008806A7 /* TimeTableModel.swift in Sources */,
 				21FA667A2497907200961EA0 /* MapModel.swift in Sources */,
 				215F3A20244DD3E400C6270A /* DefaultSearchResultViewController.swift in Sources */,
-				21A1DFFB24A8D12900873DF2 /* Syllabus.swift in Sources */,
+				21A1DFFB24A8D12900873DF2 /* Subject.swift in Sources */,
 				21674395249CA2A4008806A7 /* TimeTableViewPresenter.swift in Sources */,
 				21A1DFF324A8A1E700873DF2 /* SyllabusSearchViewController.swift in Sources */,
 				21FA667E2497D38B00961EA0 /* SearchModel.swift in Sources */,

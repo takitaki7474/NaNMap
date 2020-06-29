@@ -12,15 +12,16 @@ class SubjectObj: Object {
     dynamic var category = ""
     dynamic var semester = ""
     dynamic var subjectName = ""
-    dynamic var classShedule = List<String>()
-    dynamic var classroom = List<String>()
     dynamic var teather = ""
     dynamic var degree = ""
+    dynamic var schedule = ""
+    dynamic var classroom = ""
+    dynamic var id = 0
 }
 
 class SyllabusSearchModel {
     private var data: Data?
-    var syllabus: Syllabus?
+    var syllabus: [Subject]?
     
     init() {
         let path = Bundle.main.path(forResource: "Syllabus", ofType: "json")
@@ -30,14 +31,14 @@ class SyllabusSearchModel {
     
     func loadSyllabus() {
         let decoder = JSONDecoder()
-        guard let syllabus = try? decoder.decode(Syllabus.self, from: self.data!) else {
+        guard let syllabus = try? decoder.decode([Subject].self, from: self.data!) else {
             print("error")
             return
         }
         self.syllabus = syllabus
-
+        print(syllabus.count)
     }
-    
+    /*
     private func saveSubject(_ degree: String) {
         var subjects: [Subject]?
         switch degree {
@@ -57,5 +58,5 @@ class SyllabusSearchModel {
             
         }
         
-    }
+    }*/
 }
