@@ -9,14 +9,14 @@ import Foundation
 import RealmSwift
 
 class SubjectObj: Object {
-    dynamic var category = ""
-    dynamic var semester = ""
-    dynamic var subjectName = ""
-    dynamic var teather = ""
-    dynamic var degree = ""
-    dynamic var schedule = ""
-    dynamic var classroom = ""
-    dynamic var id = 0
+    @objc dynamic var category = ""
+    @objc dynamic var semester = ""
+    @objc dynamic var subjectName = ""
+    @objc dynamic var teather = ""
+    @objc dynamic var degree = ""
+    @objc dynamic var schedule = ""
+    @objc dynamic var classroom = ""
+    @objc dynamic var id = 0
 }
 
 class SyllabusSearchModel {
@@ -36,27 +36,33 @@ class SyllabusSearchModel {
             return
         }
         self.syllabus = syllabus
-        print(syllabus.count)
+        saveSyllabus()
+        testSearch()
     }
-    /*
-    private func saveSubject(_ degree: String) {
-        var subjects: [Subject]?
-        switch degree {
-        case "undergraduate":
-            subjects = self.syllabus?.undergraduate
-        case "graduate":
-            subjects = self.syllabus?.graduate
-        default:
-            print("error: subjects is nil")
+    
+    private func saveSyllabus() {
+        let config = Realm.Configuration(inMemoryIdentifier: "inMemory")
+        let realm = try! Realm(configuration: config)
+        try! realm.write {
+            for subject in self.syllabus! {
+                let subjectObj = SubjectObj()
+                subjectObj.category = subject.category
+                subjectObj.semester = subject.semester
+                subjectObj.subjectName = subject.subjectName
+                subjectObj.teather = subject.teacher
+                subjectObj.degree = subject.degree
+                subjectObj.schedule = subject.schedule
+                subjectObj.classroom = subject.classroom
+                subjectObj.id = subject.id
+                realm.add(subjectObj)
+            }
         }
-        let subjectObj = SubjectObj()
-        let realm = try! Realm()
-        for subject in subjects! {
-            subjectObj.category = subject.category
-            subjectObj.semester = subject.semester
-            subjectObj.subjectName = subject.subjectName
-            
-        }
-        
-    }*/
+    }
+    
+    private func testSearch() {
+        let config = Realm.Configuration(inMemoryIdentifier: "inMemory")
+        let realm = try! Realm(configuration: config)
+        let result = realm.objects(SubjectObj.self).filter("id < 5")
+        print(result)
+    }
 }
