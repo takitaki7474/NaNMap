@@ -32,7 +32,7 @@ class SyllabusSearchModel {
     func loadSyllabus() {
         let decoder = JSONDecoder()
         guard let syllabus = try? decoder.decode([Subject].self, from: self.data!) else {
-            print("error")
+            print("syllabus decode error")
             return
         }
         self.syllabus = syllabus
@@ -41,9 +41,16 @@ class SyllabusSearchModel {
     }
     
     private func saveSyllabus() {
-        let config = Realm.Configuration(inMemoryIdentifier: "inMemory")
-        let realm = try! Realm(configuration: config)
+        let realm: Realm
+        do {
+            realm = try Realm()
+        } catch {
+            removeRealmFile()
+            realm = try! Realm()
+        }
+
         try! realm.write {
+            realm.deleteAll()
             for subject in self.syllabus! {
                 let subjectObj = SubjectObj()
                 subjectObj.category = subject.category
@@ -60,9 +67,26 @@ class SyllabusSearchModel {
     }
     
     private func testSearch() {
-        let config = Realm.Configuration(inMemoryIdentifier: "inMemory")
-        let realm = try! Realm(configuration: config)
+        let realm = try! Realm()
         let result = realm.objects(SubjectObj.self).filter("id < 5")
         print(result)
+    }
+    
+    private func removeRealmFile() {
+        let realmURL = Realm.Configuration.defaultConfiguration.fileURL!
+        let realmURLs = [
+            realmURL,
+            realmURL.appendingPathExtension("lock"),
+            realmURL.appendingPathExtension("note"),
+            realmURL.appendingPathExtension("management")
+        ]
+        for URL in realmURLs {
+            do {
+                try FileManager.default.removeItem(at: URL)
+                print("realm clear")
+            } catch {
+                print("realm clear error")
+            }
+        }
     }
 }
