@@ -26,6 +26,7 @@
 		217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */; };
 		217182F5243E27E1004B5E5A /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217182F4243E27E1004B5E5A /* Search.storyboard */; };
 		217182F7243E2835004B5E5A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F6243E2835004B5E5A /* SearchViewController.swift */; };
+		218AD15524B3818A003BC33F /* CustomSyllabusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218AD15424B3818A003BC33F /* CustomSyllabusCell.swift */; };
 		21A1DFF324A8A1E700873DF2 /* SyllabusSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFF224A8A1E700873DF2 /* SyllabusSearchViewController.swift */; };
 		21A1DFF524A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFF424A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift */; };
 		21A1DFF724A8CD6000873DF2 /* SyllabusSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFF624A8CD6000873DF2 /* SyllabusSearchModel.swift */; };
@@ -59,6 +60,7 @@
 		217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		217182F4243E27E1004B5E5A /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		217182F6243E2835004B5E5A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		218AD15424B3818A003BC33F /* CustomSyllabusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSyllabusCell.swift; sourceTree = "<group>"; };
 		21A1DFF224A8A1E700873DF2 /* SyllabusSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusSearchViewController.swift; sourceTree = "<group>"; };
 		21A1DFF424A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusSearchViewPresenter.swift; sourceTree = "<group>"; };
 		21A1DFF624A8CD6000873DF2 /* SyllabusSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusSearchModel.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				21A1DFF224A8A1E700873DF2 /* SyllabusSearchViewController.swift */,
 				21A1DFF424A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift */,
 				21A1DFF624A8CD6000873DF2 /* SyllabusSearchModel.swift */,
+				218AD15424B3818A003BC33F /* CustomSyllabusCell.swift */,
 			);
 			path = SyllabusSearch;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21A1DFF724A8CD6000873DF2 /* SyllabusSearchModel.swift in Sources */,
+				218AD15524B3818A003BC33F /* CustomSyllabusCell.swift in Sources */,
 				217182F7243E2835004B5E5A /* SearchViewController.swift in Sources */,
 				21674397249CF86D008806A7 /* TimeTableModel.swift in Sources */,
 				21FA667A2497907200961EA0 /* MapModel.swift in Sources */,

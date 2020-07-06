@@ -60,11 +60,19 @@ private extension SyllabusSearchViewController {
 
 extension SyllabusSearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "subjectCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "syllabusCell", for: indexPath) as! CustomSyllabusCell
+        cell.quarterLabel.text = "Q2"
+        cell.subjectLabel.text = "英語Iﾗｲﾃｨﾝｸﾞ<S>2"
+        cell.classroomLabel.text = "R48"
+        cell.teacherLabel.text = "ELLIOTT,Darren"
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60.0
     }
 }

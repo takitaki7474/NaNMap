@@ -12,7 +12,7 @@ class SubjectObj: Object {
     @objc dynamic var category = ""
     @objc dynamic var semester = ""
     @objc dynamic var subjectName = ""
-    @objc dynamic var teather = ""
+    @objc dynamic var teacher = ""
     @objc dynamic var degree = ""
     @objc dynamic var schedule = ""
     @objc dynamic var classroom = ""
@@ -22,6 +22,7 @@ class SubjectObj: Object {
 class SyllabusSearchModel {
     private var data: Data?
     var syllabus: [Subject]?
+    var classSchedule: String?
     
     init() {
         let path = Bundle.main.path(forResource: "Syllabus", ofType: "json")
@@ -55,7 +56,7 @@ class SyllabusSearchModel {
                 subjectObj.category = subject.category
                 subjectObj.semester = subject.semester
                 subjectObj.subjectName = subject.subjectName
-                subjectObj.teather = subject.teacher
+                subjectObj.teacher = subject.teacher
                 subjectObj.degree = subject.degree
                 subjectObj.schedule = subject.schedule
                 subjectObj.classroom = subject.classroom
@@ -76,9 +77,9 @@ class SyllabusSearchModel {
         for URL in realmURLs {
             do {
                 try FileManager.default.removeItem(at: URL)
-                print("realm clear")
+                print("remove realm file")
             } catch {
-                print("realm clear error")
+                print("remove realm file error")
             }
         }
     }
@@ -86,8 +87,9 @@ class SyllabusSearchModel {
 
 extension SyllabusSearchModel {
     func loadTappedScheduleSyllabus(by classSchedule: String) {
+        self.classSchedule = classSchedule
         let realm = try! Realm()
-        let result = realm.objects(SubjectObj.self).filter("schedule == %@", classSchedule)
-        print(result)
+        let result = realm.objects(SubjectObj.self).filter("schedule == %@", self.classSchedule!)
+        //print(result)
     }
 }
