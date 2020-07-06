@@ -57,7 +57,7 @@ extension TimeTableViewController: TimeTableView {
         let alert = UIAlertController(title: "時間割の編集", message: text+"の講義を編集しますか?", preferredStyle: UIAlertController.Style.actionSheet)
         let defaultAction = UIAlertAction(title: text+"の講義を検索する", style: UIAlertAction.Style.default, handler: {
             (action:UIAlertAction) -> Void in
-            let vc = SyllabusSearchViewController.instantinate(syllabusSearchPresenter: self.syllabusSearchPresenter)
+            let vc = SyllabusSearchViewController.instantinate(syllabusSearchPresenter: self.syllabusSearchPresenter, classSchedule: text)
             self.navigationController?.pushViewController(vc, animated: true)
         })
         let cancelAction = UIAlertAction(title: "戻る", style: UIAlertAction.Style.cancel, handler: {

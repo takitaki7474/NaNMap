@@ -11,10 +11,12 @@ import UIKit
 class SyllabusSearchViewController: UIViewController {
     private var timeTablePresenter: TimeTablePresenter!
     private var syllabusSearchPresenter: SyllabusSearchPresenter!
+    private var classSchedule: String!
     
-    static func instantinate(syllabusSearchPresenter: SyllabusSearchPresenter) -> SyllabusSearchViewController {
+    static func instantinate(syllabusSearchPresenter: SyllabusSearchPresenter, classSchedule: String) -> SyllabusSearchViewController {
         let controller = UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "syllabusSearchViewController") as! SyllabusSearchViewController
         controller.syllabusSearchPresenter = syllabusSearchPresenter
+        controller.classSchedule = classSchedule
         return controller
     }
 

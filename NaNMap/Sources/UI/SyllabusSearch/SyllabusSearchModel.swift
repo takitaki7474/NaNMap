@@ -69,6 +69,7 @@ class SyllabusSearchModel {
     private func testSearch() {
         let realm = try! Realm()
         let result = realm.objects(SubjectObj.self).filter("id < 5")
+        //let result = realm.objects(SubjectObj.self).filter("schedule == %@", "火4")
         print(result)
     }
     
