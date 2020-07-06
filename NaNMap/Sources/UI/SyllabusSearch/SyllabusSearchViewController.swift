@@ -11,6 +11,7 @@ import UIKit
 class SyllabusSearchViewController: UIViewController {
     private var timeTablePresenter: TimeTablePresenter!
     private var syllabusSearchPresenter: SyllabusSearchPresenter!
+    private var searchBar: UISearchBar!
     private var classSchedule: String!
     
     static func instantinate(syllabusSearchPresenter: SyllabusSearchPresenter, classSchedule: String) -> SyllabusSearchViewController {
@@ -22,5 +23,23 @@ class SyllabusSearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpNavigationBar()
+    }
+}
+
+private extension SyllabusSearchViewController {
+    func setUpNavigationBar() {
+        navigationItem.hidesBackButton = true
+        navigationItem.title = self.classSchedule + "のシラバス"
+        setUpSearchBar()
+    }
+    
+    func setUpSearchBar() {
+        searchBar = UISearchBar()
+        searchBar.placeholder = "講義を検索"
+        searchBar.searchTextField.backgroundColor = UIColor.white
+        searchBar.tintColor = UIColor.gray
+        searchBar.becomeFirstResponder()
+        navigationItem.titleView = searchBar
     }
 }
