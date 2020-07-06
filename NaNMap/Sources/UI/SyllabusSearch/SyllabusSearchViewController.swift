@@ -66,9 +66,9 @@ extension SyllabusSearchViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "syllabusCell", for: indexPath) as! CustomSyllabusCell
         cell.quarterLabel.text = "Q2"
-        cell.subjectLabel.text = "英語Iﾗｲﾃｨﾝｸﾞ<S>2"
-        cell.classroomLabel.text = "R48"
-        cell.teacherLabel.text = "ELLIOTT,Darren"
+        cell.subjectLabel.text = "英語Iﾗｲﾃｨﾝｸﾞ<S>2英語Iﾗｲﾃｨﾝｸﾞ<S>2英語Iﾗｲﾃｨﾝｸﾞ<S>2英語Iﾗｲﾃｨﾝｸﾞ<S>2英語Iﾗｲﾃｨﾝｸﾞ<S>2"
+        cell.classroomLabel.text = "R48R48R48R48R48R48"
+        cell.teacherLabel.text = "ELLIOTT,Darren, ELLIOTT,Darren,ELLIOTT,Darren,ELLIOTT,Darren,ELLIOTT,Darren,"
         return cell
     }
     
