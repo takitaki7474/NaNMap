@@ -24,13 +24,20 @@ class SyllabusSearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpDefaultTableView()
         setUpNavigationBar()
     }
 }
 
 private extension SyllabusSearchViewController {
+    func setUpDefaultTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        syllabusSearchPresenter.loadTappedScheduleSyllabus(by: classSchedule)
+    }
+    
     func setUpNavigationBar() {
-        navigationItem.hidesBackButton = true
+        navigationItem.hidesBackButton = false
         navigationItem.title = self.classSchedule + "のシラバス"
         setUpSearchController()
     }
@@ -48,5 +55,16 @@ private extension SyllabusSearchViewController {
         } else {
             tableView.tableHeaderView = searchBar
         }
+    }
+}
+
+extension SyllabusSearchViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "subjectCell", for: indexPath)
+        return cell
     }
 }

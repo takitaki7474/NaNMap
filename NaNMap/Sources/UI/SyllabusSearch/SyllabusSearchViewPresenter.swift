@@ -7,6 +7,7 @@
 //
 protocol SyllabusSearchPresenter {
     func loadSyllabus()
+    func loadTappedScheduleSyllabus(by classSchedule: String)
 }
 
 class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
@@ -14,5 +15,9 @@ class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
     
     func loadSyllabus() {
         model.loadSyllabus()
+    }
+    
+    func loadTappedScheduleSyllabus(by classSchedule: String) {
+        model.loadTappedScheduleSyllabus(by: classSchedule)
     }
 }

@@ -37,7 +37,6 @@ class SyllabusSearchModel {
         }
         self.syllabus = syllabus
         saveSyllabus()
-        testSearch()
     }
     
     private func saveSyllabus() {
@@ -66,13 +65,6 @@ class SyllabusSearchModel {
         }
     }
     
-    private func testSearch() {
-        let realm = try! Realm()
-        let result = realm.objects(SubjectObj.self).filter("id < 5")
-        //let result = realm.objects(SubjectObj.self).filter("schedule == %@", "火4")
-        print(result)
-    }
-    
     private func removeRealmFile() {
         let realmURL = Realm.Configuration.defaultConfiguration.fileURL!
         let realmURLs = [
@@ -89,5 +81,13 @@ class SyllabusSearchModel {
                 print("realm clear error")
             }
         }
+    }
+}
+
+extension SyllabusSearchModel {
+    func loadTappedScheduleSyllabus(by classSchedule: String) {
+        let realm = try! Realm()
+        let result = realm.objects(SubjectObj.self).filter("schedule == %@", classSchedule)
+        print(result)
     }
 }
