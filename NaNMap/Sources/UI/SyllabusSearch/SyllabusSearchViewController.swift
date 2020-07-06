@@ -9,9 +9,10 @@
 import UIKit
 
 class SyllabusSearchViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
     private var timeTablePresenter: TimeTablePresenter!
     private var syllabusSearchPresenter: SyllabusSearchPresenter!
-    private var searchBar: UISearchBar!
+    private var searchController: UISearchController!
     private var classSchedule: String!
     
     static func instantinate(syllabusSearchPresenter: SyllabusSearchPresenter, classSchedule: String) -> SyllabusSearchViewController {
@@ -31,15 +32,21 @@ private extension SyllabusSearchViewController {
     func setUpNavigationBar() {
         navigationItem.hidesBackButton = true
         navigationItem.title = self.classSchedule + "のシラバス"
-        setUpSearchBar()
+        setUpSearchController()
     }
     
-    func setUpSearchBar() {
-        searchBar = UISearchBar()
+    func setUpSearchController() {
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.hidesNavigationBarDuringPresentation = true
+        let searchBar = searchController.searchBar
         searchBar.placeholder = "講義を検索"
         searchBar.searchTextField.backgroundColor = UIColor.white
         searchBar.tintColor = UIColor.gray
-        searchBar.becomeFirstResponder()
-        navigationItem.titleView = searchBar
+        if #available(iOS 11.0, *) {
+            navigationItem.hidesSearchBarWhenScrolling = false
+            navigationItem.searchController = searchController
+        } else {
+            tableView.tableHeaderView = searchBar
+        }
     }
 }
