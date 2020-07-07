@@ -12,16 +12,27 @@ class SubjectObj: Object {
     @objc dynamic var category = ""
     @objc dynamic var semester = ""
     @objc dynamic var subjectName = ""
-    @objc dynamic var teather = ""
+    @objc dynamic var teacher = ""
     @objc dynamic var degree = ""
     @objc dynamic var schedule = ""
     @objc dynamic var classroom = ""
     @objc dynamic var id = 0
 }
 
+protocol SyllabusSearchModelDelegate: class {
+    func searchModel()
+}
+
 class SyllabusSearchModel {
     private var data: Data?
+    weak var delegate: SyllabusSearchModelDelegate?
     var syllabus: [Subject]?
+    var classSchedule: String?
+    var syllabusSearchResult: Results<SubjectObj>? {
+        didSet {
+            delegate?.searchModel()
+        }
+    }
     
     init() {
         let path = Bundle.main.path(forResource: "Syllabus", ofType: "json")
@@ -32,24 +43,30 @@ class SyllabusSearchModel {
     func loadSyllabus() {
         let decoder = JSONDecoder()
         guard let syllabus = try? decoder.decode([Subject].self, from: self.data!) else {
-            print("error")
+            print("syllabus decode error")
             return
         }
         self.syllabus = syllabus
         saveSyllabus()
-        testSearch()
     }
     
     private func saveSyllabus() {
-        let config = Realm.Configuration(inMemoryIdentifier: "inMemory")
-        let realm = try! Realm(configuration: config)
+        let realm: Realm
+        do {
+            realm = try Realm()
+        } catch {
+            removeRealmFile()
+            realm = try! Realm()
+        }
+
         try! realm.write {
+            realm.deleteAll()
             for subject in self.syllabus! {
                 let subjectObj = SubjectObj()
                 subjectObj.category = subject.category
                 subjectObj.semester = subject.semester
                 subjectObj.subjectName = subject.subjectName
-                subjectObj.teather = subject.teacher
+                subjectObj.teacher = subject.teacher
                 subjectObj.degree = subject.degree
                 subjectObj.schedule = subject.schedule
                 subjectObj.classroom = subject.classroom
@@ -59,10 +76,30 @@ class SyllabusSearchModel {
         }
     }
     
-    private func testSearch() {
-        let config = Realm.Configuration(inMemoryIdentifier: "inMemory")
-        let realm = try! Realm(configuration: config)
-        let result = realm.objects(SubjectObj.self).filter("id < 5")
-        print(result)
+    private func removeRealmFile() {
+        let realmURL = Realm.Configuration.defaultConfiguration.fileURL!
+        let realmURLs = [
+            realmURL,
+            realmURL.appendingPathExtension("lock"),
+            realmURL.appendingPathExtension("note"),
+            realmURL.appendingPathExtension("management")
+        ]
+        for URL in realmURLs {
+            do {
+                try FileManager.default.removeItem(at: URL)
+                print("remove realm file")
+            } catch {
+                print("remove realm file error")
+            }
+        }
+    }
+}
+
+extension SyllabusSearchModel {
+    func loadTappedScheduleSyllabus(by classSchedule: String) {
+        self.classSchedule = classSchedule
+        let realm = try! Realm()
+        let result = realm.objects(SubjectObj.self).filter("schedule == %@", self.classSchedule!)
+        self.syllabusSearchResult = result
     }
 }
