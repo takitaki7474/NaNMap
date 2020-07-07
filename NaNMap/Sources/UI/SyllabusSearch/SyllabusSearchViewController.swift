@@ -76,7 +76,10 @@ private extension SyllabusSearchViewController {
     }
     
     @objc func tapFilterButton() {
-        print("filter")
+        let vc = FilterPopUpViewController.instantinate(syllabusSearchPresenter: syllabusSearchPresenter)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: true, completion: nil)
     }
 }
 
