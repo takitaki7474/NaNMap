@@ -46,6 +46,9 @@ private extension SyllabusSearchViewController {
         let doneButton = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(tapDoneButton))
         doneButton.tintColor = UIColor.white
         navigationItem.rightBarButtonItem = doneButton
+        let filterButton = UIBarButtonItem(title: "フィルタ", style: .done, target: self, action: #selector(tapFilterButton))
+        filterButton.tintColor = UIColor.white
+        navigationItem.leftBarButtonItem = filterButton
         navigationItem.title = self.classSchedule + "のシラバス"
         setUpSearchController()
     }
@@ -70,6 +73,10 @@ private extension SyllabusSearchViewController {
     
     @objc func tapDoneButton() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func tapFilterButton() {
+        print("filter")
     }
 }
 
