@@ -51,7 +51,9 @@ private extension SyllabusSearchViewController {
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = true
+        searchController.obscuresBackgroundDuringPresentation = false
         let searchBar = searchController.searchBar
+        searchBar.delegate = self
         searchBar.placeholder = "講義を検索"
         searchBar.searchTextField.backgroundColor = UIColor.white
         searchBar.tintColor = UIColor.gray
@@ -95,5 +97,11 @@ extension SyllabusSearchViewController: UISearchResultsUpdating {
         if searchController.searchBar.text! != "" {
             syllabusSearchPresenter.searchSyllabus(with: searchController.searchBar.text!)
         }
+    }
+}
+
+extension SyllabusSearchViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        syllabusSearchPresenter.loadTappedScheduleSyllabus(by: classSchedule)
     }
 }
