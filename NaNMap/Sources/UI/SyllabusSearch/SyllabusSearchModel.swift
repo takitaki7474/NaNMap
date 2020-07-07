@@ -23,6 +23,11 @@ class SyllabusSearchModel {
     private var data: Data?
     var syllabus: [Subject]?
     var classSchedule: String?
+    var syllabusSearchResult: Results<SubjectObj>? {
+        didSet {
+            
+        }
+    }
     
     init() {
         let path = Bundle.main.path(forResource: "Syllabus", ofType: "json")
@@ -90,6 +95,6 @@ extension SyllabusSearchModel {
         self.classSchedule = classSchedule
         let realm = try! Realm()
         let result = realm.objects(SubjectObj.self).filter("schedule == %@", self.classSchedule!)
-        //print(result)
+        self.syllabusSearchResult = result
     }
 }

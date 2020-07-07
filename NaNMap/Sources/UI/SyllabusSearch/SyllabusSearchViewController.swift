@@ -44,6 +44,7 @@ private extension SyllabusSearchViewController {
     
     func setUpSearchController() {
         searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = true
         let searchBar = searchController.searchBar
         searchBar.placeholder = "講義を検索"
@@ -74,5 +75,11 @@ extension SyllabusSearchViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60.0
+    }
+}
+
+extension SyllabusSearchViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        print(searchController.searchBar.text!)
     }
 }
