@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SyllabusSearchView: class {
+    func reloadData()
+}
+
 class SyllabusSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private var timeTablePresenter: TimeTablePresenter!
@@ -24,6 +28,7 @@ class SyllabusSearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        syllabusSearchPresenter.view = self
         setUpDefaultTableView()
         setUpNavigationBar()
     }
@@ -59,6 +64,12 @@ private extension SyllabusSearchViewController {
     }
 }
 
+extension SyllabusSearchViewController: SyllabusSearchView {
+    func reloadData() {
+        print("reloadData")
+    }
+}
+
 extension SyllabusSearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -80,6 +91,6 @@ extension SyllabusSearchViewController: UITableViewDataSource, UITableViewDelega
 
 extension SyllabusSearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        print(searchController.searchBar.text!)
+        //print(searchController.searchBar.text!)
     }
 }

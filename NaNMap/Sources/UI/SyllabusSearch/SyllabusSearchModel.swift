@@ -19,13 +19,18 @@ class SubjectObj: Object {
     @objc dynamic var id = 0
 }
 
+protocol SyllabusSearchModelDelegate: class {
+    func searchModel()
+}
+
 class SyllabusSearchModel {
     private var data: Data?
+    weak var delegate: SyllabusSearchModelDelegate?
     var syllabus: [Subject]?
     var classSchedule: String?
     var syllabusSearchResult: Results<SubjectObj>? {
         didSet {
-            
+            delegate?.searchModel()
         }
     }
     
