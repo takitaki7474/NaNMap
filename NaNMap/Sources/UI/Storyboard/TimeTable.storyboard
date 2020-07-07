@@ -83,14 +83,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGg-eg-s6b" userLabel="Quarter">
-                                                    <rect key="frame" x="20" y="19.5" width="21" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q1月1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGg-eg-s6b" userLabel="Quarter">
+                                                    <rect key="frame" x="20" y="19.5" width="46" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="科目名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7VP-jn-aFj" userLabel="Subject">
-                                                    <rect key="frame" x="61" y="11" width="330" height="20"/>
+                                                    <rect key="frame" x="86" y="11" width="330" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="330" id="j1L-G9-cUI"/>
                                                     </constraints>
@@ -99,7 +99,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="教室" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTw-Zg-ykr" userLabel="Classroom">
-                                                    <rect key="frame" x="61" y="31" width="60" height="18"/>
+                                                    <rect key="frame" x="86" y="31" width="60" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="V8P-1h-hzr"/>
                                                     </constraints>
@@ -108,9 +108,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="教員" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLj-nZ-87g" userLabel="Teacher">
-                                                    <rect key="frame" x="151" y="31" width="240" height="18"/>
+                                                    <rect key="frame" x="176" y="31" width="218" height="18"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="240" id="3iQ-4X-BC3"/>
+                                                        <constraint firstAttribute="width" constant="218" id="Tgu-Dy-n1U"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.34370279399999998" green="0.34370279399999998" blue="0.34370279399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
