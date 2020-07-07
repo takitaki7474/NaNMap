@@ -7,6 +7,7 @@
 //
 protocol SyllabusSearchPresenter {
     var view: SyllabusSearchView? { get set }
+    var numberOfSyllabusSearchResult: Int { get }
     func loadSyllabus()
     func loadTappedScheduleSyllabus(by classSchedule: String)
 }
@@ -17,6 +18,14 @@ class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
     
     init() {
         model.delegate = self
+    }
+    
+    var numberOfSyllabusSearchResult: Int {
+        if let count = model.syllabusSearchResult?.count {
+            return count
+        } else {
+            return 0
+        }
     }
     
     func loadSyllabus() {
