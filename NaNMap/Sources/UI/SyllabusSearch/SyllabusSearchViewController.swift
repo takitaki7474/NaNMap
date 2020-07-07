@@ -92,6 +92,8 @@ extension SyllabusSearchViewController: UITableViewDataSource, UITableViewDelega
 
 extension SyllabusSearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        //print(searchController.searchBar.text!)
+        if searchController.searchBar.text! != "" {
+            syllabusSearchPresenter.searchSyllabus(with: searchController.searchBar.text!)
+        }
     }
 }

@@ -97,9 +97,18 @@ class SyllabusSearchModel {
 
 extension SyllabusSearchModel {
     func loadTappedScheduleSyllabus(by classSchedule: String) {
+        print("a")
         self.classSchedule = classSchedule
         let realm = try! Realm()
-        let result = realm.objects(SubjectObj.self).filter("schedule == %@", self.classSchedule!)
+        let result = realm.objects(SubjectObj.self).filter("schedule == %@", self.classSchedule!).sorted(byKeyPath: "semester")
+        self.syllabusSearchResult = result
+    }
+    
+    func searchSyllabus(with query: String) {
+        print("b")
+        let realm = try! Realm()
+        var result = realm.objects(SubjectObj.self).filter("schedule == %@", self.classSchedule!).sorted(byKeyPath: "semester")
+        result = result.filter("subjectName CONTAINS %@", query)
         self.syllabusSearchResult = result
     }
 }
