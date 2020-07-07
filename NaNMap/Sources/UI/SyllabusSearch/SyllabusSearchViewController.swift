@@ -42,7 +42,10 @@ private extension SyllabusSearchViewController {
     }
     
     func setUpNavigationBar() {
-        navigationItem.hidesBackButton = false
+        navigationItem.hidesBackButton = true
+        let doneButton = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(tapDoneButton))
+        doneButton.tintColor = UIColor.white
+        navigationItem.rightBarButtonItem = doneButton
         navigationItem.title = self.classSchedule + "のシラバス"
         setUpSearchController()
     }
@@ -63,6 +66,10 @@ private extension SyllabusSearchViewController {
         } else {
             tableView.tableHeaderView = searchBar
         }
+    }
+    
+    @objc func tapDoneButton() {
+        navigationController?.popViewController(animated: true)
     }
 }
 
