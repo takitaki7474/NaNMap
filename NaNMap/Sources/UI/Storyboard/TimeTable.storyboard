@@ -163,7 +163,7 @@
         <scene sceneID="cyb-qM-gJX">
             <objects>
                 <viewController storyboardIdentifier="filterPopUpViewController" id="go9-eO-wFJ" customClass="FilterPopUpViewController" customModule="NaNMap" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xD5-l2-xe6">
+                    <view key="view" tag="1" contentMode="scaleToFill" id="xD5-l2-xe6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -187,7 +187,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.82178688980483316" green="0.82553171929714197" blue="0.8367662077740684" alpha="0.7004841549295775" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.41446087493309336" green="0.41634954622623871" blue="0.42201556010567465" alpha="0.7004841549295775" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="CAk-3O-LFB"/>
                     </view>
                     <connections>

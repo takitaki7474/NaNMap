@@ -30,6 +30,16 @@ class FilterPopUpViewController: UIViewController {
         tableView.frame.size = CGSize(width: view.frame.width * 8/10, height: view.frame.height * 8/10)
         tableView.center = CGPoint(x: view.frame.width/2, y: view.frame.height/2)
     }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        for touch in touches {
+            if touch.view?.tag == 1 {
+                self.dismiss(animated: true, completion: nil)
+            }
+            
+        }
+    }
 }
 
 extension FilterPopUpViewController: UITableViewDataSource, UITableViewDelegate {
