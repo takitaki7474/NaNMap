@@ -130,7 +130,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="classroomLabel" destination="QTw-Zg-ykr" id="UDk-Mk-bSJ"/>
-                                            <outlet property="quarterLabel" destination="vGg-eg-s6b" id="STb-wi-1Eu"/>
+                                            <outlet property="semesterLabel" destination="vGg-eg-s6b" id="dcP-4A-6Xz"/>
                                             <outlet property="subjectLabel" destination="7VP-jn-aFj" id="Bs6-ST-mTu"/>
                                             <outlet property="teacherLabel" destination="jLj-nZ-87g" id="Mzt-Vg-xjd"/>
                                         </connections>

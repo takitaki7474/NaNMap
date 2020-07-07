@@ -10,6 +10,7 @@ protocol SyllabusSearchPresenter {
     var numberOfSyllabusSearchResult: Int { get }
     func loadSyllabus()
     func loadTappedScheduleSyllabus(by classSchedule: String)
+    func loadSyllabusSearchResult(at index: Int) -> SubjectObj?
 }
 
 class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
@@ -34,6 +35,11 @@ class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
     
     func loadTappedScheduleSyllabus(by classSchedule: String) {
         model.loadTappedScheduleSyllabus(by: classSchedule)
+    }
+    
+    func loadSyllabusSearchResult(at index: Int) -> SubjectObj? {
+        let subjectObj: SubjectObj? = model.syllabusSearchResult?[index]
+        return subjectObj
     }
 }
 

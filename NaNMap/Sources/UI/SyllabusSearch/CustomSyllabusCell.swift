@@ -9,7 +9,8 @@
 import UIKit
 
 class CustomSyllabusCell: UITableViewCell {
-    @IBOutlet weak var quarterLabel: UILabel!
+
+    @IBOutlet weak var semesterLabel: UILabel!
     @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var classroomLabel: UILabel!
     @IBOutlet weak var teacherLabel: UILabel!

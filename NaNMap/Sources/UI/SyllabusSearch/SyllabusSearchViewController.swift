@@ -66,21 +66,22 @@ private extension SyllabusSearchViewController {
 
 extension SyllabusSearchViewController: SyllabusSearchView {
     func reloadData() {
-        print("reloadData")
+        tableView.reloadData()
     }
 }
 
 extension SyllabusSearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return syllabusSearchPresenter.numberOfSyllabusSearchResult!
+        return syllabusSearchPresenter.numberOfSyllabusSearchResult
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "syllabusCell", for: indexPath) as! CustomSyllabusCell
-        cell.quarterLabel.text = "Q2"
-        cell.subjectLabel.text = "英語Iﾗｲﾃｨﾝｸﾞ<S>2英語Iﾗｲﾃｨﾝｸﾞ<S>2英語Iﾗｲﾃｨﾝｸﾞ<S>2英語Iﾗｲﾃｨﾝｸﾞ<S>2英語Iﾗｲﾃｨﾝｸﾞ<S>2"
-        cell.classroomLabel.text = "R48R48R48R48R48R48"
-        cell.teacherLabel.text = "ELLIOTT,Darren, ELLIOTT,Darren,ELLIOTT,Darren,ELLIOTT,Darren,ELLIOTT,Darren,"
+        let subjectObj = syllabusSearchPresenter.loadSyllabusSearchResult(at: indexPath.row)
+        cell.semesterLabel.text = subjectObj?.semester
+        cell.subjectLabel.text = subjectObj?.subjectName
+        cell.classroomLabel.text = subjectObj?.classroom
+        cell.teacherLabel.text = subjectObj?.teacher
         return cell
     }
     
