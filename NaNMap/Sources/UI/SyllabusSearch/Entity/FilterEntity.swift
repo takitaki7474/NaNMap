@@ -8,6 +8,8 @@
 
 import Foundation
 
-struct FilteringEntity {
-    let filteringList: [String : [String]]
+struct FilterEntity: Codable {
+    var id: Int
+    var parentCategory: String
+    var childCategory: [String]
 }

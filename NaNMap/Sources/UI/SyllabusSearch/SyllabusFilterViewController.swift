@@ -8,14 +8,14 @@
 
 import UIKit
 
-class SyllabusFilterPopUpViewController: UIViewController {
+class SyllabusFilterViewController: UIViewController {
+    
     @IBOutlet weak var tableView: UITableView!
     private var syllabusSearchPresenter: SyllabusSearchPresenter!
-    private var syllabusFilterPresenter: SyllabusFilterPresenter!
     private var filter: [String] = ["宗教科目"]
     
-    static func instantinate(syllabusSearchPresenter: SyllabusSearchPresenter) -> SyllabusFilterPopUpViewController {
-        let controller = UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "syllabusFilterPopUpViewController") as! SyllabusFilterPopUpViewController
+    static func instantinate(syllabusSearchPresenter: SyllabusSearchPresenter) -> SyllabusFilterViewController {
+        let controller = UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "syllabusFilterPopUpViewController") as! SyllabusFilterViewController
         controller.syllabusSearchPresenter = syllabusSearchPresenter
         return controller
     }
@@ -23,7 +23,6 @@ class SyllabusFilterPopUpViewController: UIViewController {
     override func viewDidLoad() {
         tableView.delegate = self
         tableView.dataSource = self
-        syllabusFilterPresenter = SyllabusFilterPopUpViewPresenter()
         setUpTableViewStyle()
         super.viewDidLoad()
     }
@@ -43,14 +42,15 @@ class SyllabusFilterPopUpViewController: UIViewController {
     }
 }
 
-extension SyllabusFilterPopUpViewController: UITableViewDataSource, UITableViewDelegate {
+extension SyllabusFilterViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filter.count
+        return syllabusSearchPresenter.numberOfFilterList
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "filterCell", for: indexPath)
-        cell.textLabel?.text = filter[indexPath.row]
+        let filter = syllabusSearchPresenter.loadFilter(at: indexPath.row)
+        cell.textLabel?.text = filter?.parentCategory
         return cell
     }
 }

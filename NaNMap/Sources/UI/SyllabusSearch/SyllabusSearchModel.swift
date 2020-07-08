@@ -24,8 +24,8 @@ protocol SyllabusSearchModelDelegate: class {
 }
 
 class SyllabusSearchModel {
-    private var data: Data?
     weak var delegate: SyllabusSearchModelDelegate?
+    var filterList: [FilterEntity]?
     var syllabus: [Subject]?
     var classSchedule: String?
     var syllabusSearchResult: Results<SubjectObj>? {
@@ -34,20 +34,18 @@ class SyllabusSearchModel {
         }
     }
     
-    init() {
+    func loadSyllabus() {
         let path = Bundle.main.path(forResource: "Syllabus", ofType: "json")
         let url = URL(fileURLWithPath: path!)
-        self.data = try? Data(contentsOf: url)
-    }
-    
-    func loadSyllabus() {
+        let data = try? Data(contentsOf: url)
         let decoder = JSONDecoder()
-        guard let syllabus = try? decoder.decode([Subject].self, from: self.data!) else {
+        guard let syllabus = try? decoder.decode([Subject].self, from: data!) else {
             print("syllabus decode error")
             return
         }
         self.syllabus = syllabus
         saveSyllabus()
+        loadFilter()
     }
     
     private func saveSyllabus() {
@@ -74,6 +72,18 @@ class SyllabusSearchModel {
                 realm.add(subjectObj)
             }
         }
+    }
+    
+    private func loadFilter() {
+        let path = Bundle.main.path(forResource: "Filter", ofType: "json")
+        let url = URL(fileURLWithPath: path!)
+        let data = try? Data(contentsOf: url)
+        let decoder = JSONDecoder()
+        guard let filter = try? decoder.decode([FilterEntity].self, from: data!) else {
+            print("filter decode error")
+            return
+        }
+        self.filterList = filter
     }
     
     private func removeRealmFile() {
