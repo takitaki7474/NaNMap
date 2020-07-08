@@ -12,7 +12,6 @@ class SyllabusFilterViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     private var syllabusSearchPresenter: SyllabusSearchPresenter!
-    private var filter: [String] = ["宗教科目"]
     
     static func instantinate(syllabusSearchPresenter: SyllabusSearchPresenter) -> SyllabusFilterViewController {
         let controller = UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "syllabusFilterPopUpViewController") as! SyllabusFilterViewController
@@ -50,7 +49,7 @@ extension SyllabusFilterViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "filterCell", for: indexPath)
         let filter = syllabusSearchPresenter.loadFilter(at: indexPath.row)
-        cell.textLabel?.text = filter?.parentCategory
+        cell.textLabel?.text = filter?.filterTitle
         return cell
     }
 }

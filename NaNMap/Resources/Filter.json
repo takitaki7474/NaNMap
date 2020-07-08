@@ -1,8 +1,11 @@
 [
     {
-        "id": 0,
-        "parentCategory": "共通教育科目",
-        "childCategory": [
+        "filterTitle": "フィルタなし",
+        "filterSyllabusWords": []
+    },
+    {
+        "filterTitle": "共通教育科目",
+        "filterSyllabusWords": [
             "宗教科目",
             "体育科目(基礎体育)",
             "情報倫理科目",
@@ -47,9 +50,8 @@
         ]
     },
     {
-        "id": 1,
-        "parentCategory": "人文学部",
-        "childCategory": [
+        "filterTitle": "人文学部",
+        "filterSyllabusWords": [
             "人文学部共通科目",
             "人文学部共通･選択科目A群(2017年度以降入学者)",
             "人文学部共通･選択科目B群(2017年度以降入学者)",
@@ -71,9 +73,8 @@
         ]
     },
     {
-        "id": 2,
-        "parentCategory": "外国語学部",
-        "childCategory": [
+        "filterTitle": "外国語学部",
+        "filterSyllabusWords": [
             "外国語学部共通科目A群(2017年度以降入学者)",
             "外国語学部共通科目B群(2017年度以降入学者)",
             "外国語学部共通科目B群(英米学科開講科目)",
@@ -91,30 +92,26 @@
         ]
     },
     {
-        "id": 3,
-        "parentCategory": "経済学部",
-        "childCategory": [
+        "filterTitle": "経済学部",
+        "filterSyllabusWords": [
             "経済学科"
         ]
     },
     {
-        "id": 4,
-        "parentCategory": "経営学部",
-        "childCategory": [
+        "filterTitle": "経営学部",
+        "filterSyllabusWords": [
             "経営学科"
         ]
     },
     {
-        "id": 5,
-        "parentCategory": "法学部",
-        "childCategory": [
+        "filterTitle": "法学部",
+        "filterSyllabusWords": [
             "法律学科"
         ]
     },
     {
-        "id": 6,
-        "parentCategory": "総合政策学部",
-        "childCategory": [
+        "filterTitle": "総合政策学部",
+        "filterSyllabusWords": [
             "総合政策学科 必修科目",
             "総合政策学科 基礎科目",
             "総合政策学科 方法論科目",
@@ -125,9 +122,8 @@
         ]
     },
     {
-        "id": 7,
-        "parentCategory": "理工学部",
-        "childCategory": [
+        "filterTitle": "理工学部",
+        "filterSyllabusWords": [
             "理工学部共通科目",
             "ｼｽﾃﾑ数理学科",
             "ｿﾌﾄｳｪｱ工学科",
@@ -135,35 +131,31 @@
         ]
     },
     {
-        "id": 8,
-        "parentCategory": "情報理工学部",
-        "childCategory": [
+        "filterTitle": "情報理工学部",
+        "filterSyllabusWords": [
             "情報理工学部共通科目",
             "ｿﾌﾄｳｪｱ工学科(旧)",
             "ｼｽﾃﾑ創成工学科"
         ]
     },
     {
-        "id": 9,
-        "parentCategory": "国際教養学部",
-        "childCategory": [
+        "filterTitle": "国際教養学部",
+        "filterSyllabusWords": [
             "国際教養学科",
             "国際教養学科 地域研究科目"
         ]
     },
     {
-        "id": 10,
-        "parentCategory": "短期大学部",
-        "childCategory": [
+        "filterTitle": "短期大学部",
+        "filterSyllabusWords": [
             "英語科",
             "英語科 基本科目",
             "英語科科目"
         ]
     },
     {
-        "id": 11,
-        "parentCategory": "資格関連科目",
-        "childCategory": [
+        "filterTitle": "資格関連科目",
+        "filterSyllabusWords": [
             "教職課程",
             "博物館学芸員養成課程",
             "司書課程",
@@ -171,9 +163,8 @@
         ]
     },
     {
-        "id": 12,
-        "parentCategory": "人間文化研究科",
-        "childCategory": [
+        "filterTitle": "人間文化研究科",
+        "filterSyllabusWords": [
             "人間文化研究科共通科目",
             "<博前>ｷﾘｽﾄ教思想専攻",
             "<博後>宗教思想専攻",
@@ -185,17 +176,15 @@
         ]
     },
     {
-        "id": 13,
-        "parentCategory": "国際地域文化研究科",
-        "childCategory": [
+        "filterTitle": "国際地域文化研究科",
+        "filterSyllabusWords": [
             "<博前>国際地域文化専攻",
             "<博後>国際地域文化専攻"
         ]
     },
     {
-        "id": 14,
-        "parentCategory": "社会科学研究科",
-        "childCategory": [
+        "filterTitle": "社会科学研究科",
+        "filterSyllabusWords": [
             "<博前>社会科学研究科共通科目",
             "<博前>経済学専攻",
             "<博前>経営学専攻",
@@ -207,17 +196,15 @@
         ]
     },
     {
-        "id": 15,
-        "parentCategory": "法学研究科",
-        "childCategory": [
+        "filterTitle": "法学研究科",
+        "filterSyllabusWords": [
             "<博前>法律学専攻",
             "<博後>法律学専攻"
         ]
     },
     {
-        "id": 16,
-        "parentCategory": "理工学研究科",
-        "childCategory": [
+        "filterTitle": "理工学研究科",
+        "filterSyllabusWords": [
             "<博前>理工学研究科共通科目群",
             "<博前>ｼｽﾃﾑ数理専攻",
             "<博前>ｿﾌﾄｳｪｱ工学専攻",
@@ -229,23 +216,20 @@
         ]
     },
     {
-        "id": 17,
-        "parentCategory": "ﾋﾞｼﾞﾈｽ研究科 経営学専攻",
-        "childCategory": [
+        "filterTitle": "ﾋﾞｼﾞﾈｽ研究科 経営学専攻",
+        "filterSyllabusWords": [
             "<博後>ﾋﾞｼﾞﾈｽ研究科経営学専攻"
         ]
     },
     {
-        "id": 18,
-        "parentCategory": "法務研究科(法科大学院)",
-        "childCategory": [
+        "filterTitle": "法務研究科(法科大学院)",
+        "filterSyllabusWords": [
             "<専門職学位課程>法務専攻"
         ]
     },
     {
-        "id": 19,
-        "parentCategory": "大学院資格関連科目",
-        "childCategory": [
+        "filterTitle": "大学院資格関連科目",
+        "filterSyllabusWords": [
             "大学院教職関係科目"
         ]
     }

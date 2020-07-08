@@ -9,7 +9,6 @@
 import Foundation
 
 struct FilterEntity: Codable {
-    var id: Int
-    var parentCategory: String
-    var childCategory: [String]
+    var filterTitle: String
+    var filterSyllabusWords: [String]
 }
