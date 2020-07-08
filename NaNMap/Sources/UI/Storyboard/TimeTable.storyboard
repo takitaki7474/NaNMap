@@ -159,10 +159,10 @@
             </objects>
             <point key="canvasLocation" x="1786.9565217391305" y="85.714285714285708"/>
         </scene>
-        <!--Filter Pop Up View Controller-->
+        <!--Syllabus Filter Pop Up View Controller-->
         <scene sceneID="cyb-qM-gJX">
             <objects>
-                <viewController storyboardIdentifier="filterPopUpViewController" id="go9-eO-wFJ" customClass="FilterPopUpViewController" customModule="NaNMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="syllabusFilterPopUpViewController" id="go9-eO-wFJ" customClass="SyllabusFilterPopUpViewController" customModule="NaNMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" tag="1" contentMode="scaleToFill" id="xD5-l2-xe6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

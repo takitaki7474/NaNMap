@@ -27,7 +27,7 @@
 		217182F5243E27E1004B5E5A /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217182F4243E27E1004B5E5A /* Search.storyboard */; };
 		217182F7243E2835004B5E5A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F6243E2835004B5E5A /* SearchViewController.swift */; };
 		218AD15524B3818A003BC33F /* CustomSyllabusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218AD15424B3818A003BC33F /* CustomSyllabusCell.swift */; };
-		219740E824B4E1EB004AC323 /* FilterPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219740E724B4E1EB004AC323 /* FilterPopUpViewController.swift */; };
+		219740E824B4E1EB004AC323 /* SyllabusFilterPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219740E724B4E1EB004AC323 /* SyllabusFilterPopUpViewController.swift */; };
 		21A1DFF324A8A1E700873DF2 /* SyllabusSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFF224A8A1E700873DF2 /* SyllabusSearchViewController.swift */; };
 		21A1DFF524A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFF424A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift */; };
 		21A1DFF724A8CD6000873DF2 /* SyllabusSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFF624A8CD6000873DF2 /* SyllabusSearchModel.swift */; };
@@ -62,7 +62,7 @@
 		217182F4243E27E1004B5E5A /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		217182F6243E2835004B5E5A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		218AD15424B3818A003BC33F /* CustomSyllabusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSyllabusCell.swift; sourceTree = "<group>"; };
-		219740E724B4E1EB004AC323 /* FilterPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopUpViewController.swift; sourceTree = "<group>"; };
+		219740E724B4E1EB004AC323 /* SyllabusFilterPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusFilterPopUpViewController.swift; sourceTree = "<group>"; };
 		21A1DFF224A8A1E700873DF2 /* SyllabusSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusSearchViewController.swift; sourceTree = "<group>"; };
 		21A1DFF424A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusSearchViewPresenter.swift; sourceTree = "<group>"; };
 		21A1DFF624A8CD6000873DF2 /* SyllabusSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusSearchModel.swift; sourceTree = "<group>"; };
@@ -86,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2113FC4824B5DD0800AFB393 /* SyllabusFilter */ = {
+			isa = PBXGroup;
+			children = (
+				219740E724B4E1EB004AC323 /* SyllabusFilterPopUpViewController.swift */,
+			);
+			path = SyllabusFilter;
+			sourceTree = "<group>";
+		};
 		214F5F81243C96670061FC45 = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +180,7 @@
 				21674392249C9E07008806A7 /* Search */,
 				21674393249C9E0F008806A7 /* TimeTable */,
 				21A1DFF124A8A11600873DF2 /* SyllabusSearch */,
+				2113FC4824B5DD0800AFB393 /* SyllabusFilter */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -223,7 +232,6 @@
 				21A1DFF424A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift */,
 				21A1DFF624A8CD6000873DF2 /* SyllabusSearchModel.swift */,
 				218AD15424B3818A003BC33F /* CustomSyllabusCell.swift */,
-				219740E724B4E1EB004AC323 /* FilterPopUpViewController.swift */,
 			);
 			path = SyllabusSearch;
 			sourceTree = "<group>";
@@ -376,7 +384,7 @@
 				21FA667E2497D38B00961EA0 /* SearchModel.swift in Sources */,
 				217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */,
 				215FA0732450CA4B0079300A /* CustomTimeTableCellCreator.swift in Sources */,
-				219740E824B4E1EB004AC323 /* FilterPopUpViewController.swift in Sources */,
+				219740E824B4E1EB004AC323 /* SyllabusFilterPopUpViewController.swift in Sources */,
 				214F5F8E243C96670061FC45 /* AppDelegate.swift in Sources */,
 				215FA07124506C870079300A /* TimeTableViewController.swift in Sources */,
 				21A1DFF524A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift in Sources */,

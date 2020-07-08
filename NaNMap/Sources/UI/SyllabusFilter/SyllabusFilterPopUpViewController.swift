@@ -8,13 +8,13 @@
 
 import UIKit
 
-class FilterPopUpViewController: UIViewController {
+class SyllabusFilterPopUpViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private var syllabusSearchPresenter: SyllabusSearchPresenter!
     private var filter: [String] = ["宗教科目"]
     
-    static func instantinate(syllabusSearchPresenter: SyllabusSearchPresenter) -> FilterPopUpViewController {
-        let controller = UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "filterPopUpViewController") as! FilterPopUpViewController
+    static func instantinate(syllabusSearchPresenter: SyllabusSearchPresenter) -> SyllabusFilterPopUpViewController {
+        let controller = UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "syllabusFilterPopUpViewController") as! SyllabusFilterPopUpViewController
         controller.syllabusSearchPresenter = syllabusSearchPresenter
         return controller
     }
@@ -37,12 +37,11 @@ class FilterPopUpViewController: UIViewController {
             if touch.view?.tag == 1 {
                 self.dismiss(animated: true, completion: nil)
             }
-            
         }
     }
 }
 
-extension FilterPopUpViewController: UITableViewDataSource, UITableViewDelegate {
+extension SyllabusFilterPopUpViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filter.count
     }

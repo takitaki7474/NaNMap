@@ -76,7 +76,7 @@ private extension SyllabusSearchViewController {
     }
     
     @objc func tapFilterButton() {
-        let vc = FilterPopUpViewController.instantinate(syllabusSearchPresenter: syllabusSearchPresenter)
+        let vc = SyllabusFilterPopUpViewController.instantinate(syllabusSearchPresenter: syllabusSearchPresenter)
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
         self.present(vc, animated: true, completion: nil)
@@ -97,7 +97,7 @@ extension SyllabusSearchViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "syllabusCell", for: indexPath) as! CustomSyllabusCell
         let subjectObj = syllabusSearchPresenter.loadSyllabusSearchResult(at: indexPath.row)
-        cell.semesterLabel.text = subjectObj!.semester + self.classSchedule
+        cell.semesterLabel.text = subjectObj!.semester + subjectObj!.schedule
         cell.subjectLabel.text = subjectObj?.subjectName
         cell.classroomLabel.text = subjectObj?.classroom
         cell.teacherLabel.text = subjectObj?.teacher
