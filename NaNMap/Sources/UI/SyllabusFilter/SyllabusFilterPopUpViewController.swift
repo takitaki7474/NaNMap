@@ -11,6 +11,7 @@ import UIKit
 class SyllabusFilterPopUpViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private var syllabusSearchPresenter: SyllabusSearchPresenter!
+    private var syllabusFilterPresenter: SyllabusFilterPresenter!
     private var filter: [String] = ["宗教科目"]
     
     static func instantinate(syllabusSearchPresenter: SyllabusSearchPresenter) -> SyllabusFilterPopUpViewController {
@@ -22,6 +23,7 @@ class SyllabusFilterPopUpViewController: UIViewController {
     override func viewDidLoad() {
         tableView.delegate = self
         tableView.dataSource = self
+        syllabusFilterPresenter = SyllabusFilterPopUpViewPresenter()
         setUpTableViewStyle()
         super.viewDidLoad()
     }
