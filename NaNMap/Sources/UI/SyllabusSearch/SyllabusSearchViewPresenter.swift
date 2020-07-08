@@ -8,9 +8,12 @@
 protocol SyllabusSearchPresenter {
     var view: SyllabusSearchView? { get set }
     var numberOfSyllabusSearchResult: Int { get }
+    var numberOfFilterList: Int { get }
     func loadSyllabus()
     func loadTappedScheduleSyllabus(by classSchedule: String)
     func loadSyllabusSearchResult(at index: Int) -> SubjectObj?
+    func searchSyllabus(with query: String)
+    func loadFilter(at index: Int) -> FilterEntity?
 }
 
 class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
@@ -29,6 +32,14 @@ class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
         }
     }
     
+    var numberOfFilterList: Int {
+        if let count = model.filterList?.count {
+            return count
+        } else {
+            return 0
+        }
+    }
+    
     func loadSyllabus() {
         model.loadSyllabus()
     }
@@ -38,8 +49,15 @@ class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
     }
     
     func loadSyllabusSearchResult(at index: Int) -> SubjectObj? {
-        let subjectObj: SubjectObj? = model.syllabusSearchResult?[index]
-        return subjectObj
+        return model.syllabusSearchResult?[index]
+    }
+    
+    func searchSyllabus(with query: String) {
+        model.searchSyllabus(with: query)
+    }
+    
+    func loadFilter(at index: Int) -> FilterEntity? {
+        return model.filterList?[index]
     }
 }
 
