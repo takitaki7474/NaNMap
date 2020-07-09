@@ -119,4 +119,17 @@ extension SyllabusSearchModel {
         result = result.filter("semester CONTAINS %@ OR subjectName CONTAINS %@ OR teacher CONTAINS %@ OR classroom CONTAINS %@", query, query, query, query)
         self.syllabusSearchResult = result
     }
+    
+    func filterSyllabus(at index: Int) {
+        let filters: [String]? = self.filterList?[index].filterSyllabusWords
+        let realm = try! Realm()
+        var result = realm.objects(SubjectObj.self).filter("schedule == %@", self.classSchedule!).sorted(byKeyPath: "semester")
+        if filters != [] { // with filter
+            let categoryPredicate = NSPredicate(format: "category IN %@", argumentArray: [filters as Any])
+            let semesterPerdicate = NSPredicate(format: "semester IN %@", argumentArray: [filters as Any])
+            let predicate = NSCompoundPredicate(orPredicateWithSubpredicates: [categoryPredicate, semesterPerdicate])
+            result = result.filter(predicate)
+        }
+        self.syllabusSearchResult = result
+    }
 }

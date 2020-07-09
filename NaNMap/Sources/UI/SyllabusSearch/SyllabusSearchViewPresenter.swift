@@ -14,6 +14,7 @@ protocol SyllabusSearchPresenter {
     func loadSyllabusSearchResult(at index: Int) -> SubjectObj?
     func searchSyllabus(with query: String)
     func loadFilter(at index: Int) -> FilterEntity?
+    func filterSyllabus(at index: Int)
 }
 
 class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
@@ -58,6 +59,10 @@ class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
     
     func loadFilter(at index: Int) -> FilterEntity? {
         return model.filterList?[index]
+    }
+    
+    func filterSyllabus(at index: Int) {
+        model.filterSyllabus(at: index)
     }
 }
 
