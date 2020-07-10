@@ -8,6 +8,7 @@
 
 protocol TimeTablePresenter {
     func setAlertText(at index: Int)
+    func saveSelectedSyllabus(syllabus: SubjectObj?)
 }
 
 class TimeTableViewPresenter: TimeTablePresenter {
@@ -19,13 +20,24 @@ class TimeTableViewPresenter: TimeTablePresenter {
         model.delegate = self
     }
     
+    func setTimeTableCellLabel(at index: Int) {
+        
+    }
+    
     func setAlertText(at index: Int) {
-        model.setAlertText(at: index)
+        let canClickCell = !(index <= 6 || index % 7 == 0)
+        if canClickCell {
+            model.setAlertText(at: index)
+        }
+    }
+    
+    func saveSelectedSyllabus(syllabus: SubjectObj?) {
+        
     }
 }
 
 extension TimeTableViewPresenter: TimeTableModelDelegate {
-    func alertChangingTimeTable(with text: String) {
-        view?.alertChangingTimeTable(with: text)
+    func alertWillSearchSyllabus(with text: String) {
+        view?.alertWillSearchSyllabus(with: text)
     }
 }

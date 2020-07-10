@@ -9,19 +9,23 @@ protocol SyllabusSearchPresenter {
     var view: SyllabusSearchView? { get set }
     var numberOfSyllabusSearchResult: Int { get }
     var numberOfFilterList: Int { get }
-    func loadSyllabus()
     func loadTappedScheduleSyllabus(by classSchedule: String)
     func loadSyllabusSearchResult(at index: Int) -> SubjectObj?
     func searchSyllabus(with query: String)
     func loadFilter(at index: Int) -> FilterEntity?
+    func filterSyllabus(at index: Int)
+    func setAlertWillChangeTimeTable(with scheduleText: String, at index: Int)
+    func loadSelectedSyllabus(at index: Int)
 }
 
 class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
     private let model = SyllabusSearchModel()
+    private let timeTablePresenter: TimeTablePresenter!
     weak var view: SyllabusSearchView?
     
-    init() {
-        model.delegate = self
+    init(preseter: TimeTablePresenter) {
+        self.timeTablePresenter = preseter
+        self.model.delegate = self
     }
     
     var numberOfSyllabusSearchResult: Int {
@@ -40,10 +44,6 @@ class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
         }
     }
     
-    func loadSyllabus() {
-        model.loadSyllabus()
-    }
-    
     func loadTappedScheduleSyllabus(by classSchedule: String) {
         model.loadTappedScheduleSyllabus(by: classSchedule)
     }
@@ -58,6 +58,19 @@ class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
     
     func loadFilter(at index: Int) -> FilterEntity? {
         return model.filterList?[index]
+    }
+    
+    func filterSyllabus(at index: Int) {
+        model.filterSyllabus(at: index)
+    }
+    
+    func setAlertWillChangeTimeTable(with scheduleText: String, at index: Int) {
+        view?.alertWillChangeTimeTable(with: scheduleText, at: index)
+    }
+    
+    func loadSelectedSyllabus(at index: Int) {
+        let selectedSyllabus = model.syllabusSearchResult?[index]
+        timeTablePresenter.saveSelectedSyllabus(syllabus: selectedSyllabus)
     }
 }
 

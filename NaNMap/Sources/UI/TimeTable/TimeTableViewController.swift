@@ -9,7 +9,7 @@
 import UIKit
 
 protocol TimeTableView: class {
-    func alertChangingTimeTable(with text: String)
+    func alertWillSearchSyllabus(with text: String)
 }
 
 class TimeTableViewController: UIViewController {
@@ -20,21 +20,16 @@ class TimeTableViewController: UIViewController {
     
     static func instantinate() -> TimeTableViewController {
         let controller = UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "timeTableViewController") as! TimeTableViewController
-        controller.syllabusSearchPresenter = SyllabusSearchViewPresenter()
-        controller.loadSyllabus()
+        controller.timeTablePresenter = TimeTableViewPresenter(view: controller)
+        controller.syllabusSearchPresenter = SyllabusSearchViewPresenter(preseter: controller.timeTablePresenter)
         return controller
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        timeTablePresenter = TimeTableViewPresenter(view: self)
         cellCreator = CustomTimeTableCellCreator()
         setUpCollectionView()
         setUpNavigationBar()
-    }
-    
-    private func loadSyllabus() {
-        syllabusSearchPresenter.loadSyllabus()
     }
 }
 
@@ -53,7 +48,7 @@ private extension TimeTableViewController {
 }
 
 extension TimeTableViewController: TimeTableView {
-    func alertChangingTimeTable(with text: String) {
+    func alertWillSearchSyllabus(with text: String) {
         let alert = UIAlertController(title: "時間割の編集", message: text+"の講義を編集しますか?", preferredStyle: UIAlertController.Style.actionSheet)
         let defaultAction = UIAlertAction(title: text+"の講義を検索する", style: UIAlertAction.Style.default, handler: {
             (action:UIAlertAction) -> Void in
@@ -78,23 +73,27 @@ extension TimeTableViewController: UICollectionViewDataSource, UICollectionViewD
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeTableCell", for: indexPath)
+        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeTableCell", for: indexPath) as! CustomTimeTableCell
         cell = cellCreator.customizeCellDesign(cell: cell)
-        cell = cellCreator.customizeCellLabelFlowLayout(indexPath: indexPath, cell: cell)
+        cell = cellCreator.customizeCellLabelFlowLayout(index: indexPath.row, cell: cell)
+        let canClickCell = !(indexPath.row <= 6 || indexPath.row % 7 == 0)
+        if canClickCell {
+            cell = cellCreator.customizeSubjectCellLabelCenter(cell: cell)
+            cell.subjectNameLabel.text = "aaa"
+            cell.classroomLabel.text = "bbb"
+            cell.teacherLabel.text = "ccc"
+        }
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let canClickCell = !(indexPath.row <= 6 || indexPath.row % 7 == 0)
-        if canClickCell {
-            timeTablePresenter.setAlertText(at: indexPath.row)
-        }
+        timeTablePresenter.setAlertText(at: indexPath.row)
     }
 }
 
 extension TimeTableViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellSize = cellCreator.customizeCellSizeFlowLayout(indexPath: indexPath, collectionView: collectionView)
+        let cellSize = cellCreator.customizeCellSizeFlowLayout(index: indexPath.row, collectionView: collectionView)
         return cellSize
     }
 }

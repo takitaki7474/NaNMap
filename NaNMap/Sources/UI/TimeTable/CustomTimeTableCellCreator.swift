@@ -7,6 +7,12 @@
 //
 import UIKit
 
+class CustomTimeTableCell: UICollectionViewCell {
+    @IBOutlet weak var subjectNameLabel: UILabel!
+    @IBOutlet weak var classroomLabel: UILabel!
+    @IBOutlet weak var teacherLabel: UILabel!
+}
+
 class CustomTimeTableCellCreator {
     
     func customizeCollectionView(collectionView: UICollectionView) {
@@ -18,13 +24,13 @@ class CustomTimeTableCellCreator {
         collectionView.layer.borderWidth = 2
     }
     
-    func customizeCellDesign(cell: UICollectionViewCell) -> UICollectionViewCell {
+    func customizeCellDesign(cell: CustomTimeTableCell) -> CustomTimeTableCell {
         cell.backgroundColor = UIColor.rgba(red: 186, green: 193, blue: 234)
         cell.layer.cornerRadius = 4
         return cell
     }
     
-    func customizeCellLabelFlowLayout(indexPath: IndexPath, cell: UICollectionViewCell) -> UICollectionViewCell {
+    func customizeCellLabelFlowLayout(index: Int, cell: CustomTimeTableCell) -> CustomTimeTableCell {
         let dayOfWeek: [String] = ["月", "火", "水", "木", "金", "土"]
         let period: [String] = ["1", "2", "3", "4", "5"]
         let cellLabel = cell.contentView.viewWithTag(1) as? UILabel
@@ -33,13 +39,13 @@ class CustomTimeTableCellCreator {
         cellLabel?.center.x = cell.frame.width/2.0
         cellLabel?.center.y = cell.frame.height/2.0
         
-        switch indexPath.row {
+        switch index {
         case 0:
             cellLabel?.text = ""
         case 1...6:
-            cellLabel?.text = dayOfWeek[indexPath.row - 1]
+            cellLabel?.text = dayOfWeek[index - 1]
         case let index where index % 7 == 0:
-            cellLabel?.text = period[(indexPath.row / 7) - 1]
+            cellLabel?.text = period[(index / 7) - 1]
         default:
             cellLabel?.text = ""
         }
@@ -47,13 +53,13 @@ class CustomTimeTableCellCreator {
         return cell
     }
     
-    func customizeCellSizeFlowLayout(indexPath: IndexPath, collectionView: UICollectionView) -> CGSize {
+    func customizeCellSizeFlowLayout(index: Int, collectionView: UICollectionView) -> CGSize {
         let firstCellOneSideSize: CGFloat = 30.0
         let collectionViewWidth = collectionView.frame.width
         let collectionViewHeight = collectionView.frame.height
         let cellWidth: CGFloat
         let cellHeight: CGFloat
-        switch indexPath.row {
+        switch index {
             case 0:
                 cellWidth = firstCellOneSideSize
                 cellHeight = firstCellOneSideSize
@@ -69,5 +75,9 @@ class CustomTimeTableCellCreator {
          }
         let cellSize = CGSize(width: cellWidth, height: cellHeight)
         return cellSize
+    }
+    
+    func customizeSubjectCellLabelCenter(cell: CustomTimeTableCell) -> CustomTimeTableCell {
+        return cell
     }
 }

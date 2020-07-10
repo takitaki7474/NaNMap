@@ -34,7 +34,12 @@ class SyllabusSearchModel {
         }
     }
     
-    func loadSyllabus() {
+    init() {
+        loadSyllabus()
+        loadFilter()
+    }
+    
+    private func loadSyllabus() {
         let path = Bundle.main.path(forResource: "Syllabus", ofType: "json")
         let url = URL(fileURLWithPath: path!)
         let data = try? Data(contentsOf: url)
@@ -44,21 +49,13 @@ class SyllabusSearchModel {
             return
         }
         self.syllabus = syllabus
-        saveSyllabus()
-        loadFilter()
+        
+        let realm = try! Realm()
+        if realm.objects(SubjectObj.self).count == 0 { initSyllabus(realm: realm) }
     }
     
-    private func saveSyllabus() {
-        let realm: Realm
-        do {
-            realm = try Realm()
-        } catch {
-            removeRealmFile()
-            realm = try! Realm()
-        }
-
+    private func initSyllabus(realm: Realm) {
         try! realm.write {
-            realm.deleteAll()
             for subject in self.syllabus! {
                 let subjectObj = SubjectObj()
                 subjectObj.category = subject.category
@@ -72,6 +69,7 @@ class SyllabusSearchModel {
                 realm.add(subjectObj)
             }
         }
+        print("save SubjectObj on realm")
     }
     
     private func loadFilter() {
@@ -117,6 +115,19 @@ extension SyllabusSearchModel {
         let realm = try! Realm()
         var result = realm.objects(SubjectObj.self).filter("schedule == %@", self.classSchedule!).sorted(byKeyPath: "semester")
         result = result.filter("semester CONTAINS %@ OR subjectName CONTAINS %@ OR teacher CONTAINS %@ OR classroom CONTAINS %@", query, query, query, query)
+        self.syllabusSearchResult = result
+    }
+    
+    func filterSyllabus(at index: Int) {
+        let filters: [String]? = self.filterList?[index].filterSyllabusWords
+        let realm = try! Realm()
+        var result = realm.objects(SubjectObj.self).filter("schedule == %@", self.classSchedule!).sorted(byKeyPath: "semester")
+        if filters != [] { // with filter
+            let categoryPredicate = NSPredicate(format: "category IN %@", argumentArray: [filters as Any])
+            let semesterPerdicate = NSPredicate(format: "semester IN %@", argumentArray: [filters as Any])
+            let predicate = NSCompoundPredicate(orPredicateWithSubpredicates: [categoryPredicate, semesterPerdicate])
+            result = result.filter(predicate)
+        }
         self.syllabusSearchResult = result
     }
 }

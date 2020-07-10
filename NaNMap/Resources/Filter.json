@@ -4,6 +4,22 @@
         "filterSyllabusWords": []
     },
     {
+        "filterTitle": "Q1",
+        "filterSyllabusWords": ["Q1"]
+    },
+    {
+        "filterTitle": "Q2",
+        "filterSyllabusWords": ["Q2"]
+    },
+    {
+        "filterTitle": "Q3",
+        "filterSyllabusWords": ["Q3"]
+    },
+    {
+        "filterTitle": "Q4",
+        "filterSyllabusWords": ["Q4"]
+    },
+    {
         "filterTitle": "共通教育科目",
         "filterSyllabusWords": [
             "宗教科目",
