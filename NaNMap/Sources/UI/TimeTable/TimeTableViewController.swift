@@ -75,9 +75,10 @@ extension TimeTableViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeTableCell", for: indexPath) as! CustomTimeTableCell
         cell = cellCreator.customizeCellDesign(cell: cell)
-        cell = cellCreator.customizeCellLabelFlowLayout(indexPath: indexPath, cell: cell)
+        cell = cellCreator.customizeCellLabelFlowLayout(index: indexPath.row, cell: cell)
         let canClickCell = !(indexPath.row <= 6 || indexPath.row % 7 == 0)
         if canClickCell {
+            cell = cellCreator.customizeSubjectCellLabelCenter(cell: cell)
             cell.subjectNameLabel.text = "aaa"
             cell.classroomLabel.text = "bbb"
             cell.teacherLabel.text = "ccc"
@@ -92,7 +93,7 @@ extension TimeTableViewController: UICollectionViewDataSource, UICollectionViewD
 
 extension TimeTableViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellSize = cellCreator.customizeCellSizeFlowLayout(indexPath: indexPath, collectionView: collectionView)
+        let cellSize = cellCreator.customizeCellSizeFlowLayout(index: indexPath.row, collectionView: collectionView)
         return cellSize
     }
 }
