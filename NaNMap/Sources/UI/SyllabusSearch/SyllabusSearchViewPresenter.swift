@@ -15,6 +15,7 @@ protocol SyllabusSearchPresenter {
     func searchSyllabus(with query: String)
     func loadFilter(at index: Int) -> FilterEntity?
     func filterSyllabus(at index: Int)
+    func setAlertWillChangeTimeTable(with scheduleText: String, at index: Int)
 }
 
 class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
@@ -63,6 +64,10 @@ class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
     
     func filterSyllabus(at index: Int) {
         model.filterSyllabus(at: index)
+    }
+    
+    func setAlertWillChangeTimeTable(with scheduleText: String, at index: Int) {
+        view?.alertWillChangeTimeTable(with: scheduleText, at: index)
     }
 }
 

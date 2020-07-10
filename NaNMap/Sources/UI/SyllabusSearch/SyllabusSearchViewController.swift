@@ -10,6 +10,7 @@ import UIKit
 
 protocol SyllabusSearchView: class {
     func reloadData()
+    func alertWillChangeTimeTable(with scheduleText: String, at index: Int)
 }
 
 class SyllabusSearchViewController: UIViewController {
@@ -87,6 +88,22 @@ extension SyllabusSearchViewController: SyllabusSearchView {
     func reloadData() {
         tableView.reloadData()
     }
+    
+    func alertWillChangeTimeTable(with scheduleText: String, at index: Int) {
+        let alert = UIAlertController(title: "時間割の追加", message: "この講義を"+scheduleText+"に追加しますか?", preferredStyle: UIAlertController.Style.actionSheet)
+        let defaultAction = UIAlertAction(title: scheduleText+"に追加する", style: UIAlertAction.Style.default, handler: {
+            (action:UIAlertAction) -> Void in
+        })
+        let cancelAction = UIAlertAction(title: "戻る", style: UIAlertAction.Style.cancel, handler: {
+            (action: UIAlertAction) -> Void in
+        })
+        alert.addAction(defaultAction)
+        alert.addAction(cancelAction)
+        let screenSize = UIScreen.main.bounds
+        alert.popoverPresentationController?.sourceView = self.view
+        alert.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width/2, y: screenSize.size.height, width: 0, height: 0)
+        present(alert, animated: true)
+    }
 }
 
 extension SyllabusSearchViewController: UITableViewDataSource, UITableViewDelegate {
@@ -106,6 +123,10 @@ extension SyllabusSearchViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        syllabusSearchPresenter.setAlertWillChangeTimeTable(with: self.classSchedule, at: indexPath.row)
     }
 }
 
