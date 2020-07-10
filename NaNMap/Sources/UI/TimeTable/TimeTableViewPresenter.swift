@@ -20,8 +20,15 @@ class TimeTableViewPresenter: TimeTablePresenter {
         model.delegate = self
     }
     
+    func setTimeTableCellLabel(at index: Int) {
+        
+    }
+    
     func setAlertText(at index: Int) {
-        model.setAlertText(at: index)
+        let canClickCell = !(index <= 6 || index % 7 == 0)
+        if canClickCell {
+            model.setAlertText(at: index)
+        }
     }
     
     func saveSelectedSyllabus(syllabus: SubjectObj?) {

@@ -76,16 +76,17 @@ extension TimeTableViewController: UICollectionViewDataSource, UICollectionViewD
         var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeTableCell", for: indexPath) as! CustomTimeTableCell
         cell = cellCreator.customizeCellDesign(cell: cell)
         cell = cellCreator.customizeCellLabelFlowLayout(indexPath: indexPath, cell: cell)
-        
-        
+        let canClickCell = !(indexPath.row <= 6 || indexPath.row % 7 == 0)
+        if canClickCell {
+            cell.subjectNameLabel.text = "aaa"
+            cell.classroomLabel.text = "bbb"
+            cell.teacherLabel.text = "ccc"
+        }
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let canClickCell = !(indexPath.row <= 6 || indexPath.row % 7 == 0)
-        if canClickCell {
-            timeTablePresenter.setAlertText(at: indexPath.row)
-        }
+        timeTablePresenter.setAlertText(at: indexPath.row)
     }
 }
 
