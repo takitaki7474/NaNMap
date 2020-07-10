@@ -20,10 +20,12 @@ protocol SyllabusSearchPresenter {
 
 class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
     private let model = SyllabusSearchModel()
+    private let timeTablePresenter: TimeTablePresenter!
     weak var view: SyllabusSearchView?
     
-    init() {
-        model.delegate = self
+    init(preseter: TimeTablePresenter) {
+        self.timeTablePresenter = preseter
+        self.model.delegate = self
     }
     
     var numberOfSyllabusSearchResult: Int {

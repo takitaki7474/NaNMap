@@ -20,14 +20,14 @@ class TimeTableViewController: UIViewController {
     
     static func instantinate() -> TimeTableViewController {
         let controller = UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "timeTableViewController") as! TimeTableViewController
-        controller.syllabusSearchPresenter = SyllabusSearchViewPresenter()
+        controller.timeTablePresenter = TimeTableViewPresenter(view: controller)
+        controller.syllabusSearchPresenter = SyllabusSearchViewPresenter(preseter: controller.timeTablePresenter)
         controller.loadSyllabus()
         return controller
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        timeTablePresenter = TimeTableViewPresenter(view: self)
         cellCreator = CustomTimeTableCellCreator()
         setUpCollectionView()
         setUpNavigationBar()
