@@ -22,7 +22,6 @@ class TimeTableViewController: UIViewController {
         let controller = UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "timeTableViewController") as! TimeTableViewController
         controller.timeTablePresenter = TimeTableViewPresenter(view: controller)
         controller.syllabusSearchPresenter = SyllabusSearchViewPresenter(preseter: controller.timeTablePresenter)
-        controller.loadSyllabus()
         return controller
     }
 
@@ -31,10 +30,6 @@ class TimeTableViewController: UIViewController {
         cellCreator = CustomTimeTableCellCreator()
         setUpCollectionView()
         setUpNavigationBar()
-    }
-    
-    private func loadSyllabus() {
-        syllabusSearchPresenter.loadSyllabus()
     }
 }
 

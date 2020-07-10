@@ -34,7 +34,12 @@ class SyllabusSearchModel {
         }
     }
     
-    func loadSyllabus() {
+    init() {
+        loadSyllabus()
+        loadFilter()
+    }
+    
+    private func loadSyllabus() {
         let path = Bundle.main.path(forResource: "Syllabus", ofType: "json")
         let url = URL(fileURLWithPath: path!)
         let data = try? Data(contentsOf: url)
@@ -44,11 +49,7 @@ class SyllabusSearchModel {
             return
         }
         self.syllabus = syllabus
-        saveSyllabus()
-        loadFilter()
-    }
-    
-    private func saveSyllabus() {
+        
         let realm: Realm
         do {
             realm = try Realm()
@@ -56,9 +57,11 @@ class SyllabusSearchModel {
             removeRealmFile()
             realm = try! Realm()
         }
-
+        if realm.objects(SubjectObj.self).count == 0 { saveSyllabus(realm: realm) }
+    }
+    
+    private func saveSyllabus(realm: Realm) {
         try! realm.write {
-            realm.deleteAll()
             for subject in self.syllabus! {
                 let subjectObj = SubjectObj()
                 subjectObj.category = subject.category
@@ -72,6 +75,7 @@ class SyllabusSearchModel {
                 realm.add(subjectObj)
             }
         }
+        print("save SubjectObj on realm")
     }
     
     private func loadFilter() {
