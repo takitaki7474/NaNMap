@@ -33,11 +33,11 @@ class TimeTableModel {
     
     private func loadTimeTableCell() {
         let realm = try! Realm()
-        if realm.objects(TimeTableCellObj.self).count == 0 { saveTimeTableCell(realm: realm) }
+        if realm.objects(TimeTableCellObj.self).count == 0 { initTimeTableCell(realm: realm) }
         self.timeTableCell = realm.objects(TimeTableCellObj.self)
     }
     
-    private func saveTimeTableCell(realm: Realm) {
+    private func initTimeTableCell(realm: Realm) {
         try! realm.write {
             for _ in 0...42 {
                 let timeTableCellObj = TimeTableCellObj()
@@ -45,6 +45,24 @@ class TimeTableModel {
             }
         }
         print("save TimeTableCellObj on realm")
+    }
+    
+    private func removeRealmFile() {
+        let realmURL = Realm.Configuration.defaultConfiguration.fileURL!
+        let realmURLs = [
+            realmURL,
+            realmURL.appendingPathExtension("lock"),
+            realmURL.appendingPathExtension("note"),
+            realmURL.appendingPathExtension("management")
+        ]
+        for URL in realmURLs {
+            do {
+                try FileManager.default.removeItem(at: URL)
+                print("remove realm file")
+            } catch {
+                print("remove realm file error")
+            }
+        }
     }
     
     func setAlertText(at index: Int) {

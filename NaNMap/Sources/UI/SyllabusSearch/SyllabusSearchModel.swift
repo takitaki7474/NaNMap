@@ -50,17 +50,11 @@ class SyllabusSearchModel {
         }
         self.syllabus = syllabus
         
-        let realm: Realm
-        do {
-            realm = try Realm()
-        } catch {
-            removeRealmFile()
-            realm = try! Realm()
-        }
-        if realm.objects(SubjectObj.self).count == 0 { saveSyllabus(realm: realm) }
+        let realm = try! Realm()
+        if realm.objects(SubjectObj.self).count == 0 { initSyllabus(realm: realm) }
     }
     
-    private func saveSyllabus(realm: Realm) {
+    private func initSyllabus(realm: Realm) {
         try! realm.write {
             for subject in self.syllabus! {
                 let subjectObj = SubjectObj()
