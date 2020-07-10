@@ -7,6 +7,12 @@
 //
 import UIKit
 
+class CustomTimeTableCell: UICollectionViewCell {
+    @IBOutlet weak var subjectNameLabel: UILabel!
+    @IBOutlet weak var classroomLabel: UILabel!
+    @IBOutlet weak var teacherLabel: UILabel!
+}
+
 class CustomTimeTableCellCreator {
     
     func customizeCollectionView(collectionView: UICollectionView) {
@@ -18,13 +24,13 @@ class CustomTimeTableCellCreator {
         collectionView.layer.borderWidth = 2
     }
     
-    func customizeCellDesign(cell: UICollectionViewCell) -> UICollectionViewCell {
+    func customizeCellDesign(cell: CustomTimeTableCell) -> CustomTimeTableCell {
         cell.backgroundColor = UIColor.rgba(red: 186, green: 193, blue: 234)
         cell.layer.cornerRadius = 4
         return cell
     }
     
-    func customizeCellLabelFlowLayout(indexPath: IndexPath, cell: UICollectionViewCell) -> UICollectionViewCell {
+    func customizeCellLabelFlowLayout(indexPath: IndexPath, cell: CustomTimeTableCell) -> CustomTimeTableCell {
         let dayOfWeek: [String] = ["月", "火", "水", "木", "金", "土"]
         let period: [String] = ["1", "2", "3", "4", "5"]
         let cellLabel = cell.contentView.viewWithTag(1) as? UILabel

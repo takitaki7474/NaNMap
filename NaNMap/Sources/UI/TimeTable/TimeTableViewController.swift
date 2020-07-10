@@ -73,9 +73,11 @@ extension TimeTableViewController: UICollectionViewDataSource, UICollectionViewD
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeTableCell", for: indexPath)
+        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeTableCell", for: indexPath) as! CustomTimeTableCell
         cell = cellCreator.customizeCellDesign(cell: cell)
         cell = cellCreator.customizeCellLabelFlowLayout(indexPath: indexPath, cell: cell)
+        
+        
         return cell
     }
 
