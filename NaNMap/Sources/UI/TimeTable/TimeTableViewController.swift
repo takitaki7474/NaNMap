@@ -9,7 +9,7 @@
 import UIKit
 
 protocol TimeTableView: class {
-    func alertChangingTimeTable(with text: String)
+    func alertWillSearchSyllabus(with text: String)
 }
 
 class TimeTableViewController: UIViewController {
@@ -53,7 +53,7 @@ private extension TimeTableViewController {
 }
 
 extension TimeTableViewController: TimeTableView {
-    func alertChangingTimeTable(with text: String) {
+    func alertWillSearchSyllabus(with text: String) {
         let alert = UIAlertController(title: "時間割の編集", message: text+"の講義を編集しますか?", preferredStyle: UIAlertController.Style.actionSheet)
         let defaultAction = UIAlertAction(title: text+"の講義を検索する", style: UIAlertAction.Style.default, handler: {
             (action:UIAlertAction) -> Void in

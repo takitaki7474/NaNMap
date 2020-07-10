@@ -7,7 +7,7 @@
 //
 
 protocol TimeTableModelDelegate: class {
-    func alertChangingTimeTable(with text: String)
+    func alertWillSearchSyllabus(with text: String)
 }
 
 class TimeTableModel {
@@ -17,6 +17,6 @@ class TimeTableModel {
         let week: [String] = ["月", "火", "水", "木", "金", "土"]
         let period: [String] = ["1", "2", "3", "4", "5"]
         let text = week[(index % 7) - 1] + period[(index / 7) - 1]
-        delegate?.alertChangingTimeTable(with: text)
+        delegate?.alertWillSearchSyllabus(with: text)
     }
 }

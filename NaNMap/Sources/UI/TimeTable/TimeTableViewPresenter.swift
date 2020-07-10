@@ -25,7 +25,7 @@ class TimeTableViewPresenter: TimeTablePresenter {
 }
 
 extension TimeTableViewPresenter: TimeTableModelDelegate {
-    func alertChangingTimeTable(with text: String) {
-        view?.alertChangingTimeTable(with: text)
+    func alertWillSearchSyllabus(with text: String) {
+        view?.alertWillSearchSyllabus(with: text)
     }
 }
