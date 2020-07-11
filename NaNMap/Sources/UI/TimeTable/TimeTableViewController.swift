@@ -73,7 +73,7 @@ extension TimeTableViewController: UICollectionViewDataSource, UICollectionViewD
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeTableCell", for: indexPath) as! CustomTimeTableCell
+        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeTableCollectionViewCell", for: indexPath) as! TimeTableCollectionViewCell
         cell = cellCreator.customizeCellDesign(cell: cell)
         cell = cellCreator.customizeCellLabelFlowLayout(index: indexPath.row, cell: cell)
         let canClickCell = !(indexPath.row <= 6 || indexPath.row % 7 == 0)

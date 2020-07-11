@@ -21,7 +21,7 @@
 		215F3A20244DD3E400C6270A /* DefaultSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F3A1F244DD3E400C6270A /* DefaultSearchResultViewController.swift */; };
 		215FA06F24506C440079300A /* TimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 215FA06E24506C440079300A /* TimeTable.storyboard */; };
 		215FA07124506C870079300A /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FA07024506C870079300A /* TimeTableViewController.swift */; };
-		215FA0732450CA4B0079300A /* CustomTimeTableCellCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FA0722450CA4B0079300A /* CustomTimeTableCellCreator.swift */; };
+		215FA0732450CA4B0079300A /* TimeTableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FA0722450CA4B0079300A /* TimeTableCollectionViewCell.swift */; };
 		21674395249CA2A4008806A7 /* TimeTableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21674394249CA2A4008806A7 /* TimeTableViewPresenter.swift */; };
 		21674397249CF86D008806A7 /* TimeTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21674396249CF86D008806A7 /* TimeTableModel.swift */; };
 		21715EB624AA1CEA00C9C3D6 /* Syllabus.json in Resources */ = {isa = PBXBuildFile; fileRef = 21715EB524AA1CEA00C9C3D6 /* Syllabus.json */; };
@@ -58,7 +58,7 @@
 		215F3A1F244DD3E400C6270A /* DefaultSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSearchResultViewController.swift; sourceTree = "<group>"; };
 		215FA06E24506C440079300A /* TimeTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeTable.storyboard; sourceTree = "<group>"; };
 		215FA07024506C870079300A /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
-		215FA0722450CA4B0079300A /* CustomTimeTableCellCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTimeTableCellCreator.swift; sourceTree = "<group>"; };
+		215FA0722450CA4B0079300A /* TimeTableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableCollectionViewCell.swift; sourceTree = "<group>"; };
 		21674394249CA2A4008806A7 /* TimeTableViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewPresenter.swift; sourceTree = "<group>"; };
 		21674396249CF86D008806A7 /* TimeTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableModel.swift; sourceTree = "<group>"; };
 		21715EB524AA1CEA00C9C3D6 /* Syllabus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Syllabus.json; sourceTree = "<group>"; };
@@ -216,7 +216,7 @@
 				215FA07024506C870079300A /* TimeTableViewController.swift */,
 				21674394249CA2A4008806A7 /* TimeTableViewPresenter.swift */,
 				21674396249CF86D008806A7 /* TimeTableModel.swift */,
-				215FA0722450CA4B0079300A /* CustomTimeTableCellCreator.swift */,
+				215FA0722450CA4B0079300A /* TimeTableCollectionViewCell.swift */,
 			);
 			path = TimeTable;
 			sourceTree = "<group>";
@@ -391,7 +391,7 @@
 				2113FC5124B5F8BA00AFB393 /* FilterEntity.swift in Sources */,
 				21FA667E2497D38B00961EA0 /* SearchModel.swift in Sources */,
 				217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */,
-				215FA0732450CA4B0079300A /* CustomTimeTableCellCreator.swift in Sources */,
+				215FA0732450CA4B0079300A /* TimeTableCollectionViewCell.swift in Sources */,
 				219740E824B4E1EB004AC323 /* SyllabusFilterViewController.swift in Sources */,
 				214F5F8E243C96670061FC45 /* AppDelegate.swift in Sources */,
 				215FA07124506C870079300A /* TimeTableViewController.swift in Sources */,
