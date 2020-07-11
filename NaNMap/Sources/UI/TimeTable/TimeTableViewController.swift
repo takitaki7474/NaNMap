@@ -73,7 +73,9 @@ extension TimeTableViewController: UICollectionViewDataSource, UICollectionViewD
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeTableCollectionViewCell", for: indexPath) as! TimeTableCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeTableCollectionViewCell", for: indexPath) as! TimeTableCollectionViewCell
+        cell.presenter = timeTablePresenter
+        /*
         cell = cellCreator.customizeCellDesign(cell: cell)
         cell = cellCreator.customizeCellLabelFlowLayout(index: indexPath.row, cell: cell)
         let canClickCell = !(indexPath.row <= 6 || indexPath.row % 7 == 0)
@@ -82,7 +84,9 @@ extension TimeTableViewController: UICollectionViewDataSource, UICollectionViewD
             cell.subjectNameLabel.text = "aaa"
             cell.classroomLabel.text = "bbb"
             cell.teacherLabel.text = "ccc"
-        }
+        }*/
+        cell.customizeCellStyle(index: indexPath.row)
+        cell.customizeCellLabelText(index: indexPath.row)
         return cell
     }
 

@@ -11,6 +11,53 @@ class TimeTableCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var subjectNameLabel: UILabel!
     @IBOutlet weak var classroomLabel: UILabel!
     @IBOutlet weak var teacherLabel: UILabel!
+    var presenter: TimeTablePresenter!
+    
+    func customizeCellStyle(index: Int) {
+        self.backgroundColor = UIColor.rgba(red: 186, green: 193, blue: 234)
+        self.layer.cornerRadius = 4
+        
+        switch index {
+        case 0...6, 7, 14, 21, 28, 35:
+            setUneditableCellLabelStyle(label: self.subjectNameLabel)
+        default :
+            print("default")
+        }
+    }
+    
+    func customizeCellLabelText(index: Int) {
+        let week: [String] = ["月", "火", "水", "木", "金", "土"]
+        let period: [String] = ["1", "2", "3", "4", "5"]
+        classroomLabel.text = ""
+        teacherLabel.text = ""
+        
+        switch index {
+        case 0 :
+            subjectNameLabel.text = ""
+        case 1...6 :
+            subjectNameLabel.text = week[index - 1]
+        case let index where index % 7 == 0:
+            subjectNameLabel.text = period[(index / 7) - 1]
+        default :
+            print("default")
+        }
+    }
+    
+    private func display(index: Int) {
+        
+    }
+    
+    private func setEditableCellLabelStyle(label: UILabel) {
+        label.textColor = .black
+        label.textAlignment = .center
+        label.center = CGPoint(x: self.frame.width/2, y: self.frame.height/2)
+    }
+    
+    private func setUneditableCellLabelStyle(label: UILabel) {
+        label.textColor = .black
+        label.textAlignment = .center
+        label.center = CGPoint(x: self.frame.width/2, y: self.frame.height/2)
+    }
 }
 
 class CustomTimeTableCellCreator {

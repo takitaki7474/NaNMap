@@ -39,7 +39,7 @@ class TimeTableModel {
     
     private func initTimeTableCell(realm: Realm) {
         try! realm.write {
-            for _ in 0...42 {
+            for _ in 0...41 {
                 let timeTableCellObj = TimeTableCellObj()
                 realm.add(timeTableCellObj)
             }
