@@ -113,12 +113,12 @@ extension SyllabusSearchViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "syllabusCell", for: indexPath) as! CustomSyllabusCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "syllabusTableViewCell", for: indexPath) as! SyllabusTableViewCell
         let subjectObj = syllabusSearchPresenter.loadSyllabusSearchResult(at: indexPath.row)
-        cell.semesterLabel.text = subjectObj!.semester + subjectObj!.schedule
-        cell.subjectLabel.text = subjectObj?.subjectName
-        cell.classroomLabel.text = subjectObj?.classroom
-        cell.teacherLabel.text = subjectObj?.teacher
+        cell.display(semester: subjectObj!.semester + subjectObj!.schedule)
+        cell.display(subjectName: subjectObj!.subjectName)
+        cell.display(classroom: subjectObj!.classroom)
+        cell.display(teacher: subjectObj!.teacher)
         return cell
     }
     
