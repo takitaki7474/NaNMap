@@ -85,7 +85,8 @@ extension TimeTableViewController: UICollectionViewDataSource, UICollectionViewD
             cell.classroomLabel.text = "bbb"
             cell.teacherLabel.text = "ccc"
         }*/
-        cell.customizeCellStyle(index: indexPath.row)
+        cell.customizeCellStyle()
+        cell.customizeCellLabelStyle(index: indexPath.row)
         cell.customizeCellLabelText(index: indexPath.row)
         return cell
     }

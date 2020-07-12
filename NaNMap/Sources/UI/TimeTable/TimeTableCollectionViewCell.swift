@@ -13,23 +13,34 @@ class TimeTableCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var teacherLabel: UILabel!
     var presenter: TimeTablePresenter!
     
-    func customizeCellStyle(index: Int) {
+    func customizeCellStyle() {
         self.backgroundColor = UIColor.rgba(red: 186, green: 193, blue: 234)
         self.layer.cornerRadius = 4
-        
+    }
+    
+    func customizeCellLabelStyle(index: Int) {
         switch index {
         case 0...6, 7, 14, 21, 28, 35:
-            setUneditableCellLabelStyle(label: self.subjectNameLabel)
+            let fontSize: CGFloat = 16.0
+            subjectNameLabel.font = UIFont.systemFont(ofSize: fontSize)
+            subjectNameLabel.center = CGPoint(x: self.frame.width/2, y: self.frame.height/2)
         default :
-            print("default")
+            let maxSize = CGSize(width: self.frame.width * 0.9, height: CGFloat.greatestFiniteMagnitude)
+            subjectNameLabel.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: subjectNameLabel.sizeThatFits(maxSize))
+            classroomLabel.frame.size = CGSize(width: self.frame.width*0.9, height: 16)
+            teacherLabel.frame.size = CGSize(width: self.frame.width*0.9, height: 16)
+            subjectNameLabel.center = CGPoint(x: self.frame.width/2, y: self.frame.height/4)
+            classroomLabel.center = CGPoint(x: self.frame.width/2, y: self.frame.height*2/3)
+            teacherLabel.center = CGPoint(x: self.frame.width/2, y: self.frame.height*5/6)
         }
     }
     
     func customizeCellLabelText(index: Int) {
         let week: [String] = ["月", "火", "水", "木", "金", "土"]
         let period: [String] = ["1", "2", "3", "4", "5"]
-        classroomLabel.text = ""
-        teacherLabel.text = ""
+        subjectNameLabel.text = "aaaaaaaaaaaaaaaaaaaaaaaaa"
+        classroomLabel.text = "bbbbbbbbbbbbbbbbbbbbbbbbbb"
+        teacherLabel.text = "cccccccccc"
         
         switch index {
         case 0 :
@@ -41,22 +52,6 @@ class TimeTableCollectionViewCell: UICollectionViewCell {
         default :
             print("default")
         }
-    }
-    
-    private func display(index: Int) {
-        
-    }
-    
-    private func setEditableCellLabelStyle(label: UILabel) {
-        label.textColor = .black
-        label.textAlignment = .center
-        label.center = CGPoint(x: self.frame.width/2, y: self.frame.height/2)
-    }
-    
-    private func setUneditableCellLabelStyle(label: UILabel) {
-        label.textColor = .black
-        label.textAlignment = .center
-        label.center = CGPoint(x: self.frame.width/2, y: self.frame.height/2)
     }
 }
 
