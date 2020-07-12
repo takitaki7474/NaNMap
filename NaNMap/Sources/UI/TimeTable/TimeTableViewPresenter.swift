@@ -36,10 +36,8 @@ class TimeTableViewPresenter: TimeTablePresenter {
     }
     
     func loadSavedSyllabus(at index: Int) -> TimeTableCellObj {
-        return model.timeTableCell![index]
+        return model.timeTableCells![index]
     }
-    
-    
 }
 
 extension TimeTableViewPresenter: TimeTableModelDelegate {

@@ -21,7 +21,7 @@ protocol TimeTableModelDelegate: class {
 
 class TimeTableModel {
     weak var delegate: TimeTableModelDelegate?
-    var timeTableCell: Results<TimeTableCellObj>? {
+    var timeTableCells: Results<TimeTableCellObj>? {
         didSet {
             delegate?.notifyLoadingTimeTable()
         }
@@ -34,7 +34,7 @@ class TimeTableModel {
     private func loadTimeTableCell() {
         let realm = try! Realm()
         if realm.objects(TimeTableCellObj.self).count == 0 { initTimeTableCell(realm: realm) }
-        self.timeTableCell = realm.objects(TimeTableCellObj.self)
+        self.timeTableCells = realm.objects(TimeTableCellObj.self)
     }
     
     private func initTimeTableCell(realm: Realm) {
@@ -66,6 +66,15 @@ class TimeTableModel {
     }
     
     func saveSelectedSyllabus(syllabus: SubjectObj, index: Int) {
-        
+        let realm = try! Realm()
+        let timeTableCell = realm.objects(TimeTableCellObj.self)[index]
+        try! realm.write {
+            timeTableCell.category = syllabus.category
+            timeTableCell.semester = syllabus.semester
+            timeTableCell.subjectName = syllabus.subjectName
+            timeTableCell.teacher = syllabus.teacher
+            timeTableCell.classroom = syllabus.classroom
+        }
+        self.timeTableCells = realm.objects(TimeTableCellObj.self)
     }
 }

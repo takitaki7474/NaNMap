@@ -25,8 +25,11 @@ class TimeTableCollectionViewCell: UICollectionViewCell {
             subjectNameLabel.font = UIFont.systemFont(ofSize: fontSize)
             subjectNameLabel.center = CGPoint(x: self.frame.width/2, y: self.frame.height/2)
         default :
-            let maxSize = CGSize(width: self.frame.width * 0.9, height: CGFloat.greatestFiniteMagnitude)
-            subjectNameLabel.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: subjectNameLabel.sizeThatFits(maxSize))
+            let fontSize: CGFloat = 12.0
+            subjectNameLabel.font = UIFont.systemFont(ofSize: fontSize)
+            classroomLabel.font = UIFont.systemFont(ofSize: fontSize)
+            teacherLabel.font = UIFont.systemFont(ofSize: fontSize)
+            subjectNameLabel.frame.size = CGSize(width: self.frame.width*0.9, height: 50)
             classroomLabel.frame.size = CGSize(width: self.frame.width*0.9, height: 16)
             teacherLabel.frame.size = CGSize(width: self.frame.width*0.9, height: 16)
             subjectNameLabel.center = CGPoint(x: self.frame.width/2, y: self.frame.height/4)

@@ -96,6 +96,7 @@ extension SyllabusSearchViewController: SyllabusSearchView {
         let defaultAction = UIAlertAction(title: scheduleText+"に追加する", style: UIAlertAction.Style.default, handler: {
             (action:UIAlertAction) -> Void in
             self.syllabusSearchPresenter.loadSelectedSyllabus(at: index, classScheduleIndex: self.classScheduleIndex)
+            self.navigationController?.popViewController(animated: true)
         })
         let cancelAction = UIAlertAction(title: "戻る", style: UIAlertAction.Style.cancel, handler: {
             (action: UIAlertAction) -> Void in
