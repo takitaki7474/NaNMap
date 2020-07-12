@@ -17,13 +17,14 @@ class TimeTableCellObj: Object {
 
 protocol TimeTableModelDelegate: class {
     func alertWillSearchSyllabus(with text: String)
+    func notifyLoadingTimeTable()
 }
 
 class TimeTableModel {
     weak var delegate: TimeTableModelDelegate?
     var timeTableCell: Results<TimeTableCellObj>? {
         didSet {
-            
+            delegate?.notifyLoadingTimeTable()
         }
     }
     

@@ -34,10 +34,16 @@ class TimeTableViewPresenter: TimeTablePresenter {
     func saveSelectedSyllabus(syllabus: SubjectObj?) {
         
     }
+    
+    
 }
 
 extension TimeTableViewPresenter: TimeTableModelDelegate {
     func alertWillSearchSyllabus(with text: String) {
         view?.alertWillSearchSyllabus(with: text)
+    }
+    func notifyLoadingTimeTable() {
+        print("bb")
+        view?.reloadData()
     }
 }

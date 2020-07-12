@@ -35,7 +35,7 @@ class TimeTableCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func customizeCellLabelText(index: Int) {
+    func displayLabel(index: Int) {
         let week: [String] = ["月", "火", "水", "木", "金", "土"]
         let period: [String] = ["1", "2", "3", "4", "5"]
         subjectNameLabel.text = "aaaaaaaaaaaaaaaaaaaaaaaaa"
@@ -50,7 +50,7 @@ class TimeTableCollectionViewCell: UICollectionViewCell {
         case let index where index % 7 == 0:
             subjectNameLabel.text = period[(index / 7) - 1]
         default :
-            print("default")
+            print("")
         }
     }
 }

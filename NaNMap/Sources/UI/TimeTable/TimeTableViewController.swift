@@ -9,6 +9,7 @@
 import UIKit
 
 protocol TimeTableView: class {
+    func reloadData()
     func alertWillSearchSyllabus(with text: String)
 }
 
@@ -46,6 +47,11 @@ private extension TimeTableViewController {
 }
 
 extension TimeTableViewController: TimeTableView {
+    func reloadData() {
+        collectionView.reloadData()
+        print("reload Data")
+    }
+    
     func alertWillSearchSyllabus(with text: String) {
         let alert = UIAlertController(title: "時間割の編集", message: text+"の講義を編集しますか?", preferredStyle: UIAlertController.Style.actionSheet)
         let defaultAction = UIAlertAction(title: text+"の講義を検索する", style: UIAlertAction.Style.default, handler: {
@@ -75,7 +81,7 @@ extension TimeTableViewController: UICollectionViewDataSource, UICollectionViewD
         cell.presenter = timeTablePresenter
         cell.customizeCellStyle()
         cell.customizeCellLabelStyle(index: indexPath.row)
-        cell.customizeCellLabelText(index: indexPath.row)
+        cell.displayLabel(index: indexPath.row)
         return cell
     }
 
