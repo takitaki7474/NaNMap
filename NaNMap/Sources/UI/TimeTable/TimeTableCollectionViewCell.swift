@@ -20,7 +20,7 @@ class TimeTableCollectionViewCell: UICollectionViewCell {
     
     func customizeCellLabelStyle(index: Int) {
         switch index {
-        case 0...6, 7, 14, 21, 28, 35:
+        case 0...6, 7, 14, 21, 28, 35 :
             let fontSize: CGFloat = 16.0
             subjectNameLabel.font = UIFont.systemFont(ofSize: fontSize)
             subjectNameLabel.center = CGPoint(x: self.frame.width/2, y: self.frame.height/2)
@@ -40,13 +40,12 @@ class TimeTableCollectionViewCell: UICollectionViewCell {
         let period: [String] = ["1", "2", "3", "4", "5"]
         classroomLabel.text = ""
         teacherLabel.text = ""
-        
         switch index {
         case 0 :
             subjectNameLabel.text = ""
         case 1...6 :
             subjectNameLabel.text = week[index - 1]
-        case let index where index % 7 == 0:
+        case let index where index % 7 == 0 :
             subjectNameLabel.text = period[(index / 7) - 1]
         default :
             let cellLabels = presenter.loadSavedSyllabus(at: index)

@@ -7,7 +7,7 @@
 //
 
 protocol TimeTablePresenter {
-    func setAlertText(at index: Int)
+    func setAlertWillSearchSyllabus(at index: Int)
     func saveSelectedSyllabus(syllabus: SubjectObj?)
     func loadSavedSyllabus(at index: Int) -> TimeTableCellObj
 }
@@ -25,10 +25,13 @@ class TimeTableViewPresenter: TimeTablePresenter {
         
     }
     
-    func setAlertText(at index: Int) {
+    func setAlertWillSearchSyllabus(at index: Int) {
+        let week: [String] = ["月", "火", "水", "木", "金", "土"]
+        let period: [String] = ["1", "2", "3", "4", "5"]
+        let text = week[(index % 7) - 1] + period[(index / 7) - 1]
         let canClickCell = !(index <= 6 || index % 7 == 0)
         if canClickCell {
-            model.setAlertText(at: index)
+            view?.alertWillSearchSyllabus(with: text)
         }
     }
     
@@ -44,11 +47,7 @@ class TimeTableViewPresenter: TimeTablePresenter {
 }
 
 extension TimeTableViewPresenter: TimeTableModelDelegate {
-    func alertWillSearchSyllabus(with text: String) {
-        view?.alertWillSearchSyllabus(with: text)
-    }
     func notifyLoadingTimeTable() {
-        print("bb")
         view?.reloadData()
     }
 }

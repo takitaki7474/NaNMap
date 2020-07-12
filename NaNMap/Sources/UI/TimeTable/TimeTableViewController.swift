@@ -49,7 +49,6 @@ private extension TimeTableViewController {
 extension TimeTableViewController: TimeTableView {
     func reloadData() {
         collectionView.reloadData()
-        print("reload Data")
     }
     
     func alertWillSearchSyllabus(with text: String) {
@@ -86,7 +85,7 @@ extension TimeTableViewController: UICollectionViewDataSource, UICollectionViewD
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        timeTablePresenter.setAlertText(at: indexPath.row)
+        timeTablePresenter.setAlertWillSearchSyllabus(at: indexPath.row)
     }
 }
 

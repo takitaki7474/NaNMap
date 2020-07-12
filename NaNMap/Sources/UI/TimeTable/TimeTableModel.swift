@@ -16,7 +16,6 @@ class TimeTableCellObj: Object {
 }
 
 protocol TimeTableModelDelegate: class {
-    func alertWillSearchSyllabus(with text: String)
     func notifyLoadingTimeTable()
 }
 
@@ -66,10 +65,7 @@ class TimeTableModel {
         }
     }
     
-    func setAlertText(at index: Int) {
-        let week: [String] = ["月", "火", "水", "木", "金", "土"]
-        let period: [String] = ["1", "2", "3", "4", "5"]
-        let text = week[(index % 7) - 1] + period[(index / 7) - 1]
-        delegate?.alertWillSearchSyllabus(with: text)
+    func saveSelectedSyllabus(syllabus: SubjectObj) {
+        
     }
 }
