@@ -16,14 +16,14 @@ class TimeTableCellObj: Object {
 }
 
 protocol TimeTableModelDelegate: class {
-    func alertWillSearchSyllabus(with text: String)
+    func notifyLoadingTimeTable()
 }
 
 class TimeTableModel {
     weak var delegate: TimeTableModelDelegate?
-    var timeTableCell: Results<TimeTableCellObj>? {
+    var timeTableCells: Results<TimeTableCellObj>? {
         didSet {
-            
+            delegate?.notifyLoadingTimeTable()
         }
     }
     
@@ -34,12 +34,12 @@ class TimeTableModel {
     private func loadTimeTableCell() {
         let realm = try! Realm()
         if realm.objects(TimeTableCellObj.self).count == 0 { initTimeTableCell(realm: realm) }
-        self.timeTableCell = realm.objects(TimeTableCellObj.self)
+        self.timeTableCells = realm.objects(TimeTableCellObj.self)
     }
     
     private func initTimeTableCell(realm: Realm) {
         try! realm.write {
-            for _ in 0...42 {
+            for _ in 0...41 {
                 let timeTableCellObj = TimeTableCellObj()
                 realm.add(timeTableCellObj)
             }
@@ -65,10 +65,16 @@ class TimeTableModel {
         }
     }
     
-    func setAlertText(at index: Int) {
-        let week: [String] = ["月", "火", "水", "木", "金", "土"]
-        let period: [String] = ["1", "2", "3", "4", "5"]
-        let text = week[(index % 7) - 1] + period[(index / 7) - 1]
-        delegate?.alertWillSearchSyllabus(with: text)
+    func saveSelectedSyllabus(syllabus: SubjectObj, index: Int) {
+        let realm = try! Realm()
+        let timeTableCell = realm.objects(TimeTableCellObj.self)[index]
+        try! realm.write {
+            timeTableCell.category = syllabus.category
+            timeTableCell.semester = syllabus.semester
+            timeTableCell.subjectName = syllabus.subjectName
+            timeTableCell.teacher = syllabus.teacher
+            timeTableCell.classroom = syllabus.classroom
+        }
+        self.timeTableCells = realm.objects(TimeTableCellObj.self)
     }
 }

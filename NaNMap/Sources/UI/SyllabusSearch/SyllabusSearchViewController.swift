@@ -19,11 +19,13 @@ class SyllabusSearchViewController: UIViewController {
     private var syllabusSearchPresenter: SyllabusSearchPresenter!
     private var searchController: UISearchController!
     private var classSchedule: String!
+    private var classScheduleIndex: Int!
     
-    static func instantinate(syllabusSearchPresenter: SyllabusSearchPresenter, classSchedule: String) -> SyllabusSearchViewController {
+    static func instantinate(syllabusSearchPresenter: SyllabusSearchPresenter, classSchedule: String, classScheduleIndex: Int) -> SyllabusSearchViewController {
         let controller = UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "syllabusSearchViewController") as! SyllabusSearchViewController
         controller.syllabusSearchPresenter = syllabusSearchPresenter
         controller.classSchedule = classSchedule
+        controller.classScheduleIndex = classScheduleIndex
         return controller
     }
 
@@ -93,7 +95,8 @@ extension SyllabusSearchViewController: SyllabusSearchView {
         let alert = UIAlertController(title: "時間割の追加", message: "この講義を"+scheduleText+"に追加しますか?", preferredStyle: UIAlertController.Style.actionSheet)
         let defaultAction = UIAlertAction(title: scheduleText+"に追加する", style: UIAlertAction.Style.default, handler: {
             (action:UIAlertAction) -> Void in
-            self.syllabusSearchPresenter.loadSelectedSyllabus(at: index)
+            self.syllabusSearchPresenter.loadSelectedSyllabus(at: index, classScheduleIndex: self.classScheduleIndex)
+            self.navigationController?.popViewController(animated: true)
         })
         let cancelAction = UIAlertAction(title: "戻る", style: UIAlertAction.Style.cancel, handler: {
             (action: UIAlertAction) -> Void in
@@ -113,12 +116,12 @@ extension SyllabusSearchViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "syllabusCell", for: indexPath) as! CustomSyllabusCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "syllabusTableViewCell", for: indexPath) as! SyllabusTableViewCell
         let subjectObj = syllabusSearchPresenter.loadSyllabusSearchResult(at: indexPath.row)
-        cell.semesterLabel.text = subjectObj!.semester + subjectObj!.schedule
-        cell.subjectLabel.text = subjectObj?.subjectName
-        cell.classroomLabel.text = subjectObj?.classroom
-        cell.teacherLabel.text = subjectObj?.teacher
+        cell.display(semester: subjectObj!.semester + subjectObj!.schedule)
+        cell.display(subjectName: subjectObj!.subjectName)
+        cell.display(classroom: subjectObj!.classroom)
+        cell.display(teacher: subjectObj!.teacher)
         return cell
     }
     
