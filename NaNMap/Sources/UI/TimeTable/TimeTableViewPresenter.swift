@@ -9,6 +9,7 @@
 protocol TimeTablePresenter {
     func setAlertText(at index: Int)
     func saveSelectedSyllabus(syllabus: SubjectObj?)
+    func loadSavedSyllabus(at index: Int) -> TimeTableCellObj
 }
 
 class TimeTableViewPresenter: TimeTablePresenter {
@@ -33,6 +34,10 @@ class TimeTableViewPresenter: TimeTablePresenter {
     
     func saveSelectedSyllabus(syllabus: SubjectObj?) {
         
+    }
+    
+    func loadSavedSyllabus(at index: Int) -> TimeTableCellObj {
+        return model.timeTableCell![index]
     }
     
     
