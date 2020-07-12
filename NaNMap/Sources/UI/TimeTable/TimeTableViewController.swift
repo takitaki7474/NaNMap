@@ -16,7 +16,6 @@ class TimeTableViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     private var timeTablePresenter: TimeTablePresenter!
     private var syllabusSearchPresenter: SyllabusSearchPresenter!
-    private var cellCreator: CustomTimeTableCellCreator!
     
     static func instantinate() -> TimeTableViewController {
         let controller = UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "timeTableViewController") as! TimeTableViewController
@@ -27,7 +26,6 @@ class TimeTableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        cellCreator = CustomTimeTableCellCreator()
         setUpCollectionView()
         setUpNavigationBar()
     }
@@ -43,7 +41,7 @@ private extension TimeTableViewController {
     private func setUpCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
-        cellCreator.customizeCollectionView(collectionView: collectionView)
+        collectionView.customizeCollectionViewLayout()
     }
 }
 
@@ -75,16 +73,6 @@ extension TimeTableViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeTableCollectionViewCell", for: indexPath) as! TimeTableCollectionViewCell
         cell.presenter = timeTablePresenter
-        /*
-        cell = cellCreator.customizeCellDesign(cell: cell)
-        cell = cellCreator.customizeCellLabelFlowLayout(index: indexPath.row, cell: cell)
-        let canClickCell = !(indexPath.row <= 6 || indexPath.row % 7 == 0)
-        if canClickCell {
-            cell = cellCreator.customizeSubjectCellLabelCenter(cell: cell)
-            cell.subjectNameLabel.text = "aaa"
-            cell.classroomLabel.text = "bbb"
-            cell.teacherLabel.text = "ccc"
-        }*/
         cell.customizeCellStyle()
         cell.customizeCellLabelStyle(index: indexPath.row)
         cell.customizeCellLabelText(index: indexPath.row)
@@ -98,7 +86,7 @@ extension TimeTableViewController: UICollectionViewDataSource, UICollectionViewD
 
 extension TimeTableViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellSize = cellCreator.customizeCellSizeFlowLayout(index: indexPath.row, collectionView: collectionView)
+        let cellSize = collectionView.customizeCellSizeFlowLayout(index: indexPath.row)
         return cellSize
     }
 }

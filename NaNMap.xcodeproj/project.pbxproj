@@ -24,6 +24,7 @@
 		215FA0732450CA4B0079300A /* TimeTableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FA0722450CA4B0079300A /* TimeTableCollectionViewCell.swift */; };
 		21674395249CA2A4008806A7 /* TimeTableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21674394249CA2A4008806A7 /* TimeTableViewPresenter.swift */; };
 		21674397249CF86D008806A7 /* TimeTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21674396249CF86D008806A7 /* TimeTableModel.swift */; };
+		21714AB624BB59C900057659 /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21714AB524BB59C900057659 /* UICollectionView+Extensions.swift */; };
 		21715EB624AA1CEA00C9C3D6 /* Syllabus.json in Resources */ = {isa = PBXBuildFile; fileRef = 21715EB524AA1CEA00C9C3D6 /* Syllabus.json */; };
 		217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */; };
 		217182F5243E27E1004B5E5A /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217182F4243E27E1004B5E5A /* Search.storyboard */; };
@@ -61,6 +62,7 @@
 		215FA0722450CA4B0079300A /* TimeTableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableCollectionViewCell.swift; sourceTree = "<group>"; };
 		21674394249CA2A4008806A7 /* TimeTableViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewPresenter.swift; sourceTree = "<group>"; };
 		21674396249CF86D008806A7 /* TimeTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableModel.swift; sourceTree = "<group>"; };
+		21714AB524BB59C900057659 /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
 		21715EB524AA1CEA00C9C3D6 /* Syllabus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Syllabus.json; sourceTree = "<group>"; };
 		217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		217182F4243E27E1004B5E5A /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */,
+				21714AB524BB59C900057659 /* UICollectionView+Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				21A1DFF324A8A1E700873DF2 /* SyllabusSearchViewController.swift in Sources */,
 				2113FC5124B5F8BA00AFB393 /* FilterEntity.swift in Sources */,
 				21FA667E2497D38B00961EA0 /* SearchModel.swift in Sources */,
+				21714AB624BB59C900057659 /* UICollectionView+Extensions.swift in Sources */,
 				217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */,
 				215FA0732450CA4B0079300A /* TimeTableCollectionViewCell.swift in Sources */,
 				219740E824B4E1EB004AC323 /* SyllabusFilterViewController.swift in Sources */,
