@@ -10,7 +10,7 @@ import UIKit
 
 protocol TimeTableView: class {
     func reloadData()
-    func alertWillSearchSyllabus(with text: String)
+    func alertWillSearchSyllabus(with text: String, at index: Int)
 }
 
 class TimeTableViewController: UIViewController {
@@ -51,11 +51,11 @@ extension TimeTableViewController: TimeTableView {
         collectionView.reloadData()
     }
     
-    func alertWillSearchSyllabus(with text: String) {
+    func alertWillSearchSyllabus(with text: String, at index: Int) {
         let alert = UIAlertController(title: "時間割の編集", message: text+"の講義を編集しますか?", preferredStyle: UIAlertController.Style.actionSheet)
         let defaultAction = UIAlertAction(title: text+"の講義を検索する", style: UIAlertAction.Style.default, handler: {
             (action:UIAlertAction) -> Void in
-            let vc = SyllabusSearchViewController.instantinate(syllabusSearchPresenter: self.syllabusSearchPresenter, classSchedule: text)
+            let vc = SyllabusSearchViewController.instantinate(syllabusSearchPresenter: self.syllabusSearchPresenter, classSchedule: text, classScheduleIndex: index)
             self.navigationController?.pushViewController(vc, animated: true)
         })
         let cancelAction = UIAlertAction(title: "戻る", style: UIAlertAction.Style.cancel, handler: {

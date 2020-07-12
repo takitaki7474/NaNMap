@@ -19,11 +19,13 @@ class SyllabusSearchViewController: UIViewController {
     private var syllabusSearchPresenter: SyllabusSearchPresenter!
     private var searchController: UISearchController!
     private var classSchedule: String!
+    private var classScheduleIndex: Int!
     
-    static func instantinate(syllabusSearchPresenter: SyllabusSearchPresenter, classSchedule: String) -> SyllabusSearchViewController {
+    static func instantinate(syllabusSearchPresenter: SyllabusSearchPresenter, classSchedule: String, classScheduleIndex: Int) -> SyllabusSearchViewController {
         let controller = UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "syllabusSearchViewController") as! SyllabusSearchViewController
         controller.syllabusSearchPresenter = syllabusSearchPresenter
         controller.classSchedule = classSchedule
+        controller.classScheduleIndex = classScheduleIndex
         return controller
     }
 
@@ -93,7 +95,7 @@ extension SyllabusSearchViewController: SyllabusSearchView {
         let alert = UIAlertController(title: "時間割の追加", message: "この講義を"+scheduleText+"に追加しますか?", preferredStyle: UIAlertController.Style.actionSheet)
         let defaultAction = UIAlertAction(title: scheduleText+"に追加する", style: UIAlertAction.Style.default, handler: {
             (action:UIAlertAction) -> Void in
-            self.syllabusSearchPresenter.loadSelectedSyllabus(at: index)
+            self.syllabusSearchPresenter.loadSelectedSyllabus(at: index, classScheduleIndex: self.classScheduleIndex)
         })
         let cancelAction = UIAlertAction(title: "戻る", style: UIAlertAction.Style.cancel, handler: {
             (action: UIAlertAction) -> Void in

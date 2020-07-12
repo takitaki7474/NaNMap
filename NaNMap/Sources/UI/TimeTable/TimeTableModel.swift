@@ -65,7 +65,7 @@ class TimeTableModel {
         }
     }
     
-    func saveSelectedSyllabus(syllabus: SubjectObj) {
+    func saveSelectedSyllabus(syllabus: SubjectObj, index: Int) {
         
     }
 }
