@@ -13,7 +13,7 @@ protocol TimeTableView: class {
     func alertWillSearchSyllabus(with text: String, at index: Int)
 }
 
-class TimeTableViewController: UIViewController {
+class TimeTableViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     private var timeTablePresenter: TimeTablePresenter!
     private var syllabusSearchPresenter: SyllabusSearchPresenter!
@@ -42,7 +42,16 @@ private extension TimeTableViewController {
     private func setUpCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(cellLongPressed(recognizer:)))
+        longPressRecognizer.delegate = self
+        collectionView.addGestureRecognizer(longPressRecognizer)
         collectionView.customizeCollectionViewLayout()
+    }
+    
+    @objc private func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
+        let point = recognizer.location(in: collectionView)
+        let indexPath = collectionView.indexPathForItem(at: point)
+        print(indexPath!.row)
     }
 }
 
