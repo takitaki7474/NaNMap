@@ -84,6 +84,7 @@ extension TimeTableViewController: TimeTableView {
         let alert = UIAlertController(title: "時間割の削除", message: text+"の講義を削除しますか?", preferredStyle: UIAlertController.Style.actionSheet)
         let defaultAction = UIAlertAction(title: text+"の講義を削除する", style: UIAlertAction.Style.destructive, handler: {
             (action:UIAlertAction) -> Void in
+            self.timeTablePresenter.UnregisterSyllabus(at: index)
         })
         let cancelAction = UIAlertAction(title: "戻る", style: UIAlertAction.Style.cancel, handler: {
             (action: UIAlertAction) -> Void in

@@ -79,4 +79,18 @@ class TimeTableModel {
         }
         self.timeTableCells = realm.objects(TimeTableCellObj.self)
     }
+    
+    func UnregisterSyllabus(at index: Int) {
+        let realm = try! Realm()
+        let timeTableCell = realm.objects(TimeTableCellObj.self)[index]
+        try! realm.write {
+            timeTableCell.category = ""
+            timeTableCell.semester = ""
+            timeTableCell.subjectName = ""
+            timeTableCell.teacher = ""
+            timeTableCell.classroom = ""
+            timeTableCell.hasRegistered = false
+        }
+        self.timeTableCells = realm.objects(TimeTableCellObj.self)
+    }
 }
