@@ -6,8 +6,11 @@
 //  Copyright © 2020 ryunosuke ota. All rights reserved.
 //
 
+import Foundation
+
 protocol TimeTablePresenter {
     func setAlertWillSearchSyllabus(at index: Int)
+    func setAlertWillDeleteSyllabus()
     func saveSelectedSyllabus(syllabus: SubjectObj?, classScheduleIndex: Int)
     func loadSavedSyllabus(at index: Int) -> TimeTableCellObj
 }
@@ -29,6 +32,10 @@ class TimeTableViewPresenter: TimeTablePresenter {
         if canClickCell {
             view?.alertWillSearchSyllabus(with: text, at: index)
         }
+    }
+    
+    func setAlertWillDeleteSyllabus() {
+        
     }
     
     func saveSelectedSyllabus(syllabus: SubjectObj?, classScheduleIndex: Int) {
