@@ -13,6 +13,7 @@ class TimeTableCellObj: Object {
     @objc dynamic var subjectName = ""
     @objc dynamic var teacher = ""
     @objc dynamic var classroom = ""
+    @objc dynamic var hasRegistered = false
 }
 
 protocol TimeTableModelDelegate: class {
@@ -74,6 +75,21 @@ class TimeTableModel {
             timeTableCell.subjectName = syllabus.subjectName
             timeTableCell.teacher = syllabus.teacher
             timeTableCell.classroom = syllabus.classroom
+            timeTableCell.hasRegistered = true
+        }
+        self.timeTableCells = realm.objects(TimeTableCellObj.self)
+    }
+    
+    func UnregisterSyllabus(at index: Int) {
+        let realm = try! Realm()
+        let timeTableCell = realm.objects(TimeTableCellObj.self)[index]
+        try! realm.write {
+            timeTableCell.category = ""
+            timeTableCell.semester = ""
+            timeTableCell.subjectName = ""
+            timeTableCell.teacher = ""
+            timeTableCell.classroom = ""
+            timeTableCell.hasRegistered = false
         }
         self.timeTableCells = realm.objects(TimeTableCellObj.self)
     }
