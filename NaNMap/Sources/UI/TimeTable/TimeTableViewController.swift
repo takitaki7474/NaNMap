@@ -11,6 +11,7 @@ import UIKit
 protocol TimeTableView: class {
     func reloadData()
     func alertWillSearchSyllabus(with text: String, at index: Int)
+    func alertWillDeleteSyllabus(with text: String, at index: Int)
 }
 
 class TimeTableViewController: UIViewController, UIGestureRecognizerDelegate {
@@ -50,8 +51,9 @@ private extension TimeTableViewController {
     
     @objc private func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
         let point = recognizer.location(in: collectionView)
-        let indexPath = collectionView.indexPathForItem(at: point)
-        print(indexPath!.row)
+        if let indexPath = collectionView.indexPathForItem(at: point) {
+            timeTablePresenter.setAlertWillDeleteSyllabus(at: indexPath.row)
+        }
     }
 }
 
@@ -66,6 +68,22 @@ extension TimeTableViewController: TimeTableView {
             (action:UIAlertAction) -> Void in
             let vc = SyllabusSearchViewController.instantinate(syllabusSearchPresenter: self.syllabusSearchPresenter, classSchedule: text, classScheduleIndex: index)
             self.navigationController?.pushViewController(vc, animated: true)
+        })
+        let cancelAction = UIAlertAction(title: "戻る", style: UIAlertAction.Style.cancel, handler: {
+            (action: UIAlertAction) -> Void in
+        })
+        alert.addAction(defaultAction)
+        alert.addAction(cancelAction)
+        let screenSize = UIScreen.main.bounds
+        alert.popoverPresentationController?.sourceView = self.view
+        alert.popoverPresentationController?.sourceRect = CGRect(x: screenSize.size.width/2, y: screenSize.size.height, width: 0, height: 0)
+        present(alert, animated: true)
+    }
+    
+    func alertWillDeleteSyllabus(with text: String, at index: Int) {
+        let alert = UIAlertController(title: "時間割の削除", message: text+"の講義を削除しますか?", preferredStyle: UIAlertController.Style.actionSheet)
+        let defaultAction = UIAlertAction(title: text+"の講義を削除する", style: UIAlertAction.Style.destructive, handler: {
+            (action:UIAlertAction) -> Void in
         })
         let cancelAction = UIAlertAction(title: "戻る", style: UIAlertAction.Style.cancel, handler: {
             (action: UIAlertAction) -> Void in
