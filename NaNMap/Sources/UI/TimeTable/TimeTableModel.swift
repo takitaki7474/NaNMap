@@ -13,6 +13,7 @@ class TimeTableCellObj: Object {
     @objc dynamic var subjectName = ""
     @objc dynamic var teacher = ""
     @objc dynamic var classroom = ""
+    @objc dynamic var hasRegistered = 0
 }
 
 protocol TimeTableModelDelegate: class {
@@ -74,6 +75,7 @@ class TimeTableModel {
             timeTableCell.subjectName = syllabus.subjectName
             timeTableCell.teacher = syllabus.teacher
             timeTableCell.classroom = syllabus.classroom
+            timeTableCell.hasRegistered = 1
         }
         self.timeTableCells = realm.objects(TimeTableCellObj.self)
     }

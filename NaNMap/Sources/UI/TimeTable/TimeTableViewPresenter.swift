@@ -10,7 +10,7 @@ import Foundation
 
 protocol TimeTablePresenter {
     func setAlertWillSearchSyllabus(at index: Int)
-    func setAlertWillDeleteSyllabus()
+    func setAlertWillDeleteSyllabus(at index: Int)
     func saveSelectedSyllabus(syllabus: SubjectObj?, classScheduleIndex: Int)
     func loadSavedSyllabus(at index: Int) -> TimeTableCellObj
 }
@@ -34,7 +34,8 @@ class TimeTableViewPresenter: TimeTablePresenter {
         }
     }
     
-    func setAlertWillDeleteSyllabus() {
+    func setAlertWillDeleteSyllabus(at index: Int) {
+        //let cellLables = model.timeTableCells![index]
         
     }
     
