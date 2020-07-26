@@ -13,7 +13,7 @@ protocol TimeTablePresenter {
     func setAlertWillDeleteSyllabus(at index: Int)
     func saveSelectedSyllabus(syllabus: SubjectObj?, classScheduleIndex: Int)
     func loadSavedSyllabus(at index: Int) -> TimeTableCellObj
-    func UnregisterSyllabus(at index: Int)
+    func unregisterSyllabus(at index: Int)
 }
 
 class TimeTableViewPresenter: TimeTablePresenter {
@@ -53,8 +53,8 @@ class TimeTableViewPresenter: TimeTablePresenter {
         return model.timeTableCells![index]
     }
     
-    func UnregisterSyllabus(at index: Int) {
-        model.UnregisterSyllabus(at: index)
+    func unregisterSyllabus(at index: Int) {
+        model.unregisterSyllabus(at: index)
     }
 }
 
