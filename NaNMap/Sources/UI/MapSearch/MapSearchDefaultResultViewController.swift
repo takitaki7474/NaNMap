@@ -8,15 +8,15 @@
 
 import UIKit
 
-class DefaultSearchResultViewController: UIViewController {
+class MapSearchDefaultResultViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    private var presenter: SearchPresenter!
+    private var presenter: MapSearchPresenter!
     var buildingList: [BuildingInfo]?
     var cellList = [String]()
     
-    static func instantinate(searchPresenter: SearchPresenter) -> DefaultSearchResultViewController {
-        let controller = UIStoryboard(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "defaultSearchResultViewController") as! DefaultSearchResultViewController
-        controller.presenter = searchPresenter
+    static func instantinate(mapSearchPresenter: MapSearchPresenter) -> MapSearchDefaultResultViewController {
+        let controller = UIStoryboard(name: "MapSearch", bundle: nil).instantiateViewController(withIdentifier: "mapSearchDefaultResultViewController") as! MapSearchDefaultResultViewController
+        controller.presenter = mapSearchPresenter
         return controller
      }
 
@@ -27,7 +27,7 @@ class DefaultSearchResultViewController: UIViewController {
     }
 }
 
-extension DefaultSearchResultViewController: UITableViewDataSource, UITableViewDelegate {
+extension MapSearchDefaultResultViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.numberOfDefaultBuildingList
     }

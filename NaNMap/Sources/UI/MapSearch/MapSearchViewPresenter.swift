@@ -6,7 +6,7 @@
 //  Copyright © 2020 ryunosuke ota. All rights reserved.
 //
 
-protocol SearchPresenter {
+protocol MapSearchPresenter {
     var numberOfDefaultSearchTitleList: Int { get }
     var numberOfDefaultBuildingList: Int { get }
     func setUpDefaultSearchResult(at index: Int)
@@ -16,8 +16,8 @@ protocol SearchPresenter {
     func tapDefaultBuildingCell(at index: Int)
 }
 
-final class SearchViewPresenter: SearchPresenter {
-    private let model = SearchModel()
+final class MapSearchViewPresenter: MapSearchPresenter {
+    private let model = MapSearchModel()
     private let mapPresenter: MapPresenter!
     
     init(mapPresenter: MapPresenter) {

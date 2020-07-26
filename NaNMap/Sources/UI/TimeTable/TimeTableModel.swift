@@ -80,7 +80,7 @@ class TimeTableModel {
         self.timeTableCells = realm.objects(TimeTableCellObj.self)
     }
     
-    func UnregisterSyllabus(at index: Int) {
+    func unregisterSyllabus(at index: Int) {
         let realm = try! Realm()
         let timeTableCell = realm.objects(TimeTableCellObj.self)[index]
         try! realm.write {

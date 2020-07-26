@@ -1,5 +1,5 @@
 //
-//  SearchViewController.swift
+//  MapSearchViewController.swift
 //  NaNMap
 //
 //  Created by 太田龍之介 on 2020/04/09.
@@ -8,32 +8,32 @@
 
 import UIKit
 
-final class SearchViewController: UIViewController {
+final class MapSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var searchBar: UISearchBar!
     var defaultCellList = [String]()
     private var mapPresenter: MapPresenter!
-    private var searchPresenter: SearchPresenter!
+    private var mapSearchPresenter: MapSearchPresenter!
     
-    static func instantinate(mapPresenter: MapPresenter) -> SearchViewController {
-        let controller = UIStoryboard(name: "Search", bundle: nil).instantiateInitialViewController() as! SearchViewController
+    static func instantinate(mapPresenter: MapPresenter) -> MapSearchViewController {
+        let controller = UIStoryboard(name: "MapSearch", bundle: nil).instantiateInitialViewController() as! MapSearchViewController
         controller.mapPresenter = mapPresenter
         return controller
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchPresenter = SearchViewPresenter(mapPresenter: mapPresenter)
+        mapSearchPresenter = MapSearchViewPresenter(mapPresenter: mapPresenter)
         setUpDefaultTableView()
         setUpNavigationBar()
     }
 }
 
-extension SearchViewController {
+extension MapSearchViewController {
     func setUpDefaultTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-        searchPresenter.setUpDefaultSearchInfo()
+        mapSearchPresenter.setUpDefaultSearchInfo()
     }
     
     func setUpNavigationBar() {
@@ -51,21 +51,21 @@ extension SearchViewController {
     }
 }
 
-extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
+extension MapSearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchPresenter.numberOfDefaultSearchTitleList
+        return mapSearchPresenter.numberOfDefaultSearchTitleList
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath)
         cell.accessoryType = .disclosureIndicator
-        cell.textLabel?.text = searchPresenter.loadDefaultSearchTitleList(at: indexPath.row)
+        cell.textLabel?.text = mapSearchPresenter.loadDefaultSearchTitleList(at: indexPath.row)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        searchPresenter.setUpDefaultSearchResult(at: indexPath.row)
-        let vc = DefaultSearchResultViewController.instantinate(searchPresenter: searchPresenter)
+        mapSearchPresenter.setUpDefaultSearchResult(at: indexPath.row)
+        let vc = MapSearchDefaultResultViewController.instantinate(mapSearchPresenter: mapSearchPresenter)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

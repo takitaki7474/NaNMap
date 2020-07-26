@@ -10,7 +10,7 @@ import UIKit
 
 protocol SyllabusSearchView: class {
     func reloadData()
-    func alertWillChangeTimeTable(with scheduleText: String, at index: Int)
+    func alertWillAddTimeTable(with scheduleText: String, at index: Int)
 }
 
 class SyllabusSearchViewController: UIViewController {
@@ -91,7 +91,7 @@ extension SyllabusSearchViewController: SyllabusSearchView {
         tableView.reloadData()
     }
     
-    func alertWillChangeTimeTable(with scheduleText: String, at index: Int) {
+    func alertWillAddTimeTable(with scheduleText: String, at index: Int) {
         let alert = UIAlertController(title: "時間割の追加", message: "この講義を"+scheduleText+"に追加しますか?", preferredStyle: UIAlertController.Style.actionSheet)
         let defaultAction = UIAlertAction(title: scheduleText+"に追加する", style: UIAlertAction.Style.default, handler: {
             (action:UIAlertAction) -> Void in
@@ -130,7 +130,7 @@ extension SyllabusSearchViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        syllabusSearchPresenter.setAlertWillChangeTimeTable(with: self.classSchedule, at: indexPath.row)
+        syllabusSearchPresenter.setAlertWillAddTimeTable(with: self.classSchedule, at: indexPath.row)
     }
 }
 
