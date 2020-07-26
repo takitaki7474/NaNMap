@@ -28,7 +28,7 @@
 		21715EB624AA1CEA00C9C3D6 /* Syllabus.json in Resources */ = {isa = PBXBuildFile; fileRef = 21715EB524AA1CEA00C9C3D6 /* Syllabus.json */; };
 		217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */; };
 		217182F5243E27E1004B5E5A /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217182F4243E27E1004B5E5A /* Search.storyboard */; };
-		217182F7243E2835004B5E5A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F6243E2835004B5E5A /* SearchViewController.swift */; };
+		217182F7243E2835004B5E5A /* MapSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F6243E2835004B5E5A /* MapSearchViewController.swift */; };
 		218AD15524B3818A003BC33F /* SyllabusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218AD15424B3818A003BC33F /* SyllabusTableViewCell.swift */; };
 		219740E824B4E1EB004AC323 /* SyllabusFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219740E724B4E1EB004AC323 /* SyllabusFilterViewController.swift */; };
 		21A1DFF324A8A1E700873DF2 /* SyllabusSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFF224A8A1E700873DF2 /* SyllabusSearchViewController.swift */; };
@@ -66,7 +66,7 @@
 		21715EB524AA1CEA00C9C3D6 /* Syllabus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Syllabus.json; sourceTree = "<group>"; };
 		217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		217182F4243E27E1004B5E5A /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
-		217182F6243E2835004B5E5A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		217182F6243E2835004B5E5A /* MapSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchViewController.swift; sourceTree = "<group>"; };
 		218AD15424B3818A003BC33F /* SyllabusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusTableViewCell.swift; sourceTree = "<group>"; };
 		219740E724B4E1EB004AC323 /* SyllabusFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusFilterViewController.swift; sourceTree = "<group>"; };
 		21A1DFF224A8A1E700873DF2 /* SyllabusSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusSearchViewController.swift; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				2113FC4D24B5F5BC00AFB393 /* Entity */,
-				217182F6243E2835004B5E5A /* SearchViewController.swift */,
+				217182F6243E2835004B5E5A /* MapSearchViewController.swift */,
 				215F3A1F244DD3E400C6270A /* MapSearchDefaultResultViewController.swift */,
 				215F3A1D244DB68F00C6270A /* MapSearchViewPresenter.swift */,
 				21FA667D2497D38B00961EA0 /* MapSearchModel.swift */,
@@ -384,7 +384,7 @@
 			files = (
 				21A1DFF724A8CD6000873DF2 /* SyllabusSearchModel.swift in Sources */,
 				218AD15524B3818A003BC33F /* SyllabusTableViewCell.swift in Sources */,
-				217182F7243E2835004B5E5A /* SearchViewController.swift in Sources */,
+				217182F7243E2835004B5E5A /* MapSearchViewController.swift in Sources */,
 				21674397249CF86D008806A7 /* TimeTableModel.swift in Sources */,
 				21FA667A2497907200961EA0 /* MapModel.swift in Sources */,
 				215F3A20244DD3E400C6270A /* MapSearchDefaultResultViewController.swift in Sources */,

@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller-->
+        <!--Map Search View Controller-->
         <scene sceneID="cbE-NP-sad">
             <objects>
-                <viewController id="gxp-Jx-Hpy" customClass="SearchViewController" customModule="NaNMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gxp-Jx-Hpy" customClass="MapSearchViewController" customModule="NaNMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7j0-sW-4S9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,7 +40,7 @@
                         <viewLayoutGuide key="safeArea" id="vSm-jz-grp"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="CUY-uP-PkB" id="j0K-ce-B1e"/>
+                        <outlet property="tableView" destination="CUY-uP-PkB" id="Vsi-Fz-gdv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UuJ-IK-4nj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -50,7 +50,7 @@
         <!--Map Search Default Result View Controller-->
         <scene sceneID="q6S-SG-a8O">
             <objects>
-                <viewController storyboardIdentifier="defaultSearchResultViewController" id="DbA-ev-IGa" customClass="MapSearchDefaultResultViewController" customModule="NaNMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapSearchDefaultResultViewController" id="DbA-ev-IGa" customClass="MapSearchDefaultResultViewController" customModule="NaNMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sga-PH-DxT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

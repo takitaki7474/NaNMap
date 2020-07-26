@@ -1,5 +1,5 @@
 //
-//  SearchViewController.swift
+//  MapSearchViewController.swift
 //  NaNMap
 //
 //  Created by 太田龍之介 on 2020/04/09.
@@ -8,15 +8,15 @@
 
 import UIKit
 
-final class SearchViewController: UIViewController {
+final class MapSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var searchBar: UISearchBar!
     var defaultCellList = [String]()
     private var mapPresenter: MapPresenter!
     private var searchPresenter: SearchPresenter!
     
-    static func instantinate(mapPresenter: MapPresenter) -> SearchViewController {
-        let controller = UIStoryboard(name: "Search", bundle: nil).instantiateInitialViewController() as! SearchViewController
+    static func instantinate(mapPresenter: MapPresenter) -> MapSearchViewController {
+        let controller = UIStoryboard(name: "Search", bundle: nil).instantiateInitialViewController() as! MapSearchViewController
         controller.mapPresenter = mapPresenter
         return controller
     }
@@ -29,7 +29,7 @@ final class SearchViewController: UIViewController {
     }
 }
 
-extension SearchViewController {
+extension MapSearchViewController {
     func setUpDefaultTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -51,7 +51,7 @@ extension SearchViewController {
     }
 }
 
-extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
+extension MapSearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchPresenter.numberOfDefaultSearchTitleList
     }

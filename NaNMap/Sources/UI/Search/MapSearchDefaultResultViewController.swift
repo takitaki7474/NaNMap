@@ -15,7 +15,7 @@ class MapSearchDefaultResultViewController: UIViewController {
     var cellList = [String]()
     
     static func instantinate(searchPresenter: SearchPresenter) -> MapSearchDefaultResultViewController {
-        let controller = UIStoryboard(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "defaultSearchResultViewController") as! MapSearchDefaultResultViewController
+        let controller = UIStoryboard(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "mapSearchDefaultResultViewController") as! MapSearchDefaultResultViewController
         controller.presenter = searchPresenter
         return controller
      }

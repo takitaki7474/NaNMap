@@ -71,7 +71,7 @@ extension MapViewController: MapView {
 
 extension MapViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        let vc = SearchViewController.instantinate(mapPresenter: presenter)
+        let vc = MapSearchViewController.instantinate(mapPresenter: presenter)
         navigationController?.pushViewController(vc, animated: false)
         return true
     }
