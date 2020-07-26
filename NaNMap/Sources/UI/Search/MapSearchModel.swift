@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class SearchModel {
+final class MapSearchModel {
     private var data: Data?
     var defaultSearchInfo: DefaultSearchInfo?
     var defaultSearchTitleList = [String]()

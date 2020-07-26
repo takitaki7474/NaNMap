@@ -37,7 +37,7 @@
 		21A1DFFB24A8D12900873DF2 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFFA24A8D12900873DF2 /* Subject.swift */; };
 		21FA66782497528900961EA0 /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA66772497528900961EA0 /* MapViewPresenter.swift */; };
 		21FA667A2497907200961EA0 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA66792497907200961EA0 /* MapModel.swift */; };
-		21FA667E2497D38B00961EA0 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA667D2497D38B00961EA0 /* SearchModel.swift */; };
+		21FA667E2497D38B00961EA0 /* MapSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA667D2497D38B00961EA0 /* MapSearchModel.swift */; };
 		F8F06986A60647C46BE2F56D /* Pods_NaNMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9739E6E6F62D372B7B9D0B30 /* Pods_NaNMap.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,7 +75,7 @@
 		21A1DFFA24A8D12900873DF2 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		21FA66772497528900961EA0 /* MapViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
 		21FA66792497907200961EA0 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
-		21FA667D2497D38B00961EA0 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		21FA667D2497D38B00961EA0 /* MapSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchModel.swift; sourceTree = "<group>"; };
 		8C282470668A4DADC549625F /* Pods-NaNMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaNMap.debug.xcconfig"; path = "Target Support Files/Pods-NaNMap/Pods-NaNMap.debug.xcconfig"; sourceTree = "<group>"; };
 		9739E6E6F62D372B7B9D0B30 /* Pods_NaNMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NaNMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -207,7 +207,7 @@
 				217182F6243E2835004B5E5A /* SearchViewController.swift */,
 				215F3A1F244DD3E400C6270A /* DefaultSearchResultViewController.swift */,
 				215F3A1D244DB68F00C6270A /* SearchViewPresenter.swift */,
-				21FA667D2497D38B00961EA0 /* SearchModel.swift */,
+				21FA667D2497D38B00961EA0 /* MapSearchModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -392,7 +392,7 @@
 				21674395249CA2A4008806A7 /* TimeTableViewPresenter.swift in Sources */,
 				21A1DFF324A8A1E700873DF2 /* SyllabusSearchViewController.swift in Sources */,
 				2113FC5124B5F8BA00AFB393 /* FilterEntity.swift in Sources */,
-				21FA667E2497D38B00961EA0 /* SearchModel.swift in Sources */,
+				21FA667E2497D38B00961EA0 /* MapSearchModel.swift in Sources */,
 				21714AB624BB59C900057659 /* UICollectionView+Extensions.swift in Sources */,
 				217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */,
 				215FA0732450CA4B0079300A /* TimeTableCollectionViewCell.swift in Sources */,

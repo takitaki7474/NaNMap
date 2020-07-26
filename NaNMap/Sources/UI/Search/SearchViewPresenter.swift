@@ -17,7 +17,7 @@ protocol SearchPresenter {
 }
 
 final class SearchViewPresenter: SearchPresenter {
-    private let model = SearchModel()
+    private let model = MapSearchModel()
     private let mapPresenter: MapPresenter!
     
     init(mapPresenter: MapPresenter) {
