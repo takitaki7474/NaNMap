@@ -14,9 +14,9 @@ class MapSearchDefaultResultViewController: UIViewController {
     var buildingList: [BuildingInfo]?
     var cellList = [String]()
     
-    static func instantinate(MapSearchPresenter: MapSearchPresenter) -> MapSearchDefaultResultViewController {
+    static func instantinate(mapSearchPresenter: MapSearchPresenter) -> MapSearchDefaultResultViewController {
         let controller = UIStoryboard(name: "MapSearch", bundle: nil).instantiateViewController(withIdentifier: "mapSearchDefaultResultViewController") as! MapSearchDefaultResultViewController
-        controller.presenter = MapSearchPresenter
+        controller.presenter = mapSearchPresenter
         return controller
      }
 

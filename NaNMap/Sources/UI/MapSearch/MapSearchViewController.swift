@@ -13,7 +13,7 @@ final class MapSearchViewController: UIViewController {
     var searchBar: UISearchBar!
     var defaultCellList = [String]()
     private var mapPresenter: MapPresenter!
-    private var MapSearchPresenter: MapSearchPresenter!
+    private var mapSearchPresenter: MapSearchPresenter!
     
     static func instantinate(mapPresenter: MapPresenter) -> MapSearchViewController {
         let controller = UIStoryboard(name: "MapSearch", bundle: nil).instantiateInitialViewController() as! MapSearchViewController
@@ -23,7 +23,7 @@ final class MapSearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        MapSearchPresenter = MapSearchViewPresenter(mapPresenter: mapPresenter)
+        mapSearchPresenter = MapSearchViewPresenter(mapPresenter: mapPresenter)
         setUpDefaultTableView()
         setUpNavigationBar()
     }
@@ -33,7 +33,7 @@ extension MapSearchViewController {
     func setUpDefaultTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-        MapSearchPresenter.setUpDefaultSearchInfo()
+        mapSearchPresenter.setUpDefaultSearchInfo()
     }
     
     func setUpNavigationBar() {
@@ -53,19 +53,19 @@ extension MapSearchViewController {
 
 extension MapSearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MapSearchPresenter.numberOfDefaultSearchTitleList
+        return mapSearchPresenter.numberOfDefaultSearchTitleList
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath)
         cell.accessoryType = .disclosureIndicator
-        cell.textLabel?.text = MapSearchPresenter.loadDefaultSearchTitleList(at: indexPath.row)
+        cell.textLabel?.text = mapSearchPresenter.loadDefaultSearchTitleList(at: indexPath.row)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        MapSearchPresenter.setUpDefaultSearchResult(at: indexPath.row)
-        let vc = MapSearchDefaultResultViewController.instantinate(MapSearchPresenter: MapSearchPresenter)
+        mapSearchPresenter.setUpDefaultSearchResult(at: indexPath.row)
+        let vc = MapSearchDefaultResultViewController.instantinate(mapSearchPresenter: mapSearchPresenter)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
