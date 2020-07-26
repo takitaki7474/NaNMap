@@ -27,7 +27,7 @@
 		21714AB624BB59C900057659 /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21714AB524BB59C900057659 /* UICollectionView+Extensions.swift */; };
 		21715EB624AA1CEA00C9C3D6 /* Syllabus.json in Resources */ = {isa = PBXBuildFile; fileRef = 21715EB524AA1CEA00C9C3D6 /* Syllabus.json */; };
 		217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */; };
-		217182F5243E27E1004B5E5A /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217182F4243E27E1004B5E5A /* Search.storyboard */; };
+		217182F5243E27E1004B5E5A /* MapSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217182F4243E27E1004B5E5A /* MapSearch.storyboard */; };
 		217182F7243E2835004B5E5A /* MapSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F6243E2835004B5E5A /* MapSearchViewController.swift */; };
 		218AD15524B3818A003BC33F /* SyllabusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218AD15424B3818A003BC33F /* SyllabusTableViewCell.swift */; };
 		219740E824B4E1EB004AC323 /* SyllabusFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219740E724B4E1EB004AC323 /* SyllabusFilterViewController.swift */; };
@@ -65,7 +65,7 @@
 		21714AB524BB59C900057659 /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
 		21715EB524AA1CEA00C9C3D6 /* Syllabus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Syllabus.json; sourceTree = "<group>"; };
 		217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
-		217182F4243E27E1004B5E5A /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		217182F4243E27E1004B5E5A /* MapSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapSearch.storyboard; sourceTree = "<group>"; };
 		217182F6243E2835004B5E5A /* MapSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchViewController.swift; sourceTree = "<group>"; };
 		218AD15424B3818A003BC33F /* SyllabusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusTableViewCell.swift; sourceTree = "<group>"; };
 		219740E724B4E1EB004AC323 /* SyllabusFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusFilterViewController.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				214F5F93243C96670061FC45 /* Map.storyboard */,
-				217182F4243E27E1004B5E5A /* Search.storyboard */,
+				217182F4243E27E1004B5E5A /* MapSearch.storyboard */,
 				215FA06E24506C440079300A /* TimeTable.storyboard */,
 			);
 			path = Storyboard;
@@ -183,7 +183,7 @@
 			children = (
 				214F5FA1243C9AF40061FC45 /* Storyboard */,
 				21674391249C9D95008806A7 /* Map */,
-				21674392249C9E07008806A7 /* Search */,
+				21674392249C9E07008806A7 /* MapSearch */,
 				21674393249C9E0F008806A7 /* TimeTable */,
 				21A1DFF124A8A11600873DF2 /* SyllabusSearch */,
 			);
@@ -200,7 +200,7 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
-		21674392249C9E07008806A7 /* Search */ = {
+		21674392249C9E07008806A7 /* MapSearch */ = {
 			isa = PBXGroup;
 			children = (
 				2113FC4D24B5F5BC00AFB393 /* Entity */,
@@ -209,7 +209,7 @@
 				215F3A1D244DB68F00C6270A /* MapSearchViewPresenter.swift */,
 				21FA667D2497D38B00961EA0 /* MapSearchModel.swift */,
 			);
-			path = Search;
+			path = MapSearch;
 			sourceTree = "<group>";
 		};
 		21674393249C9E0F008806A7 /* TimeTable */ = {
@@ -327,7 +327,7 @@
 				214F5F9A243C96690061FC45 /* LaunchScreen.storyboard in Resources */,
 				21715EB624AA1CEA00C9C3D6 /* Syllabus.json in Resources */,
 				214F5F97243C96690061FC45 /* Assets.xcassets in Resources */,
-				217182F5243E27E1004B5E5A /* Search.storyboard in Resources */,
+				217182F5243E27E1004B5E5A /* MapSearch.storyboard in Resources */,
 				214F5F95243C96670061FC45 /* Map.storyboard in Resources */,
 				2113FC5324B6359E00AFB393 /* Filter.json in Resources */,
 			);

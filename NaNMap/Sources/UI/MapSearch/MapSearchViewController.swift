@@ -16,7 +16,7 @@ final class MapSearchViewController: UIViewController {
     private var searchPresenter: SearchPresenter!
     
     static func instantinate(mapPresenter: MapPresenter) -> MapSearchViewController {
-        let controller = UIStoryboard(name: "Search", bundle: nil).instantiateInitialViewController() as! MapSearchViewController
+        let controller = UIStoryboard(name: "MapSearch", bundle: nil).instantiateInitialViewController() as! MapSearchViewController
         controller.mapPresenter = mapPresenter
         return controller
     }
