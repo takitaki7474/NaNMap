@@ -47,10 +47,10 @@
             </objects>
             <point key="canvasLocation" x="124.6376811594203" y="164.73214285714286"/>
         </scene>
-        <!--Default Search Result View Controller-->
+        <!--Map Search Default Result View Controller-->
         <scene sceneID="q6S-SG-a8O">
             <objects>
-                <viewController storyboardIdentifier="defaultSearchResultViewController" id="DbA-ev-IGa" customClass="DefaultSearchResultViewController" customModule="NaNMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="defaultSearchResultViewController" id="DbA-ev-IGa" customClass="MapSearchDefaultResultViewController" customModule="NaNMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sga-PH-DxT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,7 +81,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Vc4-el-KYj"/>
                     <connections>
-                        <outlet property="tableView" destination="Nw2-xo-YPF" id="dwm-Vr-XVI"/>
+                        <outlet property="tableView" destination="Nw2-xo-YPF" id="sDu-Ub-s68"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZXW-WG-jCd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

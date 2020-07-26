@@ -16,7 +16,7 @@ protocol SearchPresenter {
     func tapDefaultBuildingCell(at index: Int)
 }
 
-final class SearchViewPresenter: SearchPresenter {
+final class MapSearchViewPresenter: SearchPresenter {
     private let model = MapSearchModel()
     private let mapPresenter: MapPresenter!
     

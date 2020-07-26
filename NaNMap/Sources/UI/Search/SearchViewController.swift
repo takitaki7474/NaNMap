@@ -23,7 +23,7 @@ final class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchPresenter = SearchViewPresenter(mapPresenter: mapPresenter)
+        searchPresenter = MapSearchViewPresenter(mapPresenter: mapPresenter)
         setUpDefaultTableView()
         setUpNavigationBar()
     }
@@ -65,7 +65,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         searchPresenter.setUpDefaultSearchResult(at: indexPath.row)
-        let vc = DefaultSearchResultViewController.instantinate(searchPresenter: searchPresenter)
+        let vc = MapSearchDefaultResultViewController.instantinate(searchPresenter: searchPresenter)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
