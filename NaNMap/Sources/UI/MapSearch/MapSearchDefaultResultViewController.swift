@@ -10,13 +10,13 @@ import UIKit
 
 class MapSearchDefaultResultViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    private var presenter: SearchPresenter!
+    private var presenter: MapSearchPresenter!
     var buildingList: [BuildingInfo]?
     var cellList = [String]()
     
-    static func instantinate(searchPresenter: SearchPresenter) -> MapSearchDefaultResultViewController {
+    static func instantinate(MapSearchPresenter: MapSearchPresenter) -> MapSearchDefaultResultViewController {
         let controller = UIStoryboard(name: "MapSearch", bundle: nil).instantiateViewController(withIdentifier: "mapSearchDefaultResultViewController") as! MapSearchDefaultResultViewController
-        controller.presenter = searchPresenter
+        controller.presenter = MapSearchPresenter
         return controller
      }
 
