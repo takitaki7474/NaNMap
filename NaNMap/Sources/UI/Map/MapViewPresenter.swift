@@ -10,7 +10,7 @@ import MapKit
 
 protocol MapPresenter {
     func setUpMapRegion()
-    func setPin(with info: [BuildingInfo], at index: Int)
+    func setPin(with info: [Building], at index: Int)
 }
 
 final class MapViewPresenter: MapPresenter {
@@ -26,7 +26,7 @@ final class MapViewPresenter: MapPresenter {
         model.setUpMapRegion()
     }
     
-    func setPin(with info: [BuildingInfo], at index: Int) {
+    func setPin(with info: [Building], at index: Int) {
         let title: String = info[index].building
         let longitude: Double = info[index].coordinate.longitude
         let latitude: Double = info[index].coordinate.latitude

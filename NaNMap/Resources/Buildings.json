@@ -1,0 +1,178 @@
+[
+    {
+        "building": "法科大学院棟(A棟)",
+        "coordinate": {
+            "longitude": 136.964107,
+            "latitude": 35.149649
+        },
+        "facilities": [
+            {
+                "facilityName": "法曹実務教育研究センター",
+                "floor": "1F"
+            }
+        ]
+    },
+    {
+        "building": "B棟",
+        "coordinate": {
+            "longitude": 136.963565,
+            "latitude": 35.149563
+        },
+        "classrooms": [
+            {
+                "classroomName": "B21",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "B11",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "B22",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "B43",
+                "floor": "4F"
+            }
+        ]
+    },
+    {
+        "building": "C棟",
+        "coordinate": {
+            "longitude": 136.963525,
+            "latitude": 35.149897
+        },
+        "facilities": [
+            {
+                "facilityName": "学生課",
+                "floor": "1F"
+            },
+            {
+                "facilityName": "教務課",
+                "floor": "1F"
+            },
+            {
+                "facilityName": "1SYOKU",
+                "floor": "1F"
+            }
+        ]
+    },
+    {
+        "building": "D棟",
+        "coordinate": {
+            "longitude": 136.961630,
+            "latitude": 35.150461
+        },
+        "facilities": [
+            {
+                "facilityName": "人間関係研究センター",
+                "floor": "1F"
+            },
+            {
+                "facilityName": "学生交流センター",
+                "floor": "1F"
+            },
+            {
+                "facilityName": "教職センター",
+                "floor": "1F"
+            },
+            {
+                "facilityName": "保険センター",
+                "floor": "1F"
+            }
+        ],
+        "classrooms": [
+            {
+                "classroomName": "D34",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "D33",
+                "floor": "3F"
+            }
+        ]
+    },
+    {
+        "building": "E棟",
+        "coordinate": {
+            "longitude": 136.962606,
+            "latitude": 35.150271
+        },
+        "classrooms": [
+            {
+                "classroomName": "E32",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "E22",
+                "floor": "2F"
+            }
+        ]
+    },
+    {
+        "building": "F棟",
+        "coordinate": {
+            "longitude": 136.962129,
+            "latitude": 35.150133
+        }
+    },
+    {
+        "building": "G棟",
+        "coordinate": {
+            "longitude": 136.962403,
+            "latitude": 35.149821
+        }
+    },
+    {
+        "building": "H棟",
+        "coordinate": {
+            "longitude": 136.962424,
+            "latitude": 35.149442
+        }
+    },
+    {
+        "building": "J棟",
+        "coordinate": {
+            "longitude": 136.961717,
+            "latitude": 35.150028
+        },
+        "facilities": [
+            {
+                "facilityName": "経営研究センター",
+                "floor": "1F"
+            },
+            {
+                "facilityName": "社会倫理研究所",
+                "floor": "1F"
+            },
+            {
+                "facilityName": "アメリカ研究センター",
+                "floor": "1F"
+            },
+            {
+                "facilityName": "ラテンアメリカ研究センター",
+                "floor": "1F"
+            },
+            {
+                "facilityName": "ヨーロッパ研究センター",
+                "floor": "1F"
+            },
+            {
+                "facilityName": "アジア・太平洋研究センター",
+                "floor": "1F"
+            },
+            {
+                "facilityName": "地域研究センター図書館",
+                "floor": "1F"
+            },
+        ]
+    },
+    {
+        "building": "K棟",
+        "coordinate": {
+            "longitude": 136.962658,
+            "latitude": 35.149090
+        }
+    }
+]
