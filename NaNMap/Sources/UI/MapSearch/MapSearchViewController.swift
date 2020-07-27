@@ -12,7 +12,6 @@ final class MapSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var searchBar: UISearchBar!
     private var titles: [String] = ["棟の検索"]
-    //var defaultCellList = [String]()
     private var mapPresenter: MapPresenter!
     private var mapSearchPresenter: MapSearchPresenter!
     
@@ -34,7 +33,6 @@ extension MapSearchViewController {
     func setUpDefaultTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-        //mapSearchPresenter.setUpDefaultSearchInfo()
     }
     
     func setUpNavigationBar() {
@@ -54,20 +52,17 @@ extension MapSearchViewController {
 
 extension MapSearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return mapSearchPresenter.numberOfDefaultSearchTitleList
         return titles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath)
         cell.accessoryType = .disclosureIndicator
-        //cell.textLabel?.text = mapSearchPresenter.loadDefaultSearchTitleList(at: indexPath.row)
         cell.textLabel?.text = titles[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //mapSearchPresenter.setUpDefaultSearchResult(at: indexPath.row)
         let vc = MapSearchDefaultResultViewController.instantinate(mapSearchPresenter: mapSearchPresenter)
         navigationController?.pushViewController(vc, animated: true)
     }

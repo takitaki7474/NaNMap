@@ -9,12 +9,6 @@
 protocol MapSearchPresenter {
     var numberOfBuildings: Int { get }
     func loadBuildingTitle(at index: Int) -> String
-    //var numberOfDefaultSearchTitleList: Int { get }
-    //var numberOfDefaultBuildingList: Int { get }
-    //func setUpDefaultSearchResult(at index: Int)
-    //func setUpDefaultSearchInfo()
-    //func loadDefaultSearchTitleList(at index: Int) -> String
-    //func loadDefaultBuildingList(at index: Int) -> String
     func tapDefaultBuildingCell(at index: Int)
 }
 
@@ -34,33 +28,7 @@ final class MapSearchViewPresenter: MapSearchPresenter {
         return model.buildings![index].building
     }
     
-    /*
-    var numberOfDefaultSearchTitleList: Int {
-        return model.defaultSearchTitleList.count
-    }*/
-    /*
-    var numberOfDefaultBuildingList: Int {
-        return model.defaultBuildingList.count
-    }*/
-    /*
-    func setUpDefaultSearchResult(at index: Int) {
-        model.setUpDefaultSearchResult(at: index)
-    }*/
-    /*
-    func setUpDefaultSearchInfo() {
-        model.setUpDefaultSearchInfo()
-    }*/
-/*
-    func loadDefaultSearchTitleList(at index: Int) -> String {
-        return model.defaultSearchTitleList[index]
-    }*/
-    /*
-    func loadDefaultBuildingList(at index: Int) -> String {
-        return model.defaultBuildingList[index]
-    }*/
-    
     func tapDefaultBuildingCell(at index: Int) {
-        //let info: [BuildingInfo] = model.defaultBuildingInfo!
         let info: [Building] = model.buildings!
         mapPresenter.setPin(with: info, at: index)
     }
