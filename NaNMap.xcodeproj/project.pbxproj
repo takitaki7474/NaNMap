@@ -35,6 +35,7 @@
 		21A1DFF524A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFF424A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift */; };
 		21A1DFF724A8CD6000873DF2 /* SyllabusSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFF624A8CD6000873DF2 /* SyllabusSearchModel.swift */; };
 		21A1DFFB24A8D12900873DF2 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFFA24A8D12900873DF2 /* Subject.swift */; };
+		21F8EDF324CEE9DE00447214 /* Buildings.json in Resources */ = {isa = PBXBuildFile; fileRef = 21F8EDF224CEE9DE00447214 /* Buildings.json */; };
 		21FA66782497528900961EA0 /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA66772497528900961EA0 /* MapViewPresenter.swift */; };
 		21FA667A2497907200961EA0 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA66792497907200961EA0 /* MapModel.swift */; };
 		21FA667E2497D38B00961EA0 /* MapSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA667D2497D38B00961EA0 /* MapSearchModel.swift */; };
@@ -73,6 +74,7 @@
 		21A1DFF424A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusSearchViewPresenter.swift; sourceTree = "<group>"; };
 		21A1DFF624A8CD6000873DF2 /* SyllabusSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusSearchModel.swift; sourceTree = "<group>"; };
 		21A1DFFA24A8D12900873DF2 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		21F8EDF224CEE9DE00447214 /* Buildings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Buildings.json; sourceTree = "<group>"; };
 		21FA66772497528900961EA0 /* MapViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
 		21FA66792497907200961EA0 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		21FA667D2497D38B00961EA0 /* MapSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchModel.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				21715EB524AA1CEA00C9C3D6 /* Syllabus.json */,
 				2113FC5224B6359E00AFB393 /* Filter.json */,
+				21F8EDF224CEE9DE00447214 /* Buildings.json */,
 				215F3A17244D44F600C6270A /* DefaultSearchInfo.json */,
 				214F5F96243C96690061FC45 /* Assets.xcassets */,
 				214F5F98243C96690061FC45 /* LaunchScreen.storyboard */,
@@ -324,6 +327,7 @@
 			files = (
 				215FA06F24506C440079300A /* TimeTable.storyboard in Resources */,
 				215F3A18244D44F600C6270A /* DefaultSearchInfo.json in Resources */,
+				21F8EDF324CEE9DE00447214 /* Buildings.json in Resources */,
 				214F5F9A243C96690061FC45 /* LaunchScreen.storyboard in Resources */,
 				21715EB624AA1CEA00C9C3D6 /* Syllabus.json in Resources */,
 				214F5F97243C96690061FC45 /* Assets.xcassets in Resources */,
