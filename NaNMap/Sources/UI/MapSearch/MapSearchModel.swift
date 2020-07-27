@@ -15,7 +15,7 @@ final class MapSearchModel {
         loadBuildings()
     }
     
-    func loadBuildings() {
+    private func loadBuildings() {
         let path = Bundle.main.path(forResource: "Buildings", ofType: "json")
         let url = URL(fileURLWithPath: path!)
         let data = try? Data(contentsOf: url)

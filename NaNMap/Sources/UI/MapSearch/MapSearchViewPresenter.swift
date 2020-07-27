@@ -9,7 +9,7 @@
 protocol MapSearchPresenter {
     var numberOfBuildings: Int { get }
     func loadBuildingTitle(at index: Int) -> String
-    func tapDefaultBuildingCell(at index: Int)
+    func tapBuildingCell(at index: Int)
 }
 
 final class MapSearchViewPresenter: MapSearchPresenter {
@@ -28,7 +28,7 @@ final class MapSearchViewPresenter: MapSearchPresenter {
         return model.buildings![index].building
     }
     
-    func tapDefaultBuildingCell(at index: Int) {
+    func tapBuildingCell(at index: Int) {
         let info: [Building] = model.buildings!
         mapPresenter.setPin(with: info, at: index)
     }

@@ -37,7 +37,7 @@ extension MapSearchDefaultResultViewController: UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.tapDefaultBuildingCell(at: indexPath.row)
+        presenter.tapBuildingCell(at: indexPath.row)
         navigationController?.popToRootViewController(animated: true)
     }
 }
