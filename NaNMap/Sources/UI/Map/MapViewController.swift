@@ -97,9 +97,3 @@ extension MapViewController: UISearchBarDelegate {
         return true
     }
 }
-
-extension UINavigationController {
-    open override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-}

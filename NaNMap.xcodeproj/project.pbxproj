@@ -33,6 +33,7 @@
 		21A1DFF524A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFF424A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift */; };
 		21A1DFF724A8CD6000873DF2 /* SyllabusSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFF624A8CD6000873DF2 /* SyllabusSearchModel.swift */; };
 		21A1DFFB24A8D12900873DF2 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFFA24A8D12900873DF2 /* Subject.swift */; };
+		21DABDDF24D07A0800BF8D31 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DABDDE24D07A0800BF8D31 /* UINavigationController+Extensions.swift */; };
 		21F8EDF324CEE9DE00447214 /* Buildings.json in Resources */ = {isa = PBXBuildFile; fileRef = 21F8EDF224CEE9DE00447214 /* Buildings.json */; };
 		21F8EDF524CF181600447214 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8EDF424CF181600447214 /* Building.swift */; };
 		21FA66782497528900961EA0 /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA66772497528900961EA0 /* MapViewPresenter.swift */; };
@@ -71,6 +72,7 @@
 		21A1DFF424A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusSearchViewPresenter.swift; sourceTree = "<group>"; };
 		21A1DFF624A8CD6000873DF2 /* SyllabusSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusSearchModel.swift; sourceTree = "<group>"; };
 		21A1DFFA24A8D12900873DF2 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		21DABDDE24D07A0800BF8D31 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
 		21F8EDF224CEE9DE00447214 /* Buildings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Buildings.json; sourceTree = "<group>"; };
 		21F8EDF424CF181600447214 /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		21FA66772497528900961EA0 /* MapViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			children = (
 				217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */,
 				21714AB524BB59C900057659 /* UICollectionView+Extensions.swift */,
+				21DABDDE24D07A0800BF8D31 /* UINavigationController+Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				21674397249CF86D008806A7 /* TimeTableModel.swift in Sources */,
 				21FA667A2497907200961EA0 /* MapModel.swift in Sources */,
 				215F3A20244DD3E400C6270A /* MapSearchDefaultResultViewController.swift in Sources */,
+				21DABDDF24D07A0800BF8D31 /* UINavigationController+Extensions.swift in Sources */,
 				21A1DFFB24A8D12900873DF2 /* Subject.swift in Sources */,
 				21674395249CA2A4008806A7 /* TimeTableViewPresenter.swift in Sources */,
 				21A1DFF324A8A1E700873DF2 /* SyllabusSearchViewController.swift in Sources */,
