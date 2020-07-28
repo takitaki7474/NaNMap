@@ -21,6 +21,7 @@ final class MapViewPresenter: MapPresenter {
     init(view: MapView) {
         self.view = view
         model.delegate = self
+        model.loadAnnotations()
     }
     /*
     func setUpMapRegion() {
@@ -43,6 +44,13 @@ final class MapViewPresenter: MapPresenter {
 }
 
 extension MapViewPresenter: MapModelDelegate {
+    /*func reloadMap(annotations: AnnotationObj) {
+        
+    }*/
+    func loadAnnotations(annotations: [AnnotationObj]) {
+        print("bb")
+        view?.loadAnnotations(annotations: annotations)
+    }
     func reloadRegion(at region: MKCoordinateRegion) {
         view?.reloadRegion(at: region)
     }

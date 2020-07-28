@@ -17,6 +17,7 @@ class AnnotationObj: Object {
 }
 
 protocol MapModelDelegate: class {
+    func loadAnnotations(annotations: [AnnotationObj])
     func reloadRegion(at region: MKCoordinateRegion)
     func addPin(with pin: MKPointAnnotation)
 }
@@ -28,9 +29,12 @@ struct Annotation {
 
 final class MapModel {
     weak var delegate: MapModelDelegate?
+    var coordinate: (Double, Double) = (136.962477, 35.149405)
     var annotations: Results<AnnotationObj>? {
         didSet {
-            print(annotations!)
+            var annotationsList = [AnnotationObj]()
+            for obj in annotations! { annotationsList.append(obj) }
+            print(annotationsList)
         }
     }
     /*
@@ -45,16 +49,18 @@ final class MapModel {
         }
     }*/
     
-    init() {
-        loadAnnotations()
-    }
-    
-    private func loadAnnotations() {
+    func loadAnnotations() {
         let realm = try! Realm()
+        /*
         try! realm.write {
             realm.deleteAll()
-        }
-        annotations = realm.objects(AnnotationObj.self)
+        }*/
+        var savedAnnotations = [AnnotationObj]()
+        let objs = realm.objects(AnnotationObj.self)
+        for obj in objs { savedAnnotations.append(obj) }
+        print(savedAnnotations)
+        delegate?.loadAnnotations(annotations: savedAnnotations)
+        
     }
     
     private func removeRealmFile() {
@@ -117,6 +123,7 @@ final class MapModel {
         try! realm.write {
             realm.add(annotation)
         }
-        annotations = realm.objects(AnnotationObj.self)
+        self.coordinate = coordinate
+        self.annotations = realm.objects(AnnotationObj.self)
     }
 }
