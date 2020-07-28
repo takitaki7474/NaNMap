@@ -11,6 +11,7 @@ import MapKit
 
 protocol MapView: class {
     func loadAnnotations(annotations: [AnnotationObj])
+    func addAnnotation(annotation: AnnotationObj)
     func reloadRegion(at region: MKCoordinateRegion)
     func addPin(with pin: MKPointAnnotation)
 }
@@ -67,7 +68,6 @@ extension MapViewController {
     
 extension MapViewController: MapView {
     func loadAnnotations(annotations: [AnnotationObj]) {
-        print("aaa")
         var points = [MKPointAnnotation]()
         for annotation in annotations {
             let point = MKPointAnnotation()
@@ -75,8 +75,14 @@ extension MapViewController: MapView {
             point.coordinate = CLLocationCoordinate2D(latitude: annotation.latitude, longitude: annotation.longitude)
             points.append(point)
         }
-        print(points)
         mapView.addAnnotations(points)
+    }
+    
+    func addAnnotation(annotation: AnnotationObj) {
+        let point = MKPointAnnotation()
+        point.title = annotation.title
+        point.coordinate = CLLocationCoordinate2D(latitude: annotation.latitude, longitude: annotation.longitude)
+        mapView.addAnnotation(point)
     }
     
     func reloadRegion(at region: MKCoordinateRegion) {

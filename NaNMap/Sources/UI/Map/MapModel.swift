@@ -18,6 +18,7 @@ class AnnotationObj: Object {
 
 protocol MapModelDelegate: class {
     func loadAnnotations(annotations: [AnnotationObj])
+    func addAnnotation(annotation: AnnotationObj)
     func reloadRegion(at region: MKCoordinateRegion)
     func addPin(with pin: MKPointAnnotation)
 }
@@ -30,13 +31,14 @@ struct Annotation {
 final class MapModel {
     weak var delegate: MapModelDelegate?
     var coordinate: (Double, Double) = (136.962477, 35.149405)
+    /*
     var annotations: Results<AnnotationObj>? {
         didSet {
             var annotationsList = [AnnotationObj]()
             for obj in annotations! { annotationsList.append(obj) }
-            print(annotationsList)
+            //print(annotationsList)
         }
-    }
+    }*/
     /*
     var region: MKCoordinateRegion? {
         didSet {
@@ -58,9 +60,7 @@ final class MapModel {
         var savedAnnotations = [AnnotationObj]()
         let objs = realm.objects(AnnotationObj.self)
         for obj in objs { savedAnnotations.append(obj) }
-        print(savedAnnotations)
         delegate?.loadAnnotations(annotations: savedAnnotations)
-        
     }
     
     private func removeRealmFile() {
@@ -112,18 +112,21 @@ final class MapModel {
             let lastAnnotation = realm.objects(AnnotationObj.self).sorted(byKeyPath: "AnnotationID").last
             annotation.annotationID = lastAnnotation.annotationID + 1
         }*/
-        if let lastAnnotation = realm.objects(AnnotationObj.self).sorted(byKeyPath: "annotationID").last {
-            annotation.annotationID = lastAnnotation.annotationID + 1
-        } else {
-            annotation.annotationID = 0
-        }
-        annotation.title = title
-        annotation.longitude = coordinate.0
-        annotation.latitude = coordinate.1
-        try! realm.write {
-            realm.add(annotation)
+        if realm.objects(AnnotationObj.self).filter("title == %@", title).count == 0 {
+            if let lastAnnotation = realm.objects(AnnotationObj.self).sorted(byKeyPath: "annotationID").last {
+                annotation.annotationID = lastAnnotation.annotationID + 1
+            } else {
+                annotation.annotationID = 0
+            }
+            annotation.title = title
+            annotation.longitude = coordinate.0
+            annotation.latitude = coordinate.1
+            try! realm.write {
+                realm.add(annotation)
+            }
+            delegate?.addAnnotation(annotation: annotation)
         }
         self.coordinate = coordinate
-        self.annotations = realm.objects(AnnotationObj.self)
+        //self.annotations = realm.objects(AnnotationObj.self)
     }
 }
