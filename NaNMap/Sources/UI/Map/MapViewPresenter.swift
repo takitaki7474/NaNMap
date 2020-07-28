@@ -54,6 +54,10 @@ extension MapViewPresenter: MapModelDelegate {
     func addAnnotation(annotation: AnnotationObj) {
         view?.addAnnotation(annotation: annotation)
     }
+    
+    func reloadMapRegion(at center: (Double, Double)) {
+        view?.reloadMapRegion(at: center)
+    }
     func reloadRegion(at region: MKCoordinateRegion) {
         view?.reloadRegion(at: region)
     }

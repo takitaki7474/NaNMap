@@ -19,6 +19,7 @@ class AnnotationObj: Object {
 protocol MapModelDelegate: class {
     func loadAnnotations(annotations: [AnnotationObj])
     func addAnnotation(annotation: AnnotationObj)
+    func reloadMapRegion(at center: (Double, Double))
     func reloadRegion(at region: MKCoordinateRegion)
     func addPin(with pin: MKPointAnnotation)
 }
@@ -30,7 +31,11 @@ struct Annotation {
 
 final class MapModel {
     weak var delegate: MapModelDelegate?
-    var coordinate: (Double, Double) = (136.962477, 35.149405)
+    var regionCenter: (Double, Double)? {
+        didSet {
+            delegate?.reloadMapRegion(at: regionCenter!)
+        }
+    }
     /*
     var annotations: Results<AnnotationObj>? {
         didSet {
@@ -126,7 +131,7 @@ final class MapModel {
             }
             delegate?.addAnnotation(annotation: annotation)
         }
-        self.coordinate = coordinate
+        self.regionCenter = coordinate
         //self.annotations = realm.objects(AnnotationObj.self)
     }
 }

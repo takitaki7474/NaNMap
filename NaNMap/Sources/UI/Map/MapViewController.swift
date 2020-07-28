@@ -12,6 +12,7 @@ import MapKit
 protocol MapView: class {
     func loadAnnotations(annotations: [AnnotationObj])
     func addAnnotation(annotation: AnnotationObj)
+    func reloadMapRegion(at center: (Double, Double))
     func reloadRegion(at region: MKCoordinateRegion)
     func addPin(with pin: MKPointAnnotation)
 }
@@ -83,6 +84,12 @@ extension MapViewController: MapView {
         point.title = annotation.title
         point.coordinate = CLLocationCoordinate2D(latitude: annotation.latitude, longitude: annotation.longitude)
         mapView.addAnnotation(point)
+    }
+    
+    func reloadMapRegion(at center: (Double, Double)) {
+        let center = CLLocationCoordinate2D(latitude: center.1, longitude: center.0)
+        let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
+        mapView.region = MKCoordinateRegion(center: center, span: span)
     }
     
     func reloadRegion(at region: MKCoordinateRegion) {
