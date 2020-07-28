@@ -9,8 +9,9 @@
 import MapKit
 
 protocol MapPresenter {
-    func setUpMapRegion()
-    func setPin(with info: [Building], at index: Int)
+    //func setUpMapRegion()
+    //func setPin(with info: [Building], at index: Int)
+    func addAnnotation(with info: [Building], at index: Int)
 }
 
 final class MapViewPresenter: MapPresenter {
@@ -21,16 +22,23 @@ final class MapViewPresenter: MapPresenter {
         self.view = view
         model.delegate = self
     }
-    
+    /*
     func setUpMapRegion() {
         model.setUpMapRegion()
-    }
-    
+    }*/
+    /*
     func setPin(with info: [Building], at index: Int) {
         let title: String = info[index].building
         let longitude: Double = info[index].coordinate.longitude
         let latitude: Double = info[index].coordinate.latitude
         model.setPin(title, (longitude, latitude))
+    }*/
+    
+    func addAnnotation(with info: [Building], at index: Int) {
+        let title: String = info[index].building
+        let longitude: Double = info[index].coordinate.longitude
+        let latitude: Double = info[index].coordinate.latitude
+        model.addAnnotation(title, (longitude, latitude))
     }
 }
 

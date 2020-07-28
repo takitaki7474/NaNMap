@@ -22,7 +22,7 @@ final class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = MapViewPresenter(view: self)
-        initMapView()
+        initMapRegion()
         setUpNavigationBar()
         setUpTabBar()
     }
@@ -34,8 +34,13 @@ final class MapViewController: UIViewController {
 }
 
 extension MapViewController {
-    func initMapView() {
-        presenter.setUpMapRegion()
+    func initMapRegion() {
+        //presenter.setUpMapRegion()
+        let centerLatitude: CLLocationDegrees = 35.149405
+        let centerLongitude: CLLocationDegrees = 136.962477
+        let center = CLLocationCoordinate2D(latitude: centerLatitude, longitude: centerLongitude)
+        let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
+        mapView.region = MKCoordinateRegion(center: center, span: span)
     }
 
     func setUpNavigationBar() {
