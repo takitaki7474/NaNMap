@@ -6,11 +6,8 @@
 //  Copyright © 2020 ryunosuke ota. All rights reserved.
 //
 
-import MapKit
-
 protocol MapPresenter {
-    func setUpMapRegion()
-    func setPin(with info: [Building], at index: Int)
+    func addAnnotation(with info: [Building], at index: Int)
 }
 
 final class MapViewPresenter: MapPresenter {
@@ -20,26 +17,27 @@ final class MapViewPresenter: MapPresenter {
     init(view: MapView) {
         self.view = view
         model.delegate = self
+        model.loadAnnotations()
     }
     
-    func setUpMapRegion() {
-        model.setUpMapRegion()
-    }
-    
-    func setPin(with info: [Building], at index: Int) {
+    func addAnnotation(with info: [Building], at index: Int) {
         let title: String = info[index].building
         let longitude: Double = info[index].coordinate.longitude
         let latitude: Double = info[index].coordinate.latitude
-        model.setPin(title, (longitude, latitude))
+        model.addAnnotation(title, (longitude, latitude))
     }
 }
 
 extension MapViewPresenter: MapModelDelegate {
-    func reloadRegion(at region: MKCoordinateRegion) {
-        view?.reloadRegion(at: region)
+    func loadAnnotations(annotations: [AnnotationObj]) {
+        view?.loadAnnotations(annotations: annotations)
     }
     
-    func addPin(with pin: MKPointAnnotation) {
-        view?.addPin(with: pin)
+    func addAnnotation(annotation: AnnotationObj) {
+        view?.addAnnotation(annotation: annotation)
+    }
+    
+    func reloadMapRegion(at center: (Double, Double)) {
+        view?.reloadMapRegion(at: center)
     }
 }

@@ -30,6 +30,7 @@ final class MapSearchViewPresenter: MapSearchPresenter {
     
     func tapBuildingCell(at index: Int) {
         let info: [Building] = model.buildings!
-        mapPresenter.setPin(with: info, at: index)
+        //mapPresenter.setPin(with: info, at: index)
+        mapPresenter.addAnnotation(with: info, at: index)
     }
 }
