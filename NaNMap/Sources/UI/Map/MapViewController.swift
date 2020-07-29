@@ -96,6 +96,12 @@ extension MapViewController: MKMapViewDelegate {
         let pin = MKMarkerAnnotationView()
         pin.annotation = annotation
         pin.markerTintColor = UIColor.rgba(red: 85,green: 104,blue: 211)
+        pin.canShowCallout = true
+        let deleteButton = UIButton()
+        deleteButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        deleteButton.setTitle("削除", for: .normal)
+        deleteButton.setTitleColor(.red, for: .normal)
+        pin.rightCalloutAccessoryView = deleteButton
         return pin
     }
 }
