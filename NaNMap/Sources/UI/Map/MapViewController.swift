@@ -104,6 +104,11 @@ extension MapViewController: MKMapViewDelegate {
         pin.rightCalloutAccessoryView = deleteButton
         return pin
     }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        presenter.removeAnnotation(title: view.annotation?.title!)
+        mapView.removeAnnotation(view.annotation!)
+    }
 }
 
 extension MapViewController: UISearchBarDelegate {

@@ -75,4 +75,20 @@ final class MapModel {
         }
         self.regionCenter = coordinate
     }
+    
+    func removeAnnotation(_ title: String?) {
+        let realm = try! Realm()
+        print("削除前")
+        print(realm.objects(AnnotationObj.self))
+        if let title = title {
+            if realm.objects(AnnotationObj.self).filter("title == %@", title).count != 0 {
+                let annotation = realm.objects(AnnotationObj.self).filter("title == %@", title)
+                try! realm.write {
+                    realm.delete(annotation)
+                }
+            }
+        }
+        print("削除後")
+        print(realm.objects(AnnotationObj.self))
+    }
 }
