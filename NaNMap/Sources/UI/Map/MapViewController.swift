@@ -23,6 +23,7 @@ final class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = MapViewPresenter(view: self)
+        mapView.delegate = self
         initMapRegion()
         setUpNavigationBar()
         setUpTabBar()
@@ -87,6 +88,15 @@ extension MapViewController: MapView {
         let center = CLLocationCoordinate2D(latitude: center.1, longitude: center.0)
         let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
         mapView.region = MKCoordinateRegion(center: center, span: span)
+    }
+}
+
+extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let pin = MKMarkerAnnotationView()
+        pin.annotation = annotation
+        pin.markerTintColor = UIColor.rgba(red: 85,green: 104,blue: 211)
+        return pin
     }
 }
 
