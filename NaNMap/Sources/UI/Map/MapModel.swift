@@ -78,8 +78,6 @@ final class MapModel {
     
     func removeAnnotation(_ title: String?) {
         let realm = try! Realm()
-        print("削除前")
-        print(realm.objects(AnnotationObj.self))
         if let title = title {
             if realm.objects(AnnotationObj.self).filter("title == %@", title).count != 0 {
                 let annotation = realm.objects(AnnotationObj.self).filter("title == %@", title)
@@ -88,7 +86,5 @@ final class MapModel {
                 }
             }
         }
-        print("削除後")
-        print(realm.objects(AnnotationObj.self))
     }
 }
