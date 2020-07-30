@@ -119,18 +119,18 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="教室" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTw-Zg-ykr" userLabel="Classroom">
-                                                    <rect key="frame" x="86" y="31" width="60" height="18"/>
+                                                    <rect key="frame" x="86" y="31" width="80" height="18"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="60" id="V8P-1h-hzr"/>
+                                                        <constraint firstAttribute="width" constant="80" id="4DQ-2J-132"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.34370279404783499" green="0.34370279404783499" blue="0.34370279404783499" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="教員" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLj-nZ-87g" userLabel="Teacher">
-                                                    <rect key="frame" x="176" y="31" width="218" height="18"/>
+                                                    <rect key="frame" x="196" y="31" width="198" height="18"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="218" id="Tgu-Dy-n1U"/>
+                                                        <constraint firstAttribute="width" constant="198" id="uSV-2a-o80"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.34370279399999998" green="0.34370279399999998" blue="0.34370279399999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
