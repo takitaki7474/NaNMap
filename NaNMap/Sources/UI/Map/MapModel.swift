@@ -31,7 +31,7 @@ final class MapModel {
     
     func loadAnnotations() {
         let realm = try! Realm()
-        //try! realm.write { realm.deleteAll() }
+        try! realm.write { realm.deleteAll() }
         var savedAnnotations = [AnnotationObj]()
         let objs = realm.objects(AnnotationObj.self)
         for obj in objs { savedAnnotations.append(obj) }

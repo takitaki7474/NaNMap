@@ -12,10 +12,10 @@ final class MapSearchModel {
     var buildings: [Building]?
     
     init() {
-        loadBuildings()
+        loadBuildingsData()
     }
     
-    private func loadBuildings() {
+    private func loadBuildingsData() {
         let path = Bundle.main.path(forResource: "Buildings", ofType: "json")
         let url = URL(fileURLWithPath: path!)
         let data = try? Data(contentsOf: url)

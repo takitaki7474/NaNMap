@@ -54,7 +54,7 @@ class SyllabusSearchModel {
     
     init() {
         loadBuildingsData()
-        loadSyllabus()
+        loadSyllabusData()
         loadFilter()
     }
     
@@ -72,33 +72,32 @@ class SyllabusSearchModel {
     private func saveClassroomObj(buildings: [Building]) {
         let realm = try! Realm()
         if realm.objects(ClassroomObj.self).count == 0 && realm.objects(BuildingObj.self).count == 0 {
-            for building in buildings {
-                let buildingObj = BuildingObj()
-                buildingObj.building = building.building
-                buildingObj.longitude = building.coordinate.longitude
-                buildingObj.latitude = building.coordinate.latitude
-                if let facilities = building.facilities {
-                    for facility in facilities {
-                        buildingObj.facilities.append(facility.facilityName)
+            try! realm.write {
+                for building in buildings {
+                    let buildingObj = BuildingObj()
+                    buildingObj.building = building.building
+                    buildingObj.longitude = building.coordinate.longitude
+                    buildingObj.latitude = building.coordinate.latitude
+                    if let facilities = building.facilities {
+                        for facility in facilities {
+                            buildingObj.facilities.append(facility.facilityName)
+                        }
                     }
-                }
-                if let classrooms = building.classrooms {
-                    for classroom in classrooms {
-                        let classroomObj = ClassroomObj()
-                        classroomObj.classroom = classroom.classroomName
-                        classroomObj.building = buildingObj
-                        try! realm.write {
+                    if let classrooms = building.classrooms {
+                        for classroom in classrooms {
+                            let classroomObj = ClassroomObj()
+                            classroomObj.classroom = classroom.classroomName
+                            classroomObj.building = buildingObj
                             realm.add(classroomObj)
                         }
                     }
                 }
             }
         }
-        print("test")
-        print(realm.objects(ClassroomObj.self))
+        print("save ClassroomObj on realm")
     }
     
-    private func loadSyllabus() {
+    private func loadSyllabusData() {
         let path = Bundle.main.path(forResource: "Syllabus", ofType: "json")
         let url = URL(fileURLWithPath: path!)
         let data = try? Data(contentsOf: url)
@@ -108,24 +107,25 @@ class SyllabusSearchModel {
             return
         }
         self.syllabus = syllabus
-        
-        let realm = try! Realm()
-        if realm.objects(SubjectObj.self).count == 0 { initSyllabus(realm: realm) }
+        saveSubjectObj()
     }
     
-    private func initSyllabus(realm: Realm) {
-        try! realm.write {
-            for subject in self.syllabus! {
-                let subjectObj = SubjectObj()
-                subjectObj.category = subject.category
-                subjectObj.semester = subject.semester
-                subjectObj.subjectName = subject.subjectName
-                subjectObj.teacher = subject.teacher
-                subjectObj.degree = subject.degree
-                subjectObj.schedule = subject.schedule
-                subjectObj.classroom = subject.classroom
-                subjectObj.id = subject.id
-                realm.add(subjectObj)
+    private func saveSubjectObj() {
+        let realm = try! Realm()
+        if realm.objects(SubjectObj.self).count == 0 {
+            try! realm.write {
+                for subject in self.syllabus! {
+                    let subjectObj = SubjectObj()
+                    subjectObj.category = subject.category
+                    subjectObj.semester = subject.semester
+                    subjectObj.subjectName = subject.subjectName
+                    subjectObj.teacher = subject.teacher
+                    subjectObj.degree = subject.degree
+                    subjectObj.schedule = subject.schedule
+                    subjectObj.classroom = subject.classroom
+                    subjectObj.id = subject.id
+                    realm.add(subjectObj)
+                }
             }
         }
         print("save SubjectObj on realm")
