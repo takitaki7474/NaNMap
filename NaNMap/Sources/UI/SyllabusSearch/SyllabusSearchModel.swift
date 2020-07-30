@@ -19,6 +19,24 @@ class SubjectObj: Object {
     @objc dynamic var id = 0
 }
 
+class ClassroomObj: Object {
+    @objc dynamic var classroom = ""
+    @objc dynamic var building: BuildingObj?
+    override static func primaryKey() -> String? {
+        return "classroom"
+    }
+}
+
+class BuildingObj: Object {
+    @objc dynamic var building = ""
+    @objc dynamic var longitude = 0.0
+    @objc dynamic var latitude = 0.0
+    let facilities = List<String>()
+    override static func primaryKey() -> String? {
+        return "building"
+    }
+}
+
 protocol SyllabusSearchModelDelegate: class {
     func searchModel()
 }
@@ -35,8 +53,49 @@ class SyllabusSearchModel {
     }
     
     init() {
+        loadBuildingsData()
         loadSyllabus()
         loadFilter()
+    }
+    
+    private func loadBuildingsData() {
+        let path = Bundle.main.path(forResource: "Buildings", ofType: "json")
+        let url = URL(fileURLWithPath: path!)
+        let data = try? Data(contentsOf: url)
+        let decoder = JSONDecoder()
+        guard let buildings = try? decoder.decode([Building].self, from: data!) else {
+            return
+        }
+        saveClassroomObj(buildings: buildings)
+    }
+    
+    private func saveClassroomObj(buildings: [Building]) {
+        let realm = try! Realm()
+        if realm.objects(ClassroomObj.self).count == 0 && realm.objects(BuildingObj.self).count == 0 {
+            for building in buildings {
+                let buildingObj = BuildingObj()
+                buildingObj.building = building.building
+                buildingObj.longitude = building.coordinate.longitude
+                buildingObj.latitude = building.coordinate.latitude
+                if let facilities = building.facilities {
+                    for facility in facilities {
+                        buildingObj.facilities.append(facility.facilityName)
+                    }
+                }
+                if let classrooms = building.classrooms {
+                    for classroom in classrooms {
+                        let classroomObj = ClassroomObj()
+                        classroomObj.classroom = classroom.classroomName
+                        classroomObj.building = buildingObj
+                        try! realm.write {
+                            realm.add(classroomObj)
+                        }
+                    }
+                }
+            }
+        }
+        print("test")
+        print(realm.objects(ClassroomObj.self))
     }
     
     private func loadSyllabus() {
