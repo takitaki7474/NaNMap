@@ -76,7 +76,7 @@ extension TimeTableViewController: TimeTableView {
         if cellStatus.hasRegistered == true {
             let mapAction = UIAlertAction(title: text+"の講義場所を表示する", style: UIAlertAction.Style.default, handler: {
                 (action:UIAlertAction) -> Void in
-                let vc = ClassLocationViewController.instantinate()
+                let vc = ClassLocationViewController.instantinate(presenter: self.timeTablePresenter, index: index)
                 self.navigationController?.pushViewController(vc, animated: true)
             })
             alert.addAction(mapAction)
