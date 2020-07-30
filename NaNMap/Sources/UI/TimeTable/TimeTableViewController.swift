@@ -69,16 +69,19 @@ extension TimeTableViewController: TimeTableView {
             let vc = SyllabusSearchViewController.instantinate(syllabusSearchPresenter: self.syllabusSearchPresenter, classSchedule: text, classScheduleIndex: index)
             self.navigationController?.pushViewController(vc, animated: true)
         })
-        let mapAction = UIAlertAction(title: text+"の講義場所を表示する", style: UIAlertAction.Style.default, handler: {
-            (action:UIAlertAction) -> Void in
-            let vc = ClassLocationViewController.instantinate()
-            self.navigationController?.pushViewController(vc, animated: true)
-        })
         let cancelAction = UIAlertAction(title: "戻る", style: UIAlertAction.Style.cancel, handler: {
             (action: UIAlertAction) -> Void in
         })
+        let cellStatus = self.timeTablePresenter.loadSavedSyllabus(at: index)
+        if cellStatus.hasRegistered == true {
+            let mapAction = UIAlertAction(title: text+"の講義場所を表示する", style: UIAlertAction.Style.default, handler: {
+                (action:UIAlertAction) -> Void in
+                let vc = ClassLocationViewController.instantinate()
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            alert.addAction(mapAction)
+        }
         alert.addAction(searchAction)
-        alert.addAction(mapAction)
         alert.addAction(cancelAction)
         let screenSize = UIScreen.main.bounds
         alert.popoverPresentationController?.sourceView = self.view
