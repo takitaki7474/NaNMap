@@ -39,6 +39,23 @@ extension ClassLocationViewController: ClassLocationView {
             mapView.addAnnotation(point)
             let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
             mapView.region = MKCoordinateRegion(center: point.coordinate, span: span)
+        } else {
+            let center = CLLocationCoordinate2D(latitude: 35.149405, longitude: 136.962477)
+            let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
+            mapView.region = MKCoordinateRegion(center: center, span: span)
+            alertUndefinedCoordinate()
         }
+    }
+}
+
+private extension ClassLocationViewController {
+    func alertUndefinedCoordinate() {
+        let alert = UIAlertController(title: "講義場所が確認できません.", message: "時間割に戻ります.", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
+            (action: UIAlertAction) -> Void in
+            self.navigationController?.popViewController(animated: true)
+        })
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
 }
