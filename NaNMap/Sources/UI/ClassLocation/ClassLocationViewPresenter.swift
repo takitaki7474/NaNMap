@@ -23,6 +23,7 @@ class ClassLocationViewPresenter: ClassLocationPresenter {
     }
     
     private func loadSyllabus() {
-        //print(timeTablePresenter.loadSavedSyllabus(at: self.cellIndex))
+        print("test")
+        print(timeTablePresenter.loadSavedSyllabus(at: self.cellIndex))
     }
 }

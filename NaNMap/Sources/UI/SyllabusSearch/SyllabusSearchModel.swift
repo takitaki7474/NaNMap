@@ -9,14 +9,17 @@ import Foundation
 import RealmSwift
 
 class SubjectObj: Object {
+    @objc dynamic var id = 0
     @objc dynamic var category = ""
     @objc dynamic var semester = ""
     @objc dynamic var subjectName = ""
     @objc dynamic var teacher = ""
     @objc dynamic var degree = ""
     @objc dynamic var schedule = ""
-    @objc dynamic var classroom = ""
-    @objc dynamic var id = 0
+    @objc dynamic var classroom: ClassroomObj?
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }
 
 class ClassroomObj: Object {
@@ -122,7 +125,8 @@ class SyllabusSearchModel {
                     subjectObj.teacher = subject.teacher
                     subjectObj.degree = subject.degree
                     subjectObj.schedule = subject.schedule
-                    subjectObj.classroom = subject.classroom
+                    let classroom = realm.objects(ClassroomObj.self).filter("classroom == %@", subject.classroom)
+                    if classroom.count == 1 { subjectObj.classroom = classroom[0] }
                     subjectObj.id = subject.id
                     realm.add(subjectObj)
                 }
@@ -173,7 +177,7 @@ extension SyllabusSearchModel {
     func searchSyllabus(with query: String) {
         let realm = try! Realm()
         var result = realm.objects(SubjectObj.self).filter("schedule == %@", self.classSchedule!).sorted(byKeyPath: "semester")
-        result = result.filter("semester CONTAINS %@ OR subjectName CONTAINS %@ OR teacher CONTAINS %@ OR classroom CONTAINS %@", query, query, query, query)
+        result = result.filter("semester CONTAINS %@ OR subjectName CONTAINS %@ OR teacher CONTAINS %@ OR classroom.classroom CONTAINS %@", query, query, query, query)
         self.syllabusSearchResult = result
     }
     

@@ -12,7 +12,7 @@ class TimeTableCellObj: Object {
     @objc dynamic var semester = ""
     @objc dynamic var subjectName = ""
     @objc dynamic var teacher = ""
-    @objc dynamic var classroom = ""
+    @objc dynamic var classroom: ClassroomObj?
     @objc dynamic var hasRegistered = false
 }
 
@@ -75,6 +75,12 @@ class TimeTableModel {
             timeTableCell.subjectName = syllabus.subjectName
             timeTableCell.teacher = syllabus.teacher
             timeTableCell.classroom = syllabus.classroom
+            /*
+            if let classroom = syllabus.classroom?.classroom {
+                timeTableCell.classroom = classroom
+            } else {
+                timeTableCell.classroom = "講義室未定"
+            }*/
             timeTableCell.hasRegistered = true
         }
         self.timeTableCells = realm.objects(TimeTableCellObj.self)
@@ -88,7 +94,7 @@ class TimeTableModel {
             timeTableCell.semester = ""
             timeTableCell.subjectName = ""
             timeTableCell.teacher = ""
-            timeTableCell.classroom = ""
+            timeTableCell.classroom = nil
             timeTableCell.hasRegistered = false
         }
         self.timeTableCells = realm.objects(TimeTableCellObj.self)

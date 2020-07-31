@@ -22,8 +22,12 @@ class SyllabusTableViewCell: UITableViewCell {
         subjectLabel.text = subjectName
     }
     
-    func display(classroom: String) {
-        classroomLabel.text = classroom
+    func display(classroom: String?) {
+        if let classroom = classroom {
+            classroomLabel.text = classroom
+        } else {
+            classroomLabel.text = " - "
+        }
     }
     
     func display(teacher: String) {
