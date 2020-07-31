@@ -25,6 +25,7 @@ class ClassLocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
         classLocationPresenter.view = self
         classLocationPresenter.loadClassLocation()
     }
@@ -57,5 +58,14 @@ private extension ClassLocationViewController {
         })
         alert.addAction(okAction)
         present(alert, animated: true)
+    }
+}
+
+extension ClassLocationViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let pin = MKMarkerAnnotationView()
+        pin.annotation = annotation
+        pin.markerTintColor = UIColor.rgba(red: 250, green: 166, blue: 26)
+        return pin
     }
 }
