@@ -9,6 +9,10 @@
 import UIKit
 import MapKit
 
+protocol ClassLocationView: class {
+    func loadMap(title: String, coordinate: (Double, Double)?)
+}
+
 class ClassLocationViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     private var classLocationPresenter: ClassLocationPresenter!
@@ -21,5 +25,20 @@ class ClassLocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        classLocationPresenter.view = self
+        classLocationPresenter.loadClassLocation()
+    }
+}
+
+extension ClassLocationViewController: ClassLocationView {
+    func loadMap(title: String, coordinate: (Double, Double)?) {
+        if let coordinate = coordinate {
+            let point = MKPointAnnotation()
+            point.title = title
+            point.coordinate = CLLocationCoordinate2D(latitude: coordinate.0, longitude: coordinate.1)
+            mapView.addAnnotation(point)
+            let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
+            mapView.region = MKCoordinateRegion(center: point.coordinate, span: span)
+        }
     }
 }
