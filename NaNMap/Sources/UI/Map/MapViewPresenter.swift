@@ -8,6 +8,7 @@
 
 protocol MapPresenter {
     func addAnnotation(with info: [Building], at index: Int)
+    func removeAnnotation(title: String?)
 }
 
 final class MapViewPresenter: MapPresenter {
@@ -25,6 +26,10 @@ final class MapViewPresenter: MapPresenter {
         let longitude: Double = info[index].coordinate.longitude
         let latitude: Double = info[index].coordinate.latitude
         model.addAnnotation(title, (longitude, latitude))
+    }
+    
+    func removeAnnotation(title: String?) {
+        model.removeAnnotation(title)
     }
 }
 

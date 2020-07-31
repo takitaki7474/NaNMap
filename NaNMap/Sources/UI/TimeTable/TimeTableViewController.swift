@@ -64,7 +64,7 @@ extension TimeTableViewController: TimeTableView {
     
     func alertWillSearchSyllabus(with text: String, at index: Int) {
         let alert = UIAlertController(title: "時間割の編集", message: text+"の講義を編集しますか?", preferredStyle: UIAlertController.Style.actionSheet)
-        let defaultAction = UIAlertAction(title: text+"の講義を検索する", style: UIAlertAction.Style.default, handler: {
+        let searchAction = UIAlertAction(title: text+"の講義を検索する", style: UIAlertAction.Style.default, handler: {
             (action:UIAlertAction) -> Void in
             let vc = SyllabusSearchViewController.instantinate(syllabusSearchPresenter: self.syllabusSearchPresenter, classSchedule: text, classScheduleIndex: index)
             self.navigationController?.pushViewController(vc, animated: true)
@@ -72,7 +72,16 @@ extension TimeTableViewController: TimeTableView {
         let cancelAction = UIAlertAction(title: "戻る", style: UIAlertAction.Style.cancel, handler: {
             (action: UIAlertAction) -> Void in
         })
-        alert.addAction(defaultAction)
+        let cellStatus = self.timeTablePresenter.loadSavedSyllabus(at: index)
+        if cellStatus.hasRegistered == true {
+            let mapAction = UIAlertAction(title: text+"の講義場所を表示する", style: UIAlertAction.Style.default, handler: {
+                (action:UIAlertAction) -> Void in
+                let vc = ClassLocationViewController.instantinate(presenter: self.timeTablePresenter, index: index)
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            alert.addAction(mapAction)
+        }
+        alert.addAction(searchAction)
         alert.addAction(cancelAction)
         let screenSize = UIScreen.main.bounds
         alert.popoverPresentationController?.sourceView = self.view

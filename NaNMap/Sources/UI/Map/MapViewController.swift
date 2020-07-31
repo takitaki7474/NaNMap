@@ -23,6 +23,7 @@ final class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = MapViewPresenter(view: self)
+        mapView.delegate = self
         initMapRegion()
         setUpNavigationBar()
         setUpTabBar()
@@ -87,6 +88,26 @@ extension MapViewController: MapView {
         let center = CLLocationCoordinate2D(latitude: center.1, longitude: center.0)
         let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
         mapView.region = MKCoordinateRegion(center: center, span: span)
+    }
+}
+
+extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let pin = MKMarkerAnnotationView()
+        pin.annotation = annotation
+        pin.markerTintColor = UIColor.rgba(red: 85,green: 104,blue: 211)
+        pin.canShowCallout = true
+        let deleteButton = UIButton()
+        deleteButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        deleteButton.setTitle("削除", for: .normal)
+        deleteButton.setTitleColor(.red, for: .normal)
+        pin.rightCalloutAccessoryView = deleteButton
+        return pin
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        presenter.removeAnnotation(title: view.annotation?.title!)
+        mapView.removeAnnotation(view.annotation!)
     }
 }
 

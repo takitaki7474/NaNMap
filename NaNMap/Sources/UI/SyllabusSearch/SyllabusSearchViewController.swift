@@ -120,7 +120,7 @@ extension SyllabusSearchViewController: UITableViewDataSource, UITableViewDelega
         let subjectObj = syllabusSearchPresenter.loadSyllabusSearchResult(at: indexPath.row)
         cell.display(semester: subjectObj!.semester + subjectObj!.schedule)
         cell.display(subjectName: subjectObj!.subjectName)
-        cell.display(classroom: subjectObj!.classroom)
+        cell.display(classroom: subjectObj!.classroom?.classroom)
         cell.display(teacher: subjectObj!.teacher)
         return cell
     }

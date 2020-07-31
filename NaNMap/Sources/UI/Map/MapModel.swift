@@ -30,6 +30,7 @@ final class MapModel {
     }
     
     func loadAnnotations() {
+        //removeRealmFile()
         let realm = try! Realm()
         //try! realm.write { realm.deleteAll() }
         var savedAnnotations = [AnnotationObj]()
@@ -74,5 +75,17 @@ final class MapModel {
             delegate?.addAnnotation(annotation: annotation)
         }
         self.regionCenter = coordinate
+    }
+    
+    func removeAnnotation(_ title: String?) {
+        let realm = try! Realm()
+        if let title = title {
+            if realm.objects(AnnotationObj.self).filter("title == %@", title).count != 0 {
+                let annotation = realm.objects(AnnotationObj.self).filter("title == %@", title)
+                try! realm.write {
+                    realm.delete(annotation)
+                }
+            }
+        }
     }
 }
