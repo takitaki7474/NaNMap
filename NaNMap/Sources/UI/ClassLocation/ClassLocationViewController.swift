@@ -28,7 +28,8 @@ class ClassLocationViewController: UIViewController {
         /*
         let classInformationView = ClassInformationView.instantinate()
         view.addSubview(classInformationView)*/
-        let classInformationView = ClassInformationView()
+        let frame = CGRect(x: 30, y: 200, width: 200, height: 200)
+        let classInformationView = ClassInformationView(frame: frame)
         view.addSubview(classInformationView)
         mapView.delegate = self
         classLocationPresenter.view = self
