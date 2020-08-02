@@ -25,6 +25,11 @@ class ClassLocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        /*
+        let classInformationView = ClassInformationView.instantinate()
+        view.addSubview(classInformationView)*/
+        let classInformationView = ClassInformationView()
+        view.addSubview(classInformationView)
         mapView.delegate = self
         classLocationPresenter.view = self
         classLocationPresenter.loadClassLocation()
