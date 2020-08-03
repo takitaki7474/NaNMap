@@ -16,7 +16,7 @@ class ClassInformationView: UIView {
     @IBOutlet weak var semesterItemLabel: UILabel!
     
     static func instantiate(frame: CGRect) -> ClassInformationView {
-        let view = UINib(nibName: "ClassInformation", bundle: nil).instantiate(withOwner: nil, options: nil).first as! ClassInformationView
+        let view = UINib(nibName: "ClassInformationView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! ClassInformationView
         view.setViewStyle(frame: frame)
         return view
     }
