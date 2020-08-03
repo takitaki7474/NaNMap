@@ -96,8 +96,8 @@ class SyllabusSearchModel {
                     }
                 }
             }
+            print("save ClassroomObj on realm")
         }
-        print("save ClassroomObj on realm")
     }
     
     private func loadSyllabusData() {
@@ -131,8 +131,8 @@ class SyllabusSearchModel {
                     realm.add(subjectObj)
                 }
             }
+            print("save SubjectObj on realm")
         }
-        print("save SubjectObj on realm")
     }
     
     private func loadFilter() {

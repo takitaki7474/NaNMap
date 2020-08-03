@@ -15,7 +15,7 @@ final class MapSearchViewController: UIViewController {
     private var mapPresenter: MapPresenter!
     private var mapSearchPresenter: MapSearchPresenter!
     
-    static func instantinate(mapPresenter: MapPresenter) -> MapSearchViewController {
+    static func instantiate(mapPresenter: MapPresenter) -> MapSearchViewController {
         let controller = UIStoryboard(name: "MapSearch", bundle: nil).instantiateInitialViewController() as! MapSearchViewController
         controller.mapPresenter = mapPresenter
         return controller
@@ -63,7 +63,7 @@ extension MapSearchViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = MapSearchDefaultResultViewController.instantinate(mapSearchPresenter: mapSearchPresenter)
+        let vc = MapSearchDefaultResultViewController.instantiate(mapSearchPresenter: mapSearchPresenter)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -21,7 +21,7 @@ class SyllabusSearchViewController: UIViewController {
     private var classSchedule: String!
     private var classScheduleIndex: Int!
     
-    static func instantinate(syllabusSearchPresenter: SyllabusSearchPresenter, classSchedule: String, classScheduleIndex: Int) -> SyllabusSearchViewController {
+    static func instantiate(syllabusSearchPresenter: SyllabusSearchPresenter, classSchedule: String, classScheduleIndex: Int) -> SyllabusSearchViewController {
         let controller = UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "syllabusSearchViewController") as! SyllabusSearchViewController
         controller.syllabusSearchPresenter = syllabusSearchPresenter
         controller.classSchedule = classSchedule
@@ -79,7 +79,7 @@ private extension SyllabusSearchViewController {
     }
     
     @objc func tapFilterButton() {
-        let vc = SyllabusFilterViewController.instantinate(syllabusSearchPresenter: syllabusSearchPresenter)
+        let vc = SyllabusFilterViewController.instantiate(syllabusSearchPresenter: syllabusSearchPresenter)
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
         self.present(vc, animated: true, completion: nil)

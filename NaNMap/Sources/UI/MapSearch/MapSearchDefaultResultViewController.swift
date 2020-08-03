@@ -12,7 +12,7 @@ class MapSearchDefaultResultViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private var presenter: MapSearchPresenter!
     
-    static func instantinate(mapSearchPresenter: MapSearchPresenter) -> MapSearchDefaultResultViewController {
+    static func instantiate(mapSearchPresenter: MapSearchPresenter) -> MapSearchDefaultResultViewController {
         let controller = UIStoryboard(name: "MapSearch", bundle: nil).instantiateViewController(withIdentifier: "mapSearchDefaultResultViewController") as! MapSearchDefaultResultViewController
         controller.presenter = mapSearchPresenter
         return controller

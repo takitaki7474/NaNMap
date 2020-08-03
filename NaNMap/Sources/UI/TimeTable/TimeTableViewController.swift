@@ -19,7 +19,7 @@ class TimeTableViewController: UIViewController, UIGestureRecognizerDelegate {
     private var timeTablePresenter: TimeTablePresenter!
     private var syllabusSearchPresenter: SyllabusSearchPresenter!
     
-    static func instantinate() -> TimeTableViewController {
+    static func instantiate() -> TimeTableViewController {
         let controller = UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "timeTableViewController") as! TimeTableViewController
         controller.timeTablePresenter = TimeTableViewPresenter(view: controller)
         controller.syllabusSearchPresenter = SyllabusSearchViewPresenter(preseter: controller.timeTablePresenter)
@@ -66,7 +66,7 @@ extension TimeTableViewController: TimeTableView {
         let alert = UIAlertController(title: "時間割の編集", message: text+"の講義を編集しますか?", preferredStyle: UIAlertController.Style.actionSheet)
         let searchAction = UIAlertAction(title: text+"の講義を検索する", style: UIAlertAction.Style.default, handler: {
             (action:UIAlertAction) -> Void in
-            let vc = SyllabusSearchViewController.instantinate(syllabusSearchPresenter: self.syllabusSearchPresenter, classSchedule: text, classScheduleIndex: index)
+            let vc = SyllabusSearchViewController.instantiate(syllabusSearchPresenter: self.syllabusSearchPresenter, classSchedule: text, classScheduleIndex: index)
             self.navigationController?.pushViewController(vc, animated: true)
         })
         let cancelAction = UIAlertAction(title: "戻る", style: UIAlertAction.Style.cancel, handler: {
@@ -76,7 +76,7 @@ extension TimeTableViewController: TimeTableView {
         if cellStatus.hasRegistered == true {
             let mapAction = UIAlertAction(title: text+"の講義場所を表示する", style: UIAlertAction.Style.default, handler: {
                 (action:UIAlertAction) -> Void in
-                let vc = ClassLocationViewController.instantinate(presenter: self.timeTablePresenter, index: index)
+                let vc = ClassLocationViewController.instantiate(presenter: self.timeTablePresenter, index: index)
                 self.navigationController?.pushViewController(vc, animated: true)
             })
             alert.addAction(mapAction)

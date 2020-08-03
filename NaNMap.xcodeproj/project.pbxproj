@@ -35,6 +35,8 @@
 		21A1DFF524A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFF424A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift */; };
 		21A1DFF724A8CD6000873DF2 /* SyllabusSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFF624A8CD6000873DF2 /* SyllabusSearchModel.swift */; };
 		21A1DFFB24A8D12900873DF2 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFFA24A8D12900873DF2 /* Subject.swift */; };
+		21B7946D24D461DA00EC642B /* ClassInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B7946C24D461DA00EC642B /* ClassInformationView.xib */; };
+		21B7946F24D4741000EC642B /* ClassInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7946E24D4741000EC642B /* ClassInformationView.swift */; };
 		21DABDDF24D07A0800BF8D31 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DABDDE24D07A0800BF8D31 /* UINavigationController+Extensions.swift */; };
 		21F8EDF324CEE9DE00447214 /* Buildings.json in Resources */ = {isa = PBXBuildFile; fileRef = 21F8EDF224CEE9DE00447214 /* Buildings.json */; };
 		21F8EDF524CF181600447214 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8EDF424CF181600447214 /* Building.swift */; };
@@ -76,6 +78,8 @@
 		21A1DFF424A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusSearchViewPresenter.swift; sourceTree = "<group>"; };
 		21A1DFF624A8CD6000873DF2 /* SyllabusSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusSearchModel.swift; sourceTree = "<group>"; };
 		21A1DFFA24A8D12900873DF2 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		21B7946C24D461DA00EC642B /* ClassInformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassInformationView.xib; sourceTree = "<group>"; };
+		21B7946E24D4741000EC642B /* ClassInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInformationView.swift; sourceTree = "<group>"; };
 		21DABDDE24D07A0800BF8D31 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
 		21F8EDF224CEE9DE00447214 /* Buildings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Buildings.json; sourceTree = "<group>"; };
 		21F8EDF424CF181600447214 /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
@@ -245,6 +249,8 @@
 			children = (
 				2193ED7624D3004B00D49068 /* ClassLocationViewController.swift */,
 				2193ED7824D3096400D49068 /* ClassLocationViewPresenter.swift */,
+				21B7946E24D4741000EC642B /* ClassInformationView.swift */,
+				21B7946C24D461DA00EC642B /* ClassInformationView.xib */,
 			);
 			path = ClassLocation;
 			sourceTree = "<group>";
@@ -347,6 +353,7 @@
 				217182F5243E27E1004B5E5A /* MapSearch.storyboard in Resources */,
 				214F5F95243C96670061FC45 /* Map.storyboard in Resources */,
 				2113FC5324B6359E00AFB393 /* Filter.json in Resources */,
+				21B7946D24D461DA00EC642B /* ClassInformationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +412,7 @@
 				21F8EDF524CF181600447214 /* Building.swift in Sources */,
 				21674397249CF86D008806A7 /* TimeTableModel.swift in Sources */,
 				21FA667A2497907200961EA0 /* MapModel.swift in Sources */,
+				21B7946F24D4741000EC642B /* ClassInformationView.swift in Sources */,
 				215F3A20244DD3E400C6270A /* MapSearchDefaultResultViewController.swift in Sources */,
 				21DABDDF24D07A0800BF8D31 /* UINavigationController+Extensions.swift in Sources */,
 				21A1DFFB24A8D12900873DF2 /* Subject.swift in Sources */,

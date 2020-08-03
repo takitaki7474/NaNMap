@@ -37,15 +37,13 @@ final class MapViewController: UIViewController {
 
 extension MapViewController {
     func initMapRegion() {
-        let centerLatitude: CLLocationDegrees = 35.149405
-        let centerLongitude: CLLocationDegrees = 136.962477
-        let center = CLLocationCoordinate2D(latitude: centerLatitude, longitude: centerLongitude)
+        let center = CLLocationCoordinate2D(latitude: 35.149405, longitude: 136.962477)
         let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
         mapView.region = MKCoordinateRegion(center: center, span: span)
     }
 
     func setUpNavigationBar() {
-        navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 85,green: 104,blue: 211)
+        navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 85, green: 104, blue: 211)
     }
     
     func setUpSearchBar() {
@@ -58,7 +56,7 @@ extension MapViewController {
     }
     
     func setUpTabBar() {
-        let vc = TimeTableViewController.instantinate()
+        let vc = TimeTableViewController.instantiate()
         let nc = UINavigationController(rootViewController: vc)
         nc.tabBarItem = UITabBarItem(title: "時間割", image: nil, selectedImage: nil)
         tabBarController?.viewControllers?.append(nc)
@@ -95,7 +93,7 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let pin = MKMarkerAnnotationView()
         pin.annotation = annotation
-        pin.markerTintColor = UIColor.rgba(red: 85,green: 104,blue: 211)
+        pin.markerTintColor = UIColor.rgba(red: 85, green: 104, blue: 211)
         pin.canShowCallout = true
         let deleteButton = UIButton()
         deleteButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
@@ -113,7 +111,7 @@ extension MapViewController: MKMapViewDelegate {
 
 extension MapViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        let vc = MapSearchViewController.instantinate(mapPresenter: presenter)
+        let vc = MapSearchViewController.instantiate(mapPresenter: presenter)
         navigationController?.pushViewController(vc, animated: false)
         return true
     }
