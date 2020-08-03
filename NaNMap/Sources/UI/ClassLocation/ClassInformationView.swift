@@ -15,40 +15,31 @@ class ClassInformationView: UIView {
     @IBOutlet weak var categoryItemLabel: UILabel!
     @IBOutlet weak var semesterItemLabel: UILabel!
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.initNib()
+    static func instantiate(frame: CGRect) -> ClassInformationView {
+        let view = UINib(nibName: "ClassInformation", bundle: nil).instantiate(withOwner: nil, options: nil).first as! ClassInformationView
+        view.setViewStyle(frame: frame)
+        return view
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
-    private func initNib() {
-        guard var view = UINib(nibName: "ClassInformation", bundle: nil).instantiate(withOwner: self, options: nil).first as? UIView else {
-            return
-        }
-        view = setViewStyle(view: view)
-        self.addSubview(view)
-    }
-    
-    private func setViewStyle(view: UIView) -> UIView {
-        view.frame = self.frame
-        view.backgroundColor = .blue
+
+    private func setViewStyle(frame: CGRect) {
+        self.frame = frame
+        self.backgroundColor = .blue
         let lineSpace: CGFloat = 5.0
-        let itemHeight: CGFloat = (view.frame.height - (lineSpace * 6.0)) / 5.0
+        let itemHeight: CGFloat = (frame.height - (lineSpace * 6.0)) / 5.0
         let itemWidth: CGFloat = 70.0
         let itemSize = CGSize(width: itemWidth, height: itemHeight)
-        setItemStyle(label: courseItemLabel, point: CGPoint(x: lineSpace, y: lineSpace), size: itemSize, text: "Course")
-        setItemStyle(label: locationItemLabel, point: CGPoint(x: lineSpace, y: (lineSpace*2)+itemHeight), size: itemSize, text: "Location")
-        setItemStyle(label: teacherItemLabel, point: CGPoint(x: lineSpace, y: (lineSpace*3)+(itemHeight*2)), size: itemSize, text: "Teacher")
-        setItemStyle(label: categoryItemLabel, point: CGPoint(x: lineSpace, y: (lineSpace*4)+(itemHeight*3)), size: itemSize, text: "Category")
-        setItemStyle(label: semesterItemLabel, point: CGPoint(x: lineSpace, y: (lineSpace*5)+(itemHeight*4)), size: itemSize, text: "Semester")
-        
-        return view
+        setItem(label: courseItemLabel, point: CGPoint(x: lineSpace, y: lineSpace), size: itemSize, text: "Course")
+        setItem(label: locationItemLabel, point: CGPoint(x: lineSpace, y: (lineSpace*2)+itemHeight), size: itemSize, text: "Location")
+        setItem(label: teacherItemLabel, point: CGPoint(x: lineSpace, y: (lineSpace*3)+(itemHeight*2)), size: itemSize, text: "Teacher")
+        setItem(label: categoryItemLabel, point: CGPoint(x: lineSpace, y: (lineSpace*4)+(itemHeight*3)), size: itemSize, text: "Category")
+        setItem(label: semesterItemLabel, point: CGPoint(x: lineSpace, y: (lineSpace*5)+(itemHeight*4)), size: itemSize, text: "Semester")
     }
     
-    private func setItemStyle(label: UILabel, point: CGPoint, size: CGSize, text: String) {
+    private func setItem(label: UILabel, point: CGPoint, size: CGSize, text: String) {
         label.frame.origin = point
         label.frame.size = size
         label.backgroundColor = .gray

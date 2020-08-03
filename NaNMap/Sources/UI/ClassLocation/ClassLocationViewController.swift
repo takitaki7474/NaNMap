@@ -25,11 +25,10 @@ class ClassLocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
-        let classInformationView = ClassInformationView.instantinate()
-        view.addSubview(classInformationView)*/
-        let frame = CGRect(x: 30, y: 200, width: 200, height: 200)
-        let classInformationView = ClassInformationView(frame: frame)
+        let statusBarHeight: CGFloat = SceneDelegate.statusBarHeight ?? 44.0
+        let navigationBarHeight: CGFloat = navigationController?.navigationBar.frame.height ?? 44.0
+        let frame = CGRect(x: 5.0, y: statusBarHeight+navigationBarHeight+5.0, width: UIScreen.main.bounds.width-10.0, height: 97)
+        let classInformationView = ClassInformationView.instantiate(frame: frame)
         view.addSubview(classInformationView)
         mapView.delegate = self
         classLocationPresenter.view = self

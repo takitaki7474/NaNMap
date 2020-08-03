@@ -7,17 +7,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClassInformationView" customModule="NaNMap" customModuleProvider="target">
-            <connections>
-                <outlet property="categoryItemLabel" destination="tGg-b5-PLw" id="yeU-uv-HaE"/>
-                <outlet property="courseItemLabel" destination="qeY-7D-iv4" id="M6Z-xm-zIK"/>
-                <outlet property="locationItemLabel" destination="B5e-jM-Ogj" id="J3R-N2-gyA"/>
-                <outlet property="semesterItemLabel" destination="8Dd-l3-nSa" id="ovQ-xA-hrr"/>
-                <outlet property="teacherItemLabel" destination="GFx-eK-wEX" id="D4T-br-ZCm"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="dJw-Ux-Zim">
+        <view contentMode="scaleToFill" id="dJw-Ux-Zim" customClass="ClassInformationView" customModule="NaNMap" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="469" height="325"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -67,6 +59,13 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="z4s-4R-hnx"/>
+            <connections>
+                <outlet property="categoryItemLabel" destination="tGg-b5-PLw" id="CCz-J8-xgr"/>
+                <outlet property="courseItemLabel" destination="qeY-7D-iv4" id="PL8-sH-ukE"/>
+                <outlet property="locationItemLabel" destination="B5e-jM-Ogj" id="3Y7-36-gle"/>
+                <outlet property="semesterItemLabel" destination="8Dd-l3-nSa" id="Iwb-Vk-w9d"/>
+                <outlet property="teacherItemLabel" destination="GFx-eK-wEX" id="fjD-ta-CvS"/>
+            </connections>
             <point key="canvasLocation" x="-390.57971014492756" y="-73.325892857142847"/>
         </view>
     </objects>
