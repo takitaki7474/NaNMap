@@ -56,7 +56,7 @@ extension MapViewController {
     }
     
     func setUpTabBar() {
-        let vc = TimeTableViewController.instantinate()
+        let vc = TimeTableViewController.instantiate()
         let nc = UINavigationController(rootViewController: vc)
         nc.tabBarItem = UITabBarItem(title: "時間割", image: nil, selectedImage: nil)
         tabBarController?.viewControllers?.append(nc)
@@ -111,7 +111,7 @@ extension MapViewController: MKMapViewDelegate {
 
 extension MapViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        let vc = MapSearchViewController.instantinate(mapPresenter: presenter)
+        let vc = MapSearchViewController.instantiate(mapPresenter: presenter)
         navigationController?.pushViewController(vc, animated: false)
         return true
     }

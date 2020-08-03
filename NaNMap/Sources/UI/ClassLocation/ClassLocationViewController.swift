@@ -17,7 +17,7 @@ class ClassLocationViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     private var classLocationPresenter: ClassLocationPresenter!
     
-    static func instantinate(presenter: TimeTablePresenter, index: Int) -> ClassLocationViewController {
+    static func instantiate(presenter: TimeTablePresenter, index: Int) -> ClassLocationViewController {
         let controller = UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "classLocationViewController") as! ClassLocationViewController
         controller.classLocationPresenter = ClassLocationViewPresenter(presenter: presenter, index: index)
         return controller

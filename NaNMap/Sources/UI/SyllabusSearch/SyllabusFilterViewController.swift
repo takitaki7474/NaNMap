@@ -13,7 +13,7 @@ class SyllabusFilterViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private var syllabusSearchPresenter: SyllabusSearchPresenter!
     
-    static func instantinate(syllabusSearchPresenter: SyllabusSearchPresenter) -> SyllabusFilterViewController {
+    static func instantiate(syllabusSearchPresenter: SyllabusSearchPresenter) -> SyllabusFilterViewController {
         let controller = UIStoryboard(name: "TimeTable", bundle: nil).instantiateViewController(withIdentifier: "syllabusFilterPopUpViewController") as! SyllabusFilterViewController
         controller.syllabusSearchPresenter = syllabusSearchPresenter
         return controller
