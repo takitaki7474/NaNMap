@@ -34,7 +34,7 @@ class ClassInformationView: UIView {
 
     private func setViewStyle(frame: CGRect) {
         self.frame = frame
-        self.backgroundColor = .blue
+        self.backgroundColor = UIColor.rgba(red: 186, green: 193, blue: 234)
         let lineSpace: CGFloat = 5.0
         let itemWidth: CGFloat = 70.0
         let itemHeight: CGFloat = (frame.height - (lineSpace * 6.0)) / 5.0
@@ -52,7 +52,7 @@ class ClassInformationView: UIView {
         let contentWidth: CGFloat = frame.width - (itemWidth + lineSpace * 2)
         let contentHeight: CGFloat = itemHeight
         let contentSize = CGSize(width: contentWidth, height: contentHeight)
-        point.x = lineSpace + itemWidth
+        point.x = lineSpace + itemWidth - 1.0
         point.y = lineSpace
         setContent(label: courseContentLabel, point: point, size: contentSize, text: syllabus?.subjectName ?? "不明")
         point.y = point.y + lineSpace + itemHeight
@@ -68,16 +68,20 @@ class ClassInformationView: UIView {
     private func setItem(label: UILabel, point: CGPoint, size: CGSize, text: String) {
         label.frame.origin = point
         label.frame.size = size
-        label.backgroundColor = .gray
+        label.backgroundColor = .white
         label.font = UIFont.systemFont(ofSize: 12.0)
+        label.layer.borderWidth = 1.0
+        label.layer.borderColor = UIColor.gray.cgColor
         label.text = text
     }
     
     private func setContent(label: UILabel, point: CGPoint, size: CGSize, text: String) {
         label.frame.origin = point
         label.frame.size = size
-        label.backgroundColor = .purple
+        label.backgroundColor = .white
         label.font = UIFont.systemFont(ofSize: 12.0)
+        label.layer.borderWidth = 1.0
+        label.layer.borderColor = UIColor.gray.cgColor
         label.text = text
     }
 }

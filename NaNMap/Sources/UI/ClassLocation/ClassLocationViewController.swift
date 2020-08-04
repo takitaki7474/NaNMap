@@ -66,7 +66,7 @@ extension ClassLocationViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let pin = MKMarkerAnnotationView()
         pin.annotation = annotation
-        pin.markerTintColor = UIColor.rgba(red: 250, green: 166, blue: 26)
+        pin.markerTintColor = UIColor.rgba(red: 85, green: 104, blue: 211)
         return pin
     }
     
@@ -74,7 +74,7 @@ extension ClassLocationViewController: MKMapViewDelegate {
         let statusBarHeight: CGFloat = SceneDelegate.statusBarHeight ?? 44.0
         let navigationBarHeight: CGFloat = navigationController?.navigationBar.frame.height ?? 44.0
         let barHeight: CGFloat = statusBarHeight + navigationBarHeight
-        let margin: CGFloat = 5.0
+        let margin: CGFloat = 8.0
         let frame = CGRect(x: margin, y: barHeight+margin, width: UIScreen.main.bounds.width-(margin*2), height: 107)
         let syllabus = classLocationPresenter.loadSyllabus()
         let classInformationView = ClassInformationView.instantiate(frame: frame, syllabus: syllabus)
