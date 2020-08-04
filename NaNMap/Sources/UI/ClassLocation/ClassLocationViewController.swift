@@ -11,6 +11,7 @@ import MapKit
 
 protocol ClassLocationView: class {
     func loadMap(title: String, coordinate: (Double, Double)?)
+    func reloadMapRegion(coordinate: (Double, Double)?)
 }
 
 class ClassLocationViewController: UIViewController {
@@ -25,11 +26,6 @@ class ClassLocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let statusBarHeight: CGFloat = SceneDelegate.statusBarHeight ?? 44.0
-        let navigationBarHeight: CGFloat = navigationController?.navigationBar.frame.height ?? 44.0
-        let frame = CGRect(x: 5.0, y: statusBarHeight+navigationBarHeight+5.0, width: UIScreen.main.bounds.width-10.0, height: 97)
-        let classInformationView = ClassInformationView.instantiate(frame: frame)
-        view.addSubview(classInformationView)
         mapView.delegate = self
         classLocationPresenter.view = self
         classLocationPresenter.loadClassLocation()
@@ -42,14 +38,23 @@ extension ClassLocationViewController: ClassLocationView {
             let point = MKPointAnnotation()
             point.title = title
             point.coordinate = CLLocationCoordinate2D(latitude: coordinate.0, longitude: coordinate.1)
-            mapView.addAnnotation(point)
             let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
+            mapView.addAnnotation(point)
             mapView.region = MKCoordinateRegion(center: point.coordinate, span: span)
+            mapView.selectAnnotation(point, animated: true)
         } else {
             let center = CLLocationCoordinate2D(latitude: 35.149405, longitude: 136.962477)
             let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
             mapView.region = MKCoordinateRegion(center: center, span: span)
             alertUndefinedCoordinate()
+        }
+    }
+    
+    func reloadMapRegion(coordinate: (Double, Double)?) {
+        if let coordinate = coordinate {
+            let center = CLLocationCoordinate2D(latitude: coordinate.0, longitude: coordinate.1)
+            let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
+            mapView.region = MKCoordinateRegion(center: center, span: span)
         }
     }
 }
@@ -70,7 +75,25 @@ extension ClassLocationViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let pin = MKMarkerAnnotationView()
         pin.annotation = annotation
-        pin.markerTintColor = UIColor.rgba(red: 250, green: 166, blue: 26)
+        pin.markerTintColor = UIColor.rgba(red: 85, green: 104, blue: 211)
         return pin
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let statusBarHeight: CGFloat = SceneDelegate.statusBarHeight ?? 44.0
+        let navigationBarHeight: CGFloat = navigationController?.navigationBar.frame.height ?? 44.0
+        let barHeight: CGFloat = statusBarHeight + navigationBarHeight
+        let margin: CGFloat = 8.0
+        let frame = CGRect(x: margin, y: barHeight+margin, width: UIScreen.main.bounds.width-(margin*2), height: 107)
+        let syllabus = classLocationPresenter.loadSyllabus()
+        let classInformationView = ClassInformationView.instantiate(frame: frame, syllabus: syllabus)
+        self.view.addSubview(classInformationView)
+        classLocationPresenter.reloadMapRegion()
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        if self.view.subviews.count >= 2 {
+            self.view.subviews.last?.removeFromSuperview()
+        }
     }
 }

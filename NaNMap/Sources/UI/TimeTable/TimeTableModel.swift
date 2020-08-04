@@ -75,12 +75,6 @@ class TimeTableModel {
             timeTableCell.subjectName = syllabus.subjectName
             timeTableCell.teacher = syllabus.teacher
             timeTableCell.classroom = syllabus.classroom
-            /*
-            if let classroom = syllabus.classroom?.classroom {
-                timeTableCell.classroom = classroom
-            } else {
-                timeTableCell.classroom = "講義室未定"
-            }*/
             timeTableCell.hasRegistered = true
         }
         self.timeTableCells = realm.objects(TimeTableCellObj.self)
