@@ -27,7 +27,7 @@ class ClassLocationViewController: UIViewController {
         super.viewDidLoad()
         let statusBarHeight: CGFloat = SceneDelegate.statusBarHeight ?? 44.0
         let navigationBarHeight: CGFloat = navigationController?.navigationBar.frame.height ?? 44.0
-        let frame = CGRect(x: 5.0, y: statusBarHeight+navigationBarHeight+5.0, width: UIScreen.main.bounds.width-10.0, height: 97)
+        let frame = CGRect(x: 5.0, y: statusBarHeight+navigationBarHeight+5.0, width: UIScreen.main.bounds.width-10.0, height: 107)
         let classInformationView = ClassInformationView.instantiate(frame: frame)
         view.addSubview(classInformationView)
         mapView.delegate = self

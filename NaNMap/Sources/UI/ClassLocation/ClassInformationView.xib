@@ -53,6 +53,46 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="宗教論[HC･HJ]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TnI-e5-hG4">
+                    <rect key="frame" x="151" y="20" width="298" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.86282110140000001" blue="0.76072545260000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="G26" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVZ-f3-nOu">
+                    <rect key="frame" x="151" y="80" width="298" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.86282110140000001" blue="0.76072545260000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="佐藤 啓介" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BdV-Yb-inK">
+                    <rect key="frame" x="151" y="145" width="298" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.86282110140000001" blue="0.76072545260000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Q2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubj-Ds-3sp">
+                    <rect key="frame" x="151" y="269" width="298" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.86282110140000001" blue="0.76072545260000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="宗教科目" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8z-0X-EaG">
+                    <rect key="frame" x="151" y="207" width="298" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.86282110140000001" blue="0.76072545260000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <nil key="simulatedTopBarMetrics"/>
@@ -60,10 +100,15 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="z4s-4R-hnx"/>
             <connections>
+                <outlet property="categoryContentLabel" destination="C8z-0X-EaG" id="8oj-Es-mAX"/>
                 <outlet property="categoryItemLabel" destination="tGg-b5-PLw" id="CCz-J8-xgr"/>
+                <outlet property="courseContentLabel" destination="TnI-e5-hG4" id="tzU-MV-ziA"/>
                 <outlet property="courseItemLabel" destination="qeY-7D-iv4" id="PL8-sH-ukE"/>
+                <outlet property="locationContentLabel" destination="EVZ-f3-nOu" id="4tn-wx-MtQ"/>
                 <outlet property="locationItemLabel" destination="B5e-jM-Ogj" id="3Y7-36-gle"/>
+                <outlet property="semesterContentLabel" destination="ubj-Ds-3sp" id="4vW-jM-WfE"/>
                 <outlet property="semesterItemLabel" destination="8Dd-l3-nSa" id="Iwb-Vk-w9d"/>
+                <outlet property="teacherContentLabel" destination="BdV-Yb-inK" id="sym-ZE-SsY"/>
                 <outlet property="teacherItemLabel" destination="GFx-eK-wEX" id="fjD-ta-CvS"/>
             </connections>
             <point key="canvasLocation" x="-390.57971014492756" y="-73.325892857142847"/>
