@@ -12,6 +12,7 @@ protocol ClassLocationPresenter {
     var view: ClassLocationView? { get set }
     func loadClassLocation()
     func loadSyllabus() -> TimeTableCellObj
+    func reloadMapRegion()
 }
 
 class ClassLocationViewPresenter: ClassLocationPresenter {
@@ -37,5 +38,14 @@ class ClassLocationViewPresenter: ClassLocationPresenter {
     func loadSyllabus() -> TimeTableCellObj {
         let syllabus = timeTablePresenter.loadSavedSyllabus(at: self.cellIndex)
         return syllabus
+    }
+    
+    func reloadMapRegion() {
+        let syllabus = timeTablePresenter.loadSavedSyllabus(at: self.cellIndex)
+        var coordinate: (Double, Double)? = nil
+        if let classroomObj = syllabus.classroom, let buildingObj = classroomObj.building {
+            coordinate = (buildingObj.latitude, buildingObj.longitude)
+        }
+        view?.reloadMapRegion(coordinate: coordinate)
     }
 }

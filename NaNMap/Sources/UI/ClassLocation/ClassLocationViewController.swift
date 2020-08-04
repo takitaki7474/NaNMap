@@ -11,6 +11,7 @@ import MapKit
 
 protocol ClassLocationView: class {
     func loadMap(title: String, coordinate: (Double, Double)?)
+    func reloadMapRegion(coordinate: (Double, Double)?)
 }
 
 class ClassLocationViewController: UIViewController {
@@ -37,8 +38,8 @@ extension ClassLocationViewController: ClassLocationView {
             let point = MKPointAnnotation()
             point.title = title
             point.coordinate = CLLocationCoordinate2D(latitude: coordinate.0, longitude: coordinate.1)
-            mapView.addAnnotation(point)
             let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
+            mapView.addAnnotation(point)
             mapView.region = MKCoordinateRegion(center: point.coordinate, span: span)
             mapView.selectAnnotation(point, animated: true)
         } else {
@@ -46,6 +47,14 @@ extension ClassLocationViewController: ClassLocationView {
             let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
             mapView.region = MKCoordinateRegion(center: center, span: span)
             alertUndefinedCoordinate()
+        }
+    }
+    
+    func reloadMapRegion(coordinate: (Double, Double)?) {
+        if let coordinate = coordinate {
+            let center = CLLocationCoordinate2D(latitude: coordinate.0, longitude: coordinate.1)
+            let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
+            mapView.region = MKCoordinateRegion(center: center, span: span)
         }
     }
 }
@@ -79,6 +88,7 @@ extension ClassLocationViewController: MKMapViewDelegate {
         let syllabus = classLocationPresenter.loadSyllabus()
         let classInformationView = ClassInformationView.instantiate(frame: frame, syllabus: syllabus)
         self.view.addSubview(classInformationView)
+        classLocationPresenter.reloadMapRegion()
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
