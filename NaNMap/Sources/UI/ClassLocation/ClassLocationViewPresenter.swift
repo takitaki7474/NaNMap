@@ -11,6 +11,7 @@ import Foundation
 protocol ClassLocationPresenter {
     var view: ClassLocationView? { get set }
     func loadClassLocation()
+    func loadSyllabus() -> TimeTableCellObj
 }
 
 class ClassLocationViewPresenter: ClassLocationPresenter {
@@ -31,5 +32,10 @@ class ClassLocationViewPresenter: ClassLocationPresenter {
             coordinate = (buildingObj.latitude, buildingObj.longitude)
         }
         view?.loadMap(title: title, coordinate: coordinate)
+    }
+    
+    func loadSyllabus() -> TimeTableCellObj {
+        let syllabus = timeTablePresenter.loadSavedSyllabus(at: self.cellIndex)
+        return syllabus
     }
 }

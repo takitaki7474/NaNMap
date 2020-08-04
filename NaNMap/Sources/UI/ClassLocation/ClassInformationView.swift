@@ -19,9 +19,11 @@ class ClassInformationView: UIView {
     @IBOutlet weak var teacherContentLabel: UILabel!
     @IBOutlet weak var categoryContentLabel: UILabel!
     @IBOutlet weak var semesterContentLabel: UILabel!
+    var syllabus: TimeTableCellObj?
     
-    static func instantiate(frame: CGRect) -> ClassInformationView {
+    static func instantiate(frame: CGRect, syllabus: TimeTableCellObj) -> ClassInformationView {
         let view = UINib(nibName: "ClassInformationView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! ClassInformationView
+        view.syllabus = syllabus
         view.setViewStyle(frame: frame)
         return view
     }
@@ -52,15 +54,15 @@ class ClassInformationView: UIView {
         let contentSize = CGSize(width: contentWidth, height: contentHeight)
         point.x = lineSpace + itemWidth
         point.y = lineSpace
-        setContent(label: courseContentLabel, point: point, size: contentSize, text: "aaaa")
+        setContent(label: courseContentLabel, point: point, size: contentSize, text: syllabus?.subjectName ?? "不明")
         point.y = point.y + lineSpace + itemHeight
-        setContent(label: locationContentLabel, point: point, size: contentSize, text: "bbbb")
+        setContent(label: locationContentLabel, point: point, size: contentSize, text: syllabus?.classroom?.classroom ?? "不明")
         point.y = point.y + lineSpace + itemHeight
-        setContent(label: teacherContentLabel, point: point, size: contentSize, text: "cccc")
+        setContent(label: teacherContentLabel, point: point, size: contentSize, text: syllabus?.teacher ?? "不明")
         point.y = point.y + lineSpace + itemHeight
-        setContent(label: categoryContentLabel, point: point, size: contentSize, text: "dddd")
+        setContent(label: categoryContentLabel, point: point, size: contentSize, text: syllabus?.category ?? "不明")
         point.y = point.y + lineSpace + itemHeight
-        setContent(label: semesterContentLabel, point: point, size: contentSize, text: "eeee")
+        setContent(label: semesterContentLabel, point: point, size: contentSize, text: syllabus?.semester ?? "不明")
     }
     
     private func setItem(label: UILabel, point: CGPoint, size: CGSize, text: String) {
