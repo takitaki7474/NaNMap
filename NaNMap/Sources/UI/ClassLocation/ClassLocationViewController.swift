@@ -25,12 +25,6 @@ class ClassLocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let statusBarHeight: CGFloat = SceneDelegate.statusBarHeight ?? 44.0
-        let navigationBarHeight: CGFloat = navigationController?.navigationBar.frame.height ?? 44.0
-        let frame = CGRect(x: 5.0, y: statusBarHeight+navigationBarHeight+5.0, width: UIScreen.main.bounds.width-10.0, height: 107)
-        let syllabus = classLocationPresenter.loadSyllabus()
-        let classInformationView = ClassInformationView.instantiate(frame: frame, syllabus: syllabus)
-        view.addSubview(classInformationView)
         mapView.delegate = self
         classLocationPresenter.view = self
         classLocationPresenter.loadClassLocation()
@@ -46,6 +40,7 @@ extension ClassLocationViewController: ClassLocationView {
             mapView.addAnnotation(point)
             let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
             mapView.region = MKCoordinateRegion(center: point.coordinate, span: span)
+            mapView.selectAnnotation(point, animated: true)
         } else {
             let center = CLLocationCoordinate2D(latitude: 35.149405, longitude: 136.962477)
             let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
@@ -73,5 +68,22 @@ extension ClassLocationViewController: MKMapViewDelegate {
         pin.annotation = annotation
         pin.markerTintColor = UIColor.rgba(red: 250, green: 166, blue: 26)
         return pin
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let statusBarHeight: CGFloat = SceneDelegate.statusBarHeight ?? 44.0
+        let navigationBarHeight: CGFloat = navigationController?.navigationBar.frame.height ?? 44.0
+        let barHeight: CGFloat = statusBarHeight + navigationBarHeight
+        let margin: CGFloat = 5.0
+        let frame = CGRect(x: margin, y: barHeight+margin, width: UIScreen.main.bounds.width-(margin*2), height: 107)
+        let syllabus = classLocationPresenter.loadSyllabus()
+        let classInformationView = ClassInformationView.instantiate(frame: frame, syllabus: syllabus)
+        self.view.addSubview(classInformationView)
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        if self.view.subviews.count >= 2 {
+            self.view.subviews.last?.removeFromSuperview()
+        }
     }
 }
