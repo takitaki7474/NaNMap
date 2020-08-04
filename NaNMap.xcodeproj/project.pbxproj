@@ -227,9 +227,9 @@
 			isa = PBXGroup;
 			children = (
 				215FA07024506C870079300A /* TimeTableViewController.swift */,
+				215FA0722450CA4B0079300A /* TimeTableCollectionViewCell.swift */,
 				21674394249CA2A4008806A7 /* TimeTableViewPresenter.swift */,
 				21674396249CF86D008806A7 /* TimeTableModel.swift */,
-				215FA0722450CA4B0079300A /* TimeTableCollectionViewCell.swift */,
 			);
 			path = TimeTable;
 			sourceTree = "<group>";
@@ -248,9 +248,9 @@
 			isa = PBXGroup;
 			children = (
 				2193ED7624D3004B00D49068 /* ClassLocationViewController.swift */,
-				2193ED7824D3096400D49068 /* ClassLocationViewPresenter.swift */,
 				21B7946E24D4741000EC642B /* ClassInformationView.swift */,
 				21B7946C24D461DA00EC642B /* ClassInformationView.xib */,
+				2193ED7824D3096400D49068 /* ClassLocationViewPresenter.swift */,
 			);
 			path = ClassLocation;
 			sourceTree = "<group>";
@@ -261,9 +261,9 @@
 				2113FC4E24B5F6FB00AFB393 /* Entity */,
 				21A1DFF224A8A1E700873DF2 /* SyllabusSearchViewController.swift */,
 				219740E724B4E1EB004AC323 /* SyllabusFilterViewController.swift */,
+				218AD15424B3818A003BC33F /* SyllabusTableViewCell.swift */,
 				21A1DFF424A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift */,
 				21A1DFF624A8CD6000873DF2 /* SyllabusSearchModel.swift */,
-				218AD15424B3818A003BC33F /* SyllabusTableViewCell.swift */,
 			);
 			path = SyllabusSearch;
 			sourceTree = "<group>";
