@@ -11,6 +11,7 @@ import UIKit
 final class MapSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var searchBar: UISearchBar!
+    var isSearchActive: Bool = false
     private var titles: [String] = ["棟の検索"]
     private var mapPresenter: MapPresenter!
     private var mapSearchPresenter: MapSearchPresenter!
@@ -46,13 +47,18 @@ extension MapSearchViewController {
         searchBar.searchTextField.backgroundColor = UIColor.white
         searchBar.tintColor = UIColor.gray
         searchBar.becomeFirstResponder()
+        searchBar.delegate = self
         navigationItem.titleView = searchBar
     }
 }
 
 extension MapSearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titles.count
+        if isSearchActive == false {
+            return titles.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,5 +71,16 @@ extension MapSearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = MapSearchDefaultResultViewController.instantiate(mapSearchPresenter: mapSearchPresenter)
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension MapSearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != "" {
+            isSearchActive = true
+            print(searchText)
+        } else {
+            isSearchActive = false
+        }
     }
 }
