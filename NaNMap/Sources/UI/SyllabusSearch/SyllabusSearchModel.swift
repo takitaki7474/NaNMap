@@ -80,7 +80,7 @@ class SyllabusSearchModel {
     
     private func saveClassroomObj(buildings: [Building]) {
         let realm = try! Realm()
-        if realm.objects(ClassroomObj.self).count == 0 && realm.objects(BuildingObj.self).count == 0 {
+        if realm.objects(ClassroomObj.self).count == 0 {
             try! realm.write {
                 for building in buildings {
                     let buildingObj = BuildingObj()
