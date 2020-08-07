@@ -31,7 +31,7 @@ protocol MapSearchModelDelegate: class {
 final class MapSearchModel {
     weak var delegate: MapSearchModelDelegate?
     var buildings: [Building]?
-    var buildingSearchResults: Results<MapBuildingObj>? {
+    var facilitySearchResults: Results<MapBuildingObj>? {
         didSet {
             delegate?.searchModel()
         }
@@ -79,13 +79,13 @@ final class MapSearchModel {
 }
 
 extension MapSearchModel {
-    func searchBuilding(with query: String) {
+    func searchFacility(with query: String) {
         let realm = try! Realm()
-        var result = realm.objects(MapBuildingObj.self)
+        var result = realm.objects(MapBuildingObj.self).filter("facilities.@count >= 1")
         let buildingPredicate = NSPredicate(format: "building CONTAINS %@", argumentArray: [query])
         let facilityNamePredicate = NSPredicate(format: "SUBQUERY(facilities, $facility, $facility.facilityName CONTAINS %@).@count >= 1", argumentArray: [query])
         let predicate = NSCompoundPredicate(orPredicateWithSubpredicates: [buildingPredicate, facilityNamePredicate])
         result = result.filter(predicate)
-        self.buildingSearchResults = result
+        self.facilitySearchResults = result
     }
 }

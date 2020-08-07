@@ -10,7 +10,7 @@ protocol MapSearchPresenter {
     var numberOfBuildings: Int { get }
     func loadBuildingTitle(at index: Int) -> String
     func tapBuildingCell(at index: Int)
-    func searchBuilding(with query: String)
+    func searchFacility(with query: String)
 }
 
 final class MapSearchViewPresenter: MapSearchPresenter {
@@ -37,8 +37,8 @@ final class MapSearchViewPresenter: MapSearchPresenter {
         mapPresenter.addAnnotation(with: info, at: index)
     }
     
-    func searchBuilding(with query: String) {
-        model.searchBuilding(with: query)
+    func searchFacility(with query: String) {
+        model.searchFacility(with: query)
     }
 }
 

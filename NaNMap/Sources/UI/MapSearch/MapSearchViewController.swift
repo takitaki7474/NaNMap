@@ -14,6 +14,7 @@ protocol MapSearchView: class {
 
 final class MapSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    
     var searchBar: UISearchBar!
     var isSearchActive: Bool = false
     private var titles: [String] = ["棟の検索"]
@@ -59,7 +60,6 @@ extension MapSearchViewController {
 extension MapSearchViewController: MapSearchView {
     func reloadData() {
         tableView.reloadData()
-        print("aaaaa")
     }
 }
 
@@ -73,9 +73,11 @@ extension MapSearchViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath)
-        cell.accessoryType = .disclosureIndicator
-        cell.textLabel?.text = titles[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath) as! MapSearchViewCell
+        if isSearchActive == false {
+            cell.accessoryType = .disclosureIndicator
+            cell.textLabel?.text = titles[indexPath.row]
+        }
         return cell
     }
     
@@ -89,9 +91,10 @@ extension MapSearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText != "" {
             isSearchActive = true
-            mapSearchPresenter.searchBuilding(with: searchText)
+            mapSearchPresenter.searchFacility(with: searchText)
         } else {
             isSearchActive = false
+            reloadData()
         }
     }
 }
