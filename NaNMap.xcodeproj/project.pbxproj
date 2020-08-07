@@ -35,6 +35,7 @@
 		21A1DFF524A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFF424A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift */; };
 		21A1DFF724A8CD6000873DF2 /* SyllabusSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFF624A8CD6000873DF2 /* SyllabusSearchModel.swift */; };
 		21A1DFFB24A8D12900873DF2 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1DFFA24A8D12900873DF2 /* Subject.swift */; };
+		21AA0AC624DD9DEC00C3EA62 /* MapSearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AA0AC524DD9DEC00C3EA62 /* MapSearchViewCell.swift */; };
 		21B7946D24D461DA00EC642B /* ClassInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B7946C24D461DA00EC642B /* ClassInformationView.xib */; };
 		21B7946F24D4741000EC642B /* ClassInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7946E24D4741000EC642B /* ClassInformationView.swift */; };
 		21DABDDF24D07A0800BF8D31 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DABDDE24D07A0800BF8D31 /* UINavigationController+Extensions.swift */; };
@@ -78,6 +79,7 @@
 		21A1DFF424A8AE7200873DF2 /* SyllabusSearchViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusSearchViewPresenter.swift; sourceTree = "<group>"; };
 		21A1DFF624A8CD6000873DF2 /* SyllabusSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusSearchModel.swift; sourceTree = "<group>"; };
 		21A1DFFA24A8D12900873DF2 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		21AA0AC524DD9DEC00C3EA62 /* MapSearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchViewCell.swift; sourceTree = "<group>"; };
 		21B7946C24D461DA00EC642B /* ClassInformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassInformationView.xib; sourceTree = "<group>"; };
 		21B7946E24D4741000EC642B /* ClassInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInformationView.swift; sourceTree = "<group>"; };
 		21DABDDE24D07A0800BF8D31 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				2113FC4D24B5F5BC00AFB393 /* Entity */,
 				217182F6243E2835004B5E5A /* MapSearchViewController.swift */,
 				215F3A1F244DD3E400C6270A /* MapSearchDefaultResultViewController.swift */,
+				21AA0AC524DD9DEC00C3EA62 /* MapSearchViewCell.swift */,
 				215F3A1D244DB68F00C6270A /* MapSearchViewPresenter.swift */,
 				21FA667D2497D38B00961EA0 /* MapSearchModel.swift */,
 			);
@@ -423,6 +426,7 @@
 				21714AB624BB59C900057659 /* UICollectionView+Extensions.swift in Sources */,
 				217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */,
 				215FA0732450CA4B0079300A /* TimeTableCollectionViewCell.swift in Sources */,
+				21AA0AC624DD9DEC00C3EA62 /* MapSearchViewCell.swift in Sources */,
 				2193ED7924D3096400D49068 /* ClassLocationViewPresenter.swift in Sources */,
 				219740E824B4E1EB004AC323 /* SyllabusFilterViewController.swift in Sources */,
 				214F5F8E243C96670061FC45 /* AppDelegate.swift in Sources */,
