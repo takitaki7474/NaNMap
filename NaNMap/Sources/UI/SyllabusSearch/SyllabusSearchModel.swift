@@ -24,6 +24,7 @@ class SubjectObj: Object {
 
 class ClassroomObj: Object {
     @objc dynamic var classroom = ""
+    @objc dynamic var floor = ""
     @objc dynamic var building: BuildingObj?
     override static func primaryKey() -> String? {
         return "classroom"
@@ -34,10 +35,15 @@ class BuildingObj: Object {
     @objc dynamic var building = ""
     @objc dynamic var longitude = 0.0
     @objc dynamic var latitude = 0.0
-    let facilities = List<String>()
+    let facilities = List<FacilityObj>()
     override static func primaryKey() -> String? {
         return "building"
     }
+}
+
+class FacilityObj: Object {
+    @objc dynamic var facilityName = ""
+    @objc dynamic var floor = ""
 }
 
 protocol SyllabusSearchModelDelegate: class {
@@ -83,13 +89,17 @@ class SyllabusSearchModel {
                     buildingObj.latitude = building.coordinate.latitude
                     if let facilities = building.facilities {
                         for facility in facilities {
-                            buildingObj.facilities.append(facility.facilityName)
+                            let facilityObj = FacilityObj()
+                            facilityObj.facilityName = facility.facilityName
+                            facilityObj.floor = facility.floor
+                            buildingObj.facilities.append(facilityObj)
                         }
                     }
                     if let classrooms = building.classrooms {
                         for classroom in classrooms {
                             let classroomObj = ClassroomObj()
                             classroomObj.classroom = classroom.classroomName
+                            classroomObj.floor = classroom.floor
                             classroomObj.building = buildingObj
                             realm.add(classroomObj)
                         }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 final class MapSearchModel {
     var buildings: [Building]?
@@ -24,5 +25,10 @@ final class MapSearchModel {
             return
         }
         self.buildings = buildings
+    }
+    
+    private func saveBuildingObj() {
+        //let realm = try! Realm()
+        
     }
 }
