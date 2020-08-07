@@ -9,6 +9,21 @@
 import Foundation
 import RealmSwift
 
+class MapBuildingObj: Object {
+    @objc dynamic var building = ""
+    @objc dynamic var longitude = 0.0
+    @objc dynamic var latitude = 0.0
+    let facilities = List<MapFacilityObj>()
+    override static func primaryKey() -> String? {
+        return "building"
+    }
+}
+
+class MapFacilityObj: Object {
+    @objc dynamic var facilityName = ""
+    @objc dynamic var floor = ""
+}
+
 final class MapSearchModel {
     var buildings: [Building]?
     
@@ -25,10 +40,30 @@ final class MapSearchModel {
             return
         }
         self.buildings = buildings
+        saveMapBuildingObj(buildings: buildings)
     }
     
-    private func saveBuildingObj() {
-        //let realm = try! Realm()
-        
+    private func saveMapBuildingObj(buildings: [Building]) {
+        let realm = try! Realm()
+        if realm.objects(MapBuildingObj.self).count == 0 {
+            try! realm.write {
+                for building in buildings {
+                    let mapBuildingObj = MapBuildingObj()
+                    mapBuildingObj.building = building.building
+                    mapBuildingObj.longitude = building.coordinate.longitude
+                    mapBuildingObj.latitude = building.coordinate.latitude
+                    if let facilities = building.facilities {
+                        for facility in facilities {
+                            let mapFacilityObj = MapFacilityObj()
+                            mapFacilityObj.facilityName = facility.facilityName
+                            mapFacilityObj.floor = facility.floor
+                            mapBuildingObj.facilities.append(mapFacilityObj)
+                        }
+                    }
+                    realm.add(mapBuildingObj)
+                }
+            }
+            print("save MapBuildingObj on realm")
+        }
     }
 }
