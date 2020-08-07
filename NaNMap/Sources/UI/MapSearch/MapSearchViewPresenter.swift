@@ -10,14 +10,18 @@ protocol MapSearchPresenter {
     var numberOfBuildings: Int { get }
     func loadBuildingTitle(at index: Int) -> String
     func tapBuildingCell(at index: Int)
+    func searchBuilding(with query: String)
 }
 
 final class MapSearchViewPresenter: MapSearchPresenter {
+    weak var view: MapSearchView?
     private let model = MapSearchModel()
     private let mapPresenter: MapPresenter!
     
-    init(mapPresenter: MapPresenter) {
+    init(view: MapSearchView, mapPresenter: MapPresenter) {
+        self.view = view
         self.mapPresenter = mapPresenter
+        model.delegate = self
     }
     
     var numberOfBuildings: Int {
@@ -31,5 +35,15 @@ final class MapSearchViewPresenter: MapSearchPresenter {
     func tapBuildingCell(at index: Int) {
         let info: [Building] = model.buildings!
         mapPresenter.addAnnotation(with: info, at: index)
+    }
+    
+    func searchBuilding(with query: String) {
+        model.searchBuilding(with: query)
+    }
+}
+
+extension MapSearchViewPresenter: MapSearchModelDelegate {
+    func searchModel() {
+        view?.reloadData()
     }
 }

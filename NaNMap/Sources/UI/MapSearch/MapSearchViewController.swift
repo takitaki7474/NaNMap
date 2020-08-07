@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MapSearchView: class {
+    func reloadData()
+}
+
 final class MapSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var searchBar: UISearchBar!
@@ -24,7 +28,7 @@ final class MapSearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapSearchPresenter = MapSearchViewPresenter(mapPresenter: mapPresenter)
+        mapSearchPresenter = MapSearchViewPresenter(view: self, mapPresenter: mapPresenter)
         setUpDefaultTableView()
         setUpNavigationBar()
     }
@@ -49,6 +53,13 @@ extension MapSearchViewController {
         searchBar.becomeFirstResponder()
         searchBar.delegate = self
         navigationItem.titleView = searchBar
+    }
+}
+
+extension MapSearchViewController: MapSearchView {
+    func reloadData() {
+        tableView.reloadData()
+        print("aaaaa")
     }
 }
 
@@ -78,7 +89,7 @@ extension MapSearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText != "" {
             isSearchActive = true
-            print(searchText)
+            mapSearchPresenter.searchBuilding(with: searchText)
         } else {
             isSearchActive = false
         }

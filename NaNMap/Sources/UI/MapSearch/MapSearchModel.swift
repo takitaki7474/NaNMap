@@ -24,8 +24,18 @@ class MapFacilityObj: Object {
     @objc dynamic var floor = ""
 }
 
+protocol MapSearchModelDelegate: class {
+    func searchModel()
+}
+
 final class MapSearchModel {
+    weak var delegate: MapSearchModelDelegate?
     var buildings: [Building]?
+    var buildingSearchResults: Results<MapBuildingObj>? {
+        didSet {
+            delegate?.searchModel()
+        }
+    }
     
     init() {
         loadBuildingsData()
@@ -65,5 +75,17 @@ final class MapSearchModel {
             }
             print("save MapBuildingObj on realm")
         }
+    }
+}
+
+extension MapSearchModel {
+    func searchBuilding(with query: String) {
+        let realm = try! Realm()
+        var result = realm.objects(MapBuildingObj.self)
+        let buildingPredicate = NSPredicate(format: "building CONTAINS %@", argumentArray: [query])
+        let facilityNamePredicate = NSPredicate(format: "SUBQUERY(facilities, $facility, $facility.facilityName CONTAINS %@).@count >= 1", argumentArray: [query])
+        let predicate = NSCompoundPredicate(orPredicateWithSubpredicates: [buildingPredicate, facilityNamePredicate])
+        result = result.filter(predicate)
+        self.buildingSearchResults = result
     }
 }
