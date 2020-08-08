@@ -69,7 +69,6 @@ final class MapSearchModel {
                 print("save MapFacilityObj on realm")
             }
         }
-        print(realm.objects(MapFacilityObj.self))
     }
 }
 

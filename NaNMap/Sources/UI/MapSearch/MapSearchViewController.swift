@@ -68,7 +68,7 @@ extension MapSearchViewController: UITableViewDataSource, UITableViewDelegate {
         if isSearchActive == false {
             return titles.count
         } else {
-            return 0
+            return mapSearchPresenter.numberOfFacilitySearchResults
         }
     }
     
@@ -76,14 +76,32 @@ extension MapSearchViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath) as! MapSearchViewCell
         if isSearchActive == false {
             cell.accessoryType = .disclosureIndicator
-            cell.textLabel?.text = titles[indexPath.row]
+            cell.facilityNameLabel.center = CGPoint(x: cell.frame.width/2, y: cell.frame.height/2)
+            cell.facilityNameLabel.font = UIFont.systemFont(ofSize: 17.0)
+            cell.display(facilityName: titles[indexPath.row])
+            cell.display(location: "")
+        } else {
+            let mapFacilityObj = mapSearchPresenter.loadFacilitySearchResult(at: indexPath.row)
+            cell.accessoryType = .none
+            cell.display(facilityName: mapFacilityObj.facilityName)
+            cell.display(location: mapFacilityObj.building)
         }
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if isSearchActive == false {
+            return 43.5
+        } else {
+            return 60.0
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = MapSearchDefaultResultViewController.instantiate(mapSearchPresenter: mapSearchPresenter)
-        navigationController?.pushViewController(vc, animated: true)
+        if isSearchActive == false {
+            let vc = MapSearchDefaultResultViewController.instantiate(mapSearchPresenter: mapSearchPresenter)
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
