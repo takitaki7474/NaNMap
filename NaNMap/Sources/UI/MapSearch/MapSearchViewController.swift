@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol MapSearchView: class {
+    func reloadData()
+}
+
 final class MapSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    
     var searchBar: UISearchBar!
+    var isSearchActive: Bool = false
     private var titles: [String] = ["棟の検索"]
     private var mapPresenter: MapPresenter!
     private var mapSearchPresenter: MapSearchPresenter!
@@ -23,7 +29,7 @@ final class MapSearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapSearchPresenter = MapSearchViewPresenter(mapPresenter: mapPresenter)
+        mapSearchPresenter = MapSearchViewPresenter(view: self, mapPresenter: mapPresenter)
         setUpDefaultTableView()
         setUpNavigationBar()
     }
@@ -42,28 +48,79 @@ extension MapSearchViewController {
     
     func setUpSearchBar() {
         searchBar = UISearchBar()
-        searchBar.placeholder = "建物や教室を検索"
+        searchBar.placeholder = "建物や施設を検索"
         searchBar.searchTextField.backgroundColor = UIColor.white
         searchBar.tintColor = UIColor.gray
         searchBar.becomeFirstResponder()
+        searchBar.delegate = self
         navigationItem.titleView = searchBar
+    }
+}
+
+extension MapSearchViewController: MapSearchView {
+    func reloadData() {
+        tableView.reloadData()
     }
 }
 
 extension MapSearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titles.count
+        if isSearchActive == false {
+            return titles.count
+        } else {
+            return mapSearchPresenter.numberOfFacilitySearchResults
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath)
-        cell.accessoryType = .disclosureIndicator
-        cell.textLabel?.text = titles[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath) as! MapSearchViewCell
+        if isSearchActive == false {
+            cell.accessoryType = .disclosureIndicator
+            cell.facilityNameLabel.center = CGPoint(x: cell.frame.width/2, y: cell.frame.height/2)
+            cell.facilityNameLabel.font = UIFont.systemFont(ofSize: 17.0)
+            cell.display(facilityName: titles[indexPath.row])
+            cell.display(location: "")
+        } else {
+            let mapFacilityObj = mapSearchPresenter.loadFacilitySearchResult(at: indexPath.row)
+            cell.accessoryType = .none
+            cell.display(facilityName: mapFacilityObj.facilityName)
+            cell.display(location: mapFacilityObj.building)
+        }
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if isSearchActive == false {
+            return 43.5
+        } else {
+            return 60.0
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = MapSearchDefaultResultViewController.instantiate(mapSearchPresenter: mapSearchPresenter)
-        navigationController?.pushViewController(vc, animated: true)
+        if isSearchActive == false {
+            let vc = MapSearchDefaultResultViewController.instantiate(mapSearchPresenter: mapSearchPresenter)
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let mapFacilityObj = mapSearchPresenter.loadFacilitySearchResult(at: indexPath.row)
+            mapPresenter.addAnnotation(with: mapFacilityObj)
+            navigationController?.popViewController(animated: true)
+        }
+    }
+}
+
+extension MapSearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != "" {
+            isSearchActive = true
+            mapSearchPresenter.searchFacility(with: searchText)
+        } else {
+            isSearchActive = false
+            reloadData()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
     }
 }

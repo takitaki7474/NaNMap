@@ -146,4 +146,8 @@ extension SyllabusSearchViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         syllabusSearchPresenter.loadTappedScheduleSyllabus(by: classSchedule)
     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchController.searchBar.endEditing(true)
+    }
 }

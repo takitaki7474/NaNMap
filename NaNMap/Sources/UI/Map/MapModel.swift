@@ -10,6 +10,7 @@ import RealmSwift
 
 class AnnotationObj: Object {
     @objc dynamic var title = ""
+    @objc dynamic var subtitle = ""
     @objc dynamic var longitude: Double = 0.0
     @objc dynamic var latitude: Double = 0.0
     @objc dynamic var annotationID = 0
@@ -57,7 +58,7 @@ final class MapModel {
         }
     }
     
-    func addAnnotation(_ title: String, _ coordinate: (Double, Double)) {
+    func addAnnotation(title: String, subtitle: String, coordinate: (Double, Double)) {
         let realm = try! Realm()
         if realm.objects(AnnotationObj.self).filter("title == %@", title).count == 0 {
             let annotation = AnnotationObj()
@@ -67,6 +68,7 @@ final class MapModel {
                 annotation.annotationID = 0
             }
             annotation.title = title
+            annotation.subtitle = subtitle
             annotation.longitude = coordinate.0
             annotation.latitude = coordinate.1
             try! realm.write {

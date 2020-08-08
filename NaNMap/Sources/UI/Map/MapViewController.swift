@@ -69,6 +69,7 @@ extension MapViewController: MapView {
         for annotation in annotations {
             let point = MKPointAnnotation()
             point.title = annotation.title
+            point.subtitle = annotation.subtitle
             point.coordinate = CLLocationCoordinate2D(latitude: annotation.latitude, longitude: annotation.longitude)
             points.append(point)
         }
@@ -78,6 +79,7 @@ extension MapViewController: MapView {
     func addAnnotation(annotation: AnnotationObj) {
         let point = MKPointAnnotation()
         point.title = annotation.title
+        point.subtitle = annotation.subtitle
         point.coordinate = CLLocationCoordinate2D(latitude: annotation.latitude, longitude: annotation.longitude)
         mapView.addAnnotation(point)
     }
@@ -93,7 +95,13 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let pin = MKMarkerAnnotationView()
         pin.annotation = annotation
-        pin.markerTintColor = UIColor.rgba(red: 85, green: 104, blue: 211)
+        if let subtitle = annotation.subtitle! {
+            if subtitle == "" {
+                pin.markerTintColor = UIColor.rgba(red: 85, green: 104, blue: 211)
+            } else {
+                pin.markerTintColor = UIColor.rgba(red: 250, green: 166, blue: 26)
+            }
+        }
         pin.canShowCallout = true
         let deleteButton = UIButton()
         deleteButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
