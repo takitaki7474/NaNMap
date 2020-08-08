@@ -101,6 +101,10 @@ extension MapSearchViewController: UITableViewDataSource, UITableViewDelegate {
         if isSearchActive == false {
             let vc = MapSearchDefaultResultViewController.instantiate(mapSearchPresenter: mapSearchPresenter)
             navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let mapFacilityObj = mapSearchPresenter.loadFacilitySearchResult(at: indexPath.row)
+            mapPresenter.addAnnotation(with: mapFacilityObj)
+            navigationController?.popViewController(animated: true)
         }
     }
 }
