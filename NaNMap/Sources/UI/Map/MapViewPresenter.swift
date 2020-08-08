@@ -23,9 +23,10 @@ final class MapViewPresenter: MapPresenter {
     
     func addAnnotation(with info: [Building], at index: Int) {
         let title: String = info[index].building
+        let subtitle: String = ""
         let longitude: Double = info[index].coordinate.longitude
         let latitude: Double = info[index].coordinate.latitude
-        model.addAnnotation(title, (longitude, latitude))
+        model.addAnnotation(title: title, subtitle: subtitle, coordinate: (longitude, latitude))
     }
     
     func removeAnnotation(title: String?) {

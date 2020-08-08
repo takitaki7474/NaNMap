@@ -69,6 +69,7 @@ extension MapViewController: MapView {
         for annotation in annotations {
             let point = MKPointAnnotation()
             point.title = annotation.title
+            point.subtitle = annotation.subtitle
             point.coordinate = CLLocationCoordinate2D(latitude: annotation.latitude, longitude: annotation.longitude)
             points.append(point)
         }
@@ -78,6 +79,7 @@ extension MapViewController: MapView {
     func addAnnotation(annotation: AnnotationObj) {
         let point = MKPointAnnotation()
         point.title = annotation.title
+        point.subtitle = annotation.subtitle
         point.coordinate = CLLocationCoordinate2D(latitude: annotation.latitude, longitude: annotation.longitude)
         mapView.addAnnotation(point)
     }
