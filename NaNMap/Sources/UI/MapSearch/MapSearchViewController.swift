@@ -48,7 +48,7 @@ extension MapSearchViewController {
     
     func setUpSearchBar() {
         searchBar = UISearchBar()
-        searchBar.placeholder = "建物や教室を検索"
+        searchBar.placeholder = "建物や施設を検索"
         searchBar.searchTextField.backgroundColor = UIColor.white
         searchBar.tintColor = UIColor.gray
         searchBar.becomeFirstResponder()
