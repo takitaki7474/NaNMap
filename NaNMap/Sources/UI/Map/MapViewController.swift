@@ -25,6 +25,7 @@ final class MapViewController: UIViewController {
         presenter = MapViewPresenter(view: self)
         mapView.delegate = self
         initMapRegion()
+        initTrackingButton()
         setUpNavigationBar()
         setUpTabBar()
     }
@@ -40,6 +41,15 @@ extension MapViewController {
         let center = CLLocationCoordinate2D(latitude: 35.149405, longitude: 136.962477)
         let span = MKCoordinateSpan(latitudeDelta: 0.004, longitudeDelta: 0.004)
         mapView.region = MKCoordinateRegion(center: center, span: span)
+    }
+    
+    func initTrackingButton() {
+        let trackingBtn = MKUserTrackingButton(mapView: mapView)
+        trackingBtn.layer.backgroundColor = UIColor.rgba(red: 255, green: 255, blue: 255, alpha: 0.7).cgColor
+        let screenSize: CGSize = UIScreen.main.bounds.size
+        let tabBarHeight: CGFloat = tabBarController?.tabBar.frame.height ?? 49.0
+        trackingBtn.frame = CGRect(x: screenSize.width-55.0, y: screenSize.height-tabBarHeight-80.0, width: 40.0, height: 40.0)
+        view.addSubview(trackingBtn)
     }
 
     func setUpNavigationBar() {
