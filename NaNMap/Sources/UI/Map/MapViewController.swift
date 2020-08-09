@@ -91,6 +91,18 @@ extension MapViewController {
         tabBarController?.viewControllers?.append(nc)
     }
 }
+
+extension MapViewController {
+    private func alertChangeLocationServicesAuthorization() {
+        let message = "位置情報を取得するには, デバイスの「設定」>「プライバシー」>「位置情報サービス」から, NaNMapの設定を変更してください."
+        let alert = UIAlertController(title: "位置情報が取得できません", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: {
+            (action: UIAlertAction) -> Void in
+        })
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+}
     
 extension MapViewController: MapView {
     func loadAnnotations(annotations: [AnnotationObj]) {
@@ -147,7 +159,7 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapViewWillStartLocatingUser(_ mapView: MKMapView) {
         if CLLocationManager.authorizationStatus() == .denied {
-            print("vvvvvv")
+            alertChangeLocationServicesAuthorization()
         }
     }
 }
