@@ -28,6 +28,7 @@ final class MapViewController: UIViewController {
         super.viewDidLoad()
         presenter = MapViewPresenter(view: self)
         mapView.delegate = self
+        mapView.userLocation.title = "現在地"
         locManager = CLLocationManager()
         alertLocationServicesEnabled()
         initMapRegion()
@@ -136,6 +137,7 @@ extension MapViewController: MapView {
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation { return nil }
         let pin = MKMarkerAnnotationView()
         pin.annotation = annotation
         if let subtitle = annotation.subtitle! {
