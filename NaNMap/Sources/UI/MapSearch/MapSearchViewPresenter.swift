@@ -38,11 +38,6 @@ final class MapSearchViewPresenter: MapSearchPresenter {
     func loadDefaultSearchResultTitle(at index: Int) -> String {
         return model.defaultSearchResults![index].location
     }
-    /*
-    func tapBuildingCell(at index: Int) {
-        let info: [Building] = model.buildings!
-        mapPresenter.addAnnotation(with: info, at: index)
-    }*/
     
     func tapDefaultSearchResultCell(at index: Int) {
         let info: [Location] = model.defaultSearchResults!
