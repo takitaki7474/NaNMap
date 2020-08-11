@@ -8,7 +8,7 @@
 
 protocol MapPresenter {
     func addAnnotation(with info: [Building], at index: Int)
-    func addAnnotation(with info: MapFacilityObj)
+    func addAnnotation(with info: MapSearchLocationObj)
     func removeAnnotation(title: String?)
 }
 
@@ -30,9 +30,9 @@ final class MapViewPresenter: MapPresenter {
         model.addAnnotation(title: title, subtitle: subtitle, coordinate: (longitude, latitude))
     }
     
-    func addAnnotation(with info: MapFacilityObj) {
-        let title: String = info.facilityName
-        let subtitle: String = info.building
+    func addAnnotation(with info: MapSearchLocationObj) {
+        let title: String = info.locationName
+        let subtitle: String = info.subInfo
         let longitude: Double = info.longitude
         let latitude: Double = info.latitude
         model.addAnnotation(title: title, subtitle: subtitle, coordinate: (longitude, latitude))

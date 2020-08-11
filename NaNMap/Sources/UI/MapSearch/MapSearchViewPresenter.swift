@@ -8,11 +8,11 @@
 
 protocol MapSearchPresenter {
     var numberOfBuildings: Int { get }
-    var numberOfFacilitySearchResults: Int { get }
+    var numberOfLocationSearchResults: Int { get }
     func loadBuildingTitle(at index: Int) -> String
     func tapBuildingCell(at index: Int)
-    func searchFacility(with query: String)
-    func loadFacilitySearchResult(at index: Int) -> MapFacilityObj
+    func searchLocation(with query: String)
+    func loadLocationSearchResult(at index: Int) -> MapSearchLocationObj
 }
 
 final class MapSearchViewPresenter: MapSearchPresenter {
@@ -30,8 +30,8 @@ final class MapSearchViewPresenter: MapSearchPresenter {
         return model.buildings!.count
     }
     
-    var numberOfFacilitySearchResults: Int {
-        return model.facilitySearchResults!.count
+    var numberOfLocationSearchResults: Int {
+        return model.locationSearchResults!.count
     }
     
     func loadBuildingTitle(at index: Int) -> String {
@@ -43,12 +43,12 @@ final class MapSearchViewPresenter: MapSearchPresenter {
         mapPresenter.addAnnotation(with: info, at: index)
     }
     
-    func searchFacility(with query: String) {
-        model.searchFacility(with: query)
+    func searchLocation(with query: String) {
+        model.searchLocation(with: query)
     }
     
-    func loadFacilitySearchResult(at index: Int) -> MapFacilityObj {
-        return model.facilitySearchResults![index]
+    func loadLocationSearchResult(at index: Int) -> MapSearchLocationObj {
+        return model.locationSearchResults![index]
     }
 }
 
