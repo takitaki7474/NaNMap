@@ -30,6 +30,7 @@
 		217CB92B24E2F137003211B2 /* Buildings.json in Resources */ = {isa = PBXBuildFile; fileRef = 217CB92A24E2F137003211B2 /* Buildings.json */; };
 		217CB92D24E2FAA3003211B2 /* ClassroomBuildings.json in Resources */ = {isa = PBXBuildFile; fileRef = 217CB92C24E2FAA3003211B2 /* ClassroomBuildings.json */; };
 		217CB92F24E2FACE003211B2 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217CB92E24E2FACE003211B2 /* Location.swift */; };
+		217CB93324E30693003211B2 /* BookStores.json in Resources */ = {isa = PBXBuildFile; fileRef = 217CB93224E30693003211B2 /* BookStores.json */; };
 		218AD15524B3818A003BC33F /* SyllabusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218AD15424B3818A003BC33F /* SyllabusTableViewCell.swift */; };
 		2193ED7724D3004B00D49068 /* ClassLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2193ED7624D3004B00D49068 /* ClassLocationViewController.swift */; };
 		2193ED7924D3096400D49068 /* ClassLocationViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2193ED7824D3096400D49068 /* ClassLocationViewPresenter.swift */; };
@@ -77,6 +78,7 @@
 		217CB92A24E2F137003211B2 /* Buildings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Buildings.json; sourceTree = "<group>"; };
 		217CB92C24E2FAA3003211B2 /* ClassroomBuildings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ClassroomBuildings.json; sourceTree = "<group>"; };
 		217CB92E24E2FACE003211B2 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		217CB93224E30693003211B2 /* BookStores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BookStores.json; sourceTree = "<group>"; };
 		218AD15424B3818A003BC33F /* SyllabusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusTableViewCell.swift; sourceTree = "<group>"; };
 		2193ED7624D3004B00D49068 /* ClassLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassLocationViewController.swift; sourceTree = "<group>"; };
 		2193ED7824D3096400D49068 /* ClassLocationViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassLocationViewPresenter.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				217CB92A24E2F137003211B2 /* Buildings.json */,
 				21F8EDF224CEE9DE00447214 /* Buildings2.json */,
 				217CB92C24E2FAA3003211B2 /* ClassroomBuildings.json */,
+				217CB93224E30693003211B2 /* BookStores.json */,
 				214F5F96243C96690061FC45 /* Assets.xcassets */,
 				214F5F98243C96690061FC45 /* LaunchScreen.storyboard */,
 				214F5F9B243C96690061FC45 /* Info.plist */,
@@ -359,6 +362,7 @@
 			files = (
 				215FA06F24506C440079300A /* TimeTable.storyboard in Resources */,
 				21F8EDF324CEE9DE00447214 /* Buildings2.json in Resources */,
+				217CB93324E30693003211B2 /* BookStores.json in Resources */,
 				214F5F9A243C96690061FC45 /* LaunchScreen.storyboard in Resources */,
 				21715EB624AA1CEA00C9C3D6 /* Syllabus.json in Resources */,
 				214F5F97243C96690061FC45 /* Assets.xcassets in Resources */,

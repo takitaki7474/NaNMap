@@ -24,7 +24,7 @@ protocol MapSearchModelDelegate: class {
 final class MapSearchModel {
     weak var delegate: MapSearchModelDelegate?
     var buildings: [Building]?
-    var defaultSearchJSONNames: [String] = ["ClassroomBuildings"]
+    var defaultSearchJSONNames: [String] = ["ClassroomBuildings", "BookStores"]
     var defaultSearchResults: [Location]?
     var locationSearchResults: Results<MapSearchLocationObj>? {
         didSet {
