@@ -43,8 +43,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="facilityNameLabel" destination="9YJ-Cm-qoA" id="WTy-RC-qSb"/>
-                                            <outlet property="locationLabel" destination="EHq-FC-xqY" id="tFP-Ev-JK5"/>
+                                            <outlet property="locationNameLabel" destination="9YJ-Cm-qoA" id="zUf-bX-m4R"/>
+                                            <outlet property="subInfoLabel" destination="EHq-FC-xqY" id="l3R-v7-xm6"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

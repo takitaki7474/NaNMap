@@ -14,10 +14,9 @@ protocol MapSearchView: class {
 
 final class MapSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    
     var searchBar: UISearchBar!
     var isSearchActive: Bool = false
-    private var titles: [String] = ["棟の検索"]
+    private var titles: [String] = ["教室棟", "食堂", "コンビニ", "書店"]
     private var mapPresenter: MapPresenter!
     private var mapSearchPresenter: MapSearchPresenter!
     
@@ -68,7 +67,7 @@ extension MapSearchViewController: UITableViewDataSource, UITableViewDelegate {
         if isSearchActive == false {
             return titles.count
         } else {
-            return mapSearchPresenter.numberOfFacilitySearchResults
+            return mapSearchPresenter.numberOfLocationSearchResults
         }
     }
     
@@ -76,15 +75,14 @@ extension MapSearchViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath) as! MapSearchViewCell
         if isSearchActive == false {
             cell.accessoryType = .disclosureIndicator
-            cell.facilityNameLabel.center = CGPoint(x: cell.frame.width/2, y: cell.frame.height/2)
-            cell.facilityNameLabel.font = UIFont.systemFont(ofSize: 17.0)
-            cell.display(facilityName: titles[indexPath.row])
-            cell.display(location: "")
+            cell.locationNameLabel.font = UIFont.systemFont(ofSize: 17.0)
+            cell.display(locationName: titles[indexPath.row])
+            cell.display(subInfo: "")
         } else {
-            let mapFacilityObj = mapSearchPresenter.loadFacilitySearchResult(at: indexPath.row)
+            let mapSearchLocationObj = mapSearchPresenter.loadLocationSearchResult(at: indexPath.row)
             cell.accessoryType = .none
-            cell.display(facilityName: mapFacilityObj.facilityName)
-            cell.display(location: mapFacilityObj.building)
+            cell.display(locationName: mapSearchLocationObj.locationName)
+            cell.display(subInfo: mapSearchLocationObj.subInfo)
         }
         return cell
     }
@@ -99,11 +97,11 @@ extension MapSearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isSearchActive == false {
-            let vc = MapSearchDefaultResultViewController.instantiate(mapSearchPresenter: mapSearchPresenter)
+            let vc = MapSearchDefaultResultViewController.instantiate(mapSearchPresenter: mapSearchPresenter, defaultIndex: indexPath.row)
             navigationController?.pushViewController(vc, animated: true)
         } else {
-            let mapFacilityObj = mapSearchPresenter.loadFacilitySearchResult(at: indexPath.row)
-            mapPresenter.addAnnotation(with: mapFacilityObj)
+            let mapSearchLocationObj = mapSearchPresenter.loadLocationSearchResult(at: indexPath.row)
+            mapPresenter.addAnnotation(with: mapSearchLocationObj)
             navigationController?.popViewController(animated: true)
         }
     }
@@ -113,7 +111,7 @@ extension MapSearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText != "" {
             isSearchActive = true
-            mapSearchPresenter.searchFacility(with: searchText)
+            mapSearchPresenter.searchLocation(with: searchText)
         } else {
             isSearchActive = false
             reloadData()

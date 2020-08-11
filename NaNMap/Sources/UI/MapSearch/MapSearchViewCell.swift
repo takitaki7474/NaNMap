@@ -9,15 +9,17 @@
 import UIKit
 
 class MapSearchViewCell: UITableViewCell {
-    @IBOutlet weak var facilityNameLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
     
-    func display(facilityName: String) {
-        facilityNameLabel.text = facilityName
+    @IBOutlet weak var locationNameLabel: UILabel!
+    
+    @IBOutlet weak var subInfoLabel: UILabel!
+    func display(locationName: String) {
+        locationNameLabel.text = locationName
     }
     
-    func display(location: String?) {
-        let location = location ?? " - "
-        locationLabel.text = location
+    func display(subInfo: String?) {
+        var subInfo = subInfo ?? " - "
+        if subInfo == "" { subInfo = " - " }
+        subInfoLabel.text = subInfo
     }
 }

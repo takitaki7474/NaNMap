@@ -8,31 +8,81 @@
         "facilities": [
             {
                 "facilityName": "法曹実務教育研究センター",
-                "floor": "1F"
+                "floor": ""
             }
-        ]
-    },
-    {
-        "building": "B棟",
-        "coordinate": {
-            "longitude": 136.963565,
-            "latitude": 35.149563
-        },
+        ],
         "classrooms": [
             {
-                "classroomName": "B21",
-                "floor": "2F"
+                "classroomName": "A31",
+                "floor": "3F"
             },
+            {
+                "classroomName": "A32",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "A51",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "A52",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "A53",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "A54",
+                "floor": "5F"
+            }
+          ]
+      },
+      {
+          "building": "B棟",
+          "coordinate": {
+              "longitude": 136.963565,
+              "latitude": 35.149563
+          },
+          "classrooms": [
             {
                 "classroomName": "B11",
                 "floor": "1F"
+            },
+            {
+                "classroomName": "B21",
+                "floor": "2F"
             },
             {
                 "classroomName": "B22",
                 "floor": "2F"
             },
             {
+                "classroomName": "B31",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "B41",
+                "floor": "4F"
+            },
+            {
                 "classroomName": "B43",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "B44",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "B45",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "B46",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "B47",
                 "floor": "4F"
             }
         ]
@@ -46,15 +96,15 @@
         "facilities": [
             {
                 "facilityName": "学生課",
-                "floor": "1F"
+                "floor": ""
             },
             {
                 "facilityName": "教務課",
-                "floor": "1F"
+                "floor": ""
             },
             {
                 "facilityName": "1SYOKU",
-                "floor": "1F"
+                "floor": ""
             }
         ]
     },
@@ -67,29 +117,49 @@
         "facilities": [
             {
                 "facilityName": "人間関係研究センター",
-                "floor": "1F"
+                "floor": ""
             },
             {
                 "facilityName": "学生交流センター",
-                "floor": "1F"
+                "floor": ""
             },
             {
                 "facilityName": "教職センター",
-                "floor": "1F"
+                "floor": ""
             },
             {
-                "facilityName": "保険センター",
-                "floor": "1F"
+                "facilityName": "保健センター(保健室/学生相談室/特別修学支援室)",
+                "floor": ""
             }
         ],
         "classrooms": [
+            {
+                "classroomName": "D33",
+                "floor": "3F"
+            },
             {
                 "classroomName": "D34",
                 "floor": "3F"
             },
             {
-                "classroomName": "D33",
-                "floor": "3F"
+                "classroomName": "D41",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "D42",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "D43",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "D51",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "DB1",
+                "floor": "B1F"
             }
         ]
     },
@@ -101,12 +171,48 @@
         },
         "classrooms": [
             {
-                "classroomName": "E32",
-                "floor": "3F"
+                "classroomName": "E11",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "E12",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "E21",
+                "floor": "2F"
             },
             {
                 "classroomName": "E22",
                 "floor": "2F"
+            },
+            {
+                "classroomName": "E23",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "E24",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "E31",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "E32",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "E33",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "E34",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "EB1",
+                "floor": "B1F"
             }
         ]
     },
@@ -115,13 +221,84 @@
         "coordinate": {
             "longitude": 136.962129,
             "latitude": 35.150133
-        }
+        },
+        "classrooms": [
+            {
+                "classroomName": "F11",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "F12",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "F13",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "FB1",
+                "floor": "B1F"
+            },
+            {
+                "classroomName": "FB2",
+                "floor": "B1F"
+            }
+        ]
     },
     {
         "building": "G棟",
         "coordinate": {
             "longitude": 136.962403,
             "latitude": 35.149821
+        },
+        "classrooms": [
+            {
+                "classroomName": "G12",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "G21",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "G22",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "G23",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "G24",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "G25",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "G26",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "G27",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "G28",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "G30",
+                "floor": "3F"
+            }
+        ]
+    },
+    {
+        "building": "G30",
+        "coordinate": {
+            "longitude": 136.961887,
+            "latitude": 35.149702
         }
     },
     {
@@ -129,7 +306,77 @@
         "coordinate": {
             "longitude": 136.962424,
             "latitude": 35.149442
-        }
+        },
+        "classrooms": [
+            {
+                "classroomName": "H11",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "H12",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "H21",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "H22",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "H23",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "H24",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "H25",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "H26",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "H31",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "H32",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "H33",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "H34",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "H35",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "H36",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "HB1",
+                "floor": "B1F"
+            },
+            {
+                "classroomName": "HB2",
+                "floor": "B1F"
+            },
+            {
+                "classroomName": "HB3",
+                "floor": "B1F"
+            }
+        ]
     },
     {
         "building": "J棟",
@@ -140,31 +387,73 @@
         "facilities": [
             {
                 "facilityName": "経営研究センター",
-                "floor": "1F"
+                "floor": ""
             },
             {
                 "facilityName": "社会倫理研究所",
-                "floor": "1F"
+                "floor": ""
             },
             {
                 "facilityName": "アメリカ研究センター",
-                "floor": "1F"
+                "floor": ""
             },
             {
                 "facilityName": "ラテンアメリカ研究センター",
-                "floor": "1F"
+                "floor": ""
             },
             {
                 "facilityName": "ヨーロッパ研究センター",
-                "floor": "1F"
+                "floor": ""
             },
             {
                 "facilityName": "アジア・太平洋研究センター",
-                "floor": "1F"
+                "floor": ""
             },
             {
                 "facilityName": "地域研究センター図書館",
-                "floor": "1F"
+                "floor": ""
+            },
+        ],
+        "classrooms": [
+            {
+                "classroomName": "J31",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "J32",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "J35",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "J36",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "J37",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "J51",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "J52",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "J53",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "J54",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "J55",
+                "floor": "5F"
             },
         ]
     },
@@ -173,6 +462,862 @@
         "coordinate": {
             "longitude": 136.962658,
             "latitude": 35.149090
+        },
+        "classrooms": [
+            {
+                "classroomName": "K21",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "K22",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "K23",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "K25",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "K37",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "KB1",
+                "floor": "B1F"
+            },
+            {
+                "classroomName": "KB2",
+                "floor": "B1F"
+            }
+        ]
+    },
+    {
+        "building": "L棟",
+        "coordinate": {
+          "longitude": 136.961904,
+          "latitude": 35.149322
+        },
+        "facilities": [
+            {
+                "facilityName": "ヒルシュマイヤー記念館",
+                "floor": ""
+            },
+            {
+                "facilityName": "言語学研究センター",
+                "floor": ""
+            },
+            {
+                "facilityName": "視聴覚研究センター",
+                "floor": ""
+            },
+            {
+                "facilityName": "南山エクステンション",
+                "floor": ""
+            },
+            {
+                "facilityName": "カレッジ事務室",
+                "floor": ""
+            },
+        ],
+        "classrooms": [
+            {
+                "classroomName": "L11",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "L12",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "L13",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "L14",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "LB1",
+                "floor": "B1F"
+            },
+            {
+                "classroomName": "LB2",
+                "floor": "B1F"
+            },
+            {
+                "classroomName": "LB3",
+                "floor": "B1F"
+            },
+            {
+                "classroomName": "LB4",
+                "floor": "B1F"
+            },
+            {
+                "classroomName": "LL2",
+                "floor": "B2F"
+            },
+            {
+                "classroomName": "LL3",
+                "floor": "B2F"
+            },
+            {
+                "classroomName": "LL4",
+                "floor": "B2F"
+            }
+        ]
+    },
+    {
+        "building": "M棟",
+        "coordinate": {
+            "longitude": 136.963002,
+            "latitude": 35.149197
+        },
+        "classrooms": [
+            {
+                "classroomName": "M1",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "M2",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "MB1",
+                "floor": "B1F"
+            },
+            {
+                "classroomName": "MB11",
+                "floor": "B1F"
+            },
+            {
+                "classroomName": "MB12",
+                "floor": "B1F"
+            },
+            {
+                "classroomName": "MB2",
+                "floor": "B2F"
+            },
+        ]
+    },
+    {
+        "building": "N棟",
+        "coordinate": {
+            "longitude": 136.963513,
+            "latitude": 35.149069
+        },
+        "facilities": [
+            {
+                "facilityName": "ラーニング・コモンズ",
+                "floor": ""
+            }
+        ]
+    },
+    {
+        "building": "Q棟",
+        "coordinate": {
+            "longitude": 136.962232,
+            "latitude": 35.150574
+        },
+        "facilities": [
+            {
+                "facilityName": "キャリア支援室",
+                "floor": ""
+            },
+            {
+                "facilityName": "ラーニング・コモンズ",
+                "floor": ""
+            }
+        ],
+        "classrooms": [
+            {
+                "classroomName": "Q101",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "Q102",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "Q103",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "Q104",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "Q301",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "Q302",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "Q303",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "Q304",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "Q305",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "Q306",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "Q307",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "Q308",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "Q309",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "Q310",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "Q311",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "Q312",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "Q313",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "Q314",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "Q315",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "Q415",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "Q416",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "Q417",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "Q418",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "Q501",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "Q502",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "Q503",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "Q504",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "Q601",
+                "floor": "6F"
+            },
+            {
+                "classroomName": "Q602",
+                "floor": "6F"
+            },
+            {
+                "classroomName": "Q603",
+                "floor": "6F"
+            },
+            {
+                "classroomName": "Q604",
+                "floor": "6F"
+            },
+            {
+                "classroomName": "Q605",
+                "floor": "6F"
+            },
+            {
+                "classroomName": "Q606",
+                "floor": "6F"
+            },
+            {
+                "classroomName": "Q701",
+                "floor": "7F"
+            },
+            {
+                "classroomName": "Q702",
+                "floor": "7F"
+            }
+        ]
+    },
+    {
+        "building": "R棟",
+        "coordinate": {
+            "longitude": 136.962166,
+            "latitude": 35.147855
+        },
+        "facilities": [
+            {
+               "facilityName": "フラッテンホール",
+               "floor": ""
+            },
+            {
+               "facilityName": "国際センター",
+               "floor": ""
+            },
+            {
+               "facilityName": "外国語教育センター",
+               "floor": ""
+            },
+            {
+               "facilityName": "ワールドプラザ",
+               "floor": ""
+            },
+            {
+               "facilityName": "ジャパンプラザ",
+               "floor": ""
+            },
+            {
+               "facilityName": "多文化交流ラウンジ",
+               "floor": ""
+            },
+            {
+               "facilityName": "人類学博物館",
+               "floor": ""
+            },
+            {
+               "facilityName": "礼拝室",
+               "floor": ""
+            }
+        ],
+        "classrooms": [
+            {
+                "classroomName": "R34",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "R35",
+                "floor": "3F"
+            },
+            {
+                "classroomName": "R44",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "R45",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "R46",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "R47",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "R48",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "R49",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "R51",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "R52",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "R53",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "R54",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "R55",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "R56",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "R57",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "R58",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "R59",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "R61",
+                "floor": "6F"
+            },
+            {
+                "classroomName": "R62",
+                "floor": "6F"
+            },
+            {
+                "classroomName": "R63",
+                "floor": "6F"
+            },
+            {
+                "classroomName": "R64",
+                "floor": "6F"
+            },
+            {
+                "classroomName": "R65",
+                "floor": "6F"
+            },
+            {
+                "classroomName": "R66",
+                "floor": "6F"
+            }
+        ]
+    },
+    {
+        "building": "S棟",
+        "coordinate": {
+            "longitude": 136.964098,
+            "latitude": 35.150111
+        },
+        "facilities": [
+            {
+                "facilityName": "情報センター",
+                "floor": ""
+            },
+            {
+                "facilityName": "理工学研究センター",
+                "floor": ""
+            },
+            {
+                "facilityName": "BISTRO CEZARS",
+                "floor": ""
+            },
+            {
+                "facilityName": "丸善",
+                "floor": ""
+            },
+            {
+                "facilityName": "LAWSON",
+                "floor": ""
+            },
+            {
+                "facilityName": "ラーニング・コモンズ",
+                "floor": ""
+            }
+        ],
+        "classrooms": [
+            {
+                "classroomName": "S11",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "S12",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "S13",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "S15",
+                "floor": "1F"
+            },
+            {
+                "classroomName": "S21",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "S22",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "S23",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "S24",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "S25",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "S26",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "S27",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "S28",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "S29",
+                "floor": "2F"
+            },
+            {
+                "classroomName": "S41",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "S42",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "S43",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "S44",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "S45",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "S46",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "S47",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "S48",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "S49",
+                "floor": "4F"
+            },
+            {
+                "classroomName": "S51",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "S52",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "S53",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "S54",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "S55",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "S56",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "S57",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "S58",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "S59",
+                "floor": "5F"
+            },
+            {
+                "classroomName": "S61",
+                "floor": "6F"
+            },
+            {
+                "classroomName": "S62",
+                "floor": "6F"
+            },
+            {
+                "classroomName": "S63",
+                "floor": "6F"
+            },
+            {
+                "classroomName": "S64",
+                "floor": "6F"
+            },
+            {
+                "classroomName": "S65",
+                "floor": "6F"
+            },
+            {
+                "classroomName": "S66",
+                "floor": "6F"
+            },
+            {
+                "classroomName": "S67",
+                "floor": "6F"
+            },
+            {
+                "classroomName": "S68",
+                "floor": "6F"
+            },
+            {
+                "classroomName": "S71",
+                "floor": "7F"
+            },
+            {
+                "classroomName": "S72",
+                "floor": "7F"
+            },
+            {
+                "classroomName": "S73",
+                "floor": "7F"
+            },
+            {
+                "classroomName": "S74",
+                "floor": "7F"
+            }
+        ]
+    },
+    {
+        "building": "体育館",
+        "coordinate": {
+            "longitude": 136.961154,
+            "latitude": 35.150367
+        }
+    },
+    {
+        "building": "体育センター",
+        "coordinate": {
+            "longitude": 136.960799,
+            "latitude": 35.150872
+        },
+        "facilities": [
+            {
+                "facilityName": "体育教育センター",
+                "floor": ""
+            },
+            {
+                "facilityName": "メインアリーナ",
+                "floor": ""
+            },
+            {
+                "facilityName": "室内プール",
+                "floor": ""
+            },
+            {
+                "facilityName": "第3食堂",
+                "floor": ""
+            }
+        ]
+    },
+    {
+        "building": "図書館",
+        "coordinate": {
+            "longitude": 136.961997,
+            "latitude": 35.148410
+        }
+    },
+    {
+        "building": "本部棟",
+        "coordinate": {
+            "longitude": 136.963261,
+            "latitude": 35.148016
+        },
+        "facilities": [
+            {
+                "facilityName": "入試課",
+                "floor": ""
+            },
+            {
+                "facilityName": "総務課",
+                "floor": ""
+            },
+            {
+                "facilityName": "教育・研究支援事務室",
+                "floor": ""
+            },
+            {
+                "facilityName": "ウエルオン",
+                "floor": ""
+            }
+        ]
+    },
+    {
+        "building": "第1研究室棟",
+        "coordinate": {
+            "longitude": 136.962275,
+            "latitude": 35.148825
+        }
+    },
+    {
+        "building": "第2研究室棟",
+        "coordinate": {
+            "longitude": 136.963540,
+            "latitude": 35.148866
+        },
+        "facilities": [
+            {
+                "facilityName": "ラーニング・コモンズ",
+                "floor": ""
+            }
+        ]
+    },
+    {
+        "building": "南山宗教文化研究所",
+        "coordinate": {
+            "longitude": 136.964109,
+            "latitude": 35.149021
+        }
+    },
+    {
+        "building": "人類学研究所",
+        "coordinate": {
+            "longitude": 136.964109,
+            "latitude": 35.149021
+        }
+    },
+    {
+        "building": "ロゴスセンター",
+        "coordinate": {
+            "longitude": 136.963006,
+            "latitude": 35.149661
+        },
+        "facilities": [
+            {
+                "facilityName": "キリスト教センター",
+                "floor": ""
+            }
+        ]
+    },
+    {
+        "building": "コパン(学生会館)",
+        "coordinate": {
+            "longitude": 136.961353,
+            "latitude": 35.150970
+        },
+        "facilities": [
+            {
+                "facilityName": "研修センター",
+                "floor": ""
+            },
+            {
+                "facilityName": "DA・GA・NE",
+                "floor": ""
+            },
+            {
+                "facilityName": "ブォーノ",
+                "floor": ""
+            },
+            {
+                "facilityName": "ベーカリーブォーノ",
+                "floor": ""
+            },
+            {
+                "facilityName": "CEZARS CAFE",
+                "floor": ""
+            },
+            {
+                "facilityName": "LAWSON",
+                "floor": ""
+            },
+            {
+                "facilityName": "紀伊國屋書店",
+                "floor": ""
+            },
+            {
+                "facilityName": "NES",
+                "floor": ""
+            },
+        ]
+    },
+    {
+        "building": "リアン",
+        "coordinate": {
+            "longitude": 136.961966,
+            "latitude": 35.147329
+        },
+        "facilities": [
+            {
+                "facilityName": "リアンカフェ",
+                "floor": ""
+            },
+            {
+                "facilityName": "クラブハウス",
+                "floor": ""
+            }
+        ]
+    },
+    {
+        "building": "クラブハウス",
+        "coordinate": {
+            "longitude": 136.960668,
+            "latitude": 35.150308
+        }
+    },
+    {
+        "building": "第2クラブハウス",
+        "coordinate": {
+            "longitude": 136.962110,
+            "latitude": 35.150987
+        }
+    },
+    {
+        "building": "同窓会館",
+        "coordinate": {
+            "longitude": 136.963994,
+            "latitude": 35.148463
+        }
+    },
+    {
+        "building": "名古屋交流会館",
+        "coordinate": {
+            "longitude": 136.962612,
+            "latitude": 35.146887
+        }
+    },
+    {
+        "building": "神言神学院(神言会)",
+        "coordinate": {
+            "longitude": 136.964987,
+            "latitude": 35.150339
         }
     }
 ]

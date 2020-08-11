@@ -9,15 +9,12 @@
 import Foundation
 import RealmSwift
 
-class MapFacilityObj: Object {
-    @objc dynamic var facilityName = ""
+class MapSearchLocationObj: Object {
+    @objc dynamic var locationName = ""
+    @objc dynamic var subInfo = ""
     @objc dynamic var floor = ""
-    @objc dynamic var building = ""
     @objc dynamic var longitude = 0.0
     @objc dynamic var latitude = 0.0
-    override static func primaryKey() -> String? {
-        return "facilityName"
-    }
 }
 
 protocol MapSearchModelDelegate: class {
@@ -27,7 +24,9 @@ protocol MapSearchModelDelegate: class {
 final class MapSearchModel {
     weak var delegate: MapSearchModelDelegate?
     var buildings: [Building]?
-    var facilitySearchResults: Results<MapFacilityObj>? {
+    var defaultSearchJSONNames: [String] = ["ClassroomBuildings", "Cafeterias", "ConvenienceStores", "BookStores"]
+    var defaultSearchResults: [Location]?
+    var locationSearchResults: Results<MapSearchLocationObj>? {
         didSet {
             delegate?.searchModel()
         }
@@ -46,23 +45,39 @@ final class MapSearchModel {
             return
         }
         self.buildings = buildings
-        saveMapFacilityObj(buildings: buildings)
+        saveMapSearchLocationObj(buildings: buildings)
     }
     
-    private func saveMapFacilityObj(buildings: [Building]) {
+    private func saveMapSearchLocationObj(buildings: [Building]) {
         let realm = try! Realm()
-        if realm.objects(MapFacilityObj.self).count == 0 {
+        if realm.objects(MapSearchLocationObj.self).count == 0 {
             try! realm.write {
                 for building in buildings {
+                    let mapSearchLocationObj = MapSearchLocationObj()
+                    mapSearchLocationObj.locationName = building.building
+                    mapSearchLocationObj.longitude = building.coordinate.longitude
+                    mapSearchLocationObj.latitude = building.coordinate.latitude
+                    realm.add(mapSearchLocationObj)
                     if let facilities = building.facilities {
                         for facility in facilities {
-                            let mapFacilityObj = MapFacilityObj()
-                            mapFacilityObj.facilityName = facility.facilityName
-                            mapFacilityObj.floor = facility.floor
-                            mapFacilityObj.building = building.building
-                            mapFacilityObj.longitude = building.coordinate.longitude
-                            mapFacilityObj.latitude = building.coordinate.latitude
-                            realm.add(mapFacilityObj)
+                            let mapSearchLocationObj = MapSearchLocationObj()
+                            mapSearchLocationObj.locationName = facility.facilityName
+                            mapSearchLocationObj.subInfo = building.building
+                            mapSearchLocationObj.floor = facility.floor
+                            mapSearchLocationObj.longitude = building.coordinate.longitude
+                            mapSearchLocationObj.latitude = building.coordinate.latitude
+                            realm.add(mapSearchLocationObj)
+                        }
+                    }
+                    if let classrooms = building.classrooms {
+                        for classroom in classrooms {
+                            let mapSearchLocationObj = MapSearchLocationObj()
+                            mapSearchLocationObj.locationName = classroom.classroomName
+                            mapSearchLocationObj.subInfo = building.building
+                            mapSearchLocationObj.floor = classroom.floor
+                            mapSearchLocationObj.longitude = building.coordinate.longitude
+                            mapSearchLocationObj.latitude = building.coordinate.latitude
+                            realm.add(mapSearchLocationObj)
                         }
                     }
                 }
@@ -70,16 +85,27 @@ final class MapSearchModel {
             }
         }
     }
+    
+    func loadDefaultSearchResults(defaultIndex: Int) {
+        let path = Bundle.main.path(forResource: defaultSearchJSONNames[defaultIndex], ofType: "json")
+        let url = URL(fileURLWithPath: path!)
+        let data = try? Data(contentsOf: url)
+        let decoder = JSONDecoder()
+        guard let locations = try? decoder.decode([Location].self, from: data!) else {
+            return
+        }
+        self.defaultSearchResults = locations
+    }
 }
 
 extension MapSearchModel {
-    func searchFacility(with query: String) {
+    func searchLocation(with query: String) {
         let realm = try! Realm()
-        var result = realm.objects(MapFacilityObj.self)
-        let buildingPredicate = NSPredicate(format: "building CONTAINS %@", argumentArray: [query])
-        let facilityNamePredicate = NSPredicate(format: "facilityName CONTAINS %@", argumentArray: [query])
-        let predicate = NSCompoundPredicate(orPredicateWithSubpredicates: [buildingPredicate, facilityNamePredicate])
+        var result = realm.objects(MapSearchLocationObj.self)
+        let locationNamePredicate = NSPredicate(format: "locationName CONTAINS %@", argumentArray: [query])
+        let subInfoPredicate = NSPredicate(format: "subInfo CONTAINS %@", argumentArray: [query])
+        let predicate = NSCompoundPredicate(orPredicateWithSubpredicates: [locationNamePredicate, subInfoPredicate])
         result = result.filter(predicate)
-        self.facilitySearchResults = result
+        self.locationSearchResults = result
     }
 }
