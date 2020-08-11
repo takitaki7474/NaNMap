@@ -27,6 +27,7 @@
 		217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */; };
 		217182F5243E27E1004B5E5A /* MapSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217182F4243E27E1004B5E5A /* MapSearch.storyboard */; };
 		217182F7243E2835004B5E5A /* MapSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F6243E2835004B5E5A /* MapSearchViewController.swift */; };
+		217CB92B24E2F137003211B2 /* Buildings.json in Resources */ = {isa = PBXBuildFile; fileRef = 217CB92A24E2F137003211B2 /* Buildings.json */; };
 		218AD15524B3818A003BC33F /* SyllabusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218AD15424B3818A003BC33F /* SyllabusTableViewCell.swift */; };
 		2193ED7724D3004B00D49068 /* ClassLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2193ED7624D3004B00D49068 /* ClassLocationViewController.swift */; };
 		2193ED7924D3096400D49068 /* ClassLocationViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2193ED7824D3096400D49068 /* ClassLocationViewPresenter.swift */; };
@@ -39,7 +40,7 @@
 		21B7946D24D461DA00EC642B /* ClassInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B7946C24D461DA00EC642B /* ClassInformationView.xib */; };
 		21B7946F24D4741000EC642B /* ClassInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7946E24D4741000EC642B /* ClassInformationView.swift */; };
 		21DABDDF24D07A0800BF8D31 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DABDDE24D07A0800BF8D31 /* UINavigationController+Extensions.swift */; };
-		21F8EDF324CEE9DE00447214 /* Buildings.json in Resources */ = {isa = PBXBuildFile; fileRef = 21F8EDF224CEE9DE00447214 /* Buildings.json */; };
+		21F8EDF324CEE9DE00447214 /* Buildings2.json in Resources */ = {isa = PBXBuildFile; fileRef = 21F8EDF224CEE9DE00447214 /* Buildings2.json */; };
 		21F8EDF524CF181600447214 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8EDF424CF181600447214 /* Building.swift */; };
 		21FA66782497528900961EA0 /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA66772497528900961EA0 /* MapViewPresenter.swift */; };
 		21FA667A2497907200961EA0 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA66792497907200961EA0 /* MapModel.swift */; };
@@ -71,6 +72,7 @@
 		217182F2243DE70B004B5E5A /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		217182F4243E27E1004B5E5A /* MapSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapSearch.storyboard; sourceTree = "<group>"; };
 		217182F6243E2835004B5E5A /* MapSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchViewController.swift; sourceTree = "<group>"; };
+		217CB92A24E2F137003211B2 /* Buildings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Buildings.json; sourceTree = "<group>"; };
 		218AD15424B3818A003BC33F /* SyllabusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusTableViewCell.swift; sourceTree = "<group>"; };
 		2193ED7624D3004B00D49068 /* ClassLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassLocationViewController.swift; sourceTree = "<group>"; };
 		2193ED7824D3096400D49068 /* ClassLocationViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassLocationViewPresenter.swift; sourceTree = "<group>"; };
@@ -83,7 +85,7 @@
 		21B7946C24D461DA00EC642B /* ClassInformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassInformationView.xib; sourceTree = "<group>"; };
 		21B7946E24D4741000EC642B /* ClassInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInformationView.swift; sourceTree = "<group>"; };
 		21DABDDE24D07A0800BF8D31 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
-		21F8EDF224CEE9DE00447214 /* Buildings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Buildings.json; sourceTree = "<group>"; };
+		21F8EDF224CEE9DE00447214 /* Buildings2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Buildings2.json; sourceTree = "<group>"; };
 		21F8EDF424CF181600447214 /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		21FA66772497528900961EA0 /* MapViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
 		21FA66792497907200961EA0 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
@@ -163,7 +165,8 @@
 			children = (
 				21715EB524AA1CEA00C9C3D6 /* Syllabus.json */,
 				2113FC5224B6359E00AFB393 /* Filter.json */,
-				21F8EDF224CEE9DE00447214 /* Buildings.json */,
+				217CB92A24E2F137003211B2 /* Buildings.json */,
+				21F8EDF224CEE9DE00447214 /* Buildings2.json */,
 				214F5F96243C96690061FC45 /* Assets.xcassets */,
 				214F5F98243C96690061FC45 /* LaunchScreen.storyboard */,
 				214F5F9B243C96690061FC45 /* Info.plist */,
@@ -349,12 +352,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				215FA06F24506C440079300A /* TimeTable.storyboard in Resources */,
-				21F8EDF324CEE9DE00447214 /* Buildings.json in Resources */,
+				21F8EDF324CEE9DE00447214 /* Buildings2.json in Resources */,
 				214F5F9A243C96690061FC45 /* LaunchScreen.storyboard in Resources */,
 				21715EB624AA1CEA00C9C3D6 /* Syllabus.json in Resources */,
 				214F5F97243C96690061FC45 /* Assets.xcassets in Resources */,
 				217182F5243E27E1004B5E5A /* MapSearch.storyboard in Resources */,
 				214F5F95243C96670061FC45 /* Map.storyboard in Resources */,
+				217CB92B24E2F137003211B2 /* Buildings.json in Resources */,
 				2113FC5324B6359E00AFB393 /* Filter.json in Resources */,
 				21B7946D24D461DA00EC642B /* ClassInformationView.xib in Resources */,
 			);

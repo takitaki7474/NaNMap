@@ -15,9 +15,6 @@ class MapSearchLocationObj: Object {
     @objc dynamic var floor = ""
     @objc dynamic var longitude = 0.0
     @objc dynamic var latitude = 0.0
-    override static func primaryKey() -> String? {
-        return "locationName"
-    }
 }
 
 protocol MapSearchModelDelegate: class {
