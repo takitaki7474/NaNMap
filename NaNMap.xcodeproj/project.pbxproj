@@ -32,6 +32,7 @@
 		217CB92F24E2FACE003211B2 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217CB92E24E2FACE003211B2 /* Location.swift */; };
 		217CB93324E30693003211B2 /* BookStores.json in Resources */ = {isa = PBXBuildFile; fileRef = 217CB93224E30693003211B2 /* BookStores.json */; };
 		217CB93524E30B34003211B2 /* Cafeterias.json in Resources */ = {isa = PBXBuildFile; fileRef = 217CB93424E30B34003211B2 /* Cafeterias.json */; };
+		217CB93724E30C2D003211B2 /* ConvenienceStores.json in Resources */ = {isa = PBXBuildFile; fileRef = 217CB93624E30C2D003211B2 /* ConvenienceStores.json */; };
 		218AD15524B3818A003BC33F /* SyllabusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218AD15424B3818A003BC33F /* SyllabusTableViewCell.swift */; };
 		2193ED7724D3004B00D49068 /* ClassLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2193ED7624D3004B00D49068 /* ClassLocationViewController.swift */; };
 		2193ED7924D3096400D49068 /* ClassLocationViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2193ED7824D3096400D49068 /* ClassLocationViewPresenter.swift */; };
@@ -44,7 +45,6 @@
 		21B7946D24D461DA00EC642B /* ClassInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B7946C24D461DA00EC642B /* ClassInformationView.xib */; };
 		21B7946F24D4741000EC642B /* ClassInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B7946E24D4741000EC642B /* ClassInformationView.swift */; };
 		21DABDDF24D07A0800BF8D31 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DABDDE24D07A0800BF8D31 /* UINavigationController+Extensions.swift */; };
-		21F8EDF324CEE9DE00447214 /* Buildings2.json in Resources */ = {isa = PBXBuildFile; fileRef = 21F8EDF224CEE9DE00447214 /* Buildings2.json */; };
 		21F8EDF524CF181600447214 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F8EDF424CF181600447214 /* Building.swift */; };
 		21FA66782497528900961EA0 /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA66772497528900961EA0 /* MapViewPresenter.swift */; };
 		21FA667A2497907200961EA0 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA66792497907200961EA0 /* MapModel.swift */; };
@@ -81,6 +81,7 @@
 		217CB92E24E2FACE003211B2 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		217CB93224E30693003211B2 /* BookStores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BookStores.json; sourceTree = "<group>"; };
 		217CB93424E30B34003211B2 /* Cafeterias.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cafeterias.json; sourceTree = "<group>"; };
+		217CB93624E30C2D003211B2 /* ConvenienceStores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ConvenienceStores.json; sourceTree = "<group>"; };
 		218AD15424B3818A003BC33F /* SyllabusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusTableViewCell.swift; sourceTree = "<group>"; };
 		2193ED7624D3004B00D49068 /* ClassLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassLocationViewController.swift; sourceTree = "<group>"; };
 		2193ED7824D3096400D49068 /* ClassLocationViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassLocationViewPresenter.swift; sourceTree = "<group>"; };
@@ -93,7 +94,6 @@
 		21B7946C24D461DA00EC642B /* ClassInformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassInformationView.xib; sourceTree = "<group>"; };
 		21B7946E24D4741000EC642B /* ClassInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInformationView.swift; sourceTree = "<group>"; };
 		21DABDDE24D07A0800BF8D31 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
-		21F8EDF224CEE9DE00447214 /* Buildings2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Buildings2.json; sourceTree = "<group>"; };
 		21F8EDF424CF181600447214 /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		21FA66772497528900961EA0 /* MapViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
 		21FA66792497907200961EA0 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
@@ -175,10 +175,10 @@
 				21715EB524AA1CEA00C9C3D6 /* Syllabus.json */,
 				2113FC5224B6359E00AFB393 /* Filter.json */,
 				217CB92A24E2F137003211B2 /* Buildings.json */,
-				21F8EDF224CEE9DE00447214 /* Buildings2.json */,
 				217CB92C24E2FAA3003211B2 /* ClassroomBuildings.json */,
 				217CB93224E30693003211B2 /* BookStores.json */,
 				217CB93424E30B34003211B2 /* Cafeterias.json */,
+				217CB93624E30C2D003211B2 /* ConvenienceStores.json */,
 				214F5F96243C96690061FC45 /* Assets.xcassets */,
 				214F5F98243C96690061FC45 /* LaunchScreen.storyboard */,
 				214F5F9B243C96690061FC45 /* Info.plist */,
@@ -364,7 +364,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				215FA06F24506C440079300A /* TimeTable.storyboard in Resources */,
-				21F8EDF324CEE9DE00447214 /* Buildings2.json in Resources */,
 				217CB93324E30693003211B2 /* BookStores.json in Resources */,
 				214F5F9A243C96690061FC45 /* LaunchScreen.storyboard in Resources */,
 				21715EB624AA1CEA00C9C3D6 /* Syllabus.json in Resources */,
@@ -375,6 +374,7 @@
 				217CB92B24E2F137003211B2 /* Buildings.json in Resources */,
 				217CB92D24E2FAA3003211B2 /* ClassroomBuildings.json in Resources */,
 				2113FC5324B6359E00AFB393 /* Filter.json in Resources */,
+				217CB93724E30C2D003211B2 /* ConvenienceStores.json in Resources */,
 				21B7946D24D461DA00EC642B /* ClassInformationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

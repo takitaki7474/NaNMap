@@ -1,0 +1,16 @@
+[
+    {
+        "location": "LAWSON (S棟)",
+        "coordinate": {
+            "longitude": 136.964098,
+            "latitude": 35.150111
+        }
+    },
+    {
+        "location": "LAWSON (コパン)",
+        "coordinate": {
+            "longitude": 136.961353,
+            "latitude": 35.150970
+        }
+    }
+]
