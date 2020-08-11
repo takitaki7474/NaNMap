@@ -76,7 +76,6 @@ extension MapSearchViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath) as! MapSearchViewCell
         if isSearchActive == false {
             cell.accessoryType = .disclosureIndicator
-            cell.facilityNameLabel.center = CGPoint(x: cell.frame.width/2, y: cell.frame.height/2)
             cell.facilityNameLabel.font = UIFont.systemFont(ofSize: 17.0)
             cell.display(facilityName: titles[indexPath.row])
             cell.display(location: "")
