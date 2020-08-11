@@ -14,7 +14,6 @@ protocol MapSearchView: class {
 
 final class MapSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    
     var searchBar: UISearchBar!
     var isSearchActive: Bool = false
     private var titles: [String] = ["棟の検索"]
@@ -98,7 +97,7 @@ extension MapSearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isSearchActive == false {
-            let vc = MapSearchDefaultResultViewController.instantiate(mapSearchPresenter: mapSearchPresenter)
+            let vc = MapSearchDefaultResultViewController.instantiate(mapSearchPresenter: mapSearchPresenter, defaultIndex: indexPath.row)
             navigationController?.pushViewController(vc, animated: true)
         } else {
             let mapSearchLocationObj = mapSearchPresenter.loadLocationSearchResult(at: indexPath.row)

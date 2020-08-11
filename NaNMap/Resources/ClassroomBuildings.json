@@ -1,0 +1,114 @@
+[
+    {
+        "location": "法科大学院棟(A棟)",
+        "coordinate": {
+            "longitude": 136.964107,
+            "latitude": 35.149649
+        }
+    },
+    {
+        "location": "B棟",
+        "coordinate": {
+            "longitude": 136.963565,
+            "latitude": 35.149563
+        }
+    },
+    {
+        "location": "C棟",
+        "coordinate": {
+            "longitude": 136.963525,
+            "latitude": 35.149897
+        }
+    },
+    {
+        "location": "D棟",
+        "coordinate": {
+            "longitude": 136.961630,
+            "latitude": 35.150461
+        }
+    },
+    {
+        "location": "E棟",
+        "coordinate": {
+            "longitude": 136.962606,
+            "latitude": 35.150271
+        }
+    },
+    {
+        "location": "F棟",
+        "coordinate": {
+            "longitude": 136.962129,
+            "latitude": 35.150133
+        },
+    },
+    {
+        "location": "G棟",
+        "coordinate": {
+            "longitude": 136.962403,
+            "latitude": 35.149821
+        }
+    },
+    {
+        "location": "H棟",
+        "coordinate": {
+            "longitude": 136.962424,
+            "latitude": 35.149442
+        }
+    },
+    {
+        "location": "J棟",
+        "coordinate": {
+            "longitude": 136.961717,
+            "latitude": 35.150028
+        }
+    },
+    {
+        "location": "K棟",
+        "coordinate": {
+            "longitude": 136.962658,
+            "latitude": 35.149090
+        }
+    },
+    {
+        "location": "L棟",
+        "coordinate": {
+          "longitude": 136.961904,
+          "latitude": 35.149322
+        }
+    },
+    {
+        "location": "M棟",
+        "coordinate": {
+            "longitude": 136.963002,
+            "latitude": 35.149197
+        }
+    },
+    {
+        "location": "N棟",
+        "coordinate": {
+            "longitude": 136.963513,
+            "latitude": 35.149069
+        }
+    },
+    {
+        "location": "Q棟",
+        "coordinate": {
+            "longitude": 136.962232,
+            "latitude": 35.150574
+        }
+    },
+    {
+       "location": "R棟",
+       "coordinate": {
+           "longitude": 136.962166,
+           "latitude": 35.147855
+       },
+    },
+    {
+        "location": "S棟",
+        "coordinate": {
+            "longitude": 136.964098,
+            "latitude": 35.150111
+        }
+    }
+]

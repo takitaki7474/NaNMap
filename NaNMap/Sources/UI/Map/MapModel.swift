@@ -31,7 +31,7 @@ final class MapModel {
     }
     
     func loadAnnotations() {
-        removeRealmFile()
+        //removeRealmFile()
         let realm = try! Realm()
         //try! realm.write { realm.deleteAll() }
         var savedAnnotations = [AnnotationObj]()

@@ -28,6 +28,8 @@
 		217182F5243E27E1004B5E5A /* MapSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217182F4243E27E1004B5E5A /* MapSearch.storyboard */; };
 		217182F7243E2835004B5E5A /* MapSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217182F6243E2835004B5E5A /* MapSearchViewController.swift */; };
 		217CB92B24E2F137003211B2 /* Buildings.json in Resources */ = {isa = PBXBuildFile; fileRef = 217CB92A24E2F137003211B2 /* Buildings.json */; };
+		217CB92D24E2FAA3003211B2 /* ClassroomBuildings.json in Resources */ = {isa = PBXBuildFile; fileRef = 217CB92C24E2FAA3003211B2 /* ClassroomBuildings.json */; };
+		217CB92F24E2FACE003211B2 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217CB92E24E2FACE003211B2 /* Location.swift */; };
 		218AD15524B3818A003BC33F /* SyllabusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218AD15424B3818A003BC33F /* SyllabusTableViewCell.swift */; };
 		2193ED7724D3004B00D49068 /* ClassLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2193ED7624D3004B00D49068 /* ClassLocationViewController.swift */; };
 		2193ED7924D3096400D49068 /* ClassLocationViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2193ED7824D3096400D49068 /* ClassLocationViewPresenter.swift */; };
@@ -73,6 +75,8 @@
 		217182F4243E27E1004B5E5A /* MapSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapSearch.storyboard; sourceTree = "<group>"; };
 		217182F6243E2835004B5E5A /* MapSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchViewController.swift; sourceTree = "<group>"; };
 		217CB92A24E2F137003211B2 /* Buildings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Buildings.json; sourceTree = "<group>"; };
+		217CB92C24E2FAA3003211B2 /* ClassroomBuildings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ClassroomBuildings.json; sourceTree = "<group>"; };
+		217CB92E24E2FACE003211B2 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		218AD15424B3818A003BC33F /* SyllabusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabusTableViewCell.swift; sourceTree = "<group>"; };
 		2193ED7624D3004B00D49068 /* ClassLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassLocationViewController.swift; sourceTree = "<group>"; };
 		2193ED7824D3096400D49068 /* ClassLocationViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassLocationViewPresenter.swift; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				21F8EDF424CF181600447214 /* Building.swift */,
+				217CB92E24E2FACE003211B2 /* Location.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 				2113FC5224B6359E00AFB393 /* Filter.json */,
 				217CB92A24E2F137003211B2 /* Buildings.json */,
 				21F8EDF224CEE9DE00447214 /* Buildings2.json */,
+				217CB92C24E2FAA3003211B2 /* ClassroomBuildings.json */,
 				214F5F96243C96690061FC45 /* Assets.xcassets */,
 				214F5F98243C96690061FC45 /* LaunchScreen.storyboard */,
 				214F5F9B243C96690061FC45 /* Info.plist */,
@@ -359,6 +365,7 @@
 				217182F5243E27E1004B5E5A /* MapSearch.storyboard in Resources */,
 				214F5F95243C96670061FC45 /* Map.storyboard in Resources */,
 				217CB92B24E2F137003211B2 /* Buildings.json in Resources */,
+				217CB92D24E2FAA3003211B2 /* ClassroomBuildings.json in Resources */,
 				2113FC5324B6359E00AFB393 /* Filter.json in Resources */,
 				21B7946D24D461DA00EC642B /* ClassInformationView.xib in Resources */,
 			);
@@ -419,6 +426,7 @@
 				21F8EDF524CF181600447214 /* Building.swift in Sources */,
 				21674397249CF86D008806A7 /* TimeTableModel.swift in Sources */,
 				21FA667A2497907200961EA0 /* MapModel.swift in Sources */,
+				217CB92F24E2FACE003211B2 /* Location.swift in Sources */,
 				21B7946F24D4741000EC642B /* ClassInformationView.swift in Sources */,
 				215F3A20244DD3E400C6270A /* MapSearchDefaultResultViewController.swift in Sources */,
 				21DABDDF24D07A0800BF8D31 /* UINavigationController+Extensions.swift in Sources */,

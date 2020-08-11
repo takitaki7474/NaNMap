@@ -11,10 +11,13 @@ import UIKit
 class MapSearchDefaultResultViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private var presenter: MapSearchPresenter!
+    private var defaultIndex: Int!
     
-    static func instantiate(mapSearchPresenter: MapSearchPresenter) -> MapSearchDefaultResultViewController {
+    static func instantiate(mapSearchPresenter: MapSearchPresenter, defaultIndex: Int) -> MapSearchDefaultResultViewController {
         let controller = UIStoryboard(name: "MapSearch", bundle: nil).instantiateViewController(withIdentifier: "mapSearchDefaultResultViewController") as! MapSearchDefaultResultViewController
         controller.presenter = mapSearchPresenter
+        controller.defaultIndex = defaultIndex
+        controller.presenter.loadDefaultSearchResults(defaultIndex: defaultIndex)
         return controller
      }
 
@@ -27,17 +30,17 @@ class MapSearchDefaultResultViewController: UIViewController {
 
 extension MapSearchDefaultResultViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.numberOfBuildings
+        return presenter.numberOfDefaultSearchResults
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "defaultResultCell", for: indexPath)
-        cell.textLabel?.text = presenter.loadBuildingTitle(at: indexPath.row)
+        cell.textLabel?.text = presenter.loadDefaultSearchResultTitle(at: indexPath.row)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.tapBuildingCell(at: indexPath.row)
+        presenter.tapDefaultSearchResultCell(at: indexPath.row)
         navigationController?.popToRootViewController(animated: true)
     }
 }

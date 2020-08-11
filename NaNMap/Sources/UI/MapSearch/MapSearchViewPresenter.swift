@@ -7,12 +7,13 @@
 //
 
 protocol MapSearchPresenter {
-    var numberOfBuildings: Int { get }
+    var numberOfDefaultSearchResults: Int { get }
     var numberOfLocationSearchResults: Int { get }
-    func loadBuildingTitle(at index: Int) -> String
-    func tapBuildingCell(at index: Int)
+    func loadDefaultSearchResultTitle(at index: Int) -> String
+    func tapDefaultSearchResultCell(at index: Int)
     func searchLocation(with query: String)
     func loadLocationSearchResult(at index: Int) -> MapSearchLocationObj
+    func loadDefaultSearchResults(defaultIndex: Int)
 }
 
 final class MapSearchViewPresenter: MapSearchPresenter {
@@ -26,20 +27,25 @@ final class MapSearchViewPresenter: MapSearchPresenter {
         model.delegate = self
     }
     
-    var numberOfBuildings: Int {
-        return model.buildings!.count
+    var numberOfDefaultSearchResults: Int {
+        return model.defaultSearchResults!.count
     }
     
     var numberOfLocationSearchResults: Int {
         return model.locationSearchResults!.count
     }
     
-    func loadBuildingTitle(at index: Int) -> String {
-        return model.buildings![index].building
+    func loadDefaultSearchResultTitle(at index: Int) -> String {
+        return model.defaultSearchResults![index].location
     }
-    
+    /*
     func tapBuildingCell(at index: Int) {
         let info: [Building] = model.buildings!
+        mapPresenter.addAnnotation(with: info, at: index)
+    }*/
+    
+    func tapDefaultSearchResultCell(at index: Int) {
+        let info: [Location] = model.defaultSearchResults!
         mapPresenter.addAnnotation(with: info, at: index)
     }
     
@@ -49,6 +55,10 @@ final class MapSearchViewPresenter: MapSearchPresenter {
     
     func loadLocationSearchResult(at index: Int) -> MapSearchLocationObj {
         return model.locationSearchResults![index]
+    }
+    
+    func loadDefaultSearchResults(defaultIndex: Int) {
+        model.loadDefaultSearchResults(defaultIndex: defaultIndex)
     }
 }
 

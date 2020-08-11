@@ -24,6 +24,8 @@ protocol MapSearchModelDelegate: class {
 final class MapSearchModel {
     weak var delegate: MapSearchModelDelegate?
     var buildings: [Building]?
+    var defaultSearchJSONNames: [String] = ["ClassroomBuildings"]
+    var defaultSearchResults: [Location]?
     var locationSearchResults: Results<MapSearchLocationObj>? {
         didSet {
             delegate?.searchModel()
@@ -82,6 +84,17 @@ final class MapSearchModel {
                 print("save MapFacilityObj on realm")
             }
         }
+    }
+    
+    func loadDefaultSearchResults(defaultIndex: Int) {
+        let path = Bundle.main.path(forResource: defaultSearchJSONNames[defaultIndex], ofType: "json")
+        let url = URL(fileURLWithPath: path!)
+        let data = try? Data(contentsOf: url)
+        let decoder = JSONDecoder()
+        guard let locations = try? decoder.decode([Location].self, from: data!) else {
+            return
+        }
+        self.defaultSearchResults = locations
     }
 }
 
