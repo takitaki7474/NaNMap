@@ -1,0 +1,44 @@
+[
+    {
+        "location": "BISTRO CEZARS (S棟)",
+        "coordinate": {
+            "longitude": 136.964098,
+            "latitude": 35.150111
+        }
+    },
+    {
+        "location": "1SYOKU(C棟)",
+        "coordinate": {
+            "longitude": 136.963525,
+            "latitude": 35.149897
+        }
+    },
+    {
+        "location": "第3食堂(体育センター)",
+        "coordinate": {
+            "longitude": 136.960799,
+            "latitude": 35.150872
+        }
+    },
+    {
+        "location": "DA・GA・NE (コパン)",
+        "coordinate": {
+            "longitude": 136.961353,
+            "latitude": 35.150970
+        }
+    },
+    {
+        "location": "CEZARS CAFE (コパン)",
+        "coordinate": {
+            "longitude": 136.961353,
+            "latitude": 35.150970
+        }
+    },
+    {
+        "location": "リアン",
+        "coordinate": {
+            "longitude": 136.961966,
+            "latitude": 35.147329
+        },
+    }
+]

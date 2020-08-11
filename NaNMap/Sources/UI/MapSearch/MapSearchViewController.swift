@@ -16,7 +16,7 @@ final class MapSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var searchBar: UISearchBar!
     var isSearchActive: Bool = false
-    private var titles: [String] = ["教室棟", "書店"]
+    private var titles: [String] = ["教室棟", "食堂", "書店"]
     private var mapPresenter: MapPresenter!
     private var mapSearchPresenter: MapSearchPresenter!
     
