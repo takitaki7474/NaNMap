@@ -75,6 +75,10 @@ extension MapViewController {
     }
 
     func setUpNavigationBar() {
+        let backBarButtonItem = UIBarButtonItem()
+        backBarButtonItem.title = ""
+        navigationItem.backBarButtonItem = backBarButtonItem
+        navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 85, green: 104, blue: 211)
     }
     

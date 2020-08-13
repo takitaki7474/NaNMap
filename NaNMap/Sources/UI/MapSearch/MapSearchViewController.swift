@@ -41,7 +41,10 @@ extension MapSearchViewController {
     }
     
     func setUpNavigationBar() {
-        navigationItem.hidesBackButton = true
+        let backBarButtonItem = UIBarButtonItem()
+        backBarButtonItem.title = "建物や施設を検索"
+        navigationItem.backBarButtonItem = backBarButtonItem
+        navigationItem.hidesBackButton = false
         setUpSearchBar()
     }
     

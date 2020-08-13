@@ -35,6 +35,7 @@ class TimeTableViewController: UIViewController, UIGestureRecognizerDelegate {
 
 private extension TimeTableViewController {
     private func setUpNavigationBar() {
+        navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 85,green: 104,blue: 211)
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationItem.title = "時間割"
