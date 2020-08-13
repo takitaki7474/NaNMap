@@ -39,6 +39,7 @@ final class MapViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //UITabBar.appearance().tintColor = UIColor.rgba(red: 250, green: 166, blue: 26)
         setUpSearchBar()
     }
 }
