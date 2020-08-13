@@ -59,7 +59,7 @@
         <scene sceneID="Q34-gz-eYb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RSD-UZ-hd5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="p6o-aj-zji"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="tab_pin" id="p6o-aj-zji"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iAd-rF-jNe">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -75,4 +75,7 @@
             <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tab_pin" width="25" height="25"/>
+    </resources>
 </document>

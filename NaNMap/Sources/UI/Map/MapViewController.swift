@@ -94,7 +94,9 @@ extension MapViewController {
     func setUpTabBar() {
         let vc = TimeTableViewController.instantiate()
         let nc = UINavigationController(rootViewController: vc)
-        nc.tabBarItem = UITabBarItem(title: "時間割", image: nil, selectedImage: nil)
+        let tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 0)
+        tabBarItem.title = "時間割"
+        nc.tabBarItem = tabBarItem
         tabBarController?.viewControllers?.append(nc)
     }
 }
