@@ -65,7 +65,7 @@ private extension SyllabusSearchViewController {
         searchBar.delegate = self
         searchBar.placeholder = "講義を検索"
         searchBar.searchTextField.backgroundColor = UIColor.white
-        searchBar.tintColor = UIColor.gray
+        searchBar.tintColor = UIColor.white
         if #available(iOS 11.0, *) {
             navigationItem.hidesSearchBarWhenScrolling = false
             navigationItem.searchController = searchController

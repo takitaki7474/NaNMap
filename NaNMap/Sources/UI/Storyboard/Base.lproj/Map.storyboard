@@ -46,6 +46,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.3491029739" green="0.40681824090000002" blue="0.80003672839999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="RSD-UZ-hd5" kind="relationship" relationship="viewControllers" id="aYc-fs-Yfg"/>
@@ -55,11 +56,11 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
-        <!--Item-->
+        <!--地図-->
         <scene sceneID="Q34-gz-eYb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RSD-UZ-hd5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="p6o-aj-zji"/>
+                    <tabBarItem key="tabBarItem" title="地図" image="tab_pin" id="p6o-aj-zji"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iAd-rF-jNe">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -75,4 +76,7 @@
             <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tab_pin" width="25" height="25"/>
+    </resources>
 </document>
