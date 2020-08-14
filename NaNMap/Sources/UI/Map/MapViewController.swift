@@ -39,7 +39,6 @@ final class MapViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //UITabBar.appearance().tintColor = UIColor.rgba(red: 250, green: 166, blue: 26)
         setUpSearchBar()
     }
 }
@@ -93,11 +92,14 @@ extension MapViewController {
     }
     
     func setUpTabBar() {
+        
         let vc = TimeTableViewController.instantiate()
         let nc = UINavigationController(rootViewController: vc)
         let tabBarItem = UITabBarItem(title: "時間割", image: UIImage(named: "tab_timetable"), tag: 1)
         nc.tabBarItem = tabBarItem
         tabBarController?.viewControllers?.append(nc)
+        tabBarController?.tabBar.items![0].selectedImage = UIImage(named: "tab_pin_fill")
+        tabBarController?.tabBar.items![1].selectedImage = UIImage(named: "tab_timetable_fill")
     }
 }
 
