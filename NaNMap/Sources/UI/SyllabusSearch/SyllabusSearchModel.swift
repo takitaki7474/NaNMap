@@ -52,7 +52,7 @@ protocol SyllabusSearchModelDelegate: class {
 
 final class SyllabusSearchModel {
     weak var delegate: SyllabusSearchModelDelegate?
-    var filterList: [FilterEntity]?
+    var filterList: [Filter]?
     var syllabus: [Subject]?
     var classSchedule: String?
     var syllabusSearchResult: Results<SubjectObj>? {
@@ -150,7 +150,7 @@ final class SyllabusSearchModel {
         let url = URL(fileURLWithPath: path!)
         let data = try? Data(contentsOf: url)
         let decoder = JSONDecoder()
-        guard let filter = try? decoder.decode([FilterEntity].self, from: data!) else {
+        guard let filter = try? decoder.decode([Filter].self, from: data!) else {
             print("filter decode error")
             return
         }

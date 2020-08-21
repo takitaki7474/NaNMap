@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2113FC5124B5F8BA00AFB393 /* FilterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2113FC5024B5F8BA00AFB393 /* FilterEntity.swift */; };
+		2113FC5124B5F8BA00AFB393 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2113FC5024B5F8BA00AFB393 /* Filter.swift */; };
 		2113FC5324B6359E00AFB393 /* Filter.json in Resources */ = {isa = PBXBuildFile; fileRef = 2113FC5224B6359E00AFB393 /* Filter.json */; };
 		214F5F8E243C96670061FC45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214F5F8D243C96670061FC45 /* AppDelegate.swift */; };
 		214F5F90243C96670061FC45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214F5F8F243C96670061FC45 /* SceneDelegate.swift */; };
@@ -54,7 +54,7 @@
 
 /* Begin PBXFileReference section */
 		20F669A15917FF98423DEAD6 /* Pods-NaNMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaNMap.release.xcconfig"; path = "Target Support Files/Pods-NaNMap/Pods-NaNMap.release.xcconfig"; sourceTree = "<group>"; };
-		2113FC5024B5F8BA00AFB393 /* FilterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterEntity.swift; sourceTree = "<group>"; };
+		2113FC5024B5F8BA00AFB393 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		2113FC5224B6359E00AFB393 /* Filter.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Filter.json; sourceTree = "<group>"; };
 		214F5F8A243C96670061FC45 /* NaNMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaNMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		214F5F8D243C96670061FC45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				21A1DFFA24A8D12900873DF2 /* Subject.swift */,
-				2113FC5024B5F8BA00AFB393 /* FilterEntity.swift */,
+				2113FC5024B5F8BA00AFB393 /* Filter.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -441,7 +441,7 @@
 				21A1DFFB24A8D12900873DF2 /* Subject.swift in Sources */,
 				21674395249CA2A4008806A7 /* TimeTableViewPresenter.swift in Sources */,
 				21A1DFF324A8A1E700873DF2 /* SyllabusSearchViewController.swift in Sources */,
-				2113FC5124B5F8BA00AFB393 /* FilterEntity.swift in Sources */,
+				2113FC5124B5F8BA00AFB393 /* Filter.swift in Sources */,
 				21FA667E2497D38B00961EA0 /* MapSearchModel.swift in Sources */,
 				21714AB624BB59C900057659 /* UICollectionView+Extensions.swift in Sources */,
 				217182F3243DE70B004B5E5A /* UIColor+Extensions.swift in Sources */,
