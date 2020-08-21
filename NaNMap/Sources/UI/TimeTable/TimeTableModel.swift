@@ -48,24 +48,6 @@ final class TimeTableModel {
         print("save TimeTableCellObj on realm")
     }
     
-    private func removeRealmFile() {
-        let realmURL = Realm.Configuration.defaultConfiguration.fileURL!
-        let realmURLs = [
-            realmURL,
-            realmURL.appendingPathExtension("lock"),
-            realmURL.appendingPathExtension("note"),
-            realmURL.appendingPathExtension("management")
-        ]
-        for URL in realmURLs {
-            do {
-                try FileManager.default.removeItem(at: URL)
-                print("remove realm file")
-            } catch {
-                print("remove realm file error")
-            }
-        }
-    }
-    
     func saveSelectedSyllabus(syllabus: SubjectObj, index: Int) {
         let realm = try! Realm()
         let timeTableCell = realm.objects(TimeTableCellObj.self)[index]
