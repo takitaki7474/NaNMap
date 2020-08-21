@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class TimeTableCollectionViewCell: UICollectionViewCell {
+final class TimeTableCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var subjectNameLabel: UILabel!
     @IBOutlet weak var classroomLabel: UILabel!
     @IBOutlet weak var teacherLabel: UILabel!

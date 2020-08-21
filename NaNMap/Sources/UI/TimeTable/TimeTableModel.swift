@@ -20,7 +20,7 @@ protocol TimeTableModelDelegate: class {
     func notifyLoadingTimeTable()
 }
 
-class TimeTableModel {
+final class TimeTableModel {
     weak var delegate: TimeTableModelDelegate?
     var timeTableCells: Results<TimeTableCellObj>? {
         didSet {

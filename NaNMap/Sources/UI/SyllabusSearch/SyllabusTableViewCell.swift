@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SyllabusTableViewCell: UITableViewCell {
+final class SyllabusTableViewCell: UITableViewCell {
     @IBOutlet weak var semesterLabel: UILabel!
     @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var classroomLabel: UILabel!

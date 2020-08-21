@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MapSearchDefaultResultViewController: UIViewController {
+final class MapSearchDefaultResultViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private var presenter: MapSearchPresenter!
     private var defaultIndex: Int!

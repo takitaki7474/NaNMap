@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ClassInformationView: UIView {
+final class ClassInformationView: UIView {
     @IBOutlet weak var courseItemLabel: UILabel!
     @IBOutlet weak var locationItemLabel: UILabel!
     @IBOutlet weak var teacherItemLabel: UILabel!

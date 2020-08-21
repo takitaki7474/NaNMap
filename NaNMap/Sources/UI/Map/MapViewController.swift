@@ -43,7 +43,7 @@ final class MapViewController: UIViewController {
     }
 }
 
-extension MapViewController {
+private extension MapViewController {
     func alertLocationServicesEnabled() {
         locManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
@@ -92,7 +92,6 @@ extension MapViewController {
     }
     
     func setUpTabBar() {
-        
         let vc = TimeTableViewController.instantiate()
         let nc = UINavigationController(rootViewController: vc)
         let tabBarItem = UITabBarItem(title: "時間割", image: UIImage(named: "tab_timetable"), tag: 1)

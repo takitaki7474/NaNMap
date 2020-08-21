@@ -14,7 +14,7 @@ protocol ClassLocationView: class {
     func reloadMapRegion(coordinate: (Double, Double)?)
 }
 
-class ClassLocationViewController: UIViewController {
+final class ClassLocationViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     private var classLocationPresenter: ClassLocationPresenter!
     

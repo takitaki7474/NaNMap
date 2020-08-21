@@ -50,7 +50,7 @@ protocol SyllabusSearchModelDelegate: class {
     func searchModel()
 }
 
-class SyllabusSearchModel {
+final class SyllabusSearchModel {
     weak var delegate: SyllabusSearchModelDelegate?
     var filterList: [FilterEntity]?
     var syllabus: [Subject]?

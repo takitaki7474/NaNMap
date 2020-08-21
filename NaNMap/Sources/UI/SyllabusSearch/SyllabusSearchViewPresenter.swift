@@ -18,7 +18,7 @@ protocol SyllabusSearchPresenter {
     func loadSelectedSyllabus(at index: Int, classScheduleIndex: Int)
 }
 
-class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
+final class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
     private let model = SyllabusSearchModel()
     private let timeTablePresenter: TimeTablePresenter!
     weak var view: SyllabusSearchView?

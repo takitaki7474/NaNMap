@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SyllabusFilterViewController: UIViewController {
+final class SyllabusFilterViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     private var syllabusSearchPresenter: SyllabusSearchPresenter!
@@ -26,7 +26,7 @@ class SyllabusFilterViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    func setUpTableViewStyle() {
+    private func setUpTableViewStyle() {
         tableView.frame.size = CGSize(width: view.frame.width * 8/10, height: view.frame.height * 8/10)
         tableView.center = CGPoint(x: view.frame.width/2, y: view.frame.height/2)
     }
