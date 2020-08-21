@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct FilterEntity: Codable {
+struct Filter: Codable {
     var filterTitle: String
     var filterSyllabusWords: [String]
 }

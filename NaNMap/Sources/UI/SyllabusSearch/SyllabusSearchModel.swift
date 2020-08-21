@@ -50,9 +50,9 @@ protocol SyllabusSearchModelDelegate: class {
     func searchModel()
 }
 
-class SyllabusSearchModel {
+final class SyllabusSearchModel {
     weak var delegate: SyllabusSearchModelDelegate?
-    var filterList: [FilterEntity]?
+    var filterList: [Filter]?
     var syllabus: [Subject]?
     var classSchedule: String?
     var syllabusSearchResult: Results<SubjectObj>? {
@@ -150,29 +150,11 @@ class SyllabusSearchModel {
         let url = URL(fileURLWithPath: path!)
         let data = try? Data(contentsOf: url)
         let decoder = JSONDecoder()
-        guard let filter = try? decoder.decode([FilterEntity].self, from: data!) else {
+        guard let filter = try? decoder.decode([Filter].self, from: data!) else {
             print("filter decode error")
             return
         }
         self.filterList = filter
-    }
-    
-    private func removeRealmFile() {
-        let realmURL = Realm.Configuration.defaultConfiguration.fileURL!
-        let realmURLs = [
-            realmURL,
-            realmURL.appendingPathExtension("lock"),
-            realmURL.appendingPathExtension("note"),
-            realmURL.appendingPathExtension("management")
-        ]
-        for URL in realmURLs {
-            do {
-                try FileManager.default.removeItem(at: URL)
-                print("remove realm file")
-            } catch {
-                print("remove realm file error")
-            }
-        }
     }
 }
 

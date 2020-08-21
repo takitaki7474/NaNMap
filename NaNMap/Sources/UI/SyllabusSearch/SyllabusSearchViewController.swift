@@ -13,7 +13,7 @@ protocol SyllabusSearchView: class {
     func alertWillAddTimeTable(with scheduleText: String, at index: Int)
 }
 
-class SyllabusSearchViewController: UIViewController {
+final class SyllabusSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private var timeTablePresenter: TimeTablePresenter!
     private var syllabusSearchPresenter: SyllabusSearchPresenter!

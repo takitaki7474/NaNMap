@@ -14,7 +14,7 @@ protocol TimeTableView: class {
     func alertWillDeleteSyllabus(with text: String, at index: Int)
 }
 
-class TimeTableViewController: UIViewController, UIGestureRecognizerDelegate {
+final class TimeTableViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     private var timeTablePresenter: TimeTablePresenter!
     private var syllabusSearchPresenter: SyllabusSearchPresenter!

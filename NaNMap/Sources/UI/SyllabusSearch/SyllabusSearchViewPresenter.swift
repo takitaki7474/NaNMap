@@ -12,13 +12,13 @@ protocol SyllabusSearchPresenter {
     func loadTappedScheduleSyllabus(by classSchedule: String)
     func loadSyllabusSearchResult(at index: Int) -> SubjectObj?
     func searchSyllabus(with query: String)
-    func loadFilter(at index: Int) -> FilterEntity?
+    func loadFilter(at index: Int) -> Filter?
     func filterSyllabus(at index: Int)
     func setAlertWillAddTimeTable(with scheduleText: String, at index: Int)
     func loadSelectedSyllabus(at index: Int, classScheduleIndex: Int)
 }
 
-class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
+final class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
     private let model = SyllabusSearchModel()
     private let timeTablePresenter: TimeTablePresenter!
     weak var view: SyllabusSearchView?
@@ -56,7 +56,7 @@ class SyllabusSearchViewPresenter: SyllabusSearchPresenter {
         model.searchSyllabus(with: query)
     }
     
-    func loadFilter(at index: Int) -> FilterEntity? {
+    func loadFilter(at index: Int) -> Filter? {
         return model.filterList?[index]
     }
     

@@ -16,7 +16,7 @@ protocol TimeTablePresenter {
     func unregisterSyllabus(at index: Int)
 }
 
-class TimeTableViewPresenter: TimeTablePresenter {
+final class TimeTableViewPresenter: TimeTablePresenter {
     weak var view: TimeTableView?
     private let model = TimeTableModel()
     

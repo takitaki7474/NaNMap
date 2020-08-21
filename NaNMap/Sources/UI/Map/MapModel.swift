@@ -31,31 +31,11 @@ final class MapModel {
     }
     
     func loadAnnotations() {
-        //removeRealmFile()
         let realm = try! Realm()
-        //try! realm.write { realm.deleteAll() }
         var savedAnnotations = [AnnotationObj]()
         let objs = realm.objects(AnnotationObj.self)
         for obj in objs { savedAnnotations.append(obj) }
         delegate?.loadAnnotations(annotations: savedAnnotations)
-    }
-    
-    private func removeRealmFile() {
-        let realmURL = Realm.Configuration.defaultConfiguration.fileURL!
-        let realmURLs = [
-            realmURL,
-            realmURL.appendingPathExtension("lock"),
-            realmURL.appendingPathExtension("note"),
-            realmURL.appendingPathExtension("management")
-        ]
-        for URL in realmURLs {
-            do {
-                try FileManager.default.removeItem(at: URL)
-                print("remove realm file")
-            } catch {
-                print("remove realm file error")
-            }
-        }
     }
     
     func addAnnotation(title: String, subtitle: String, coordinate: (Double, Double)) {

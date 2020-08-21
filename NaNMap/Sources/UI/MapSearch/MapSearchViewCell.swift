@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MapSearchViewCell: UITableViewCell {
+final class MapSearchViewCell: UITableViewCell {
     
     @IBOutlet weak var locationNameLabel: UILabel!
     

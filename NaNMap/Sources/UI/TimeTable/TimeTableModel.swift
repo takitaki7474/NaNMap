@@ -20,7 +20,7 @@ protocol TimeTableModelDelegate: class {
     func notifyLoadingTimeTable()
 }
 
-class TimeTableModel {
+final class TimeTableModel {
     weak var delegate: TimeTableModelDelegate?
     var timeTableCells: Results<TimeTableCellObj>? {
         didSet {
@@ -46,24 +46,6 @@ class TimeTableModel {
             }
         }
         print("save TimeTableCellObj on realm")
-    }
-    
-    private func removeRealmFile() {
-        let realmURL = Realm.Configuration.defaultConfiguration.fileURL!
-        let realmURLs = [
-            realmURL,
-            realmURL.appendingPathExtension("lock"),
-            realmURL.appendingPathExtension("note"),
-            realmURL.appendingPathExtension("management")
-        ]
-        for URL in realmURLs {
-            do {
-                try FileManager.default.removeItem(at: URL)
-                print("remove realm file")
-            } catch {
-                print("remove realm file error")
-            }
-        }
     }
     
     func saveSelectedSyllabus(syllabus: SubjectObj, index: Int) {

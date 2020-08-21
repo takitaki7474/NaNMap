@@ -15,7 +15,7 @@ protocol ClassLocationPresenter {
     func reloadMapRegion()
 }
 
-class ClassLocationViewPresenter: ClassLocationPresenter {
+final class ClassLocationViewPresenter: ClassLocationPresenter {
     weak var view: ClassLocationView?
     private let timeTablePresenter: TimeTablePresenter!
     private let cellIndex: Int!
